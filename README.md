@@ -42,6 +42,7 @@ npm run preview
 ## Running Storybook
 
 Due to Storybook not fully supporting latest version on NPM, requires node v16.19.0 (npm v8.19.3)
+Shoutout to [BudiSalah](https://github.com/BudiSalah) for their [suggestions](<https://github.com/storybookjs/storybook/issues/20312#issuecomment-1417098012>) on installing Storybook with Nuxt3/Vite
 
 ```bash
 nvm use
