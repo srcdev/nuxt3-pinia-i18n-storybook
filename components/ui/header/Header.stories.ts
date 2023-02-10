@@ -1,23 +1,26 @@
-import StoryBookComponent from './Header.vue'
+import Header from './Header.vue'
 
 export default {
     title: 'Components/UI/Header',
-    component: StoryBookComponent,
-    argTypes: {}
+    component: Header,
+    argTypes: {},
+    parameters: {
+    // More on Story layout: https://storybook.js.org/docs/vue/configure/story-layout
+    layout: 'fullscreen',
+  },
 }
 
 const Template = (args: any) => ({
     // Components used in your story `template` are defined in the `components` object
-    components: { StoryBookComponent },
+    components: { Header },
     // The story's `args` need to be mapped into the template through the `setup()` method
     setup() {
         return {
-            args
+            ...args
         }
     },
     // And then the `args` are bound to your component with `v-bind="args"`
-    template: '<story-book-component v-bind="args" />'
+    template: `<Header v-bind="args" />`
 })
 
 export const Primary = Template.bind({})
-Primary.args = {}

@@ -1,9 +1,14 @@
+const path = require("path");
+
 module.exports = {
   stories: [
-    "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)",
-    // "../**/*.stories.mdx",
-    // "../**/*.stories.@(js|jsx|ts|tsx)"
+    // "../stories/**/*.stories.@(js|jsx|ts|tsx)",
+    "../components/**/*.stories.@(js|jsx|ts|tsx)",
+    "../layouts/**/*.stories.@(js|jsx|ts|tsx)",
+    "../pages/**/*.stories.@(js|jsx|ts|tsx)",
+    // TODO: Generic stories location
+    // "../**/*.stories.@(js|jsx|ts|tsx)", 
+
   ],
   addons: [
     "@storybook/addon-links",
@@ -11,10 +16,20 @@ module.exports = {
     "@storybook/addon-interactions"
   ],
   framework: "@storybook/vue3",
+  // features: {
+  //   storyStoresV7: true
+  // },
   core: {
     builder: "@storybook/builder-vite",
   },
   async viteFinal(config, { configType }) {
+    
+    // config.base = "./";
+    // config.resolve.alias = {
+    //   ...config.resolve.alias,
+    //   "@":path.resolve(__dirname, "./")
+    // }
+
     if (configType === 'DEVELOPMENT') {
       return {
 	      ...config,
