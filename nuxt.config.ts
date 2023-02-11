@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   ssr: false,
   modules: [
+    '@pinia/nuxt',
     [
       '@nuxtjs/i18n',
       {
@@ -21,6 +22,9 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  imports: {
+    dirs: ['stores'],
+  },
   app: {
     head: {
       htmlAttrs: {
