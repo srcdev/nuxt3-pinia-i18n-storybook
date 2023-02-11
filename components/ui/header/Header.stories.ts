@@ -1,3 +1,8 @@
+// import { withContext } from "@storybook/addon-contexts";
+// import { withContext } from '@storybook/vue3';
+
+
+// import { translations } from '@/locales'
 import Header from './Header.vue'
 
 export default {
@@ -6,8 +11,13 @@ export default {
     argTypes: {},
     parameters: {
     // More on Story layout: https://storybook.js.org/docs/vue/configure/story-layout
-    layout: 'fullscreen',
-  },
+        layout: 'fullscreen',
+    },
+    // decorators: [withContext({
+    //     i18n: {
+    //         messages: translations
+    //     }
+    // })]
 }
 
 const Template = (args: any) => ({
