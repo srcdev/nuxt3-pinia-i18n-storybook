@@ -1,6 +1,8 @@
+import { IRootStore, ISbItemObj } from "../types/types.rootStore";
+
 export const rootActions = {
-  updateSomeString(payload: string) {
-    console.log(`updateSomeString()`);
-    this.someString = payload;
+  addToArray(this: IRootStore, payload: ISbItemObj) {
+    this.sbArray.push(payload);
+    return;
   },
 };
