@@ -1,3 +1,9 @@
+export interface ISbItemObj {
+  name: string;
+  description: string;
+}
+
 export interface IRootStore {
-    someString: string;
+  someString: string;
+  sbArray: ISbItemObj[];
 }

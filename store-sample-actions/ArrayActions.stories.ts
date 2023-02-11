@@ -1,8 +1,8 @@
-import StoryBookComponent from "./Header.vue";
+import StoryBookComponent from "./ArrayActions.vue";
 import { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/UI/Header",
+  title: "Pinia/Arrays/Display",
   component: StoryBookComponent,
 } as Meta<typeof StoryBookComponent>;
 
@@ -16,5 +16,8 @@ const Template: StoryFn<typeof StoryBookComponent> = (args: any) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  subText: "subText as prop/arg",
+  sbArrayItem: {
+    name: "Name D",
+    description: "Description D",
+  },
 };
