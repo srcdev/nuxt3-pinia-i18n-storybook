@@ -23,14 +23,6 @@ const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 app.use(pinia);
 
-/*
-* Pinia store set up
-*/
-const pinia = createPinia();
-pinia.use(piniaPluginPersistedstate);
-app.use(pinia);
-
-
 addDecorator(() => ({
   template: "<story/>",
   i18n,
