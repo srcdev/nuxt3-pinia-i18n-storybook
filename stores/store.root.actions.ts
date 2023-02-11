@@ -1,6 +1,6 @@
 export const rootActions = {
   updateSomeString(payload: string) {
-    console.log(`updateSomeString()`)
+    console.log(`updateSomeString()`);
     this.someString = payload;
   },
-}
+};

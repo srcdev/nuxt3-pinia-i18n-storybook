@@ -1,11 +1,11 @@
-import { defineStore } from 'pinia'
-import { IRootStore } from '../types/types.rootStore'
-import { rootActions } from './store.root.actions'
+import { defineStore } from "pinia";
+import { IRootStore } from "../types/types.rootStore";
+import { rootActions } from "./store.root.actions";
 
 export const useRootStore = defineStore({
-  id: 'rootStore',
+  id: "rootStore",
   state: (): IRootStore => ({
-    someString: 'someString value',
+    someString: "someString value",
   }),
   actions: rootActions,
-})
+});
