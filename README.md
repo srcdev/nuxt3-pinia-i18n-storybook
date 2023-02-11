@@ -4,7 +4,7 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 
 ## Still in progress
 - ~Install i18n~ Done
-- Storybook i18n integration
+- ~Storybook i18n integration~ Done
 - Install Pinia
 - Storybook i18n Pinia
 
