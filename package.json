@@ -13,6 +13,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@nuxtjs/i18n": "^8.0.0-beta.7",
+    "@pinia/nuxt": "^0.4.6",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
@@ -23,6 +24,8 @@
     "@storybook/vue3": "^6.5.16",
     "babel-loader": "^8.3.0",
     "nuxt": "^3.1.2",
+    "pinia": "^2.0.30",
+    "pinia-plugin-persistedstate": "^3.0.2",
     "storybook-i18n": "^1.1.4",
     "vue-loader": "^16.8.3"
   },

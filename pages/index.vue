@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <h1>{{ t('header.text') }}</h1>
-  </div>
+    <div>
+        <h1>Static header text</h1>
+        <p>String: <em>"{{ t('header.text') }}"</em> from <strong><code>t('header.text')</code></strong></p>
+        <p>String: <em>"{{ rootStore.someString }}"</em> from <strong><code>rootStore.someString</code></strong></p>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -18,6 +20,7 @@ useHead({
 })
 
 const { t } = useI18n()
+const rootStore = useRootStore()
 </script>
 
 <style lang="scss">
