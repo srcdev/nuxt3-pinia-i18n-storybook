@@ -2,43 +2,39 @@ const path = require("path");
 
 module.exports = {
   stories: [
-    // "../stories/**/*.stories.@(js|jsx|ts|tsx)",
+    "../stories/**/*.stories.@(js|jsx|ts|tsx)",
     "../components/**/*.stories.@(js|jsx|ts|tsx)",
     "../layouts/**/*.stories.@(js|jsx|ts|tsx)",
     "../pages/**/*.stories.@(js|jsx|ts|tsx)",
     // TODO: Generic stories location
-    // "../**/*.stories.@(js|jsx|ts|tsx)", 
-
+    // "../**/*.stories.@(js|jsx|ts|tsx)",
   ],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
-  ],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials", "@storybook/addon-interactions"],
   framework: "@storybook/vue3",
-  // features: {
-  //   storyStoresV7: true
-  // },
+  features: {
+    storyStoresV7: true
+  },
   core: {
     builder: "@storybook/builder-vite",
   },
   async viteFinal(config, { configType }) {
-    
-    // config.base = "./";
+
+    // Resolve @ alias to root folder.
+    // config.base = "/";
     // config.resolve.alias = {
     //   ...config.resolve.alias,
-    //   "@":path.resolve(__dirname, "./")
-    // }
+    //   "@": path.resolve(__dirname, "./"),
+    // };
 
-    if (configType === 'DEVELOPMENT') {
+    if (configType === "DEVELOPMENT") {
       return {
-	      ...config,
-	      define: {
-	        ...config.define,
-	        global: 'window',
-	      },
-	    };
+        ...config,
+        define: {
+          ...config.define,
+          global: "window",
+        },
+      };
     }
     return config;
   },
-}
+};
