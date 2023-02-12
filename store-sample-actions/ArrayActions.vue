@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, type PropType } from "vue";
+import { ref, type PropType } from "vue";
 import { useI18n } from 'vue-i18n'
 import { storeToRefs } from "pinia";
 import { useRootStore } from "../stores/store.root"; // Only need to import here due to lack of imports support within Storybook.
@@ -43,18 +43,13 @@ const buttonText = ref(t("store-sample-actions.array-actions.button-text-add"))
 const rootStore = useRootStore();
 const { sbArray } = storeToRefs(rootStore);
 
-const addToStore = () => {
-  rootStore.addToArray(sbArrayItem);
+const addToStore =  async() => {
+  const itemAdded = rootStore.addToArray(sbArrayItem);
+  emit("arrayUpdated", {
+    itemAdded: itemAdded
+  });
+  buttonText.value = (itemAdded) ? t("store-sample-actions.array-actions.button-text-add") : t("store-sample-actions.array-actions.button-text-remove");
 }
-
-watch(
-  () => sbArray,
-  () => {
-    emit("arrayUpdated");
-    let indexPayload = sbArray.value.findIndex((obj: ISbItemObj) => obj.name === sbArrayItem.name);
-    buttonText.value = (indexPayload === -1) ? t("store-sample-actions.array-actions.button-text-add") : t("store-sample-actions.array-actions.button-text-remove");
-  }
-);
 </script>
 
 <style lang="scss">
