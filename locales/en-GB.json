@@ -19,5 +19,11 @@
       "changeUrl": "/change",
       "refund": "refund the ticket"
     }
+  },
+  "store-sample-actions": {
+    "array-actions": {
+      "button-text-add": "Add object to array",
+      "button-text-remove": "Remove object from array"
+    }
   }
 }
