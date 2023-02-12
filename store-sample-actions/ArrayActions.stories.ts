@@ -4,6 +4,9 @@ import { Meta, StoryFn } from "@storybook/vue3";
 export default {
   title: "Pinia/Arrays/Display",
   component: StoryBookComponent,
+  argTypes: {
+    onArrayUpdated: { action: "arrayUpdated" },
+  },
 } as Meta<typeof StoryBookComponent>;
 
 const Template: StoryFn<typeof StoryBookComponent> = (args: any) => ({
