@@ -1,4 +1,4 @@
-import { IRootStore, ISbItemObj } from "../types/types.rootStore";
+import { IRootStore, ISbItemObj } from "@/types/types.rootStore";
 
 const removeItemFromArray = <T>(arr: Array<T>, obj: T): Array<T> => {
   const index = arr.indexOf(obj);
