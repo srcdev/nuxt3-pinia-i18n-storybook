@@ -21,8 +21,8 @@ Ref: <https://github.com/johnsoncodehk/volar/discussions/471?sort=new>
 
 - ~Install i18n~ Done
 - ~Storybook i18n integration~ Done
-- Install Pinia
-- Storybook i18n Pinia
+- ~Install Pinia~ Done
+- ~Storybook i18n Pinia~ Done
 
 ## Setup
 
