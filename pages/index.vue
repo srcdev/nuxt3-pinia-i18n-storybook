@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { useRootStore } from "../stores/store.root";
+import { useRootStore } from "@/stores/store.root";
 
 import { useI18n } from "vue-i18n";
 definePageMeta({

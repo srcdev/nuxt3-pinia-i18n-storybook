@@ -19,12 +19,12 @@ module.exports = {
     builder: "@storybook/builder-vite",
   },
   async viteFinal(config, { configType }) {
-    // Resolve @ alias to root folder.
-    // config.base = "/";
-    // config.resolve.alias = {
-    //   ...config.resolve.alias,
-    //   "@": path.resolve(__dirname, "./"),
-    // };
+    config.base = "/src/";
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@": path.resolve(__dirname, "./../"),
+      "~": path.resolve(__dirname, "./../"),
+    };
 
     if (configType === "DEVELOPMENT") {
       return {
@@ -35,6 +35,7 @@ module.exports = {
         },
       };
     }
+
     return config;
   },
 };
