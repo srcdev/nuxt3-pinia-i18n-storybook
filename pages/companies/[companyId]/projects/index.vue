@@ -5,14 +5,8 @@
         <h2>Company ID:{{ companyId }} List projects</h2>
 
         <ul>
-          <li>
-            <NuxtLink :to="`/companies/${route.params.companyId}/projects/project123`">Project ID:project123</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink :to="`/companies/${route.params.companyId}/projects/Testing-abc`">Project ID:Testing-abc</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink :to="`/companies/${route.params.companyId}/projects/wahay`">Project ID:wahay</NuxtLink>
+          <li v-for="item in projects">
+            <NuxtLink :to="projectUrl(item)">{{ item.name }}</NuxtLink>
           </li>
         </ul>
       </template>
@@ -21,6 +15,11 @@
 </template>
 
 <script setup lang="ts">
+export interface IProject {
+  projectId: string;
+  name: string;
+}
+
 definePageMeta({
   layout: false,
 });
@@ -35,8 +34,25 @@ useHead({
 
 const route = useRoute();
 const companyId = route.params.companyId;
-const projectId = "12232gdfgdf";
-const projectUrl = `/companies/${companyId}/projects/${projectId}/details`;
+
+const projectUrl = (item: IProject) => {
+  return `/companies/${companyId}/projects/${item.projectId}`;
+};
+
+const projects = <IProject[]>[
+  {
+    projectId: "123qwsdfertgh-6",
+    name: "Help the homeless",
+  },
+  {
+    projectId: "123qwswq12dfertgh-6",
+    name: "Help the hungry",
+  },
+  {
+    projectId: "123qwwqpoertgh-3",
+    name: "Help the small animals",
+  },
+];
 </script>
 
 <style lang="scss">
