@@ -1,22 +1,30 @@
 <template>
   <div>
-    <h1>Static header text</h1>
-    <p>
-      String: <em>"{{ t("header.text") }}"</em> from <strong><code>t('header.text')</code></strong>
-    </p>
-    <p>
-      String: <em>"{{ rootStore.someString }}"</em> from <strong><code>rootStore.someString</code></strong>
-    </p>
+    <NuxtLayout name="default">
+      <template #layout-content>
+        <h2>Home</h2>
+        <ul>
+          <li>
+            <NuxtLink to="/companies/123abcqwer0987/details">Company ID:123abcqwer0987</NuxtLink>
+          </li>
+        </ul>
+
+        <p>
+          String: <em>"{{ rootStore.someString }}"</em> from <strong><code>rootStore.someString</code></strong>
+        </p>
+      </template>
+    </NuxtLayout>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useRootStore } from "@/stores/store.root";
-
 import { useI18n } from "vue-i18n";
+
 definePageMeta({
   layout: false,
 });
+
 useHead({
   title: "Home page",
   meta: [{ name: "description", content: "Desciption meta tag content" }],
