@@ -3,6 +3,14 @@ import { defineNuxtConfig } from "nuxt/config";
 export default defineNuxtConfig({
   ssr: false,
   css: ["~/assets/styles/index.scss"],
+  runtimeConfig: {
+    // The private keys which are only available within server-side
+    apiSecret: "apiSecret from Nuxt.config",
+    // Keys within public, will be also exposed to the client-side
+    public: {
+      apiBase: "/api-from-Nuxt.config",
+    },
+  },
   modules: [
     "@pinia/nuxt",
     [
