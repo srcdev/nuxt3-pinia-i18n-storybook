@@ -27,24 +27,10 @@ Ref: <https://github.com/johnsoncodehk/volar/discussions/471?sort=new>
 ## Setup
 
 Make sure to install the dependencies:
-**Install Errors:** If `npm install` with errors for peer dependancies of Vue packages:
-
-- Remove storybook package entries from `package.json`
-- Run the following package installs manually.
-
-```bash
-npm install --save-dev @storybook/vue3 @storybook/addon-actions @storybook/addon-essentials @storybook/addon-interactions @storybook/addon-links @storybook/testing-library storybook-i18n
-
-npm install --save @storybook/builder-vite
-```
 
 ### Install Errors
 
-If `npm install` with errors for peer dependancies of Vue packages:
-
-### Install Errors
-
-If `npm install` with errors for peer dependancies of Vue packages:
+If `npm install` exists with errors for peer dependancies in Vue packages:
 
 - Remove storybook package entries from `package.json`
 - Run the following package installs manually.
@@ -69,6 +55,7 @@ pnpm install
 ## Development Server
 
 Start the development server on <http://localhost:3000>
+If using **nvm** set to use latest version of Node: `nvm use node`
 
 ```bash
 npm run dev
