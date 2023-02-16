@@ -42,6 +42,19 @@ npm install --save @storybook/builder-vite
 
 If `npm install` with errors for peer dependancies of Vue packages:
 
+### Install Errors
+
+If `npm install` with errors for peer dependancies of Vue packages:
+
+- Remove storybook package entries from `package.json`
+- Run the following package installs manually.
+
+```bash
+npm install --save-dev @storybook/vue3 @storybook/addon-actions @storybook/addon-essentials @storybook/addon-interactions @storybook/addon-links @storybook/testing-library storybook-i18n
+
+npm install --save @storybook/builder-vite
+```
+
 ```bash
 # yarn
 yarn install
