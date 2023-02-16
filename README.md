@@ -38,6 +38,10 @@ npm install --save-dev @storybook/vue3 @storybook/addon-actions @storybook/addon
 npm install --save @storybook/builder-vite
 ```
 
+### Install Errors
+
+If `npm install` with errors for peer dependancies of Vue packages:
+
 ```bash
 # yarn
 yarn install
