@@ -36,7 +36,7 @@ If `npm install` exists with errors for peer dependancies in Vue packages:
 - Run the following package installs manually.
 
 ```bash
-npm install --save-dev @storybook/vue3 @storybook/addon-actions @storybook/addon-essentials @storybook/addon-interactions @storybook/addon-links @storybook/testing-library storybook-i18n
+npm install --save-dev @storybook/vue3 @storybook/addon-actions @storybook/addon-essentials @storybook/addon-interactions @storybook/addon-a11y @storybook/addon-links @storybook/testing-library storybook-i18n
 
 npm install --save @storybook/builder-vite
 ```
