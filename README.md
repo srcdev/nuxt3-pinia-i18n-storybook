@@ -88,3 +88,7 @@ npm run storybook
 ### Known Storybook issue (to be resolved)
 
 - Nuxt3 can import the stores directory so we don't have to import within each instance it's to be used. (`imports: { dirs: ["stores"]}`). Storybook as currently setup does not support this and each store has to be imported manually. This may not be a Storybook issue just I haven't figured out how to do this yet.
+
+## Other references
+
+- Handly matrix of common [viewports on YesViz device insights](https://yesviz.com/viewport)
