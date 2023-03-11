@@ -13,28 +13,29 @@ export default defineNuxtConfig({
   },
   modules: [
     "@pinia/nuxt",
-    [
-      "@nuxtjs/i18n",
-      {
-        locales: [
-          {
-            code: "en",
-            file: "en-GB.json",
-            name: "English",
-          },
-        ],
-        lazy: true,
-        langDir: "locales",
-        defaultLocale: "en",
-        globalInjection: true,
-        legacy: false,
-        // useScope: "global",
-      },
-    ],
+    // [
+    //   "@nuxtjs/i18n",
+    //   {
+    //     locales: [
+    //       {
+    //         code: "en",
+    //         file: "en-GB.json",
+    //         name: "English",
+    //       },
+    //     ],
+    //     lazy: true,
+    //     langDir: "locales",
+    //     defaultLocale: "en",
+    //     globalInjection: true,
+    //     legacy: false,
+    //     // useScope: "global",
+    //   },
+    // ],
   ],
   // imports: {
   //   dirs: ["stores"],
   // },
+  plugins: ["@/plugins/i18n"],
   app: {
     head: {
       htmlAttrs: {

@@ -127,7 +127,7 @@ app.use(head);
  * i118n set up
  */
 const i18n = createI18n({
-  langDir: "i18n",
+  langDir: "locales",
   messages: translations,
   defaultLocale: "en",
   legacy: false,

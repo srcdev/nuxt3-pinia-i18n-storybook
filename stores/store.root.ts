@@ -5,6 +5,8 @@ import { rootActions } from "@/stores/store.root.actions";
 export const useRootStore = defineStore({
   id: "rootStore",
   state: (): IRootStore => ({
+    fallbackLocale: "en",
+    locale: "en",
     someString: "someString value",
     sbArray: [
       {

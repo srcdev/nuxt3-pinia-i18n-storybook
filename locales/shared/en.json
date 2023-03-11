@@ -1,7 +1,4 @@
 {
-  "header": {
-    "text": "Header text from i18ns"
-  },
   "i18nExamples": {
     "simpleTextKey": "This is a simple single entry key/value pair",
     "simpleTextKeyWithSingleVar": "This should container a number { count }.",
@@ -18,12 +15,6 @@
       "changeLimit": "15",
       "changeUrl": "/change",
       "refund": "refund the ticket"
-    }
-  },
-  "store-sample-actions": {
-    "array-actions": {
-      "button-text-add": "Add object to array",
-      "button-text-remove": "Remove object from array"
     }
   }
 }

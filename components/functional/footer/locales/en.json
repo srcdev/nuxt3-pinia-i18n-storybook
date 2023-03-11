@@ -1,0 +1,16 @@
+{
+  "footer": {
+    "title": "Footer",
+    "links": {
+      "home": {
+        "text": "Homepage",
+        "url": "/"
+      },
+      "contact": {
+        "text": "Contact",
+        "url": "/"
+      }
+    },
+    "copyright": "Copyright { year } all rights reserved"
+  }
+}
