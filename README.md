@@ -26,11 +26,11 @@ Ref: <https://github.com/johnsoncodehk/volar/discussions/471?sort=new>
 
 ## Setup
 
-Make sure to install the dependencies:
+Make sure to install the dependancies:
 
 ### Install Errors
 
-If `npm install` exists with errors for peer dependancies in Vue packages:
+If `npm install` exits with errors for peer dependancies in Vue packages:
 
 - Remove storybook package entries from `package.json`
 - Run the following package installs manually.
@@ -91,4 +91,4 @@ npm run storybook
 
 ## Other references
 
-- Handly matrix of common [viewports on YesViz device insights](https://yesviz.com/viewport)
+- Handy matrix of common [viewports on YesViz device insights](https://yesviz.com/viewport)
