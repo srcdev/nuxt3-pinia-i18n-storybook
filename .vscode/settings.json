@@ -39,7 +39,7 @@
   "editor.suggestSelection": "recentlyUsed",
   "editor.wordBasedSuggestions": true,
   "editor.parameterHints.enabled": true,
-
+  "editor.snippetSuggestions": "top",
   // ===
   // Event Triggers
   // ===

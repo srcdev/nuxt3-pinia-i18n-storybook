@@ -1,12 +1,8 @@
 {
   "recommendations": [
-    // Vue Language Features (Volar)
-    // https://github.com/johnsoncodehk/volar
-    "johnsoncodehk.volar",
-
-    // Vue TS Language features (Volar)
-    // https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin
-    // "johnsoncodehk.vscode-typescript-vue-plugin",
+    // TypeScript Vue Plugin
+    // https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin
+    "vue.vscode-typescript-vue-plugin",
 
     // Peek and go-to-definition for .vue files
     // https://github.com/fuzinato/vscode-vue-peek
@@ -39,5 +35,14 @@
     // Vue VSCode Snippets
     // https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets
     // "sdras.vue-vscode-snippets"
+
+    // Vue Nuxt Snippets
+    // https://marketplace.visualstudio.com/items?itemName=matijao.vue-nuxt-snippets
+    "matijao.vue-nuxt-snippets"
+
+    // Vitest Snippets
+    // https://marketplace.visualstudio.com/items?itemName=deinsoftware.vitest-snippets
+    "deinsoftware.vitest-snippets"
+
   ]
 }
