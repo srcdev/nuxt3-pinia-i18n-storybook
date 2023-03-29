@@ -30,7 +30,7 @@
 
     // Highlight the key-value string in .env files (e.g. .env, .env.development and so on).
     // https://marketplace.visualstudio.com/items?itemName=Nixon.env-cmd-file-syntax
-    "nixon.env-cmd-file-syntax"
+    "nixon.env-cmd-file-syntax",
 
     // Vue VSCode Snippets
     // https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets
@@ -38,7 +38,7 @@
 
     // Vue Nuxt Snippets
     // https://marketplace.visualstudio.com/items?itemName=matijao.vue-nuxt-snippets
-    "matijao.vue-nuxt-snippets"
+    "matijao.vue-nuxt-snippets",
 
     // Vitest Snippets
     // https://marketplace.visualstudio.com/items?itemName=deinsoftware.vitest-snippets
