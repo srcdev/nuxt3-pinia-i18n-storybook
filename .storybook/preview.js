@@ -1,5 +1,4 @@
-import { useArgs } from "@storybook/client-api";
-import { addDecorator, app } from "@storybook/vue3";
+import { setup } from "@storybook/vue3";
 import { createHead } from "@vueuse/head";
 import { createI18n } from "vue-i18n";
 import translations from "../locales";
@@ -121,7 +120,6 @@ const head = createHead({
     },
   ],
 });
-app.use(head);
 
 /*
  * i118n set up
@@ -133,16 +131,15 @@ const i18n = createI18n({
   legacy: false,
   locale: "en",
 });
-app.use(i18n);
 
 /*
  * Pinia store set up
  */
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
-app.use(pinia);
 
-addDecorator(() => ({
-  template: "<story/>",
-  i18n,
-}));
+setup((app) => {
+  app.use(head);
+  app.use(i18n);
+  app.use(pinia);
+});
