@@ -1,27 +1,33 @@
 <template>
-  <footer class="footer">
-    <div class="footer-inner">
-      <p>{{ $t("footer.title") }}</p>
-      <ul class="footer-links-list">
-        <li v-for="link in footerLinks" class="footer-links-item">
-          <NuxtLink :to="$t(link.url)" class="footer-links-link">{{ $t(link.text) }}</NuxtLink>
-        </li>
-      </ul>
-      <p>{{ $t("footer.copyright", { year, currentYear }) }}</p>
-    </div>
-  </footer>
+  <LayoutRow content-max-width="desktop" :padding-X="20" :padding-Y="20" bg-colour="blue">
+    <template #content>
+      <footer class="footer">
+        <div class="footer-inner">
+          <p>{{ t("footer.title") }}</p>
+          <ul class="footer-links-list">
+            <li v-for="link in footerLinks" class="footer-links-item">
+              <NuxtLink :to="t(link.url)" class="footer-links-link">{{ t(link.text) }}</NuxtLink>
+            </li>
+          </ul>
+          <p v-html="t('footer.copyright', { year: currentYear })"></p>
+        </div>
+      </footer>
+    </template>
+  </LayoutRow>
 </template>
 
 <script setup type="ts">
-// import { useI18n } from 'vue-i18n'
+import LayoutRow from '@/components/scaffolding/layout-row/LayoutRow.vue'
+
+import { useI18n } from 'vue-i18n'
 
 const footerLinks = [
   {
     "text": "footer.links.home.text",
-    "url": "footer.links.home.text",
-  }
+    "url": "footer.links.home.url",
+  },
 ];
-// const { t } = useI18n()
+const { t } = useI18n()
 
 const currentYear = new Date().getFullYear()
 </script>

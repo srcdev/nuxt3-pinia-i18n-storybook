@@ -1,0 +1,7 @@
+@import "@/assets/styles/variables/_colours";
+
+@each $prefix, $value in $textColours {
+  .text-color-#{$prefix} {
+    color: #{$value};
+  }
+}

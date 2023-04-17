@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat-Variable"), url("/assets/fonts/Montserrat-Variable.woff2") format("woff2");
+}
+
+html * {
+  font-stretch: normal;
+  font-style: normal;
+  font-family: Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
