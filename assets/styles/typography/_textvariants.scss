@@ -1,0 +1,14 @@
+p,
+.text-body-normal {
+  font-size: clamp(1.2rem, 4vw, 1.4rem);
+  font-weight: normal;
+  line-height: clamp(1.9rem, 4vw, 2.2rem);
+  margin-bottom: clamp(0.2rem, 4vw, 0.6rem);
+}
+
+.text-body-small {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  font-weight: normal;
+  line-height: clamp(1.7rem, 4vw, 2rem);
+  margin-bottom: clamp(0rem, 4vw, 0.4rem);
+}

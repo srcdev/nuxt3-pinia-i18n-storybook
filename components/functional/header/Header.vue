@@ -1,10 +1,13 @@
 <template>
-  <div>
-    <h1>{{ t("header.text") }}</h1>
-  </div>
+  <LayoutRow content-max-width="desktop" :padding-X="20" :padding-Y="20" bg-colour="grey">
+    <template #content>
+      <h1 class="text-color-orange">{{ t("header.text") }}</h1>
+    </template>
+  </LayoutRow>
 </template>
 
 <script setup lang="ts">
+import LayoutRow from '@/components/scaffolding/layout-row/LayoutRow.vue'
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 </script>

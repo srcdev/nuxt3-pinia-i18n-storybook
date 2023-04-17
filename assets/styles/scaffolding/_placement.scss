@@ -1,0 +1,33 @@
+/*
+* <div placement="top-left"></siv>
+* <div placement="bottom-right"></siv>
+**/
+[placement] {
+  // @include minWidth($tabletSmall) {
+  display: flex;
+  // }
+}
+
+[placement^='top'] {
+  align-self: start;
+}
+
+[placement^='bottom'] {
+  align-self: end;
+}
+
+[placement^='center'] {
+  align-self: center;
+}
+
+[placement$='left'] {
+  justify-self: start;
+}
+
+[placement$='right'] {
+  justify-self: start;
+}
+
+[placement$='center'] {
+  align-self: center;
+}

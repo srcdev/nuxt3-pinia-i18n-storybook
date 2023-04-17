@@ -1,16 +1,17 @@
 <template>
   <div class="page-wrapper">
     <Header></Header>
-    <div class="content-wrapper">
-      <slot name="layout-content"></slot>
+    <div class="page-content">
+      <slot name="content"></slot>
     </div>
     <Footer></Footer>
   </div>
 </template>
 
 <script setup lang="ts">
-import Footer from "@/components/functional/footer/Footer.vue";
 import Header from "@/components/functional/header/Header.vue";
+import Footer from "@/components/functional/footer/Footer.vue";
+
 </script>
 
 <style lang="scss">
@@ -18,13 +19,10 @@ import Header from "@/components/functional/header/Header.vue";
 
 .page {
   &-wrapper {
-    background-color: white;
+    min-height: 100vh;
   }
-}
-
-.content {
-  &-wrapper {
-    padding: 12px;
+  &-content {
+    min-height: 100vh;
   }
 }
 </style>

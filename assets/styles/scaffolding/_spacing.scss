@@ -1,0 +1,23 @@
+@import "@/assets/styles/variables/_sizeunits";
+
+$sides: (
+  "": "",
+  "t": "-top",
+  "b": "-bottom",
+  "l": "-left",
+  "r": "-right",
+);
+
+@each $space in $sizeUnits {
+  @each $prefix, $value in $sides {
+    $propSpace: nth($space, 1);
+    $propSpaceValue: map-get($sizeUnits, nth($space, 1));
+
+    .m#{$prefix}-#{$propSpace} {
+      margin#{$value}: #{$propSpaceValue};
+    }
+    .p#{$prefix}-#{$propSpace} {
+      padding#{$value}: #{$propSpaceValue};
+    }
+  }
+}
