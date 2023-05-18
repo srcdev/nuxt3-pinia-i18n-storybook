@@ -11,7 +11,6 @@
 <script setup lang="ts">
 import Header from "@/components/functional/header/Header.vue";
 import Footer from "@/components/functional/footer/Footer.vue";
-
 </script>
 
 <style lang="scss">

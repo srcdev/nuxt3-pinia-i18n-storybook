@@ -42,7 +42,8 @@
 
     // Vitest Snippets
     // https://marketplace.visualstudio.com/items?itemName=deinsoftware.vitest-snippets
-    "deinsoftware.vitest-snippets"
-
-  ]
+    "deinsoftware.vitest-snippets",
+    "garaioag.garaio-vscode-unwanted-recommendations"
+  ],
+  "unwantedRecommendations": ["vscode.typescript-language-features", "octref.vetur", "vue.vscode-typescript-vue-plugin"]
 }

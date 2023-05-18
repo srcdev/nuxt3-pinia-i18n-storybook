@@ -7,3 +7,5 @@ node_modules
 .env
 dist
 *storybook-static*
+package-lock.json
+package-lock.json
