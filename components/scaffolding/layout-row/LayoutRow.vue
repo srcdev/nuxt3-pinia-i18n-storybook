@@ -1,6 +1,6 @@
 <template>
   <div class="layout-row" :class="[`bg-${bgColour}`, { collapse: collpasePaddingY }]">
-    <div class="layout-row-inner" :class="[contentMaxWidth, `mt-${marginY} mb-${marginY}`, `ml-${marginX} mr-${marginX}`, `pt-${paddingY} pb-${paddingY}`, `pl-${paddingX} pr-${paddingX}`]">
+    <div class="layout-row-inner" :class="[`${contentMaxWidth}-width`, `mt-${marginY} mb-${marginY}`, `ml-${marginX} mr-${marginX}`, `pt-${paddingY} pb-${paddingY}`, `pl-${paddingX} pr-${paddingX}`]">
       <slot name="content"></slot>
     </div>
   </div>
@@ -11,32 +11,28 @@ import { type PropType } from "vue";
 const {} = defineProps({
   contentMaxWidth: {
     type: String as PropType<String>,
-    default: 'wide',
-    validator: (val: string) => ['wide', 'desktop'].includes(val),
+    default: "viewport",
+    validator: (val: string) => ["viewport", "desktop"].includes(val),
   },
   marginX: {
     type: Number as PropType<Number>,
     default: 0,
-    validator: (val: number) =>
-      [0, 1, 2, 4, 6, 8, 10, 12, 18, 20, 24, 32, 40].includes(val),
+    validator: (val: number) => [0, 1, 2, 4, 6, 8, 10, 12, 18, 20, 24, 32, 40].includes(val),
   },
   marginY: {
     type: Number as PropType<Number>,
     default: 0,
-    validator: (val: number) =>
-      [0, 1, 2, 4, 6, 8, 10, 12, 18, 20, 24, 32, 40].includes(val),
+    validator: (val: number) => [0, 1, 2, 4, 6, 8, 10, 12, 18, 20, 24, 32, 40].includes(val),
   },
   paddingX: {
     type: Number as PropType<Number>,
     default: 0,
-    validator: (val: number) =>
-      [0, 1, 2, 4, 6, 8, 10, 12, 18, 20, 24, 32, 40].includes(val),
+    validator: (val: number) => [0, 1, 2, 4, 6, 8, 10, 12, 18, 20, 24, 32, 40].includes(val),
   },
   paddingY: {
     type: Number as PropType<Number>,
     default: 0,
-    validator: (val: number) =>
-      [0, 1, 2, 4, 6, 8, 10, 12, 18, 20, 24, 32, 40].includes(val),
+    validator: (val: number) => [0, 1, 2, 4, 6, 8, 10, 12, 18, 20, 24, 32, 40].includes(val),
   },
   collpasePaddingY: {
     type: Boolean as PropType<Boolean>,
@@ -44,10 +40,10 @@ const {} = defineProps({
   },
   bgColour: {
     type: String as PropType<String>,
-    default: 'white',
-    validator: (val: string) => ['white', 'grey', 'blue'].includes(val),
+    default: "white",
+    validator: (val: string) => ["white", "grey", "blue"].includes(val),
   },
-})
+});
 </script>
 
 <style lang="scss">
@@ -71,7 +67,10 @@ const {} = defineProps({
   &-inner {
     border: 0px solid green;
     margin: 0 auto;
-    &.desktop {
+    &.viewport-width {
+      max-width: 100%;
+    }
+    &.desktop-width {
       max-width: 1024px;
     }
   }

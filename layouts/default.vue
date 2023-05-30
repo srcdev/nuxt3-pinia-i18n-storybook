@@ -2,7 +2,7 @@
   <div class="page-wrapper">
     <Header></Header>
     <div class="page-content">
-      <slot name="content"></slot>
+      <slot name="layout-content"></slot>
     </div>
     <Footer></Footer>
   </div>
@@ -18,10 +18,10 @@ import Footer from "@/components/functional/footer/Footer.vue";
 
 .page {
   &-wrapper {
-    min-height: 100vh;
+    height: 100vh;
   }
   &-content {
-    min-height: 100vh;
+    // min-height: 100vh;
   }
 }
 </style>

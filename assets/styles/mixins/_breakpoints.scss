@@ -1,0 +1,11 @@
+@mixin minWidth($point) {
+  @media all and (min-width: #{$point}px) {
+    @content;
+  }
+}
+
+@mixin maxWidth($point) {
+  @media all and (min-width: #{calc($point - 1)}px) {
+    @content;
+  }
+}

@@ -8,34 +8,34 @@
   // }
 }
 
-[align-content^='center'] {
+[align-content^="center"] {
   align-items: center;
 }
 
-[align-content^='top'] {
+[align-content^="top"] {
   align-items: start;
 }
 
-[align-content^='bottom'] {
+[align-content^="bottom"] {
   align-items: end;
 }
 
-[align-content$='center'] {
+[align-content$="center"] {
   justify-content: center;
 }
 
-[align-content$='left'] {
+[align-content$="left"] {
   justify-content: start;
 }
 
-[align-content$='right'] {
+[align-content$="right"] {
   justify-content: end;
 }
 
-[align-content$='space-around'] {
+[align-content$="space-around"] {
   justify-content: space-around;
 }
 
-[align-content$='space-between'] {
+[align-content$="space-between"] {
   justify-content: space-between;
 }
