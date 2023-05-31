@@ -1,11 +1,11 @@
 <template>
-  <div class="flex-group" :class="[`flow-${flexFlow}`, `align-items-${alignContent}`, `justify-content-${justifyItems}`, { 'inline-flex': flexType === 'inline-flex' }]">
+  <div class="flex-group" :class="[classes, `flow-${flexFlow}`, { 'inline-flex': flexType === 'inline-flex' }, { 'fit-width': fitWidth }, { 'fit-height': fitHeight }, { 'viewport-height': viewportHeight }]" :align-items="alignItems" :justify-content="justifyContent">
     <slot name="flexGroup"></slot>
   </div>
 </template>
 
 <script setup lang="ts">
-const {} = defineProps({
+const props = defineProps({
   flexType: {
     type: String,
     default: "flex",
@@ -16,29 +16,35 @@ const {} = defineProps({
     default: "row",
     validator: (val: string) => ["column", "column-reverse", "row", "row-reverse"].includes(val),
   },
-  alignContent: {
+  alignItems: {
     type: String,
     default: "top",
     validator: (val: string) => ["center", "top", "bottom"].includes(val),
   },
-  justifyItems: {
+  justifyContent: {
     type: String,
     default: "left",
     validator: (val: string) => ["center", "left", "right", "space-around", "space-between"].includes(val),
   },
-  placementX: {
-    type: String,
-    default: "top",
-    validator: (val: string) => ["center", "top", "bottom"].includes(val),
-  },
-  placementY: {
-    type: String,
-    default: "left",
-    validator: (val: string) => ["center", "left", "right"].includes(val),
-  },
   gap: {
     type: String,
     default: "0",
+  },
+  classes: {
+    type: String,
+    default: "",
+  },
+  fitWidth: {
+    type: Boolean,
+    default: false,
+  },
+  fitHeight: {
+    type: Boolean,
+    default: false,
+  },
+  viewportHeight: {
+    type: Boolean,
+    default: false,
   },
 });
 </script>
@@ -57,6 +63,19 @@ const {} = defineProps({
     display: inline-flex;
   }
 
+  &.fit-height {
+    min-height: 100%;
+    align-items: stretch;
+  }
+
+  &.viewport-height {
+    min-height: 100vh;
+  }
+
+  &.fit-width {
+    width: 100%;
+  }
+
   &.flow {
     &-column {
       flex-flow: column;
@@ -72,41 +91,42 @@ const {} = defineProps({
     }
   }
 
-  &.align-items {
-    &-center {
-      align-items: center;
-    }
+  // &.align-items {
+  //   &-center {
+  //     align-items: center;
+  //   }
 
-    &-top {
-      align-items: start;
-    }
+  //   &-top {
+  //     align-items: start;
+  //   }
 
-    &-bottom {
-      align-items: end;
-    }
-  }
+  //   &-bottom {
+  //     align-items: end;
+  //   }
+  // }
 
-  &.justify-content {
-    &-center {
-      justify-content: center;
-    }
+  // &.justify-content {
+  //   &-center {
+  //     justify-content: center;
+  //   }
 
-    &-left {
-      justify-content: start;
-    }
+  //   &-left {
+  //     justify-content: start;
+  //   }
 
-    &-right {
-      justify-content: end;
-    }
+  //   &-right {
+  //     justify-content: end;
+  //   }
 
-    &-space-around {
-      justify-content: space-around;
-    }
+  //   &-space-around {
+  //     justify-content: space-around;
+  //   }
 
-    &-space-between {
-      justify-content: space-between;
-    }
-  }
+  //   &-space-between {
+  //     justify-content: space-between;
+  //   }
+  // }
+
   // }
 }
 </style>

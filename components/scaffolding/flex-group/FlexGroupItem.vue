@@ -1,34 +1,22 @@
 <template>
-  <div class="flex-group-item" :class="[{ grow: flexGrow }]" :align-content="`${alignContent}-${justifyItems}`" :placement="`${placementX}-${placementY}`">
+  <div class="flex-group-item" :class="[classes, { grow: flexGrow }, { 'fit-width': fitWidth }]">
     <slot name="flexItem"></slot>
   </div>
 </template>
 
 <script setup lang="ts">
-const {} = defineProps({
+const props = defineProps({
   flexGrow: {
     type: Boolean,
     default: false,
   },
-  alignContent: {
-    type: String,
-    default: "top",
-    validator: (val: string) => ["center", "top", "bottom"].includes(val),
+  fitWidth: {
+    type: Boolean,
+    default: false,
   },
-  justifyItems: {
+  classes: {
     type: String,
-    default: "left",
-    validator: (val: string) => ["center", "left", "right", "space-around", "space-between"].includes(val),
-  },
-  placementX: {
-    type: String,
-    default: "top",
-    validator: (val: string) => ["center", "top", "bottom"].includes(val),
-  },
-  placementY: {
-    type: String,
-    default: "left",
-    validator: (val: string) => ["center", "left", "right"].includes(val),
+    default: "",
   },
 });
 </script>
@@ -37,6 +25,9 @@ const {} = defineProps({
 @import "@/assets/styles/imports.scss";
 
 .flex-group-item {
+  &.fit-width {
+    width: 100%;
+  }
   &.grow {
     flex-grow: 1;
   }

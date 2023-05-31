@@ -12,11 +12,16 @@
           <p v-html="t('footer.copyright', { year: currentYear })"></p>
         </div>
       </footer>
+
+      <p>
+        String: <em>"{{ rootStore.someString }}"</em> from <strong><code>rootStore.someString</code></strong>
+      </p>
     </template>
   </LayoutRow>
 </template>
 
 <script setup type="ts">
+import { useRootStore } from "@/stores/store.root";
 import LayoutRow from '@/components/scaffolding/layout-row/LayoutRow.vue'
 
 import { useI18n } from 'vue-i18n'
@@ -28,7 +33,7 @@ const footerLinks = [
   },
 ];
 const { t } = useI18n()
-
+const rootStore = useRootStore();
 const currentYear = new Date().getFullYear()
 </script>
 

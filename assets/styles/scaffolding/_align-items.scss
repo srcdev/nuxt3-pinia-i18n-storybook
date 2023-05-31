@@ -1,0 +1,21 @@
+/*
+* <div align-content="top-left"></siv>
+* <div align-content="bottom-right"></siv>
+**/
+// [align-content] {
+//   // @include minWidth($tabletSmall) {
+//   display: flex;
+//   // }
+// }
+
+[align-items="center"] {
+  align-items: center;
+}
+
+[align-items="top"] {
+  align-items: start;
+}
+
+[align-items="bottom"] {
+  align-items: end;
+}

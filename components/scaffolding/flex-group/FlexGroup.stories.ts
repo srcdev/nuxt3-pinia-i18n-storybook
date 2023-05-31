@@ -4,7 +4,7 @@ import FlexGroupItem from "./FlexGroupItem.vue";
 import { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/UI/Flex Group",
+  title: "Components/Scaffolding/Flex Group",
   component: FlexGroup,
   args: {
     flexType: "flex",

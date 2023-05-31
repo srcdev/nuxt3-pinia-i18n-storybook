@@ -1,0 +1,25 @@
+// [justify-items] {
+  // @include minWidth($tabletSmall) {
+  // display: flex;
+  // }
+// }
+
+[justify-content="center"] {
+  justify-content: center;
+}
+
+[justify-content="left"] {
+  justify-content: start;
+}
+
+[justify-content="right"] {
+  justify-content: end;
+}
+
+[justify-content="space-around"] {
+  justify-content: space-around;
+}
+
+[justify-content="space-between"] {
+  justify-content: space-between;
+}

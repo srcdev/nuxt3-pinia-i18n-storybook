@@ -1,7 +1,14 @@
-const path = require("path");
+import path from "path";
+// import { loadConfigFromFile, mergeConfig } from "vite";
 const config = {
   stories: ["../components/**/*.stories.ts"],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials", "@storybook/addon-interactions", "@storybook/addon-a11y"],
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-a11y",
+    // "storybook-addon-nuxt"
+  ],
   framework: {
     name: "@storybook/vue3-vite",
     options: {},
@@ -9,6 +16,13 @@ const config = {
   features: {
     storyStoresV7: true,
   },
+
+  // async viteFinal(baseConfig) {
+  //   const { config: userConfig } = await loadConfigFromFile(path.resolve(__dirname, "../vite.config.ts"));
+
+  //   return mergeConfig(baseConfig, userConfig);
+  // },
+
   async viteFinal(config, { configType }) {
     // config.base = "/src/";
     config.resolve.alias = {
@@ -16,6 +30,7 @@ const config = {
       "@": path.resolve(__dirname, "./../"),
       "~": path.resolve(__dirname, "./../"),
     };
+
     if (configType === "DEVELOPMENT") {
       return {
         ...config,
@@ -27,6 +42,7 @@ const config = {
     }
     return config;
   },
+
   docs: {
     autodocs: true,
   },

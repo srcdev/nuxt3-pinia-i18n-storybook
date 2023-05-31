@@ -4,7 +4,7 @@ import SimpleGridItem from "./SimpleGridItem.vue";
 import { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/UI/Simple Grid",
+  title: "Components/Scaffolding/Simple Grid",
   component: SimpleGrid,
   args: {
     minTileWidth: "312px",

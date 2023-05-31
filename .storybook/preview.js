@@ -96,7 +96,7 @@ export const parameters = {
   },
   viewport: {
     viewports: customViewports,
-    defaultViewport: "Desktop",
+    defaultViewport: "desktop",
   },
 };
 

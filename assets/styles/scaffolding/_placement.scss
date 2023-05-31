@@ -4,30 +4,30 @@
 **/
 [placement] {
   // @include minWidth($tabletSmall) {
-  display: flex;
+  // display: flex;
   // }
 }
 
-[placement^='top'] {
+[placement^="top"] {
   align-self: start;
 }
 
-[placement^='bottom'] {
+[placement^="bottom"] {
   align-self: end;
 }
 
-[placement^='center'] {
+[placement^="center"] {
   align-self: center;
 }
 
-[placement$='left'] {
+[placement$="left"] {
   justify-self: start;
 }
 
-[placement$='right'] {
+[placement$="right"] {
   justify-self: start;
 }
 
-[placement$='center'] {
+[placement$="center"] {
   align-self: center;
 }
