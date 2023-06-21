@@ -16,5 +16,8 @@
       "changeUrl": "/change",
       "refund": "refund the ticket"
     }
+  },
+  "shared": {
+    "title": "Sample shared title entry"
   }
 }

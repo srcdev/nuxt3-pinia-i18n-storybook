@@ -11,31 +11,7 @@ export default defineNuxtConfig({
       apiBase: "/api-from-Nuxt.config",
     },
   },
-  modules: [
-    "@pinia/nuxt",
-    "nuxt-vitest",
-    // [
-    //   "@nuxtjs/i18n",
-    //   {
-    //     locales: [
-    //       {
-    //         code: "en",
-    //         file: "en-GB.json",
-    //         name: "English",
-    //       },
-    //     ],
-    //     lazy: true,
-    //     langDir: "locales",
-    //     defaultLocale: "en",
-    //     globalInjection: true,
-    //     legacy: false,
-    //     // useScope: "global",
-    //   },
-    // ],
-  ],
-  // imports: {
-  //   dirs: ["components", "stores"],
-  // },
+  modules: ["@pinia/nuxt", "nuxt-vitest"],
   components: [
     {
       path: "~/components",
