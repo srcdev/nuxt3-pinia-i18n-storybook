@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   },
   modules: [
     "@pinia/nuxt",
+    "nuxt-vitest",
     // [
     //   "@nuxtjs/i18n",
     //   {
@@ -37,7 +38,7 @@ export default defineNuxtConfig({
   // },
   components: [
     {
-      path: '~/components',
+      path: "~/components",
       pathPrefix: false,
     },
   ],
@@ -52,7 +53,7 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/x-icon",
-          href: "/assets/images/favicon.jpg",
+          href: "./assets/images/favicon.jpg",
         },
         {
           rel: "stylesheet",

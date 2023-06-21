@@ -15,6 +15,6 @@ const Template: StoryFn<typeof StoryBookComponent> = (args: any) => ({
 });
 
 export const Primary = Template.bind({});
-Primary.args = {
-  subText: "subText as prop/arg",
-};
+// Primary.args = {
+//   subText: "subText as prop/arg",
+// };

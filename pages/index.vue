@@ -99,7 +99,7 @@
 
 <script setup lang="ts">
 import { useRootStore } from "@/stores/store.root";
-import { useI18n } from "vue-i18n";
+// import { useI18n } from "vue-i18n";
 import CommonServices from "@/services/services.common";
 
 definePageMeta({
@@ -114,7 +114,7 @@ useHead({
   },
 });
 
-const { t } = useI18n();
+// const { t } = useI18n();
 const rootStore = useRootStore();
 
 // simple request to test axios
