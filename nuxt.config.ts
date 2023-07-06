@@ -33,7 +33,7 @@ export default defineNuxtConfig({
         },
         {
           rel: "stylesheet",
-          href: "node_modules/modern-normalize/modern-normalize.css",
+          href: "./node_modules/modern-normalize/modern-normalize.css",
         },
       ],
       meta: [{ charset: "utf-8" }, { name: "viewport", content: "width=device-width, initial-scale=1" }],
