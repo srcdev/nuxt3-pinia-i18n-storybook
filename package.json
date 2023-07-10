@@ -16,6 +16,7 @@
     "@nuxt/test-utils": "3.5.3",
     "@nuxtjs/i18n": "^8.0.0-beta.12",
     "@pinia/nuxt": "^0.4.6",
+    "@pinia/testing": "^0.1.2",
     "@storybook/addon-a11y": "7.0.20",
     "@storybook/addon-actions": "7.0.20",
     "@storybook/addon-essentials": "7.0.20",

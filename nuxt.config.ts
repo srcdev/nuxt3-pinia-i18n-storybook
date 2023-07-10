@@ -2,7 +2,7 @@ import { defineNuxtConfig } from "nuxt/config";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
-  css: ["~/assets/styles/index.scss"],
+  css: ["modern-normalize", "~/assets/styles/index.scss"],
   runtimeConfig: {
     // The private keys which are only available within server-side
     apiSecret: "apiSecret from Nuxt.config",
@@ -31,10 +31,10 @@ export default defineNuxtConfig({
           type: "image/x-icon",
           href: "./assets/images/favicon.jpg",
         },
-        {
-          rel: "stylesheet",
-          href: "./node_modules/modern-normalize/modern-normalize.css",
-        },
+        // {
+        //   rel: "stylesheet",
+        //   href: "./node_modules/modern-normalize/modern-normalize.css",
+        // },
       ],
       meta: [{ charset: "utf-8" }, { name: "viewport", content: "width=device-width, initial-scale=1" }],
     },
