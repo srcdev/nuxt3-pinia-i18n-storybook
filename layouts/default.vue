@@ -3,7 +3,7 @@
     <template #flexGroup>
       <FlexGroupItem :fit-width="true">
         <template #flexItem>
-          <Header></Header>
+          <Header someProp="value1"></Header>
         </template>
       </FlexGroupItem>
       <FlexGroupItem :flex-grow="true" :fit-width="true">

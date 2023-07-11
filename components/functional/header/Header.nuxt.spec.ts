@@ -12,20 +12,20 @@ describe("Header", () => {
 
   it("Component i18n html", async () => {
     const component = await mountSuspended(Header);
-    const headerText = component.find("h1");
-    expect(headerText.html()).toMatchInlineSnapshot('"<h1 class=\\"text-color-orange\\">Header text from i18n dynamic imports key(<code>t(\\"header.text\\")</code>)</h1>"');
+    const textCheck = component.find("h1");
+    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 class=\\"text-color-orange\\">Header text from i18n dynamic imports key(<code>t(\\"header.text\\")</code>)</h1>"');
   });
 
   it("Shared i18n text", async () => {
     const component = await mountSuspended(Header);
-    const sharedTextTest = component.find("[data-test-id='shared-text-test']");
-    expect(sharedTextTest.text()).toEqual('Sample shared title entry key(t("shared.title"))');
+    const textCheck = component.find("[data-test-id='shared-text-test']");
+    expect(textCheck.text()).toEqual('Sample shared title entry key(t("shared.title"))');
   });
 
   it("Store value entry", async () => {
     const component = await mountSuspended(Header);
-    const storeTextTest = component.find("[data-test-id='store-test']");
-    expect(storeTextTest.text()).toEqual("someString value key(rootStore.someString)");
+    const textCheck = component.find("[data-test-id='store-test']");
+    expect(textCheck.text()).toEqual("someString value key(rootStore.someString)");
   });
 
   it("Store value updated", async () => {
@@ -36,8 +36,8 @@ describe("Header", () => {
 
     await nextTick();
 
-    const storeTextTest = component.find("[data-test-id='store-test']");
-    expect(storeTextTest.text()).toEqual("Some new value key(rootStore.someString)");
+    const textCheck = component.find("[data-test-id='store-test']");
+    expect(textCheck.text()).toEqual("Some new value key(rootStore.someString)");
   });
 
   it("Store value patched", async () => {
@@ -48,7 +48,17 @@ describe("Header", () => {
 
     await nextTick();
 
-    const storeTextTest = component.find("[data-test-id='store-test']");
-    expect(storeTextTest.text()).toEqual("Another new value key(rootStore.someString)");
+    const textCheck = component.find("[data-test-id='store-test']");
+    expect(textCheck.text()).toEqual("Another new value key(rootStore.someString)");
+  });
+
+  it("should render default props within nuxt suspense", async () => {
+    const component = await mountSuspended(Header, {
+      props: {
+        someProp: "value1",
+      },
+    });
+    const textCheck = component.find("[data-test-id='props-test']");
+    expect(textCheck.text()).toEqual("value1 (props.someProp)");
   });
 });
