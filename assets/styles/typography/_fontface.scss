@@ -6,7 +6,11 @@
 html * {
   font-stretch: normal;
   font-style: normal;
-  font-family: Roboto, sans-serif;
+  font-family: "Montserrat", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: monospace;
 }

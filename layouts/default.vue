@@ -1,27 +1,102 @@
 <template>
-  <FlexGroup flex-flow="column" align-items="center" justify-content="space-between" :viewport-height="true" :fit-width="true">
-    <template #flexGroup>
-      <FlexGroupItem :fit-width="true">
-        <template #flexItem>
-          <Header someProp="value1"></Header>
-        </template>
-      </FlexGroupItem>
-      <FlexGroupItem :flex-grow="true" :fit-width="true">
-        <template #flexItem>
-          <slot name="layout-content"></slot>
-        </template>
-      </FlexGroupItem>
-      <FlexGroupItem :fit-width="true">
-        <template #flexItem>
-          <Footer></Footer>
-        </template>
-      </FlexGroupItem>
-    </template>
-  </FlexGroup>
+  <div class="Simon">
+    <PageRow :fit-content="true" :apply-gutters="false">
+      <template #pageRowContent>
+        <Header :header-theme="headerTheme"></Header>
+      </template>
+    </PageRow>
+
+    <PageRow :fit-content="true">
+      <template #pageRowContent>
+        <div class="layout-grid" :class="[pageTheme, { 'has-nav': showLeftNav }]">
+          <div v-if="showLeftNav" class="layout-left-nav">
+            <nav class="left-nav">
+              <div class="left-nav-inner">
+                <h2 class="text-body-h1">Left Nav Here</h2>
+                <p>Left nav will be child component</p>
+              </div>
+            </nav>
+          </div>
+          <div class="layout-content">
+            <slot name="layout-content"></slot>
+          </div>
+        </div>
+      </template>
+    </PageRow>
+
+    <PageRow :fit-content="true">
+      <template #pageRowContent>
+        <Footer></Footer>
+      </template>
+    </PageRow>
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useAccountStore } from "@/stores/store.account"; // Only need to import here due to lack of imports support within Storybook.
 
-<style lang="scss">
-// @import "@/assets/styles/imports.scss";
+const props = defineProps({
+  pageTheme: {
+    type: String,
+    default: null,
+    validator: (val) => ["default", "themeWhite", "themeGrey", "themeBlue", "themeGreen"].includes(val as string),
+  },
+  headerTheme: {
+    type: String,
+    default: null,
+    validator: (val) => ["default", "dark"].includes(val as string),
+  },
+});
+
+const accountStore = useAccountStore();
+const showLeftNav = computed(() => accountStore.signedIn);
+</script>
+
+<style lang="scss" scoped>
+@import "@/assets/styles/imports.scss";
+
+.layout-grid {
+  &.has-nav {
+    @media only screen and (min-width: $desktop) {
+      display: grid;
+      grid-template-columns: 216px auto;
+      gap: 0px;
+    }
+
+    .layout-left-nav {
+      display: none;
+      @media only screen and (min-width: $desktop) {
+        display: grid;
+        grid-column-start: 1;
+        transform: translateY(-1px);
+      }
+    }
+
+    .layout-content {
+      @media only screen and (min-width: $desktop) {
+        display: grid;
+        grid-column-start: 2;
+      }
+    }
+  }
+
+  transition: all linear 200ms;
+}
+
+.layout-content {
+  margin: 0 auto;
+  // max-width: $desktop-content-width;
+  width: 100%;
+}
+
+.left-nav {
+  background-color: #1d1d1d;
+  color: $white;
+  margin-right: 16px;
+  width: 216px;
+
+  &-inner {
+    padding: 0 12px;
+  }
+}
 </style>

@@ -1,0 +1,21 @@
+@import "../variables/colours";
+
+.default {
+  background-color: transparent;
+}
+
+.themeWhite {
+  background-color: $white;
+}
+
+.themeGrey {
+  background-color: $color-grey-2;
+}
+
+.themeBlue {
+  background-color: $themeBlue;
+}
+
+.themeGreen {
+  background-color: $color-green-2;
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="simple-grid-wrapper">
+  <div class="simple-grid-wrapper" :class="[colRepeatType]">
     <slot name="content"></slot>
   </div>
 </template>
@@ -14,6 +14,11 @@ const props = defineProps({
     type: String,
     default: "26px",
   },
+  colRepeatType: {
+    type: String,
+    default: null,
+    validator: (val) => ["auto-fit", "auto-fill"].includes(val as string),
+  },
 });
 </script>
 
@@ -22,11 +27,17 @@ const props = defineProps({
 
 .simple-grid {
   &-wrapper {
-    @include minWidth($tabletSmall) {
+    @media only screen and (min-width: $tabletSmall) {
       display: grid;
       gap: v-bind(tileGap);
-      grid-template-columns: repeat(auto-fit, minmax(v-bind(minTileWidth), 1fr));
       grid-auto-rows: 1fr;
+
+      &.auto-fit {
+        grid-template-columns: repeat(auto-fit, minmax(v-bind(minTileWidth), 1fr));
+      }
+      &.auto-fill {
+        grid-template-columns: repeat(auto-fill, minmax(v-bind(minTileWidth), 1fr));
+      }
     }
   }
 }

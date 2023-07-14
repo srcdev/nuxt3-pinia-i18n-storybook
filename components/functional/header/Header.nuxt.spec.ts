@@ -1,9 +1,14 @@
+// import { setActivePinia, createPinia } from "pinia";
 import { mountSuspended } from "nuxt-vitest/utils";
-import { describe, it, expect } from "vitest";
+import { beforeEach, describe, it, expect } from "vitest";
 import Header from "./Header.vue";
-import { useRootStore } from "@/stores/store.root"; // Only need to import here due to lack of imports support within Storybook.
+import { useRootStore } from "@/stores/store.root";
 
 describe("Header", () => {
+  // beforeEach(() => {
+  //   setActivePinia(createPinia());
+  // });
+
   const rootStore = useRootStore();
 
   it("Mounts", async () => {

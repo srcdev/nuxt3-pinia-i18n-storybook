@@ -1,66 +1,190 @@
 <template>
-  <NuxtLayout name="default">
+  <NuxtLayout :name="layoutName" :page-theme="pageTheme" :header-theme="headerTheme">
     <template #layout-content>
-      <h2>Home</h2>
-
-      <FlexGroup align-content="center-center" :full-width="true">
-        <template #flexGroup>
-          <FlexGroupItem :flex-grow="false">
-            <template #flexItem>
-              <p>Flex Group Item</p>
-            </template>
-          </FlexGroupItem>
-          <FlexGroupItem :flex-grow="false">
-            <template #flexItem>
-              <p>Flex Group Item</p>
-            </template>
-          </FlexGroupItem>
+      <PageRow :fit-content="pageRowFitContent" :apply-gutters="pageRowGutters" :page-row-theme="pageRowTheme" :page-row-inner-theme="pageRowInnerTheme">
+        <template #pageRowContent>
+          <h2>Home</h2>
+          <div class="pb-12 pt-12 mb-12">
+            <h2 class="text-body-h1">Layouts and Schemes</h2>
+            <h2 class="text-body-h1">Page Row Theme</h2>
+            <ul class="sample-list flex">
+              <li><button @click.prevent="togglePageRowFitContent()">Toggle wide page row</button></li>
+              <li><button @click.prevent="togglePageRowGutters()">Toggle page row gutters</button></li>
+            </ul>
+            <ul class="sample-list flex">
+              <li><button @click.prevent="togglePageRowTheme('default')">Default (transparent background)</button></li>
+              <li><button @click.prevent="togglePageRowTheme('themeWhite')">White</button></li>
+              <li><button @click.prevent="togglePageRowTheme('themeGrey')">Grey</button></li>
+              <li><button @click.prevent="togglePageRowTheme('themeBlue')">Blue</button></li>
+              <li><button @click.prevent="togglePageRowTheme('themeGreen')">Green</button></li>
+            </ul>
+            <h2 class="text-body-h1">Page Row Inner theme</h2>
+            <ul class="sample-list flex">
+              <li><button @click.prevent="togglePageRowInnerTheme('default')">Default (transparent background)</button></li>
+              <li><button @click.prevent="togglePageRowInnerTheme('themeWhite')">White</button></li>
+              <li><button @click.prevent="togglePageRowInnerTheme('themeGrey')">Grey</button></li>
+              <li><button @click.prevent="togglePageRowInnerTheme('themeBlue')">Blue</button></li>
+              <li><button @click.prevent="togglePageRowInnerTheme('themeGreen')">Green</button></li>
+            </ul>
+          </div>
         </template>
-      </FlexGroup>
+      </PageRow>
 
-      <SimpleGrid min-tile-width="125px">
-        <template #content>
-          <SimpleGridItem>
-            <template #content>
-              <p>Simple Grid Item</p>
-            </template>
-          </SimpleGridItem>
-          <SimpleGridItem>
-            <template #content>
-              <p>Simple Grid Item</p>
-            </template>
-          </SimpleGridItem>
-          <SimpleGridItem>
-            <template #content>
-              <p>Simple Grid Item</p>
-            </template>
-          </SimpleGridItem>
-          <SimpleGridItem>
-            <template #content>
-              <p>Simple Grid Item</p>
-            </template>
-          </SimpleGridItem>
-          <SimpleGridItem>
-            <template #content>
-              <p>Simple Grid Item</p>
-            </template>
-          </SimpleGridItem>
-          <SimpleGridItem>
-            <template #content>
-              <p>Simple Grid Item</p>
-            </template>
-          </SimpleGridItem>
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+        <template #pageRowContent>
+          <div class="pb-12 pt-12 mb-12">
+            <h2 class="text-body-h1">Toggle signed in navigation</h2>
+
+            <button @click.prevent="toggleLeftNav(!showLeftNav)">Toggle laft nav open/closed</button>
+
+            <h2 class="text-body-h1">Page themes</h2>
+            <ul class="sample-list flex">
+              <li><button @click.prevent="togglePageTheme('default')">Default (transparent background)</button></li>
+              <li><button @click.prevent="togglePageTheme('themeWhite')">White</button></li>
+              <li><button @click.prevent="togglePageTheme('themeGrey')">Grey</button></li>
+              <li><button @click.prevent="togglePageTheme('themeBlue')">Blue</button></li>
+              <li><button @click.prevent="togglePageTheme('themeGreen')">Green</button></li>
+            </ul>
+
+            <div class="mt-12 mb-12 spotlight">
+              <div class="spotlight-inner">
+                <h2 class="text-body-h1">Spotlight header</h2>
+                <p>Some spotlight text or other content will go in here, obvs this is just a sample.</p>
+              </div>
+            </div>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id dolor quam. Ut lacinia finibus pellentesque. Fusce ipsum erat, maximus ac malesuada sed, lacinia nec ipsum. In eget ex ex. Mauris mattis condimentum sollicitudin. Morbi sagittis justo ac nunc pulvinar gravida. Aenean et nulla ut odio sagittis gravida. Curabitur at ante volutpat velit aliquam finibus mattis ut est.
+              Quisque sit amet orci libero.
+            </p>
+          </div>
         </template>
-      </SimpleGrid>
+      </PageRow>
 
-      <ul>
-        <li>
-          <NuxtLink to="/companies/123abcqwer0987/details">Company ID:123abcqwer0987</NuxtLink>
-        </li>
-      </ul>
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+        <template #pageRowContent>
+          <FlexGroup align-content="center-center" :full-width="true">
+            <template #flexGroup>
+              <FlexGroupItem :flex-grow="false">
+                <template #flexItem>
+                  <p>Flex Group Item</p>
+                </template>
+              </FlexGroupItem>
+              <FlexGroupItem :flex-grow="false">
+                <template #flexItem>
+                  <p>Flex Group Item</p>
+                </template>
+              </FlexGroupItem>
+            </template>
+          </FlexGroup>
+        </template>
+      </PageRow>
 
-      <LayoutRow content-max-width="desktop">
-        <template #content>
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+        <template #pageRowContent>
+          <h2 class="text-body-h1">Simple grid, <code>col-repeat-type="auto-fill"</code></h2>
+
+          <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fill">
+            <template #content>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+            </template>
+          </SimpleGrid>
+        </template>
+      </PageRow>
+
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+        <template #pageRowContent>
+          <h2 class="text-body-h1">Simple grid, <code>col-repeat-type="auto-fit"</code></h2>
+
+          <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fit">
+            <template #content>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+            </template>
+          </SimpleGrid>
+        </template>
+      </PageRow>
+
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+        <template #pageRowContent>
+          <h2 class="text-body-h1">Simple grid, many items</h2>
+
+          <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fill">
+            <template #content>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+              <SimpleGridItem>
+                <template #content>
+                  <p>Simple Grid Item</p>
+                </template>
+              </SimpleGridItem>
+            </template>
+          </SimpleGrid>
+        </template>
+      </PageRow>
+
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+        <template #pageRowContent>
+          <ul>
+            <li>
+              <NuxtLink to="/companies/123abcqwer0987/details">Company ID:123abcqwer0987</NuxtLink>
+            </li>
+          </ul>
+        </template>
+      </PageRow>
+
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+        <template #pageRowContent>
           <div>
             <h1>Layout Row - (Desktop)</h1>
             <p>
@@ -75,10 +199,10 @@
             <p>Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
           </div>
         </template>
-      </LayoutRow>
+      </PageRow>
 
-      <LayoutRow content-max-width="viewport">
-        <template #content>
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+        <template #pageRowContent>
           <div>
             <h1>Layout Row - (Max container)</h1>
             <p>
@@ -87,18 +211,19 @@
             </p>
             <p>Beef ribs filet mignon chislic, minim ullamco occaecat rump shoulder dolore velit irure sausage. Corned beef andouille burgdoggen minim nulla. Andouille labore shank exercitation, tongue alcatra short loin strip steak in voluptate ut swine consectetur. Tenderloin id cupim, in salami brisket tri-tip adipisicing incididunt burgdoggen.</p>
           </div>
-        </template>
-      </LayoutRow>
 
-      <p>
-        String: <em>"{{ rootStore.someString }}"</em> from <strong><code>rootStore.someString</code></strong>
-      </p>
+          <p>
+            String: <em>"{{ rootStore.someString }}"</em> from <strong><code>rootStore.someString</code></strong>
+          </p>
+        </template>
+      </PageRow>
     </template>
   </NuxtLayout>
 </template>
 
 <script setup lang="ts">
 import { useRootStore } from "@/stores/store.root";
+import { useAccountStore } from "@/stores/store.account"; // Only need to import here due to lack of imports support within Storybook.
 // import { useI18n } from "vue-i18n";
 import CommonServices from "@/services/services.common";
 
@@ -119,8 +244,74 @@ const rootStore = useRootStore();
 
 // simple request to test axios
 await CommonServices.samplePost("testing");
+
+const accountStore = useAccountStore();
+const showLeftNav = computed(() => accountStore.signedIn);
+
+const layoutName = "default";
+const pageTheme = shallowRef("default");
+const headerTheme = "default";
+const pageRowTheme = shallowRef("default");
+const pageRowInnerTheme = shallowRef("default");
+const pageRowFitContent = shallowRef(false);
+const pageRowGutters = shallowRef(true);
+
+const showWhiteText = computed(() => {
+  return false;
+  // return pageTheme.value === "themeGrey" || pageTheme.value === "themeBlue" || pageTheme.value === "themeGreen" || pageRowTheme.value === "themeGrey" || pageRowTheme.value === "themeBlue" || pageRowTheme.value === "themeGreen" || pageRowInnerTheme.value === "themeGrey" || pageRowInnerTheme.value === "themeBlue" || pageRowInnerTheme.value === "themeGreen";
+});
+
+const toggleLeftNav = (loggedIn: boolean) => {
+  accountStore.updateLoginState(loggedIn);
+};
+
+const togglePageTheme = (brand: string) => {
+  pageTheme.value = brand;
+};
+
+const togglePageRowTheme = (brand: string) => {
+  pageRowTheme.value = brand;
+};
+
+const togglePageRowInnerTheme = (brand: string) => {
+  pageRowInnerTheme.value = brand;
+};
+
+const togglePageRowFitContent = () => {
+  pageRowFitContent.value = !pageRowFitContent.value;
+};
+
+const togglePageRowGutters = () => {
+  pageRowGutters.value = !pageRowGutters.value;
+};
 </script>
 
-<style lang="scss">
-// @import '@/assets/styles/imports.scss';
+<style lang="scss" scoped>
+@import "@/assets/styles/imports.scss";
+.spotlight {
+  &-inner {
+    background-color: $white;
+    padding: 12px;
+  }
+}
+
+.sample-list {
+  list-style-type: none;
+  padding: 0;
+
+  &.flex {
+    li + li {
+      margin: 12px 0 0 0;
+    }
+    @media only screen and (min-width: $tabletMed) {
+      display: flex;
+      li + li {
+        margin: 0 0 0 12px;
+      }
+    }
+  }
+
+  li {
+  }
+}
 </style>

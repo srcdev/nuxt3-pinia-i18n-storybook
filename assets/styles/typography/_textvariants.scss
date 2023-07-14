@@ -1,3 +1,10 @@
+.text-body-h1 {
+  font-size: clamp(1.4rem, 4vw, 1.6rem);
+  font-weight: 700;
+  line-height: clamp(1.4rem, 4vw, 1.6rem);
+  // margin-bottom: clamp(0.2rem, 4vw, 0.6rem);
+}
+
 p,
 .text-body-normal {
   font-size: clamp(1.2rem, 4vw, 1.4rem);
