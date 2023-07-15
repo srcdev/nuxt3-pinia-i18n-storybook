@@ -25,6 +25,7 @@ const props = defineProps({
 @import "@/assets/styles/imports.scss";
 
 .flex-group-item {
+  outline: 1px solid $color-grey-3;
   &.fit-width {
     width: 100%;
   }

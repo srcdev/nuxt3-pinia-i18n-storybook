@@ -1,0 +1,11 @@
+@mixin mqMinTablet {
+  @media all and (min-width: $tabletMed) {
+    @content;
+  }
+}
+
+@mixin mqDesktopContentMax {
+  @media all and (min-width: $desktop-content-width) {
+    @content;
+  }
+}

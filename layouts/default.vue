@@ -12,7 +12,7 @@
           <div v-if="showLeftNav" class="layout-left-nav">
             <nav class="left-nav">
               <div class="left-nav-inner">
-                <h2 class="text-body-h1">Left Nav Here</h2>
+                <h2 class="text-header-medium">Left Nav Here</h2>
                 <p>Left nav will be child component</p>
               </div>
             </nav>
@@ -26,7 +26,7 @@
 
     <PageRow :fit-content="true">
       <template #pageRowContent>
-        <Footer></Footer>
+        <Footer :footer-theme="footerTheme"></Footer>
       </template>
     </PageRow>
   </div>
@@ -39,12 +39,17 @@ const props = defineProps({
   pageTheme: {
     type: String,
     default: null,
-    validator: (val) => ["default", "themeWhite", "themeGrey", "themeBlue", "themeGreen"].includes(val as string),
+    validator: (val) => ["default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
+  },
+  footerTheme: {
+    type: String,
+    default: "default",
+    validator: (val) => ["default", "theme-white", "theme-dark"].includes(val as string),
   },
   headerTheme: {
     type: String,
-    default: null,
-    validator: (val) => ["default", "dark"].includes(val as string),
+    default: "default",
+    validator: (val) => ["default", "theme-dark"].includes(val as string),
   },
 });
 
@@ -57,7 +62,7 @@ const showLeftNav = computed(() => accountStore.signedIn);
 
 .layout-grid {
   &.has-nav {
-    @media only screen and (min-width: $desktop) {
+    @include mqDesktopContentMax {
       display: grid;
       grid-template-columns: 216px auto;
       gap: 0px;
@@ -65,15 +70,15 @@ const showLeftNav = computed(() => accountStore.signedIn);
 
     .layout-left-nav {
       display: none;
-      @media only screen and (min-width: $desktop) {
+      @include mqDesktopContentMax {
         display: grid;
         grid-column-start: 1;
-        transform: translateY(-1px);
+        // transform: translateY(-1px);
       }
     }
 
     .layout-content {
-      @media only screen and (min-width: $desktop) {
+      @include mqDesktopContentMax {
         display: grid;
         grid-column-start: 2;
       }
@@ -90,7 +95,7 @@ const showLeftNav = computed(() => accountStore.signedIn);
 }
 
 .left-nav {
-  background-color: #1d1d1d;
+  background-color: $color-grey-1;
   color: $white;
   margin-right: 16px;
   width: 216px;

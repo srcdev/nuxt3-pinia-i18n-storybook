@@ -1,7 +1,7 @@
 // [justify-items] {
-  // @include minWidth($tabletSmall) {
-  // display: flex;
-  // }
+// @include mqMinTablet {
+// display: flex;
+// }
 // }
 
 [justify-content="center"] {

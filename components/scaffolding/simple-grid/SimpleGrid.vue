@@ -27,7 +27,7 @@ const props = defineProps({
 
 .simple-grid {
   &-wrapper {
-    @media only screen and (min-width: $tabletSmall) {
+    @include mqMinTablet {
       display: grid;
       gap: v-bind(tileGap);
       grid-auto-rows: 1fr;

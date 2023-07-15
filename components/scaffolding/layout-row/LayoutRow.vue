@@ -40,8 +40,8 @@ const {} = defineProps({
   },
   bgColour: {
     type: String as PropType<String>,
-    default: "themeWhite",
-    validator: (val: string) => ["themeWhite", "grey", "blue"].includes(val),
+    default: "theme-white",
+    validator: (val: string) => ["theme-white", "grey", "blue"].includes(val),
   },
 });
 </script>

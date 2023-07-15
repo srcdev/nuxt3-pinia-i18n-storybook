@@ -53,9 +53,9 @@ const props = defineProps({
 @import "@/assets/styles/imports.scss";
 
 .flex-group {
-  // @include minWidth($tabletSmall) {
+  // @include mqMinTablet {
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
   gap: v-bind(gap);
   overflow: hidden;
 
@@ -84,7 +84,11 @@ const props = defineProps({
       flex-flow: column-reverse;
     }
     &-row {
-      flex-flow: row;
+      display: block;
+      @include mqMinTablet {
+        display: flex;
+        flex-flow: row;
+      }
     }
     &-row-reverse {
       flex-flow: row-reverse;

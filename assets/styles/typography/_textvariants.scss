@@ -1,21 +1,48 @@
-.text-body-h1 {
-  font-size: clamp(1.4rem, 4vw, 1.6rem);
-  font-weight: 700;
-  line-height: clamp(1.4rem, 4vw, 1.6rem);
-  // margin-bottom: clamp(0.2rem, 4vw, 0.6rem);
-}
-
 p,
-.text-body-normal {
+button,
+input,
+code,
+pre,
+em,
+strong,
+i,
+b,
+a,
+li,
+dd,
+dt,
+.text-normal {
   font-size: clamp(1.2rem, 4vw, 1.4rem);
   font-weight: normal;
   line-height: clamp(1.9rem, 4vw, 2.2rem);
-  margin-bottom: clamp(0.2rem, 4vw, 0.6rem);
+  margin: 0;
+  padding-bottom: clamp(0.2rem, 4vw, 0.6rem);
+  padding-top: clamp(0.2rem, 4vw, 0.6rem);
 }
 
-.text-body-small {
+.text-small {
   font-size: clamp(1rem, 4vw, 1.2rem);
   font-weight: normal;
   line-height: clamp(1.7rem, 4vw, 2rem);
-  margin-bottom: clamp(0rem, 4vw, 0.4rem);
+  margin: 0;
+  padding-bottom: clamp(0rem, 4vw, 0.4rem);
+  padding-top: clamp(0rem, 4vw, 0.4rem);
+}
+
+.text-header-large {
+  font-size: clamp(2.2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: clamp(2.4rem, 4vw, 2.8rem);
+  margin: 0;
+  padding-bottom: clamp(0.2rem, 4vw, 0.6rem);
+  padding-top: clamp(0.2rem, 4vw, 0.6rem);
+}
+
+.text-header-medium {
+  font-size: clamp(1.4rem, 4vw, 1.6rem);
+  font-weight: 700;
+  line-height: clamp(1.4rem, 4vw, 1.6rem);
+  margin: 0;
+  padding-bottom: clamp(0.2rem, 4vw, 0.6rem);
+  padding-top: clamp(0.2rem, 4vw, 0.6rem);
 }

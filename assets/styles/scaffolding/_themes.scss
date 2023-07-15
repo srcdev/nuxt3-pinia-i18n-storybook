@@ -4,18 +4,22 @@
   background-color: transparent;
 }
 
-.themeWhite {
+.theme-dark {
+  background-color: $color-grey-1;
+}
+
+.theme-white {
   background-color: $white;
 }
 
-.themeGrey {
+.theme-grey {
   background-color: $color-grey-2;
 }
 
-.themeBlue {
-  background-color: $themeBlue;
+.theme-blue {
+  background-color: $theme-blue;
 }
 
-.themeGreen {
+.theme-green {
   background-color: $color-green-2;
 }

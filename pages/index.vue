@@ -1,30 +1,31 @@
 <template>
-  <NuxtLayout :name="layoutName" :page-theme="pageTheme" :header-theme="headerTheme">
+  <NuxtLayout :name="layoutName" :page-theme="pageTheme" :header-theme="headerTheme" :footer-theme="footerTheme">
     <template #layout-content>
       <PageRow :fit-content="pageRowFitContent" :apply-gutters="pageRowGutters" :page-row-theme="pageRowTheme" :page-row-inner-theme="pageRowInnerTheme">
         <template #pageRowContent>
-          <h2>Home</h2>
+          <h1 class="text-header-large">Home</h1>
           <div class="pb-12 pt-12 mb-12">
-            <h2 class="text-body-h1">Layouts and Schemes</h2>
-            <h2 class="text-body-h1">Page Row Theme</h2>
+            <h2 class="text-header-medium">Layouts and Schemes</h2>
+            <h2 class="text-header-medium">Page Row Props</h2>
             <ul class="sample-list flex">
               <li><button @click.prevent="togglePageRowFitContent()">Toggle wide page row</button></li>
               <li><button @click.prevent="togglePageRowGutters()">Toggle page row gutters</button></li>
             </ul>
+            <h2 class="text-header-medium">Page Row Theme</h2>
             <ul class="sample-list flex">
               <li><button @click.prevent="togglePageRowTheme('default')">Default (transparent background)</button></li>
-              <li><button @click.prevent="togglePageRowTheme('themeWhite')">White</button></li>
-              <li><button @click.prevent="togglePageRowTheme('themeGrey')">Grey</button></li>
-              <li><button @click.prevent="togglePageRowTheme('themeBlue')">Blue</button></li>
-              <li><button @click.prevent="togglePageRowTheme('themeGreen')">Green</button></li>
+              <li><button @click.prevent="togglePageRowTheme('theme-white')">White</button></li>
+              <li><button @click.prevent="togglePageRowTheme('theme-grey')">Grey</button></li>
+              <li><button @click.prevent="togglePageRowTheme('theme-blue')">Blue</button></li>
+              <li><button @click.prevent="togglePageRowTheme('theme-green')">Green</button></li>
             </ul>
-            <h2 class="text-body-h1">Page Row Inner theme</h2>
+            <h2 class="text-header-medium">Page Row Inner theme</h2>
             <ul class="sample-list flex">
               <li><button @click.prevent="togglePageRowInnerTheme('default')">Default (transparent background)</button></li>
-              <li><button @click.prevent="togglePageRowInnerTheme('themeWhite')">White</button></li>
-              <li><button @click.prevent="togglePageRowInnerTheme('themeGrey')">Grey</button></li>
-              <li><button @click.prevent="togglePageRowInnerTheme('themeBlue')">Blue</button></li>
-              <li><button @click.prevent="togglePageRowInnerTheme('themeGreen')">Green</button></li>
+              <li><button @click.prevent="togglePageRowInnerTheme('theme-white')">White</button></li>
+              <li><button @click.prevent="togglePageRowInnerTheme('theme-grey')">Grey</button></li>
+              <li><button @click.prevent="togglePageRowInnerTheme('theme-blue')">Blue</button></li>
+              <li><button @click.prevent="togglePageRowInnerTheme('theme-green')">Green</button></li>
             </ul>
           </div>
         </template>
@@ -33,22 +34,35 @@
       <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
         <template #pageRowContent>
           <div class="pb-12 pt-12 mb-12">
-            <h2 class="text-body-h1">Toggle signed in navigation</h2>
+            <h2 class="text-header-medium">Toggle signed in navigation</h2>
 
             <button @click.prevent="toggleLeftNav(!showLeftNav)">Toggle laft nav open/closed</button>
 
-            <h2 class="text-body-h1">Page themes</h2>
+            <h2 class="text-header-medium">Header themes</h2>
+            <ul class="sample-list flex">
+              <li><button @click.prevent="toggleHeaderTheme('default')">Default (transparent background)</button></li>
+              <li><button @click.prevent="toggleHeaderTheme('theme-dark')">Dark</button></li>
+            </ul>
+
+            <h2 class="text-header-medium">Footer themes</h2>
+            <ul class="sample-list flex">
+              <li><button @click.prevent="toggleFooterTheme('default')">Default (transparent background)</button></li>
+              <li><button @click.prevent="toggleFooterTheme('theme-white')">White</button></li>
+              <li><button @click.prevent="toggleFooterTheme('theme-dark')">Dark</button></li>
+            </ul>
+
+            <h2 class="text-header-medium">Page themes</h2>
             <ul class="sample-list flex">
               <li><button @click.prevent="togglePageTheme('default')">Default (transparent background)</button></li>
-              <li><button @click.prevent="togglePageTheme('themeWhite')">White</button></li>
-              <li><button @click.prevent="togglePageTheme('themeGrey')">Grey</button></li>
-              <li><button @click.prevent="togglePageTheme('themeBlue')">Blue</button></li>
-              <li><button @click.prevent="togglePageTheme('themeGreen')">Green</button></li>
+              <li><button @click.prevent="togglePageTheme('theme-white')">White</button></li>
+              <li><button @click.prevent="togglePageTheme('theme-grey')">Grey</button></li>
+              <li><button @click.prevent="togglePageTheme('theme-blue')">Blue</button></li>
+              <li><button @click.prevent="togglePageTheme('theme-green')">Green</button></li>
             </ul>
 
             <div class="mt-12 mb-12 spotlight">
               <div class="spotlight-inner">
-                <h2 class="text-body-h1">Spotlight header</h2>
+                <h2 class="text-header-medium">Spotlight header</h2>
                 <p>Some spotlight text or other content will go in here, obvs this is just a sample.</p>
               </div>
             </div>
@@ -82,7 +96,7 @@
 
       <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
         <template #pageRowContent>
-          <h2 class="text-body-h1">Simple grid, <code>col-repeat-type="auto-fill"</code></h2>
+          <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fill"</code></h2>
 
           <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fill">
             <template #content>
@@ -108,7 +122,7 @@
 
       <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
         <template #pageRowContent>
-          <h2 class="text-body-h1">Simple grid, <code>col-repeat-type="auto-fit"</code></h2>
+          <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fit"</code></h2>
 
           <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fit">
             <template #content>
@@ -134,7 +148,7 @@
 
       <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
         <template #pageRowContent>
-          <h2 class="text-body-h1">Simple grid, many items</h2>
+          <h2 class="text-header-medium">Simple grid, many items</h2>
 
           <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fill">
             <template #content>
@@ -250,7 +264,8 @@ const showLeftNav = computed(() => accountStore.signedIn);
 
 const layoutName = "default";
 const pageTheme = shallowRef("default");
-const headerTheme = "default";
+const footerTheme = shallowRef("default");
+const headerTheme = shallowRef("default");
 const pageRowTheme = shallowRef("default");
 const pageRowInnerTheme = shallowRef("default");
 const pageRowFitContent = shallowRef(false);
@@ -258,7 +273,7 @@ const pageRowGutters = shallowRef(true);
 
 const showWhiteText = computed(() => {
   return false;
-  // return pageTheme.value === "themeGrey" || pageTheme.value === "themeBlue" || pageTheme.value === "themeGreen" || pageRowTheme.value === "themeGrey" || pageRowTheme.value === "themeBlue" || pageRowTheme.value === "themeGreen" || pageRowInnerTheme.value === "themeGrey" || pageRowInnerTheme.value === "themeBlue" || pageRowInnerTheme.value === "themeGreen";
+  // return pageTheme.value === "theme-grey" || pageTheme.value === "theme-blue" || pageTheme.value === "theme-green" || pageRowTheme.value === "theme-grey" || pageRowTheme.value === "theme-blue" || pageRowTheme.value === "theme-green" || pageRowInnerTheme.value === "theme-grey" || pageRowInnerTheme.value === "theme-blue" || pageRowInnerTheme.value === "theme-green";
 });
 
 const toggleLeftNav = (loggedIn: boolean) => {
@@ -267,6 +282,14 @@ const toggleLeftNav = (loggedIn: boolean) => {
 
 const togglePageTheme = (brand: string) => {
   pageTheme.value = brand;
+};
+
+const toggleFooterTheme = (brand: string) => {
+  footerTheme.value = brand;
+};
+
+const toggleHeaderTheme = (brand: string) => {
+  headerTheme.value = brand;
 };
 
 const togglePageRowTheme = (brand: string) => {
@@ -303,7 +326,7 @@ const togglePageRowGutters = () => {
     li + li {
       margin: 12px 0 0 0;
     }
-    @media only screen and (min-width: $tabletMed) {
+    @include mqMinTablet {
       display: flex;
       li + li {
         margin: 0 0 0 12px;

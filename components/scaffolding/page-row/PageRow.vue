@@ -19,12 +19,12 @@ const props = defineProps({
   pageRowTheme: {
     type: String,
     default: "default",
-    validator: (val) => ["default", "themeWhite", "themeGrey", "themeBlue", "themeGreen"].includes(val as string),
+    validator: (val) => ["default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
   },
   pageRowInnerTheme: {
     type: String,
     default: "default",
-    validator: (val) => ["default", "themeWhite", "themeGrey", "themeBlue", "themeGreen"].includes(val as string),
+    validator: (val) => ["default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
   },
 });
 </script>
@@ -49,11 +49,11 @@ const props = defineProps({
       &.has-gutters {
         padding: 0 16px;
 
-        @media only screen and (min-width: $tabletMed) {
+        @include mqMinTablet {
           padding: 0 40px;
         }
 
-        @media only screen and (min-width: $desktop-content-width) {
+        @include mqDesktopContentMax {
           padding: 0 32px;
         }
       }

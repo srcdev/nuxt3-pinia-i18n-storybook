@@ -3,7 +3,7 @@
 * <div placement="bottom-right"></siv>
 **/
 [placement] {
-  // @include minWidth($tabletSmall) {
+  // @include mqMinTablet {
   // display: flex;
   // }
 }
