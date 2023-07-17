@@ -19,12 +19,12 @@ const props = defineProps({
   pageRowTheme: {
     type: String,
     default: "default",
-    validator: (val) => ["default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
+    validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
   },
   pageRowInnerTheme: {
     type: String,
     default: "default",
-    validator: (val) => ["default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
+    validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
   },
 });
 </script>

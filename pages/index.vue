@@ -13,7 +13,7 @@
             </ul>
             <h2 class="text-header-medium">Page Row Theme</h2>
             <ul class="sample-list flex">
-              <li><button @click.prevent="togglePageRowTheme('default')">Default (transparent background)</button></li>
+              <li><button @click.prevent="togglePageRowTheme('theme-default')">Default (transparent background)</button></li>
               <li><button @click.prevent="togglePageRowTheme('theme-white')">White</button></li>
               <li><button @click.prevent="togglePageRowTheme('theme-grey')">Grey</button></li>
               <li><button @click.prevent="togglePageRowTheme('theme-blue')">Blue</button></li>
@@ -21,7 +21,7 @@
             </ul>
             <h2 class="text-header-medium">Page Row Inner theme</h2>
             <ul class="sample-list flex">
-              <li><button @click.prevent="togglePageRowInnerTheme('default')">Default (transparent background)</button></li>
+              <li><button @click.prevent="togglePageRowInnerTheme('theme-default')">Default (transparent background)</button></li>
               <li><button @click.prevent="togglePageRowInnerTheme('theme-white')">White</button></li>
               <li><button @click.prevent="togglePageRowInnerTheme('theme-grey')">Grey</button></li>
               <li><button @click.prevent="togglePageRowInnerTheme('theme-blue')">Blue</button></li>
@@ -31,7 +31,7 @@
         </template>
       </PageRow>
 
-      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
         <template #pageRowContent>
           <div class="pb-12 pt-12 mb-12">
             <h2 class="text-header-medium">Toggle signed in navigation</h2>
@@ -40,20 +40,20 @@
 
             <h2 class="text-header-medium">Header themes</h2>
             <ul class="sample-list flex">
-              <li><button @click.prevent="toggleHeaderTheme('default')">Default (transparent background)</button></li>
-              <li><button @click.prevent="toggleHeaderTheme('theme-dark')">Dark</button></li>
+              <li><button @click.prevent="toggleHeaderTheme('header-default')">Page is ligh colour</button></li>
+              <li><button @click.prevent="toggleHeaderTheme('header-dark')">Page is dark colour</button></li>
             </ul>
 
             <h2 class="text-header-medium">Footer themes</h2>
             <ul class="sample-list flex">
-              <li><button @click.prevent="toggleFooterTheme('default')">Default (transparent background)</button></li>
+              <li><button @click.prevent="toggleFooterTheme('theme-default')">Default (transparent background)</button></li>
               <li><button @click.prevent="toggleFooterTheme('theme-white')">White</button></li>
               <li><button @click.prevent="toggleFooterTheme('theme-dark')">Dark</button></li>
             </ul>
 
-            <h2 class="text-header-medium">Page themes</h2>
+            <h2 class="text-header-medium">Full Page themes</h2>
             <ul class="sample-list flex">
-              <li><button @click.prevent="togglePageTheme('default')">Default (transparent background)</button></li>
+              <li><button @click.prevent="togglePageTheme('theme-default')">Default (transparent background)</button></li>
               <li><button @click.prevent="togglePageTheme('theme-white')">White</button></li>
               <li><button @click.prevent="togglePageTheme('theme-grey')">Grey</button></li>
               <li><button @click.prevent="togglePageTheme('theme-blue')">Blue</button></li>
@@ -75,7 +75,7 @@
         </template>
       </PageRow>
 
-      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
         <template #pageRowContent>
           <FlexGroup align-content="center-center" :full-width="true">
             <template #flexGroup>
@@ -94,7 +94,7 @@
         </template>
       </PageRow>
 
-      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
         <template #pageRowContent>
           <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fill"</code></h2>
 
@@ -120,7 +120,7 @@
         </template>
       </PageRow>
 
-      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
         <template #pageRowContent>
           <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fit"</code></h2>
 
@@ -146,7 +146,7 @@
         </template>
       </PageRow>
 
-      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
         <template #pageRowContent>
           <h2 class="text-header-medium">Simple grid, many items</h2>
 
@@ -187,7 +187,16 @@
         </template>
       </PageRow>
 
-      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
+        <template #pageRowContent>
+          <div>
+            <h2 class="text-header-medium">Store Array Actions</h2>
+            <ArrayActions></ArrayActions>
+          </div>
+        </template>
+      </PageRow>
+
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
         <template #pageRowContent>
           <ul>
             <li>
@@ -197,7 +206,7 @@
         </template>
       </PageRow>
 
-      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
         <template #pageRowContent>
           <div>
             <h1>Layout Row - (Desktop)</h1>
@@ -215,7 +224,7 @@
         </template>
       </PageRow>
 
-      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="default">
+      <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
         <template #pageRowContent>
           <div>
             <h1>Layout Row - (Max container)</h1>
@@ -240,6 +249,7 @@ import { useRootStore } from "@/stores/store.root";
 import { useAccountStore } from "@/stores/store.account"; // Only need to import here due to lack of imports support within Storybook.
 // import { useI18n } from "vue-i18n";
 import CommonServices from "@/services/services.common";
+import ArrayActions from "~/store-sample-actions/ArrayActions.vue";
 
 definePageMeta({
   layout: false,
@@ -262,12 +272,12 @@ await CommonServices.samplePost("testing");
 const accountStore = useAccountStore();
 const showLeftNav = computed(() => accountStore.signedIn);
 
-const layoutName = "default";
-const pageTheme = shallowRef("default");
-const footerTheme = shallowRef("default");
-const headerTheme = shallowRef("default");
-const pageRowTheme = shallowRef("default");
-const pageRowInnerTheme = shallowRef("default");
+const layoutName = shallowRef("default");
+const pageTheme = shallowRef("theme-default");
+const footerTheme = shallowRef("theme-default");
+const headerTheme = shallowRef("header-default");
+const pageRowTheme = shallowRef("theme-default");
+const pageRowInnerTheme = shallowRef("theme-default");
 const pageRowFitContent = shallowRef(false);
 const pageRowGutters = shallowRef(true);
 
@@ -282,6 +292,12 @@ const toggleLeftNav = (loggedIn: boolean) => {
 
 const togglePageTheme = (brand: string) => {
   pageTheme.value = brand;
+
+  if (brand === "theme-grey" || brand === "theme-blue" || brand === "theme-green") {
+    headerTheme.value = "header-dark";
+  } else {
+    headerTheme.value = "header-default";
+  }
 };
 
 const toggleFooterTheme = (brand: string) => {

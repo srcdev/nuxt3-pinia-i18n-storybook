@@ -1,5 +1,5 @@
 <template>
-  <div class="Simon">
+  <div :class="pageTheme">
     <PageRow :fit-content="true" :apply-gutters="false">
       <template #pageRowContent>
         <Header :header-theme="headerTheme"></Header>
@@ -8,7 +8,7 @@
 
     <PageRow :fit-content="true">
       <template #pageRowContent>
-        <div class="layout-grid" :class="[pageTheme, { 'has-nav': showLeftNav }]">
+        <div class="layout-grid" :class="[{ 'has-nav': showLeftNav }]">
           <div v-if="showLeftNav" class="layout-left-nav">
             <nav class="left-nav">
               <div class="left-nav-inner">
@@ -39,17 +39,17 @@ const props = defineProps({
   pageTheme: {
     type: String,
     default: null,
-    validator: (val) => ["default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
+    validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
   },
   footerTheme: {
     type: String,
     default: "default",
-    validator: (val) => ["default", "theme-white", "theme-dark"].includes(val as string),
+    validator: (val) => ["theme-default", "theme-white", "theme-dark"].includes(val as string),
   },
   headerTheme: {
     type: String,
     default: "default",
-    validator: (val) => ["default", "theme-dark"].includes(val as string),
+    validator: (val) => ["header-default", "header-dark"].includes(val as string),
   },
 });
 

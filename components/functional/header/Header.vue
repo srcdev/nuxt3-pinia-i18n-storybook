@@ -23,7 +23,7 @@ const props = defineProps({
     type: String,
     value: "default",
     validator(value: string) {
-      return ["default", "theme-dark"].includes(value);
+      return ["default", "dark"].includes(value);
     },
   },
 });
@@ -36,7 +36,16 @@ const rootStore = useRootStore();
 <style lang="scss" scoped>
 @import "@/assets/styles/imports.scss";
 
+.header-default {
+  --bgColour: #121212;
+}
+
+.header-dark {
+  --bgColour: #d2d2d2;
+}
+
 .header {
+  background-color: var(--bgColour);
   padding: 16px;
 
   @include mqMinTablet {
