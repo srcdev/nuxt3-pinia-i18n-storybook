@@ -40,6 +40,7 @@
     "unplugin-auto-import": "^0.16.4",
     "unplugin-vue-components": "^0.25.0",
     "vitest": "0.32.2",
+    "vitest-environment-nuxt": "^0.10.1",
     "vue-loader": "^16.8.3"
   },
   "dependencies": {

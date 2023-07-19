@@ -1,15 +1,17 @@
 <template>
   <header class="header" :class="[headerTheme]">
-    <h1 class="text-header-large text-color-orange">{{ $t("header.text") }} key (<code class="text-header-large">t("header.text")</code>)</h1>
-    <p data-test-id="shared-text-test">{{ $t("shared.title") }} key (<code>t("shared.title")</code>)</p>
-    <p data-test-id="store-test">{{ rootStore.someString }} key (<code>rootStore.someString</code>)</p>
-    <p data-test-id="props-test">{{ someProp }} (<code>props.someProp</code>)</p>
+    <h1 class="text-header-large text-color-orange">{{ $t("header.text") }}</h1>
+    <p data-test-id="shared-text-test">{{ $t("shared.title") }}</p>
+    <p data-test-id="store-test">{{ rootStore.someString }}</p>
+    <p data-test-id="props-test">{{ someProp }}</p>
+    <p data-test-id="account-state-test">{{ signedIntext }}</p>
   </header>
 </template>
 
 <script setup lang="ts">
-import { useRootStore } from "@/stores/store.root"; // Only need to import here due to lack of imports support within Storybook.
-// import { useI18n } from "vue-i18n";
+import { useAccountStore } from "@/stores/store.account";
+import { useRootStore } from "@/stores/store.root";
+import { useI18n } from "vue-i18n";
 
 const props = defineProps({
   someProp: {
@@ -21,23 +23,27 @@ const props = defineProps({
   },
   headerTheme: {
     type: String,
-    value: "default",
+    value: "header-default",
     validator(value: string) {
-      return ["default", "dark"].includes(value);
+      return ["header-default", "header-dark"].includes(value);
     },
   },
 });
 
-// const { t } = useI18n();
-
+const { t } = useI18n();
 const rootStore = useRootStore();
+const accountStore = useAccountStore();
+
+const signedIntext = computed(() => {
+  return accountStore.signedIn ? t("header.signedIn") : t("header.signedOut");
+});
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/styles/imports.scss";
 
 .header-default {
-  --bgColour: #121212;
+  --bgColour: #e2e2e2;
 }
 
 .header-dark {

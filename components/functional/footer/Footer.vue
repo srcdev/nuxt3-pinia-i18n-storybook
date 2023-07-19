@@ -33,9 +33,7 @@ const props = defineProps({
   footerTheme: {
     type: String,
     value: "default",
-    validator(value: string) {
-      return ["default", "theme-dark"].includes(value);
-    },
+    validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
   },
 });
 
