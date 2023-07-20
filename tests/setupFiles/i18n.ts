@@ -1,19 +1,16 @@
 import { config } from "@vue/test-utils";
 import { createI18n } from "vue-i18n";
+import messages from "@/locales/";
+import { useRootStore } from "@/stores/store.root";
 
-// config.global.plugins.push(
-//   createI18n({
-//     legacy: false,
-//   })
-// );
-
-// config.global.mocks.$t = (key: string) => key;
-// config.global.mocks.t = (key: string) => key;
-
+const rootStore = useRootStore();
 const i18n = createI18n({
   legacy: false,
-  locale: "en",
-  missing: (_, key) => key,
+  globalInjection: true,
+  locale: rootStore.locale,
+  locales: rootStore.locales,
+  fallbackLocale: rootStore.fallbackLocale,
+  messages: messages,
 });
 
 config.global.plugins.push(i18n);
