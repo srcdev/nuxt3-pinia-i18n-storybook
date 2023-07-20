@@ -32,7 +32,7 @@ const props = defineProps({
   },
   footerTheme: {
     type: String,
-    value: "default",
+    value: "theme-default",
     validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
   },
 });

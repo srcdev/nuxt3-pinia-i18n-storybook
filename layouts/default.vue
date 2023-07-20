@@ -38,17 +38,17 @@ import { useAccountStore } from "@/stores/store.account"; // Only need to import
 const props = defineProps({
   pageTheme: {
     type: String,
-    default: null,
+    default: "theme-default",
     validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
   },
   footerTheme: {
     type: String,
-    default: "default",
-    validator: (val) => ["theme-default", "theme-white", "theme-dark"].includes(val as string),
+    default: "theme-default",
+    validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
   },
   headerTheme: {
     type: String,
-    default: "default",
+    default: "header-default",
     validator: (val) => ["header-default", "header-dark"].includes(val as string),
   },
 });

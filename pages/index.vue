@@ -48,7 +48,9 @@
             <ul class="sample-list flex">
               <li><button @click.prevent="toggleFooterTheme('theme-default')">Default (transparent background)</button></li>
               <li><button @click.prevent="toggleFooterTheme('theme-white')">White</button></li>
-              <li><button @click.prevent="toggleFooterTheme('theme-dark')">Dark</button></li>
+              <li><button @click.prevent="toggleFooterTheme('theme-grey')">Grey</button></li>
+              <li><button @click.prevent="toggleFooterTheme('theme-blue')">Blue</button></li>
+              <li><button @click.prevent="toggleFooterTheme('theme-green')">Green</button></li>
             </ul>
 
             <h2 class="text-header-medium">Full Page themes</h2>
