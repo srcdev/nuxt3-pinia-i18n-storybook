@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>Store array actions (Add/Remove object)</h1>
+    <h1 class="text-header-medium">Store array actions (Add/Remove object)</h1>
+    <p class="text-normal">Passed as a prop in this example as follows.</p>
+    <code class="text-normal pt-10 pb-10"> &lt;ArrayActions :sb-array-item="{ name: 'Name D', description: 'Description D', }" &gt;&lt;/ArrayActions&gt; </code>
     <section>
       <h2>Store actions</h2>
       <div>
@@ -10,11 +12,11 @@
       </div>
     </section>
     <section>
-      <h2>Display array <strong>sbArray</strong></h2>
+      <h2 class="text-header-medium">Display array <strong>sbArray</strong></h2>
       <div>
         <template v-for="item in sbArray">
           <div>
-            <p><strong>Name:</strong> {{ item.name }} | <strong>Description:</strong> {{ item.description }}</p>
+            <p class="text-normal"><strong>Name:</strong> {{ item.name }} | <strong>Description:</strong> {{ item.description }}</p>
           </div>
         </template>
       </div>
@@ -48,7 +50,7 @@ const addToStore = async () => {
   emit("arrayUpdated", {
     itemAdded: itemAdded,
   });
-  buttonText.value = itemAdded ? t("store-sample-actions.array-actions.button-text-add") : t("store-sample-actions.array-actions.button-text-remove");
+  buttonText.value = itemAdded ? t("store-sample-actions.array-actions.button-text-remove") : t("store-sample-actions.array-actions.button-text-add");
 };
 </script>
 

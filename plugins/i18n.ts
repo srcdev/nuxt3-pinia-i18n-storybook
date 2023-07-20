@@ -10,8 +10,9 @@ export default defineNuxtPlugin((nuxtApp) => {
   const i18n = createI18n({
     legacy: false,
     globalInjection: true,
-    locale: rootStore.locale, //config.locale.defaultLocale || 'en',
-    fallbackLocale: rootStore.fallbackLocale || "en",
+    locale: rootStore.locale,
+    locales: rootStore.locales,
+    fallbackLocale: rootStore.fallbackLocale,
     messages: messages,
   });
 

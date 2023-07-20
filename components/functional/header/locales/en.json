@@ -1,7 +1,7 @@
 {
   "header": {
-    "text": "Header text from i18n dynamic imports",
-    "signedIn": "Signed in",
-    "signedOut": "Signed out"
+    "text": "[en] Header text from i18n dynamic imports",
+    "signedIn": "[en] Signed in",
+    "signedOut": "[en] Signed out"
   }
 }

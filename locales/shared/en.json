@@ -1,23 +1,23 @@
 {
   "i18nExamples": {
-    "simpleTextKey": "This is a simple single entry key/value pair",
-    "simpleTextKeyWithSingleVar": "This should container a number { count }.",
-    "simpleTextKeyWithManyVars": "This is a simple { count1 } of { count2 } and { count3 }.",
-    "messageBasedOnItemCount": "No items selected | You have { count } item selected | You have { count } items selected",
+    "simpleTextKey": "[en] This is a simple single entry key/value pair",
+    "simpleTextKeyWithSingleVar": "[en] This should container a number { count }.",
+    "simpleTextKeyWithManyVars": "[en] This is a simple { count1 } of { count2 } and { count3 }.",
+    "messageBasedOnItemCount": "[en] No items selected | You have { count } item selected | You have { count } items selected",
     "telephone": {
-      "text": "Tel: {link}",
-      "href": "tel:+447700912123",
-      "linkText": "07700 912 123"
+      "text": "[en] Tel: {link}",
+      "href": "[en] tel:+447700912123",
+      "linkText": "[en] 07700 912 123"
     },
     "changeFlight": {
-      "info": "You can {action} until {limit} minutes from departure.",
-      "change": "change your flight",
-      "changeLimit": "15",
-      "changeUrl": "/change",
-      "refund": "refund the ticket"
+      "info": "[en] You can {action} until {limit} minutes from departure.",
+      "change": "[en] change your flight",
+      "changeLimit": "[en] 15",
+      "changeUrl": "[en] /change",
+      "refund": "[en] refund the ticket"
     }
   },
   "shared": {
-    "title": "Sample shared title entry"
+    "title": "[en] Sample shared title entry"
   }
 }

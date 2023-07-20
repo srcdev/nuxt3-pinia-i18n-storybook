@@ -1,8 +1,8 @@
 {
   "store-sample-actions": {
     "array-actions": {
-      "button-text-add": "Add object to array (i18n)",
-      "button-text-remove": "Remove object from array (i18n)"
+      "button-text-add": "[en] Add object to array (i18n)",
+      "button-text-remove": "[en] Remove object from array (i18n)"
     }
   }
 }

@@ -6,6 +6,7 @@ export interface ISbItemObj {
 export interface IRootStore {
   fallbackLocale: string;
   locale: string;
+  locales: object;
   someString: string;
   sbArray: ISbItemObj[];
 }

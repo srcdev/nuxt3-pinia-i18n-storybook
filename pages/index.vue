@@ -63,11 +63,11 @@
             <div class="mt-12 mb-12 spotlight">
               <div class="spotlight-inner">
                 <h2 class="text-header-medium">Spotlight header</h2>
-                <p>Some spotlight text or other content will go in here, obvs this is just a sample.</p>
+                <p class="text-normal">Some spotlight text or other content will go in here, obvs this is just a sample.</p>
               </div>
             </div>
 
-            <p>
+            <p class="text-normal">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id dolor quam. Ut lacinia finibus pellentesque. Fusce ipsum erat, maximus ac malesuada sed, lacinia nec ipsum. In eget ex ex. Mauris mattis condimentum sollicitudin. Morbi sagittis justo ac nunc pulvinar gravida. Aenean et nulla ut odio sagittis gravida. Curabitur at ante volutpat velit aliquam finibus mattis ut est.
               Quisque sit amet orci libero.
             </p>
@@ -81,12 +81,12 @@
             <template #flexGroup>
               <FlexGroupItem :flex-grow="false">
                 <template #flexItem>
-                  <p>Flex Group Item</p>
+                  <p class="text-normal">Flex Group Item</p>
                 </template>
               </FlexGroupItem>
               <FlexGroupItem :flex-grow="false">
                 <template #flexItem>
-                  <p>Flex Group Item</p>
+                  <p class="text-normal">Flex Group Item</p>
                 </template>
               </FlexGroupItem>
             </template>
@@ -102,17 +102,17 @@
             <template #content>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
             </template>
@@ -128,17 +128,17 @@
             <template #content>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
             </template>
@@ -154,32 +154,32 @@
             <template #content>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
               <SimpleGridItem>
                 <template #content>
-                  <p>Simple Grid Item</p>
+                  <p class="text-normal">Simple Grid Item</p>
                 </template>
               </SimpleGridItem>
             </template>
@@ -191,7 +191,12 @@
         <template #pageRowContent>
           <div>
             <h2 class="text-header-medium">Store Array Actions</h2>
-            <ArrayActions></ArrayActions>
+            <ArrayActions
+              :sb-array-item="{
+                name: 'Name D',
+                description: 'Description D',
+              }"
+            ></ArrayActions>
           </div>
         </template>
       </PageRow>
@@ -210,16 +215,16 @@
         <template #pageRowContent>
           <div>
             <h1>Layout Row - (Desktop)</h1>
-            <p>
+            <p class="text-normal">
               Eiusmod corned beef quis, kielbasa nostrud brisket spare ribs meatball swine salami deserunt chuck pork chop buffalo irure. Aliquip labore deserunt jerky sed excepteur sausage tri-tip minim pork belly. Jowl commodo burgdoggen fatback mollit. Eiusmod drumstick fugiat buffalo in shoulder, consequat andouille esse ex leberkas irure meatball id. Brisket cow mollit t-bone meatloaf tri-tip
               sunt adipisicing lorem burgdoggen. Irure kevin tri-tip ea ut.
             </p>
-            <p>
+            <p class="text-normal">
               Cow salami venison, dolor ipsum consectetur nulla elit spare ribs capicola meatball enim pig. Porchetta tongue veniam buffalo cow, shoulder fugiat pork. Pork frankfurter proident cow laboris, consequat cupim kevin ribeye leberkas dolore cillum salami. In tail t-bone ex jerky veniam. Minim venison short ribs ground round. Cillum dolore voluptate pariatur, meatball jerky kielbasa elit
               officia hamburger veniam rump pork belly.
             </p>
-            <p>Landjaeger sint mollit cupim, picanha ribeye ut bresaola. Ground round ut labore est nisi ad id landjaeger fatback capicola magna spare ribs. Duis ham hock pork loin ullamco ground round lorem pork chop picanha velit non eiusmod aliquip aute beef ribs bacon. Prosciutto filet mignon bacon reprehenderit lorem, velit rump corned beef duis.</p>
-            <p>Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
+            <p class="text-normal">Landjaeger sint mollit cupim, picanha ribeye ut bresaola. Ground round ut labore est nisi ad id landjaeger fatback capicola magna spare ribs. Duis ham hock pork loin ullamco ground round lorem pork chop picanha velit non eiusmod aliquip aute beef ribs bacon. Prosciutto filet mignon bacon reprehenderit lorem, velit rump corned beef duis.</p>
+            <p class="text-normal">Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
           </div>
         </template>
       </PageRow>
@@ -228,14 +233,14 @@
         <template #pageRowContent>
           <div>
             <h1>Layout Row - (Max container)</h1>
-            <p>
+            <p class="text-normal">
               Bacon ipsum dolor amet ullamco tenderloin alcatra biltong venison, excepteur veniam elit meatball non short loin do beef ribs tongue. Labore consequat duis, ut salami tempor dolor voluptate doner ipsum quis magna biltong qui. Sunt tri-tip enim jowl kielbasa leberkas pastrami. Bacon qui pork chop, bresaola tenderloin commodo in hamburger laboris kevin flank shank picanha sint. Shank
               bacon andouille ball tip esse capicola exercitation ad veniam ullamco. Qui spare ribs mollit, eiusmod bacon elit sed laboris tenderloin dolor bresaola. Capicola burgdoggen ribeye consectetur.
             </p>
-            <p>Beef ribs filet mignon chislic, minim ullamco occaecat rump shoulder dolore velit irure sausage. Corned beef andouille burgdoggen minim nulla. Andouille labore shank exercitation, tongue alcatra short loin strip steak in voluptate ut swine consectetur. Tenderloin id cupim, in salami brisket tri-tip adipisicing incididunt burgdoggen.</p>
+            <p class="text-normal">Beef ribs filet mignon chislic, minim ullamco occaecat rump shoulder dolore velit irure sausage. Corned beef andouille burgdoggen minim nulla. Andouille labore shank exercitation, tongue alcatra short loin strip steak in voluptate ut swine consectetur. Tenderloin id cupim, in salami brisket tri-tip adipisicing incididunt burgdoggen.</p>
           </div>
 
-          <p>
+          <p class="text-normal">
             String: <em>"{{ rootStore.someString }}"</em> from <strong><code>rootStore.someString</code></strong>
           </p>
         </template>

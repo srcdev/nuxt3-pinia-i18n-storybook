@@ -7,6 +7,7 @@ export const useRootStore = defineStore({
   state: (): IRootStore => ({
     fallbackLocale: "en",
     locale: "en",
+    locales: ["en", "es"],
     someString: "someString value",
     sbArray: [
       {

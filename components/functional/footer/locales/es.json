@@ -1,0 +1,16 @@
+{
+  "footer": {
+    "title": "[es] Footer",
+    "links": {
+      "home": {
+        "text": "[es] Homepage",
+        "url": "/"
+      },
+      "contact": {
+        "text": "[es] Contact",
+        "url": "/"
+      }
+    },
+    "copyright": "[es] &copy; { year } all rights reserved"
+  }
+}
