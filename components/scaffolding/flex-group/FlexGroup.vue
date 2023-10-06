@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-group" :class="[classes, `flow-${flexFlow}`, { 'inline-flex': flexType === 'inline-flex' }, { 'fit-width': fitWidth }, { 'fit-height': fitHeight }, { 'viewport-height': viewportHeight }]" :align-items="alignItems" :justify-content="justifyContent">
+  <div class="flex-group" :class="[classes, `flow-${flexFlow}`, `flex-wrap`, { 'inline-flex': flexType === 'inline-flex' }, { 'fit-width': fitWidth }, { 'fit-height': fitHeight }, { 'viewport-height': viewportHeight }]" :align-items="alignItems" :justify-content="justifyContent">
     <slot name="flexGroup"></slot>
   </div>
 </template>
@@ -15,6 +15,11 @@ const props = defineProps({
     type: String,
     default: "row",
     validator: (val: string) => ["column", "column-reverse", "row", "row-reverse"].includes(val),
+  },
+  flexWrap: {
+    type: String,
+    default: "nowrap",
+    validator: (val: string) => ["initial", "nowrap", "wrap", "wrap-reverse", "cols-to-row"].includes(val),
   },
   alignItems: {
     type: String,
@@ -132,5 +137,10 @@ const props = defineProps({
   // }
 
   // }
+  &.flex {
+    &-wrap {
+      flex-wrap: v-bind(flexWrap);
+    }
+  }
 }
 </style>
