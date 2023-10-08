@@ -1,0 +1,25 @@
+{
+  "root": true,
+  "parser": "vue-eslint-parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:json/recommended-with-comments",
+    "plugin:markdown/recommended",
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:@typescript-eslint/recommended",
+    // "plugin:vue-test-utils/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "vue/multi-word-component-names": [
+      "error",
+      {
+        "ignores": ["default", "index"]
+      }
+    ]
+    // "vue-test-utils/no-deprecated-wrapper-functions": "error"
+  }
+}

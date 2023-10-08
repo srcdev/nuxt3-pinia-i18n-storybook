@@ -1,9 +1,4 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  // ===
-  // Spacing
-  // ===
-
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
@@ -12,60 +7,26 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
 
-  // ===
-  // Files
-  // ===
-  "files.exclude": {
-    "**/*.log": true,
-    "**/*.log*": true,
-    "**/dist": true,
-    "**/coverage": true
-  },
-
-  // ===
-  // Editor completion
-  // ===
-  "editor.quickSuggestions": {
-    "other": true,
-    "comments": true,
-    "strings": true
-  },
-  "editor.acceptSuggestionOnCommitCharacter": true,
-  "editor.acceptSuggestionOnEnter": "on",
-  "editor.quickSuggestionsDelay": 10,
-  "editor.suggestOnTriggerCharacters": true,
-  "editor.tabCompletion": "on",
-  "editor.suggest.localityBonus": true,
-  "editor.suggestSelection": "recentlyUsed",
-  "editor.wordBasedSuggestions": true,
-  "editor.parameterHints.enabled": true,
-  "editor.snippetSuggestions": "top",
-  // ===
-  // Event Triggers
-  // ===
-  "vetur.validation.template": false,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
-    "source.fixAll.markdownlint": true
-  },
-  // "rules": {
-  //   "vue/require-default-prop": "on"
-  // },
-  "eslint.validate": ["javascript", "typescript", "vue", "vue-html", "html"],
-  // ===
-  // MARKDOWN
-  // ===
-  "[markdown]": {
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 80
+  "[typescript][javascript][json][jsonc][css][scss][html][markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true,
+      "source.fixAll.markdownlint": true,
+      "editor.trimAutoWhitespace": true
+    }
   },
   "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true,
+      "source.fixAll.markdownlint": true,
+      "editor.trimAutoWhitespace": true
+    }
   },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": ["javascript", "typescript", "json", "jsonc", "vue", "markdown", "html"]
 }
