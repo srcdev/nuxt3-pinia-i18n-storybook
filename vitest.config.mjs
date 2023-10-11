@@ -5,7 +5,7 @@ import { defineVitestConfig } from "nuxt-vitest/config";
 export default defineVitestConfig({
   test: {
     globals: true,
-    include: "**/*.nuxt.spec.ts",
+    include: ["**/*.nuxt.spec.ts"],
     environment: "nuxt",
     environmentOptions: {
       nuxt: {
