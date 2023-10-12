@@ -32,28 +32,28 @@ const Template: StoryFn<typeof FlexGroup> = (args) => ({
 export const FlowRow = Template.bind({});
 let defaultArgs = `
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 1</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 2</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 3</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 4</h1>
       </div>
@@ -75,28 +75,28 @@ FlowRow.args = {
 export const FlowRowReverse = Template.bind({});
 defaultArgs = `
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 1</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 2</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 3</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 4</h1>
       </div>
@@ -118,28 +118,28 @@ FlowRowReverse.args = {
 export const FlowColumn = Template.bind({});
 defaultArgs = `
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 1</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 2</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 3</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 4</h1>
       </div>
@@ -160,28 +160,28 @@ FlowColumn.args = {
 export const FlowColumnReverse = Template.bind({});
 defaultArgs = `
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 1</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 2</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 3</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 4</h1>
       </div>
@@ -201,21 +201,21 @@ FlowColumnReverse.args = {
 export const WithItemGrow = Template.bind({});
 defaultArgs = `
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 1</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 2</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem :flexGrow="true">
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 3</h1>
         <p>Grow: true</p>
@@ -223,7 +223,7 @@ defaultArgs = `
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 4</h1>
       </div>
@@ -245,28 +245,28 @@ WithItemGrow.args = {
 export const ColumnSpaceAround = Template.bind({});
 defaultArgs = `
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 1</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 2</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 3</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 4</h1>
       </div>
@@ -287,28 +287,28 @@ ColumnSpaceAround.args = {
 export const ColumnSpaceBetween = Template.bind({});
 defaultArgs = `
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 1</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 2</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 3</h1>
       </div>
     </template>
   </FlexGroupItem>
   <FlexGroupItem>
-    <template #flexItem>
+    <template>
       <div>
         <h1>Item 4</h1>
       </div>
