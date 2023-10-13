@@ -260,12 +260,14 @@
   // import CommonServices from "@/services/services.common";
   import ArrayActions from "~/store-sample-actions/ArrayActions.vue";
 
+  const { public: config } = useRuntimeConfig();
+
   definePageMeta({
     layout: false,
   });
 
   useHead({
-    title: "Sample components",
+    title: "Sample components " + config.sitename,
     meta: [{ name: "description", content: "Desciption meta tag content" }],
     bodyAttrs: {
       class: "class-to-apply-if-desired",
