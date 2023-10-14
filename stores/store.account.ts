@@ -5,7 +5,8 @@ import { accountActions } from "./store.account.actions";
 export const useAccountStore = defineStore({
   id: "accountStore",
   state: (): IAccountState => ({
-    signedIn: false
+    signedIn: false,
   }),
-  actions: accountActions
+  persist: true,
+  actions: accountActions,
 });

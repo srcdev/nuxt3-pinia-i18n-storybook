@@ -21,5 +21,7 @@ export const useRootStore = defineStore({
       },
     ],
   }),
+
+  persist: true,
   actions: rootActions,
 });

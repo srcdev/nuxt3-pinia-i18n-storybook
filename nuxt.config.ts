@@ -34,14 +34,17 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@pinia/nuxt", "nuxt-vitest"],
+  modules: ["@pinia/nuxt", "nuxt-vitest", "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt"],
+  i18n: {
+    vueI18n: "./i18n.config.ts",
+  },
   components: [
     {
       path: "~/components",
       pathPrefix: false,
     },
   ],
-  plugins: ["@/plugins/i18n"],
+  // plugins: ["@/plugins/i18n"],
   app: {
     head: {
       htmlAttrs: {

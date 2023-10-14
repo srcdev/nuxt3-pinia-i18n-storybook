@@ -19,5 +19,7 @@ export const useI18nStore = defineStore({
       },
     ],
   }),
+
+  persist: true,
   actions: i18nActions,
 });
