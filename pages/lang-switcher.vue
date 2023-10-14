@@ -5,7 +5,10 @@
         <PageRow :fit-content="true" :apply-gutters="true" page-row-theme="theme-default" page-row-inner-theme="theme-default">
           <template #pageRowContent>
             <div>
-              <h1 class="text-header-large">Home</h1>
+              <h1 class="text-header-large">{{ t("lang-switcher.title") }}</h1>
+            </div>
+            <div>
+              <LocaleSwitcher></LocaleSwitcher>
             </div>
           </template>
         </PageRow>
@@ -15,6 +18,8 @@
 </template>
 
 <script setup lang="ts">
+  import { useI18n } from "vue-i18n";
+
   definePageMeta({
     layout: false,
   });
@@ -26,6 +31,8 @@
       class: "",
     },
   });
+
+  const { t } = useI18n();
 </script>
 
 <style lang="scss" scoped>

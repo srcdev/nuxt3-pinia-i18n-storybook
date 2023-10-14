@@ -70,32 +70,32 @@ export default defineNuxtConfig({
       mode: "out-in",
     },
   },
-  vite: {
-    plugins: [
-      AutoImport({
-        imports: ["vue", "vue-router"],
-        dirs: ["./composables", "./stores"],
-        vueTemplate: true,
-      }),
-      Components({
-        dirs: ["./composables", "./components"],
-        dts: true,
-        directoryAsNamespace: true,
-      }),
-    ],
-    resolve: {
-      alias: {
-        "~": fileURLToPath(new URL("./", import.meta.url)),
-      },
-    },
-    server: {
-      proxy: {
-        "/api/": {
-          target: GlobalSettings[appEnv].apiBaseURL,
-          changeOrigin: true,
-          // rewrite: (path) => path.replace(/^\/api\/resources/, '')
-        },
-      },
-    },
-  },
+  // vite: {
+  //   plugins: [
+  //     AutoImport({
+  //       imports: ["vue", "vue-router"],
+  //       dirs: ["./composables", "./stores"],
+  //       vueTemplate: true,
+  //     }),
+  //     Components({
+  //       dirs: ["./composables", "./components"],
+  //       dts: true,
+  //       directoryAsNamespace: false,
+  //     }),
+  //   ],
+  //   resolve: {
+  //     alias: {
+  //       "~": fileURLToPath(new URL("./", import.meta.url)),
+  //     },
+  //   },
+  //   server: {
+  //     proxy: {
+  //       "/api/": {
+  //         target: GlobalSettings[appEnv].apiBaseURL,
+  //         changeOrigin: true,
+  //         // rewrite: (path) => path.replace(/^\/api\/resources/, '')
+  //       },
+  //     },
+  //   },
+  // },
 });

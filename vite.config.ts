@@ -13,7 +13,7 @@ export default defineConfig({
     Components({
       dirs: ["./composables", "./components"],
       dts: true,
-      directoryAsNamespace: true,
+      directoryAsNamespace: false,
     }),
   ],
   resolve: {

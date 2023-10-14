@@ -1,6 +1,6 @@
 import { createPinia } from "pinia";
-import { useRootStore } from "@/stores/store.root";
-const rootStore = useRootStore(createPinia());
+import { useI18nStore } from "@/stores/store.i18n";
+const i18nStore = useI18nStore(createPinia());
 
 export const translations: any = {};
 let messages = import.meta.glob("@/**/locales/**/*.json", {
@@ -8,15 +8,14 @@ let messages = import.meta.glob("@/**/locales/**/*.json", {
   eager: true,
 }) as any;
 
-const locales = rootStore.locales;
-// const locales: Object = ["en", "es"];
+const locales = i18nStore.locales;
 
-Object.entries(locales).forEach(([keys, value]) => {
-  const localPath = `${value}.json`;
+Object.entries(locales).forEach(([keys, locale]) => {
+  const localPath = `${locale.code}.json`;
   Object.keys(messages).forEach((element) => {
     if (element.indexOf(localPath) > -1) {
-      translations[value] = {
-        ...translations[value],
+      translations[locale.code] = {
+        ...translations[locale.code],
         ...messages[element],
       };
     }

@@ -1,15 +1,15 @@
 import { config } from "@vue/test-utils";
 import { createI18n } from "vue-i18n";
 import messages from "@/locales/";
-import { useRootStore } from "@/stores/store.root";
+import { useI18nStore } from "@/stores/store.i18n";
 
-const rootStore = useRootStore();
+const i18nStore = useI18nStore();
 const i18n = createI18n({
   legacy: false,
   globalInjection: true,
-  locale: rootStore.locale,
-  locales: rootStore.locales,
-  fallbackLocale: rootStore.fallbackLocale,
+  locale: i18nStore.locale,
+  locales: i18nStore.locales,
+  fallbackLocale: i18nStore.fallbackLocale,
   messages: messages,
 });
 
