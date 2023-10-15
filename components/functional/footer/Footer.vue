@@ -17,62 +17,70 @@
 </template>
 
 <script setup lang="ts">
-import { useRootStore } from "@/stores/store.root";
-import LayoutRow from "@/components/scaffolding/layout-row/LayoutRow.vue";
+  import { useRootStore } from "@/stores/store.root";
+  import LayoutRow from "@/components/scaffolding/layout-row/LayoutRow.vue";
 
-// import { useI18n } from "vue-i18n";
+  // import { useI18n } from "vue-i18n";
 
-const props = defineProps({
-  someProp: {
-    type: String,
-    value: "value1",
-    validator(value: string) {
-      return ["value1", "value2"].includes(value);
+  const props = defineProps({
+    someProp: {
+      type: String,
+      value: "value1",
+      validator(value: string) {
+        return ["value1", "value2"].includes(value);
+      },
     },
-  },
-  footerTheme: {
-    type: String,
-    value: "theme-default",
-    validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
-  },
-});
+    footerTheme: {
+      type: String,
+      value: "theme-default",
+      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
+    },
+  });
 
-const footerLinks = [
-  {
-    text: "footer.links.home.text",
-    url: "footer.links.home.url",
-  },
-];
-// const { t } = useI18n();
-const rootStore = useRootStore();
-const currentYear = new Date().getFullYear();
+  const footerLinks = [
+    {
+      text: "footer.links.home.text",
+      url: "footer.links.home.url",
+    },
+    {
+      text: "footer.links.components.text",
+      url: "footer.links.components.url",
+    },
+    {
+      text: "footer.links.lang-switcher.text",
+      url: "footer.links.lang-switcher.url",
+    },
+  ];
+  // const { t } = useI18n();
+  const rootStore = useRootStore();
+  const currentYear = new Date().getFullYear();
 </script>
 
 <style lang="scss">
-@import "@/assets/styles/imports.scss";
+  @import "@/assets/styles/imports.scss";
 
-.footer {
-  // $self: &;
+  .footer {
+    // $self: &;
 
-  &-inner {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &-links {
-    &-list {
+    &-inner {
+      align-items: center;
       display: flex;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
+      flex-direction: column;
     }
-    // &-item {
-    // }
-    &-link {
-      display: block;
-      padding: 0.6rem;
+
+    &-links {
+      &-list {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      // &-item {
+      // }
+      &-link {
+        display: block;
+        padding: 0.6rem;
+      }
     }
   }
-}
 </style>

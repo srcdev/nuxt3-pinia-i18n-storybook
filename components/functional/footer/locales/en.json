@@ -6,6 +6,14 @@
         "text": "[en] Homepage",
         "url": "/"
       },
+      "components": {
+        "text": "[en] Sample layout",
+        "url": "/samples/components"
+      },
+      "lang-switcher": {
+        "text": "[en] Language switcher",
+        "url": "/lang-switcher"
+      },
       "contact": {
         "text": "[en] Contact",
         "url": "/"
