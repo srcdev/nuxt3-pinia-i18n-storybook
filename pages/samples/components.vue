@@ -297,8 +297,8 @@
     // return pageTheme.value === "theme-grey" || pageTheme.value === "theme-blue" || pageTheme.value === "theme-green" || pageRowTheme.value === "theme-grey" || pageRowTheme.value === "theme-blue" || pageRowTheme.value === "theme-green" || pageRowInnerTheme.value === "theme-grey" || pageRowInnerTheme.value === "theme-blue" || pageRowInnerTheme.value === "theme-green";
   });
 
-  const toggleLeftNav = (loggedIn: boolean) => {
-    accountStore.updateLoginState(loggedIn);
+  const toggleLeftNav = (signedIn: boolean) => {
+    accountStore.updateLoginState(signedIn);
   };
 
   const togglePageTheme = (brand: string) => {
