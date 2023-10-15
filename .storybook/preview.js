@@ -127,7 +127,6 @@ const head = createHead({
 const i18n = createI18n({
   langDir: "locales",
   messages: translations,
-  defaultLocale: "en",
   legacy: false,
   locale: "en",
 });

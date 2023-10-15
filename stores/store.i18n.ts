@@ -5,7 +5,6 @@ import { i18nActions } from "@/stores/store.i18n.actions";
 export const useI18nStore = defineStore({
   id: "i18nStore",
   state: (): II18nStore => ({
-    defaultLocale: "en",
     fallbackLocale: "en",
     locale: "en",
     locales: [
@@ -19,7 +18,6 @@ export const useI18nStore = defineStore({
       },
     ],
   }),
-
   persist: true,
   actions: i18nActions,
 });

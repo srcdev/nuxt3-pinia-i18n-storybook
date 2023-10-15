@@ -4,7 +4,6 @@ export interface ILocaleItem {
 }
 
 export interface II18nStore {
-  defaultLocale: string;
   fallbackLocale: string;
   locale: string;
   locales: ILocaleItem[];

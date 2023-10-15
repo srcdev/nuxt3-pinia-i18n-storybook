@@ -33,75 +33,85 @@
 </template>
 
 <script setup lang="ts">
-import { useAccountStore } from "@/stores/store.account"; // Only need to import here due to lack of imports support within Storybook.
+  import { useI18nStore } from "@/stores/store.i18n";
+  import { useAccountStore } from "@/stores/store.account"; // Only need to import here due to lack of imports support within Storybook.
 
-const props = defineProps({
-  pageTheme: {
-    type: String,
-    default: "theme-default",
-    validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
-  },
-  footerTheme: {
-    type: String,
-    default: "theme-default",
-    validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
-  },
-  headerTheme: {
-    type: String,
-    default: "header-default",
-    validator: (val) => ["header-default", "header-dark"].includes(val as string),
-  },
-});
+  const props = defineProps({
+    pageTheme: {
+      type: String,
+      default: "theme-default",
+      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
+    },
+    footerTheme: {
+      type: String,
+      default: "theme-default",
+      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
+    },
+    headerTheme: {
+      type: String,
+      default: "header-default",
+      validator: (val) => ["header-default", "header-dark"].includes(val as string),
+    },
+  });
 
-const accountStore = useAccountStore();
-const showLeftNav = computed(() => accountStore.signedIn);
+  const accountStore = useAccountStore();
+  const showLeftNav = computed(() => accountStore.signedIn);
+
+  /*
+   * SET i18n locale from persisted store
+   **/
+  const { setLocale } = useI18n();
+  const i18nStore = useI18nStore();
+  onMounted(() => {
+    setLocale(i18nStore.locale);
+  });
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/imports.scss";
+  @import "@/assets/styles/imports.scss";
 
-.layout-grid {
-  &.has-nav {
-    @include mqDesktopContentMax {
-      display: grid;
-      grid-template-columns: 216px auto;
-      gap: 0px;
-    }
-
-    .layout-left-nav {
-      display: none;
+  .layout-grid {
+    &.has-nav {
       @include mqDesktopContentMax {
         display: grid;
-        grid-column-start: 1;
-        // transform: translateY(-1px);
+        grid-template-columns: 216px auto;
+        gap: 0px;
+      }
+
+      .layout-left-nav {
+        display: none;
+        @include mqDesktopContentMax {
+          display: grid;
+          grid-column-start: 1;
+          // transform: translateY(-1px);
+        }
+      }
+
+      .layout-content {
+        @include mqDesktopContentMax {
+          display: grid;
+          grid-column-start: 2;
+        }
       }
     }
 
-    .layout-content {
-      @include mqDesktopContentMax {
-        display: grid;
-        grid-column-start: 2;
-      }
+    transition: all linear 200ms;
+  }
+
+  .layout-content {
+    margin: 0 auto;
+    // max-width: $desktop-content-width;
+    width: 100%;
+  }
+
+  .left-nav {
+    background-color: $color-grey-1;
+    color: $white;
+    margin-right: 16px;
+    width: 216px;
+
+    &-inner {
+      padding: 0 12px;
     }
   }
-
-  transition: all linear 200ms;
-}
-
-.layout-content {
-  margin: 0 auto;
-  // max-width: $desktop-content-width;
-  width: 100%;
-}
-
-.left-nav {
-  background-color: $color-grey-1;
-  color: $white;
-  margin-right: 16px;
-  width: 216px;
-
-  &-inner {
-    padding: 0 12px;
-  }
-}
 </style>
