@@ -22,4 +22,8 @@ export const rootActions = {
 
     return itemAdded;
   },
+
+  setIsIos(this: IRootStore) {
+    this.isIos = navigator.userAgent.indexOf("iPad") > -1 || navigator.userAgent.indexOf("iPhone") > -1;
+  },
 };

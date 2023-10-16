@@ -34,7 +34,9 @@
 
 <script setup lang="ts">
   import { useI18nStore } from "@/stores/store.i18n";
-  import { useAccountStore } from "@/stores/store.account"; // Only need to import here due to lack of imports support within Storybook.
+  import { useAccountStore } from "@/stores/store.account";
+  import { useRootStore } from "@/stores/store.root";
+  const runtimeConfig = useRuntimeConfig();
 
   const props = defineProps({
     pageTheme: {
@@ -55,7 +57,10 @@
   });
 
   const accountStore = useAccountStore();
+  const rootStore = useRootStore();
   const showLeftNav = computed(() => accountStore.signedIn);
+
+  // console.log("siteEnvironment:", runtimeConfig.public.siteEnvironment);
 
   /*
    * SET i18n locale from persisted store
@@ -64,6 +69,9 @@
   const i18nStore = useI18nStore();
   onMounted(() => {
     setLocale(i18nStore.locale);
+    if (rootStore.isIos === null) {
+      rootStore.setIsIos();
+    }
   });
 </script>
 

@@ -37,7 +37,7 @@
             <div class="pb-12 pt-12 mb-12">
               <h2 class="text-header-medium">Toggle signed in navigation</h2>
 
-              <button @click.prevent="toggleLeftNav(!showLeftNav)">Toggle laft nav open/closed</button>
+              <button @click.prevent="toggleLeftNav()">Toggle laft nav open/closed</button>
 
               <h2 class="text-header-medium">Header themes</h2>
               <ul class="sample-list flex">
@@ -281,7 +281,7 @@
   // await CommonServices.samplePost("testing");
 
   const accountStore = useAccountStore();
-  const showLeftNav = computed(() => accountStore.signedIn);
+  const signedIn = computed(() => accountStore.signedIn);
 
   const layoutName = "default";
   const pageTheme = shallowRef("theme-default");
@@ -297,8 +297,12 @@
     // return pageTheme.value === "theme-grey" || pageTheme.value === "theme-blue" || pageTheme.value === "theme-green" || pageRowTheme.value === "theme-grey" || pageRowTheme.value === "theme-blue" || pageRowTheme.value === "theme-green" || pageRowInnerTheme.value === "theme-grey" || pageRowInnerTheme.value === "theme-blue" || pageRowInnerTheme.value === "theme-green";
   });
 
-  const toggleLeftNav = (signedIn: boolean) => {
-    accountStore.updateLoginState(signedIn);
+  const toggleLeftNav = () => {
+    if (signedIn.value) {
+      accountStore.signOut();
+    } else {
+      accountStore.signIn();
+    }
   };
 
   const togglePageTheme = (brand: string) => {

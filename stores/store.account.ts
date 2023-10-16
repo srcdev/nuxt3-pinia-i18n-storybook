@@ -6,6 +6,9 @@ export const useAccountStore = defineStore({
   id: "accountStore",
   state: (): IAccountState => ({
     signedIn: false,
+    currentUser: {
+      name: null,
+    },
   }),
   persist: true,
   actions: accountActions,

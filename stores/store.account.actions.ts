@@ -1,28 +1,20 @@
 import { IAccountState } from "@/types/types.accountStore";
 
 export const accountActions = {
-  async updateLoginState(this: IAccountState, payload: boolean) {
-    if (this.signedIn) {
-      this.signOut(payload);
-    } else {
-      this.signIn(payload);
-    }
-  },
-  async signIn(this: IAccountState, payload: boolean) {
+  async signIn(this: IAccountState) {
     await useFetch("/api/sign-in").then((response) => {
-      this.signedIn = response.data.value;
-      this.currentUser.name = "Test";
-
       const cookieSignedIn = useCookie(".AUTH", {
         sameSite: true,
       });
-      if (response.data) {
-        cookieSignedIn.value = true;
+      if (response.data.value) {
+        this.signedIn = response.data.value;
+        this.currentUser.name = "Test";
+        cookieSignedIn.value = "true";
       }
     });
   },
-  async signOut(this: IAccountState, payload: boolean) {
-    await useFetch("/api/sign-out").then((response) => {
+  async signOut(this: IAccountState) {
+    await useFetch("/api/sign-out").then(() => {
       this.signedIn = false;
       this.currentUser.name = "";
 
@@ -32,4 +24,11 @@ export const accountActions = {
       cookieSignedIn.value = null;
     });
   },
+  // async updateLoginState(this: IAccountState, payload: boolean) {
+  //   if (this.signedIn) {
+  //     this.signOut(payload);
+  //   } else {
+  //     this.signIn(payload);
+  //   }
+  // },
 };

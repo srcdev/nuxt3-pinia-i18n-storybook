@@ -20,8 +20,8 @@ export const useRootStore = defineStore({
         description: "Description C",
       },
     ],
+    isIos: null,
   }),
-
   persist: true,
   actions: rootActions,
 });

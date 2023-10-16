@@ -6,4 +6,5 @@ export interface ISbItemObj {
 export interface IRootStore {
   someString: string;
   sbArray: ISbItemObj[];
+  isIos: null | boolean;
 }
