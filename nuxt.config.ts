@@ -2,8 +2,8 @@ import { fileURLToPath } from "url";
 import { defineNuxtConfig } from "nuxt/config";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
-import { GlobalSettings } from "./environmentsettings";
-const appEnv = process.env.NODE_ENV;
+// import { GlobalSettings } from "./environmentsettings";
+// const appEnv = process.env.NODE_ENV;
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -19,8 +19,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       sitename: "Website name",
-      siteEnvironment: GlobalSettings[appEnv].siteEnvironment,
-      apiBaseURL: GlobalSettings[appEnv].apiBaseURL,
+      siteEnvironment: "Dev",
+      apiBaseURL: "https://localhost:3000",
     },
   },
 

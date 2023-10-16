@@ -1,8 +1,6 @@
 import messages from "@/locales/";
 import { useI18nStore } from "@/stores/store.i18n";
 
-console.log("useI18nStore: ", useI18nStore());
-
 export default defineI18nConfig(() => ({
   lazy: true,
   legacy: false,
