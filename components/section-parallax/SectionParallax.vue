@@ -23,6 +23,7 @@
     },
     bgImage: {
       type: String,
+      default: null,
     },
     bgHeight: {
       type: String,
@@ -75,16 +76,16 @@
       // padding-bottom: 200px;
     }
 
-    @include minWidth($tabletSmall) {
+    @media only screen and (min-width: $tabletSmall) {
       &.has-info-row {
         // padding-bottom: 0;
       }
       min-height: 75vh;
     }
-    @include minWidth($tabletLarge) {
+    @media only screen and (min-width: $tabletLarge) {
       min-height: 85vh;
     }
-    @include minWidth($screenDesktop) {
+    @media only screen and (min-width: $desktop) {
       min-height: 100vh;
     }
 
