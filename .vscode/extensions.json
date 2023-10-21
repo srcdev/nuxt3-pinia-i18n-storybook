@@ -23,7 +23,13 @@
     // Vitest Snippets
     // https://marketplace.visualstudio.com/items?itemName=deinsoftware.vitest-snippets
     "deinsoftware.vitest-snippets",
-    "garaioag.garaio-vscode-unwanted-recommendations"
+    "garaioag.garaio-vscode-unwanted-recommendations",
+
+    // Github and hosting
+    // Azure Static Web Apps
+    "ms-azuretools.vscode-azurestaticwebapps",
+    // Azure Functions
+    "ms-azuretools.vscode-azurefunctions"
   ],
   "unwantedRecommendations": ["vscode.typescript-language-features", "octref.vetur", "vue.vscode-typescript-vue-plugin"]
 }
