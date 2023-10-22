@@ -1,24 +1,23 @@
 {
   "footer": {
-    "title": "[es] Footer",
     "links": {
       "home": {
-        "text": "[es] Homepage",
+        "text": "Homepage",
         "url": "/"
       },
       "components": {
-        "text": "[es] Sample layout",
+        "text": "Sample layout",
         "url": "/samples/components"
       },
       "lang-switcher": {
-        "text": "[es] Language switcher",
+        "text": "Language switcher",
         "url": "/lang-switcher"
       },
       "contact": {
-        "text": "[es] Contact",
+        "text": "Contact",
         "url": "/"
       }
     },
-    "copyright": "[es] &copy; { year } all rights reserved"
+    "copyright": "&copy; { year } all rights reserved"
   }
 }

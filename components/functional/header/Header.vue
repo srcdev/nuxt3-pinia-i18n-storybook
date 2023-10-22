@@ -1,65 +1,61 @@
 <template>
   <header class="header" :class="[headerTheme]">
-    <h1 class="text-header-large text-color-orange">{{ $t("header.text") }}</h1>
-    <p data-test-id="shared-text-test">{{ $t("shared.title") }}</p>
-    <p data-test-id="store-test">{{ rootStore.someString }}</p>
-    <p data-test-id="props-test">{{ someProp }}</p>
-    <p data-test-id="account-state-test">{{ signedIntext }}</p>
+    <h1 class="text-header-large text-color-orange">{{ t("header.text") }}</h1>
   </header>
 </template>
 
 <script setup lang="ts">
-import { useAccountStore } from "@/stores/store.account";
-import { useRootStore } from "@/stores/store.root";
-import { useI18n } from "vue-i18n";
+  import { useAccountStore } from "@/stores/store.account";
+  import { useRootStore } from "@/stores/store.root";
+  import { useI18n } from "vue-i18n";
 
-const props = defineProps({
-  someProp: {
-    type: String,
-    value: "value1",
-    validator(value: string) {
-      return ["value1", "value2"].includes(value);
+  const props = defineProps({
+    someProp: {
+      type: String,
+      value: "value1",
+      validator(value: string) {
+        return ["value1", "value2"].includes(value);
+      },
     },
-  },
-  headerTheme: {
-    type: String,
-    value: "header-default",
-    validator(value: string) {
-      return ["header-default", "header-dark"].includes(value);
+    headerTheme: {
+      type: String,
+      value: "header-default",
+      validator(value: string) {
+        return ["header-default", "header-dark"].includes(value);
+      },
     },
-  },
-});
+  });
 
-const { t } = useI18n();
-const rootStore = useRootStore();
-const accountStore = useAccountStore();
+  const { t } = useI18n();
+  const rootStore = useRootStore();
+  const accountStore = useAccountStore();
 
-const signedIntext = computed(() => {
-  return accountStore.signedIn ? t("header.signedIn") : t("header.signedOut");
-});
+  const signedIntext = computed(() => {
+    return accountStore.signedIn ? t("header.signedIn") : t("header.signedOut");
+  });
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/imports.scss";
+  @import "@/assets/styles/imports.scss";
 
-.header-default {
-  --bgColour: #e2e2e2;
-}
-
-.header-dark {
-  --bgColour: #d2d2d2;
-}
-
-.header {
-  background-color: var(--bgColour);
-  padding: 16px;
-
-  @include mqMinTablet {
-    padding: 40px;
+  .header-default {
+    --bgColour: #e2e2e2;
   }
 
-  @include mqDesktopContentMax {
-    padding: 32px;
+  .header-dark {
+    --bgColour: #d2d2d2;
   }
-}
+
+  .header {
+    background-color: var(--bgColour);
+    padding: 16px;
+
+    @include mqMinTablet {
+      padding: 40px;
+    }
+
+    @include mqDesktopContentMax {
+      padding: 32px;
+    }
+  }
 </style>

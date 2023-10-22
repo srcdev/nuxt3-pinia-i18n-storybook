@@ -33,14 +33,14 @@ describe("_sut", () => {
     wrapper = await wrapperFactory();
 
     const textCheck = wrapper.find("h1");
-    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 class=\\"text-header-large\\" data-test-id=\\"locale-switcher-header\\">[en] Language switcher</h1>"');
+    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 class=\\"text-header-large\\" data-test-id=\\"locale-switcher-header\\">Language switcher</h1>"');
   });
 
   it("Shared i18n text", async () => {
     wrapper = await wrapperFactory();
 
     const textCheck = wrapper.find("[data-test-id='locale-switcher-header']");
-    expect(textCheck.text()).toEqual("[en] Language switcher");
+    expect(textCheck.text()).toEqual("Language switcher");
   });
 
   it("Lang switch button to be 'Español'", async () => {

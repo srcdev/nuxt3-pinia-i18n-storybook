@@ -29,14 +29,14 @@ describe("Header", () => {
     wrapper = await wrapperFactory();
 
     const textCheck = wrapper.find("h1");
-    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 data-v-b96573a8=\\"\\" class=\\"text-header-large text-color-orange\\">[en] Header text from i18n dynamic imports</h1>"');
+    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 data-v-b96573a8=\\"\\" class=\\"text-header-large text-color-orange\\">Header text from i18n dynamic imports</h1>"');
   });
 
   it("Shared i18n text", async () => {
     wrapper = await wrapperFactory();
 
     const textCheck = wrapper.find("[data-test-id='shared-text-test']");
-    expect(textCheck.text()).toEqual("[en] Sample shared title entry");
+    expect(textCheck.text()).toEqual("Sample shared title entry");
   });
 
   it("Store value entry", async () => {
@@ -90,7 +90,7 @@ describe("Header", () => {
 
     const storeCheck = wrapper.find("[data-test-id='account-state-test']");
 
-    expect(storeCheck.text()).toEqual("[en] Signed out");
+    expect(storeCheck.text()).toEqual("Signed out");
   });
 
   it("should render store signed in within nuxt suspense", async () => {
@@ -103,6 +103,6 @@ describe("Header", () => {
 
     const storeCheck = wrapper.find("[data-test-id='account-state-test']");
 
-    expect(storeCheck.text()).toEqual("[en] Signed in");
+    expect(storeCheck.text()).toEqual("Signed in");
   });
 });

@@ -1,7 +1,5 @@
 {
   "header": {
-    "text": "[en] Header text from i18n dynamic imports",
-    "signedIn": "[en] Signed in",
-    "signedOut": "[en] Signed out"
+    "text": "Nuxt3 Playground Site"
   }
 }
