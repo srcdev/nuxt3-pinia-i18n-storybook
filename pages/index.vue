@@ -28,6 +28,35 @@
 
         <PageRow :fit-content="true" :apply-gutters="false">
           <template #pageRowContent>
+            <div class="row-parallax">
+              <ul>
+                <li>Item 1</li>
+                <li>Some other tiem</li>
+                <li>And another element</li>
+                <li>4th element</li>
+                <li>so it continues</li>
+                <li>Item 1</li>
+                <li>Some other tiem</li>
+                <li>And another element</li>
+                <li>4th element</li>
+                <li>so it continues</li>
+                <li>Item 1</li>
+                <li>Some other tiem</li>
+                <li>And another element</li>
+                <li>4th element</li>
+                <li>so it continues</li>
+                <li>Item 1</li>
+                <li>Some other tiem</li>
+                <li>And another element</li>
+                <li>4th element</li>
+                <li>so it continues</li>
+              </ul>
+            </div>
+          </template>
+        </PageRow>
+
+        <PageRow :fit-content="true" :apply-gutters="false">
+          <template #pageRowContent>
             <SectionParallax bg-image="/assets/images/marrakech.jpg" bg-height="100vh" justify-items="left">
               <template #content>
                 <div class="">
@@ -74,4 +103,29 @@
 
 <style lang="scss" scoped>
   @import "@/assets/styles/imports.scss";
+
+  .row-parallax {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 0;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      gap: 4px;
+      li {
+        background-color: $white;
+        border: 1px solid $color-grey-3;
+        border-radius: 2px;
+        left: 0;
+        padding: 4px 8px;
+        position: sticky;
+        text-wrap: nowrap;
+      }
+    }
+  }
 </style>

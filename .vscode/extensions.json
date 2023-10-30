@@ -31,7 +31,10 @@
     // Azure Functions
     "ms-azuretools.vscode-azurefunctions",
     // Github Actions
-    "github.vscode-github-actions"
+    "github.vscode-github-actions",
+
+    // Nuxt R
+    "nuxtr.nuxtr-vscode"
   ],
   "unwantedRecommendations": ["vscode.typescript-language-features", "octref.vetur", "vue.vscode-typescript-vue-plugin"]
 }
