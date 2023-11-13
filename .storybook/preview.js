@@ -1,4 +1,4 @@
-// import { action } from "@storybook/addon-actions";
+import { action } from "@storybook/addon-actions";
 import { setup } from "@storybook/vue3";
 import { createI18n } from "vue-i18n";
 import translations from "../locales";
@@ -119,13 +119,13 @@ pinia.use(piniaPluginPersistedstate);
 setup((app) => {
   app.use(i18n);
   app.use(pinia);
-  // app.component("NuxtLink", {
-  //   props: ["to"],
-  //   methods: {
-  //     log() {
-  //       action("link target")(this.to);
-  //     },
-  //     template: '<a @click="log()" style="cursor: pointer;"><slot>NuxtLink</slot></a>',
-  //   },
-  // });
+  app.component("NuxtLink", {
+    props: ["to"],
+    methods: {
+      log() {
+        action("link target")(this.to);
+      },
+    },
+    template: '<a @click="log()" style="cursor:pointer;"><slot>NuxtLink</slot></a>',
+  });
 });
