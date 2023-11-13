@@ -7,6 +7,7 @@ const config = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-a11y",
+    "@storybook/addon-actions",
     // "storybook-addon-nuxt"
   ],
   framework: {

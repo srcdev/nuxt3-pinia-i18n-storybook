@@ -1,5 +1,5 @@
+// import { action } from "@storybook/addon-actions";
 import { setup } from "@storybook/vue3";
-// import { createHead } from "@vueuse/head";
 import { createI18n } from "vue-i18n";
 import translations from "../locales";
 import { createPinia } from "pinia";
@@ -100,27 +100,6 @@ export const parameters = {
   },
 };
 
-// const head = createHead({
-//   script: [
-//     {
-//       src: "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",
-//       crossorigin: "anonymous",
-//     },
-//     {
-//       src: "https://kit.fontawesome.com/9d0a19ab04.js",
-//       crossorigin: "anonymous",
-//     },
-//   ],
-//   link: [
-//     {
-//       rel: "stylesheet",
-//       type: "text/css",
-//       href: "https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700%7CGreat+Vibes:400%7CRoboto:regular,700%7CDancing+Script:regular,500,600,700",
-//       media: "all",
-//     },
-//   ],
-// });
-
 /*
  * i118n set up
  */
@@ -138,7 +117,15 @@ const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 
 setup((app) => {
-  // app.use(head);
   app.use(i18n);
   app.use(pinia);
+  // app.component("NuxtLink", {
+  //   props: ["to"],
+  //   methods: {
+  //     log() {
+  //       action("link target")(this.to);
+  //     },
+  //     template: '<a @click="log()" style="cursor: pointer;"><slot>NuxtLink</slot></a>',
+  //   },
+  // });
 });

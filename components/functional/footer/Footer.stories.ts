@@ -4,9 +4,15 @@ import { Meta, StoryFn } from "@storybook/vue3";
 export default {
   title: "Components/UI/Footer",
   component: StoryBookComponent,
+  args: {
+    subText: {
+      type: String,
+      default: "subText as prop/arg",
+    },
+  },
 } as Meta<typeof StoryBookComponent>;
 
-const Template: StoryFn<typeof StoryBookComponent> = (args: any) => ({
+const Template: StoryFn<typeof StoryBookComponent> = (args) => ({
   components: { StoryBookComponent },
   setup() {
     return { args };

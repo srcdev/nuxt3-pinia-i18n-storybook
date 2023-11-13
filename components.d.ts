@@ -16,6 +16,7 @@ declare module 'vue' {
     PageRow: typeof import('./components/scaffolding/page-row/PageRow.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SectionParallax: typeof import('./components/section-parallax/SectionParallax.vue')['default']
     SimpleGrid: typeof import('./components/scaffolding/simple-grid/SimpleGrid.vue')['default']
     SimpleGridItem: typeof import('./components/scaffolding/simple-grid/SimpleGridItem.vue')['default']
   }
