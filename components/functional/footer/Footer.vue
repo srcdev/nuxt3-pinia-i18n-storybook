@@ -1,6 +1,7 @@
 <template>
   <footer class="footer" :class="[footerTheme]">
     <div class="footer-inner">
+      <p>{{ footerTitleAsConst }}</p>
       <ul class="footer-links-list">
         <li v-for="link in footerLinks" class="footer-links-item">
           <NuxtLink :to="$t(link.url)" class="footer-links-link">{{ $t(link.text) }}</NuxtLink>
@@ -14,7 +15,7 @@
 <script setup lang="ts">
   import { useRootStore } from "@/stores/store.root";
 
-  // import { useI18n } from "vue-i18n";
+  import { useI18n } from "vue-i18n";
 
   const props = defineProps({
     someProp: {
@@ -45,9 +46,10 @@
       url: "footer.links.lang-switcher.url",
     },
   ];
-  // const { t } = useI18n();
+  const { t } = useI18n();
   const rootStore = useRootStore();
   const currentYear = new Date().getFullYear();
+  const footerTitleAsConst = t("footer.title");
 </script>
 
 <style lang="scss">

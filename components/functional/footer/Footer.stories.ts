@@ -20,7 +20,27 @@ const Template: StoryFn<typeof StoryBookComponent> = (args) => ({
   template: `<StoryBookComponent v-bind="args"></StoryBookComponent>`,
 });
 
-export const Primary = Template.bind({});
-Primary.args = {
-  subText: "subText as prop/arg",
+export const ThemeDefault = Template.bind({});
+ThemeDefault.args = {
+  footerTheme: "theme-default",
+};
+
+export const ThemeWhite = Template.bind({});
+ThemeWhite.args = {
+  footerTheme: "theme-white",
+};
+
+export const ThemeGrey = Template.bind({});
+ThemeGrey.args = {
+  footerTheme: "theme-grey",
+};
+
+export const ThemeBlue = Template.bind({});
+ThemeBlue.args = {
+  footerTheme: "theme-blue",
+};
+
+export const ThemeGreen = Template.bind({});
+ThemeGreen.args = {
+  footerTheme: "theme-green",
 };

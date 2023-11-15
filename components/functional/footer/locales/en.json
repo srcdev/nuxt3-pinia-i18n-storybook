@@ -1,5 +1,6 @@
 {
   "footer": {
+    "title": "Footer title",
     "links": {
       "home": {
         "text": "Homepage",

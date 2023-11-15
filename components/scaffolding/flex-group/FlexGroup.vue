@@ -1,6 +1,6 @@
 <template>
   <div class="flex-group" :class="[applyClasses, `flow-${flexFlow}`, `flex-wrap`, { 'inline-flex': flexType === 'inline-flex' }, { 'fill-height': fillHeight }, { 'max-height': maxHeight }, { 'max-width': maxWidth }]" :align-content="alignContent">
-    <slot></slot>
+    <slot name="flexGroup"></slot>
   </div>
 </template>
 
