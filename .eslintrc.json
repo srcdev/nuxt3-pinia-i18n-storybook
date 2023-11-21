@@ -1,7 +1,16 @@
 {
   "root": true,
   "parser": "vue-eslint-parser",
-  "extends": ["eslint:recommended", "plugin:vue/vue3-recommended", "plugin:json/recommended-with-comments", "plugin:markdown/recommended", "@nuxtjs/eslint-config-typescript", "plugin:@typescript-eslint/recommended", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:json/recommended-with-comments",
+    "plugin:markdown/recommended",
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:storybook/recommended",
+    "prettier"
+  ],
   "rules": {
     "no-console": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
@@ -11,5 +20,6 @@
         "ignores": ["default", "index"]
       }
     ]
+    // "vue-test-utils/no-deprecated-wrapper-functions": "error"
   }
 }

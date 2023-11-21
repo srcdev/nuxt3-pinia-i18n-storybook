@@ -1,8 +1,10 @@
 {
   // https://v3.nuxtjs.org/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json",
-  "compilerOptions": {
-    "strict": true,
-    "types": ["vite/client"]
-  }
+  "extends": "./.nuxt/tsconfig.json"
+  // "compilerOptions": {
+  //   "types": [
+  //     "vitest/globals",
+  //     "vite/client"
+  //   ]
+  // }
 }

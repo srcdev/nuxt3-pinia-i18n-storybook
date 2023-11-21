@@ -4,5 +4,5 @@
   "tabWidth": 2,
   "useTabs": false,
   "vueIndentScriptAndStyle": true,
-  "printWidth": 400
+  "printWidth": 250
 }

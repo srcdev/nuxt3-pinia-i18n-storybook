@@ -5,7 +5,7 @@
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
             <div>
-              <h1 class="text-header-large">{{ t("pages.index.header") }}</h1>
+              <h1 class="text-header-large">{{ $t("pages.index.header") }}</h1>
             </div>
           </template>
         </PageRow>

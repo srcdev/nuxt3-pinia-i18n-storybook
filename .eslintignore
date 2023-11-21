@@ -5,3 +5,4 @@ lib/templates
 
 *.css
 *.bat
+!.storybook

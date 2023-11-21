@@ -14,6 +14,10 @@
         "text": "Language switcher",
         "url": "/lang-switcher"
       },
+      "server-routes": {
+        "text": "Server Routes",
+        "url": "/samples/server-routes"
+      },
       "contact": {
         "text": "Contact",
         "url": "/"

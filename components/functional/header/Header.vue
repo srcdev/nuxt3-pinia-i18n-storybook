@@ -1,6 +1,6 @@
 <template>
   <header class="header" :class="[headerTheme]">
-    <h1 class="text-header-large text-color-orange">{{ t("header.text") }}</h1>
+    <h1 class="text-header-large text-color-orange">{{ $t("header.text") }}</h1>
   </header>
 </template>
 

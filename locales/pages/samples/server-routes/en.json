@@ -1,0 +1,17 @@
+{
+  "pages": {
+    "server-routes": {
+      "head": {
+        "title": "Server Routes",
+        "description": "Example Server API routes",
+        "keywords": "Nuxt3, Server Routes"
+      },
+      "get": {
+        "header": "'useFetch' GET requests"
+      },
+      "post": {
+        "header": "'useFetch' POST requests"
+      }
+    }
+  }
+}

@@ -45,6 +45,10 @@
       text: "footer.links.lang-switcher.text",
       url: "footer.links.lang-switcher.url",
     },
+    {
+      text: "footer.links.server-routes.text",
+      url: "footer.links.server-routes.url",
+    },
   ];
   const { t } = useI18n();
   const rootStore = useRootStore();

@@ -7,13 +7,16 @@ import Components from "unplugin-vue-components/vite";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  typescript: {
-    shim: true,
-  },
+  // typescript: {
+  //   shim: true,
+  // },
   devServer: {
     https: true,
     port: 3000,
   },
+  // proxy: {
+  //   "/api/": { target: "http://localhost:234123" },
+  // },
   ssr: false,
   css: ["modern-normalize", "~/assets/styles/index.scss"],
   runtimeConfig: {
@@ -63,32 +66,32 @@ export default defineNuxtConfig({
       mode: "out-in",
     },
   },
-  // vite: {
-  //   plugins: [
-  //     AutoImport({
-  //       imports: ["vue", "vue-router"],
-  //       dirs: ["./composables", "./stores"],
-  //       vueTemplate: true,
-  //     }),
-  //     Components({
-  //       dirs: ["./composables", "./components"],
-  //       dts: true,
-  //       directoryAsNamespace: false,
-  //     }),
-  //   ],
-  //   resolve: {
-  //     alias: {
-  //       "~": fileURLToPath(new URL("./", import.meta.url)),
-  //     },
-  //   },
-  //   server: {
-  //     proxy: {
-  //       "/api/": {
-  //         target: GlobalSettings[appEnv].apiBaseURL,
-  //         changeOrigin: true,
-  //         // rewrite: (path) => path.replace(/^\/api\/resources/, '')
-  //       },
-  //     },
-  //   },
-  // },
+  vite: {
+    plugins: [
+      AutoImport({
+        imports: ["vue", "vue-router"],
+        dirs: ["./composables", "./stores"],
+        vueTemplate: true,
+      }),
+      Components({
+        dirs: ["./composables", "./components"],
+        dts: true,
+        directoryAsNamespace: false,
+      }),
+    ],
+    resolve: {
+      alias: {
+        "~": fileURLToPath(new URL("./", import.meta.url)),
+      },
+    },
+    // server: {
+    //   proxy: {
+    //     "/api/": {
+    //       target: GlobalSettings[appEnv].apiBaseURL,
+    //       changeOrigin: true,
+    //       // rewrite: (path) => path.replace(/^\/api\/resources/, '')
+    //     },
+    //   },
+    // },
+  },
 });
