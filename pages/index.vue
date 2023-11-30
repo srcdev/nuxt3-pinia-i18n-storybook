@@ -124,7 +124,7 @@
         left: 0;
         padding: 4px 8px;
         position: sticky;
-        text-wrap: nowrap;
+        white-space: nowrap;
       }
     }
   }

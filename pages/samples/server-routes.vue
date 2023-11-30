@@ -18,10 +18,11 @@
               <p>Array => key value: {{ examplePostParam }}</p>
 
               <hr />
-              <!--
 
               <p>Company ID from route</p>
-              <p>exampleIdromRoute: {{ exampleIdromRoute }}</p> -->
+              <p>
+                exampleIdromRoute: <strong>{{ exampleIdromRoute }}</strong>
+              </p>
             </div>
           </template>
         </PageRow>
@@ -48,21 +49,26 @@
   });
 
   // useFetch infers returned data types
-  const param1 = "This is Param 1";
+  const param1 = ref("GET: This is Param 1 value");
   const {
-    data: getResult,
-    pending,
-    error,
-    refresh,
+    data: getResults,
+    pending: getPending,
+    error: getError,
+    refresh: getRefresh,
   } = await useFetch("/api/example", {
-    query: { param1, param2: "value2" },
+    query: { param1, param2: "GET: This is Param 2 value" },
   });
-  const exampleGetParam = ref(getResult);
+  const exampleGetParam = ref(getResults);
 
-  const { data: postResult } = await useFetch("/api/example?param1=Param1", {
+  const {
+    data: postResult,
+    pending: postPending,
+    error: postError,
+    refresh: postRefresh,
+  } = await useFetch("/api/example", {
     method: "post",
     body: {
-      body1: "Body 1",
+      body1: "POST: Body 1",
     },
   });
   const examplePostParam = ref(postResult);

@@ -1,1 +1,1 @@
-export default defineEventHandler((event) => `Company ID from params is: ${event.context.params.id}`);
+export default defineEventHandler((event) => `Company ID from params is: ${event.context.params?.id}`);

@@ -1,10 +1,13 @@
 {
   // https://v3.nuxtjs.org/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
-  // "compilerOptions": {
-  //   "types": [
-  //     "vitest/globals",
-  //     "vite/client"
-  //   ]
-  // }
+  "extends": "./.nuxt/tsconfig.json",
+  "exclude": [
+    "**/node_modules",
+    "**/dist",
+    // https://github.com/johnsoncodehk/volar/discussions/592
+    "**/*.stories.ts"
+  ],
+  "compilerOptions": {
+    "types": ["vitest/globals", "vite/client"]
+  }
 }
