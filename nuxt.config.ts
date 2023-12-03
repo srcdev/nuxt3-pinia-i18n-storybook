@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   // proxy: {
   //   "/api/": { target: "http://localhost:234123" },
   // },
-  ssr: false,
+  // ssr: false,
   css: ["modern-normalize", "~/assets/styles/index.scss"],
   runtimeConfig: {
     public: {
