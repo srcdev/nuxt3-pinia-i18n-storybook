@@ -27,9 +27,9 @@
 
     // Github and hosting
     // Azure Static Web Apps
-    "ms-azuretools.vscode-azurestaticwebapps",
+    // "ms-azuretools.vscode-azurestaticwebapps",
     // Azure Functions
-    "ms-azuretools.vscode-azurefunctions",
+    // "ms-azuretools.vscode-azurefunctions",
     // Github Actions
     "github.vscode-github-actions",
 
