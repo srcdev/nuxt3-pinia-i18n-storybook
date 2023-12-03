@@ -7,10 +7,14 @@
         "keywords": "Nuxt3, Server Routes"
       },
       "get": {
-        "header": "'useFetch' GET requests"
+        "header": "'useFetch' GET params"
       },
       "post": {
-        "header": "'useFetch' POST requests"
+        "header": "'useFetch' POST payload"
+      },
+      "route": {
+        "header": "'useFetch' route Params requests",
+        "info": "Company ID from route"
       }
     }
   }
