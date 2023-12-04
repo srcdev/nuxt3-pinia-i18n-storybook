@@ -5,20 +5,22 @@
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
             <div>
-              <h1 class="text-header-large mt-12">{{ $t("pages.server-routes.get.header") }}</h1>
+              <h1 class="text-header-large mt-12">{{ $t("pages.server-routes.pageTitle") }}</h1>
+              <p class="text-header-medium mt-8">{{ $t("pages.server-routes.pageInfo") }}</p>
+              <h2 class="text-header-large mt-12">{{ $t("pages.server-routes.get.header") }}</h2>
 
               <p>Array: {{ exampleGetParam }}</p>
               <p>Array => key value: {{ exampleGetParam?.isValid }}</p>
               <p>Array => key value: {{ exampleGetParam?.param1 }}</p>
               <hr />
 
-              <h1 class="text-header-large mt-12">{{ $t("pages.server-routes.post.header") }}</h1>
+              <h2 class="text-header-large mt-12">{{ $t("pages.server-routes.post.header") }}</h2>
               <p>Array: {{ examplePostParam }}</p>
               <p>Array => key value: {{ examplePostParam }}</p>
 
               <hr />
 
-              <h1 class="text-header-large mt-12">{{ $t("pages.server-routes.route.header") }}</h1>
+              <h2 class="text-header-large mt-12">{{ $t("pages.server-routes.route.header") }}</h2>
               <p>{{ $t("pages.server-routes.route.info") }}</p>
               <p>
                 exampleIdromRoute: <strong>{{ exampleIdromRoute }}</strong>

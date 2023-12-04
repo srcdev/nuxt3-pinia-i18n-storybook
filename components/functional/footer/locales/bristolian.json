@@ -1,9 +1,9 @@
 {
   "footer": {
-    "title": "Footer links",
+    "title": "Footer bits 'n' bobs",
     "links": {
       "home": {
-        "text": "Homepage",
+        "text": "Main gurt page",
         "url": "/"
       },
       "components": {
@@ -11,18 +11,18 @@
         "url": "/samples/components"
       },
       "lang-switcher": {
-        "text": "Language switcher",
+        "text": "Gert big talky changer",
         "url": "/lang-switcher"
       },
       "server-routes": {
-        "text": "Server Routes",
+        "text": "useFetch bits 'n' bobs",
         "url": "/samples/server-routes"
       },
       "contact": {
-        "text": "Contact",
+        "text": "Gerrin' touch wif us",
         "url": "/"
       }
     },
-    "copyright": "&copy;{ year } all rights reserved"
+    "copyright": "&copy;{ year } all roights reserved"
   }
 }

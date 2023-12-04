@@ -1,0 +1,23 @@
+{
+  "pages": {
+    "server-routes": {
+      "head": {
+        "title": "useFetch bits 'n' bobs",
+        "description": "Example Server API routes",
+        "keywords": "Nuxt3, Server Routes"
+      },
+      "pageTitle": "useFetch bits 'n' bobs",
+      "pageInfo": "Examples of wot the server gives back fer different Nuxt3 useFetch bits 'n' bobs",
+      "get": {
+        "header": "useFetch' GET bits 'n' bobs"
+      },
+      "post": {
+        "header": "'useFetch' POST cargo"
+      },
+      "route": {
+        "header": "'useFetch' route Bits (params) 'n' bobs requests",
+        "info": "Company ID from route"
+      }
+    }
+  }
+}

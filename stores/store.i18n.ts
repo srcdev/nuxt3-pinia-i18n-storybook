@@ -13,8 +13,8 @@ export const useI18nStore = defineStore({
         name: "English",
       },
       {
-        code: "es",
-        name: "Español",
+        code: "bristolian",
+        name: "English - Bristolian",
       },
     ],
   }),

@@ -1,7 +1,7 @@
 <template>
   <footer class="footer" :class="[footerTheme]">
     <div class="footer-inner">
-      <p>{{ footerTitleAsConst }}</p>
+      <p>{{ $t("footer.title") }}</p>
       <ul class="footer-links-list">
         <li v-for="link in footerLinks" class="footer-links-item">
           <NuxtLink :to="$t(link.url)" class="footer-links-link">{{ $t(link.text) }}</NuxtLink>
@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-  import { useRootStore } from "@/stores/store.root";
+  // import { useRootStore } from "@/stores/store.root";
 
-  import { useI18n } from "vue-i18n";
+  // import { useI18n } from "vue-i18n";
 
   const props = defineProps({
     someProp: {
@@ -50,10 +50,10 @@
       url: "footer.links.server-routes.url",
     },
   ];
-  const { t } = useI18n();
-  const rootStore = useRootStore();
+  // const { t } = useI18n();
+  // const rootStore = useRootStore();
   const currentYear = new Date().getFullYear();
-  const footerTitleAsConst = t("footer.title");
+  // const footerTitleAsConst = t("footer.title");
 </script>
 
 <style lang="scss">

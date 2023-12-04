@@ -2,10 +2,12 @@
   "pages": {
     "server-routes": {
       "head": {
-        "title": "Server Routes",
+        "title": "useFetch examples",
         "description": "Example Server API routes",
         "keywords": "Nuxt3, Server Routes"
       },
+      "pageTitle": "useFetch examples",
+      "pageInfo": "Examples of returns from the server for various Nuxt3's useFetch API",
       "get": {
         "header": "'useFetch' GET params"
       },

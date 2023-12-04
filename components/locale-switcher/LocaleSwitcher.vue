@@ -3,8 +3,8 @@
     <h1 class="text-header-large" data-test-id="locale-switcher-header">{{ t("locale-switcher.title") }}</h1>
   </div>
   <ClientOnly>
-    <div>
-      <button v-for="locale in availableLocales" :key="locale.code" @click.prevent="updateLocale(locale.code)" :id="`locale-${locale.code}`" data-test-id="locale-switch-btn">{{ locale.name }}</button>
+    <div v-for="locale in availableLocales" :key="locale.code">
+      <button @click.prevent="updateLocale(locale.code)" :id="`locale-${locale.code}`" data-test-id="locale-switch-btn">{{ locale.name }}</button>
     </div>
   </ClientOnly>
 </template>
