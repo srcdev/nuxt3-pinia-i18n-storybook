@@ -1,10 +1,11 @@
 <template>
   <div>
     <h1 class="text-header-large" data-test-id="locale-switcher-header">{{ t("locale-switcher.title") }}</h1>
+    <p class="mt-12 mb-12" data-test-id="locale-switcher-info">{{ t("locale-switcher.info") }}</p>
   </div>
   <ClientOnly>
     <div v-for="locale in availableLocales" :key="locale.code">
-      <button @click.prevent="updateLocale(locale.code)" :id="`locale-${locale.code}`" data-test-id="locale-switch-btn">{{ locale.name }}</button>
+      <a @click.prevent="updateLocale(locale.code)" :id="`locale-${locale.code}`" class="link-underline" data-test-id="locale-switch-btn">{{ locale.name }}</a>
     </div>
   </ClientOnly>
 </template>
@@ -28,3 +29,11 @@
     setLocale(code);
   };
 </script>
+
+<style scoped>
+  .link-underline {
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>

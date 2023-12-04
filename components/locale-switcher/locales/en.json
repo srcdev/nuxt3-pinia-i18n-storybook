@@ -1,5 +1,6 @@
 {
   "locale-switcher": {
-    "title": "Language switcher"
+    "title": "Language switcher",
+    "info": "Use the links below to swap language"
   }
 }
