@@ -4,8 +4,33 @@
 
 <script setup lang="ts">
   import { useI18n } from "vue-i18n";
-
   const { t } = useI18n();
+
+  /*
+   * defineProps
+   */
+  const props = defineProps({
+    someText: {
+      type: String,
+      value: "value1",
+      validator(value: string) {
+        return ["value1", "value2"].includes(value);
+      },
+    },
+    someBoolean: {
+      type: Boolean,
+      value: true,
+    },
+  });
+
+  /*
+   * defineEmits
+   */
+  const emit = defineEmits(["emitName"]);
+
+  const someMethod = (data: any) => {
+    emit("emitName", data);
+  };
 </script>
 
 <style lang="scss" scoped>

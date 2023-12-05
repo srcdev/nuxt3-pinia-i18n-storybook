@@ -36,6 +36,13 @@
   import { useI18nStore } from "@/stores/store.i18n";
   import { useAccountStore } from "@/stores/store.account";
   import { useRootStore } from "@/stores/store.root";
+
+  useHead({
+    bodyAttrs: {
+      class: "body-default",
+    },
+  });
+
   const runtimeConfig = useRuntimeConfig();
 
   const props = defineProps({

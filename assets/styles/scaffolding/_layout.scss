@@ -1,0 +1,12 @@
+/*
+* handle dark mode
+*/
+
+.body {
+  &-default {
+    background-color: $color-white;
+    @media (prefers-color-scheme: dark) {
+      background-color: $color-grey-5;
+    }
+  }
+}

@@ -7,11 +7,16 @@
     <div v-for="locale in availableLocales" :key="locale.code">
       <a @click.prevent="updateLocale(locale.code)" :id="`locale-${locale.code}`" class="link-underline" data-test-id="locale-switch-btn">{{ locale.name }}</a>
     </div>
+
+    <hr />
+
+    <div v-for="locale in availableLocales" :key="locale.code">
+      <FormInputButton @click.prevent="updateLocale(locale.code)" :button-text="locale.name"></FormInputButton>
+    </div>
   </ClientOnly>
 </template>
 
 <script setup lang="ts">
-  import { computed } from "vue";
   import { ILocaleItem } from "@/types/types.i18n";
   import { useI18nStore } from "@/stores/store.i18n";
   import { useI18n } from "vue-i18n";
@@ -27,12 +32,6 @@
   const updateLocale = (code: string) => {
     i18nStore.updateLocale(code);
     setLocale(code);
-  };
-
-  const emit = defineEmits(["emitName"]);
-
-  const someMethod = (data: any) => {
-    emit("emitName", data);
   };
 </script>
 
