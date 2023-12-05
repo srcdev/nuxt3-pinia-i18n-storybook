@@ -28,6 +28,12 @@
     i18nStore.updateLocale(code);
     setLocale(code);
   };
+
+  const emit = defineEmits(["emitName"]);
+
+  const someMethod = (data: any) => {
+    emit("emitName", data);
+  };
 </script>
 
 <style scoped>
