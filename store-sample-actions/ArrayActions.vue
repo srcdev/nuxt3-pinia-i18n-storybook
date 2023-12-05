@@ -6,9 +6,7 @@
     <section>
       <h2>Store actions</h2>
       <div>
-        <h3>
-          {{ $t("store-sample-actions.array-actions.button-text-add") }} &raquo; <button type="submit" @click.prevent="addToStore()">{{ buttonText }}</button>
-        </h3>
+        <h3>{{ $t("store-sample-actions.array-actions.button-text-add") }} &raquo; <FormInputButton :button-text="buttonText" @click.prevent="addToStore()"></FormInputButton></h3>
       </div>
     </section>
     <section>
@@ -25,35 +23,35 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type PropType } from "vue";
-import { useI18n } from "vue-i18n";
-import { storeToRefs } from "pinia";
-import { useRootStore } from "@/stores/store.root"; // Only need to import here due to lack of imports support within Storybook.
-import { ISbItemObj } from "@/types/types.rootStore";
+  import { ref, type PropType } from "vue";
+  import { useI18n } from "vue-i18n";
+  import { storeToRefs } from "pinia";
+  import { useRootStore } from "@/stores/store.root"; // Only need to import here due to lack of imports support within Storybook.
+  import { ISbItemObj } from "@/types/types.rootStore";
 
-const emit = defineEmits(["arrayUpdated"]);
+  const emit = defineEmits(["arrayUpdated"]);
 
-const { sbArrayItem } = defineProps({
-  sbArrayItem: {
-    type: Object as PropType<ISbItemObj>,
-    default: {},
-  },
-});
-const { t } = useI18n();
-const buttonText = ref(t("store-sample-actions.array-actions.button-text-add"));
-
-const rootStore = useRootStore();
-const { sbArray } = storeToRefs(rootStore);
-
-const addToStore = async () => {
-  const itemAdded = rootStore.addToArray(sbArrayItem);
-  emit("arrayUpdated", {
-    itemAdded: itemAdded,
+  const { sbArrayItem } = defineProps({
+    sbArrayItem: {
+      type: Object as PropType<ISbItemObj>,
+      default: {},
+    },
   });
-  buttonText.value = itemAdded ? t("store-sample-actions.array-actions.button-text-remove") : t("store-sample-actions.array-actions.button-text-add");
-};
+  const { t } = useI18n();
+  const buttonText = ref(t("store-sample-actions.array-actions.button-text-add"));
+
+  const rootStore = useRootStore();
+  const { sbArray } = storeToRefs(rootStore);
+
+  const addToStore = async () => {
+    const itemAdded = rootStore.addToArray(sbArrayItem);
+    emit("arrayUpdated", {
+      itemAdded: itemAdded,
+    });
+    buttonText.value = itemAdded ? t("store-sample-actions.array-actions.button-text-remove") : t("store-sample-actions.array-actions.button-text-add");
+  };
 </script>
 
 <style lang="scss">
-@import "@/assets/styles/imports.scss";
+  @import "@/assets/styles/imports.scss";
 </style>

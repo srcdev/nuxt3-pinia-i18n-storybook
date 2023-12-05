@@ -4,29 +4,28 @@
       <template #layout-content>
         <PageRow :fit-content="pageRowFitContent" :apply-gutters="pageRowGutters" :page-row-theme="pageRowTheme" :page-row-inner-theme="pageRowInnerTheme">
           <template #pageRowContent>
-            <h1 class="text-header-large">Home</h1>
+            <h1 class="text-header-large mt-12">Layouts and Schemes</h1>
             <div class="pb-12 pt-12 mb-12">
-              <h2 class="text-header-medium">Layouts and Schemes</h2>
               <h2 class="text-header-medium">Page Row Props</h2>
               <ul class="sample-list flex">
-                <li><button @click.prevent="togglePageRowFitContent()">Toggle wide page row</button></li>
-                <li><button @click.prevent="togglePageRowGutters()">Toggle page row gutters</button></li>
+                <li><FormInputButton button-text="Toggle wide page row" @click.prevent="togglePageRowFitContent()"></FormInputButton></li>
+                <li><FormInputButton button-text="Toggle page row gutters" @click.prevent="togglePageRowGutters()"></FormInputButton></li>
               </ul>
               <h2 class="text-header-medium">Page Row Theme</h2>
               <ul class="sample-list flex">
-                <li><button @click.prevent="togglePageRowTheme('theme-default')">Default (transparent background)</button></li>
-                <li><button @click.prevent="togglePageRowTheme('theme-white')">White</button></li>
-                <li><button @click.prevent="togglePageRowTheme('theme-grey')">Grey</button></li>
-                <li><button @click.prevent="togglePageRowTheme('theme-blue')">Blue</button></li>
-                <li><button @click.prevent="togglePageRowTheme('theme-green')">Green</button></li>
+                <li><FormInputButton button-text="Default (transparent background)" @click.prevent="togglePageRowTheme('theme-default')"></FormInputButton></li>
+                <li><FormInputButton button-text="White" @click.prevent="togglePageRowTheme('theme-white')"></FormInputButton></li>
+                <li><FormInputButton button-text="Grey" @click.prevent="togglePageRowTheme('theme-grey')"></FormInputButton></li>
+                <li><FormInputButton button-text="Blue" @click.prevent="togglePageRowTheme('theme-blue')"></FormInputButton></li>
+                <li><FormInputButton button-text="Green" @click.prevent="togglePageRowTheme('theme-green')"></FormInputButton></li>
               </ul>
               <h2 class="text-header-medium">Page Row Inner theme</h2>
               <ul class="sample-list flex">
-                <li><button @click.prevent="togglePageRowInnerTheme('theme-default')">Default (transparent background)</button></li>
-                <li><button @click.prevent="togglePageRowInnerTheme('theme-white')">White</button></li>
-                <li><button @click.prevent="togglePageRowInnerTheme('theme-grey')">Grey</button></li>
-                <li><button @click.prevent="togglePageRowInnerTheme('theme-blue')">Blue</button></li>
-                <li><button @click.prevent="togglePageRowInnerTheme('theme-green')">Green</button></li>
+                <li><FormInputButton button-text="Default (transparent background)" @click.prevent="togglePageRowInnerTheme('theme-default')"></FormInputButton></li>
+                <li><FormInputButton button-text="White" @click.prevent="togglePageRowInnerTheme('theme-white')"></FormInputButton></li>
+                <li><FormInputButton button-text="Grey" @click.prevent="togglePageRowInnerTheme('theme-grey')"></FormInputButton></li>
+                <li><FormInputButton button-text="Blue" @click.prevent="togglePageRowInnerTheme('theme-blue')"></FormInputButton></li>
+                <li><FormInputButton button-text="Green" @click.prevent="togglePageRowInnerTheme('theme-green')"></FormInputButton></li>
               </ul>
             </div>
           </template>
@@ -37,30 +36,30 @@
             <div class="pb-12 pt-12 mb-12">
               <h2 class="text-header-medium">Toggle signed in navigation</h2>
 
-              <button @click.prevent="toggleLeftNav()">Toggle laft nav open/closed</button>
+              <FormInputButton button-text="Toggle laft nav open/closed" @click.prevent="toggleLeftNav()"></FormInputButton>
 
               <h2 class="text-header-medium">Header themes</h2>
               <ul class="sample-list flex">
-                <li><button @click.prevent="toggleHeaderTheme('header-default')">Page is ligh colour</button></li>
-                <li><button @click.prevent="toggleHeaderTheme('header-dark')">Page is dark colour</button></li>
+                <li><FormInputButton button-text="Page is light colour" @click.prevent="toggleHeaderTheme('header-default')"></FormInputButton></li>
+                <li><FormInputButton button-text="Page is dark colour" @click.prevent="toggleHeaderTheme('header-dark')"></FormInputButton></li>
               </ul>
 
               <h2 class="text-header-medium">Footer themes</h2>
               <ul class="sample-list flex">
-                <li><button @click.prevent="toggleFooterTheme('theme-default')">Default (transparent background)</button></li>
-                <li><button @click.prevent="toggleFooterTheme('theme-white')">White</button></li>
-                <li><button @click.prevent="toggleFooterTheme('theme-grey')">Grey</button></li>
-                <li><button @click.prevent="toggleFooterTheme('theme-blue')">Blue</button></li>
-                <li><button @click.prevent="toggleFooterTheme('theme-green')">Green</button></li>
+                <li><FormInputButton button-text="Default (transparent background)" @click.prevent="toggleFooterTheme('theme-default')"></FormInputButton></li>
+                <li><FormInputButton button-text="White" @click.prevent="toggleFooterTheme('theme-white')"></FormInputButton></li>
+                <li><FormInputButton button-text="Grey" @click.prevent="toggleFooterTheme('theme-grey')"></FormInputButton></li>
+                <li><FormInputButton button-text="Blue" @click.prevent="toggleFooterTheme('theme-blue')"></FormInputButton></li>
+                <li><FormInputButton button-text="Green" @click.prevent="toggleFooterTheme('theme-green')"></FormInputButton></li>
               </ul>
 
               <h2 class="text-header-medium">Full Page themes</h2>
               <ul class="sample-list flex">
-                <li><button @click.prevent="togglePageTheme('theme-default')">Default (transparent background)</button></li>
-                <li><button @click.prevent="togglePageTheme('theme-white')">White</button></li>
-                <li><button @click.prevent="togglePageTheme('theme-grey')">Grey</button></li>
-                <li><button @click.prevent="togglePageTheme('theme-blue')">Blue</button></li>
-                <li><button @click.prevent="togglePageTheme('theme-green')">Green</button></li>
+                <li><FormInputButton button-text="Default (transparent background)" @click.prevent="togglePageTheme('theme-default')"></FormInputButton></li>
+                <li><FormInputButton button-text="White" @click.prevent="togglePageTheme('theme-white')"></FormInputButton></li>
+                <li><FormInputButton button-text="Grey" @click.prevent="togglePageTheme('theme-grey')"></FormInputButton></li>
+                <li><FormInputButton button-text="Blue" @click.prevent="togglePageTheme('theme-blue')"></FormInputButton></li>
+                <li><FormInputButton button-text="Green" @click.prevent="togglePageTheme('theme-green')"></FormInputButton></li>
               </ul>
 
               <div class="mt-12 mb-12 spotlight">
@@ -71,8 +70,8 @@
               </div>
 
               <p class="text-normal">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id dolor quam. Ut lacinia finibus pellentesque. Fusce ipsum erat, maximus ac malesuada sed, lacinia nec ipsum. In eget ex ex. Mauris mattis condimentum sollicitudin. Morbi sagittis justo ac nunc pulvinar gravida. Aenean et nulla ut odio sagittis gravida. Curabitur at ante volutpat velit aliquam finibus mattis ut est.
-                Quisque sit amet orci libero.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id dolor quam. Ut lacinia finibus pellentesque. Fusce ipsum erat, maximus ac malesuada sed, lacinia nec ipsum. In eget ex ex. Mauris mattis condimentum sollicitudin. Morbi
+                sagittis justo ac nunc pulvinar gravida. Aenean et nulla ut odio sagittis gravida. Curabitur at ante volutpat velit aliquam finibus mattis ut est. Quisque sit amet orci libero.
               </p>
             </div>
           </template>
@@ -219,14 +218,17 @@
             <div>
               <h1>Layout Row - (Desktop)</h1>
               <p class="text-normal">
-                Eiusmod corned beef quis, kielbasa nostrud brisket spare ribs meatball swine salami deserunt chuck pork chop buffalo irure. Aliquip labore deserunt jerky sed excepteur sausage tri-tip minim pork belly. Jowl commodo burgdoggen fatback mollit. Eiusmod drumstick fugiat buffalo in shoulder, consequat andouille esse ex leberkas irure meatball id. Brisket cow mollit t-bone meatloaf
-                tri-tip sunt adipisicing lorem burgdoggen. Irure kevin tri-tip ea ut.
+                Eiusmod corned beef quis, kielbasa nostrud brisket spare ribs meatball swine salami deserunt chuck pork chop buffalo irure. Aliquip labore deserunt jerky sed excepteur sausage tri-tip minim pork belly. Jowl commodo burgdoggen fatback
+                mollit. Eiusmod drumstick fugiat buffalo in shoulder, consequat andouille esse ex leberkas irure meatball id. Brisket cow mollit t-bone meatloaf tri-tip sunt adipisicing lorem burgdoggen. Irure kevin tri-tip ea ut.
               </p>
               <p class="text-normal">
-                Cow salami venison, dolor ipsum consectetur nulla elit spare ribs capicola meatball enim pig. Porchetta tongue veniam buffalo cow, shoulder fugiat pork. Pork frankfurter proident cow laboris, consequat cupim kevin ribeye leberkas dolore cillum salami. In tail t-bone ex jerky veniam. Minim venison short ribs ground round. Cillum dolore voluptate pariatur, meatball jerky kielbasa
-                elit officia hamburger veniam rump pork belly.
+                Cow salami venison, dolor ipsum consectetur nulla elit spare ribs capicola meatball enim pig. Porchetta tongue veniam buffalo cow, shoulder fugiat pork. Pork frankfurter proident cow laboris, consequat cupim kevin ribeye leberkas
+                dolore cillum salami. In tail t-bone ex jerky veniam. Minim venison short ribs ground round. Cillum dolore voluptate pariatur, meatball jerky kielbasa elit officia hamburger veniam rump pork belly.
               </p>
-              <p class="text-normal">Landjaeger sint mollit cupim, picanha ribeye ut bresaola. Ground round ut labore est nisi ad id landjaeger fatback capicola magna spare ribs. Duis ham hock pork loin ullamco ground round lorem pork chop picanha velit non eiusmod aliquip aute beef ribs bacon. Prosciutto filet mignon bacon reprehenderit lorem, velit rump corned beef duis.</p>
+              <p class="text-normal">
+                Landjaeger sint mollit cupim, picanha ribeye ut bresaola. Ground round ut labore est nisi ad id landjaeger fatback capicola magna spare ribs. Duis ham hock pork loin ullamco ground round lorem pork chop picanha velit non eiusmod
+                aliquip aute beef ribs bacon. Prosciutto filet mignon bacon reprehenderit lorem, velit rump corned beef duis.
+              </p>
               <p class="text-normal">Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
             </div>
           </template>
@@ -237,10 +239,14 @@
             <div>
               <h1>Layout Row - (Max container)</h1>
               <p class="text-normal">
-                Bacon ipsum dolor amet ullamco tenderloin alcatra biltong venison, excepteur veniam elit meatball non short loin do beef ribs tongue. Labore consequat duis, ut salami tempor dolor voluptate doner ipsum quis magna biltong qui. Sunt tri-tip enim jowl kielbasa leberkas pastrami. Bacon qui pork chop, bresaola tenderloin commodo in hamburger laboris kevin flank shank picanha sint. Shank
-                bacon andouille ball tip esse capicola exercitation ad veniam ullamco. Qui spare ribs mollit, eiusmod bacon elit sed laboris tenderloin dolor bresaola. Capicola burgdoggen ribeye consectetur.
+                Bacon ipsum dolor amet ullamco tenderloin alcatra biltong venison, excepteur veniam elit meatball non short loin do beef ribs tongue. Labore consequat duis, ut salami tempor dolor voluptate doner ipsum quis magna biltong qui. Sunt
+                tri-tip enim jowl kielbasa leberkas pastrami. Bacon qui pork chop, bresaola tenderloin commodo in hamburger laboris kevin flank shank picanha sint. Shank bacon andouille ball tip esse capicola exercitation ad veniam ullamco. Qui spare
+                ribs mollit, eiusmod bacon elit sed laboris tenderloin dolor bresaola. Capicola burgdoggen ribeye consectetur.
               </p>
-              <p class="text-normal">Beef ribs filet mignon chislic, minim ullamco occaecat rump shoulder dolore velit irure sausage. Corned beef andouille burgdoggen minim nulla. Andouille labore shank exercitation, tongue alcatra short loin strip steak in voluptate ut swine consectetur. Tenderloin id cupim, in salami brisket tri-tip adipisicing incididunt burgdoggen.</p>
+              <p class="text-normal">
+                Beef ribs filet mignon chislic, minim ullamco occaecat rump shoulder dolore velit irure sausage. Corned beef andouille burgdoggen minim nulla. Andouille labore shank exercitation, tongue alcatra short loin strip steak in voluptate ut
+                swine consectetur. Tenderloin id cupim, in salami brisket tri-tip adipisicing incididunt burgdoggen.
+              </p>
             </div>
 
             <p class="text-normal">
@@ -269,9 +275,6 @@
   useHead({
     title: "Sample components " + config.sitename,
     meta: [{ name: "description", content: "Desciption meta tag content" }],
-    bodyAttrs: {
-      class: "class-to-apply-if-desired",
-    },
   });
 
   // const { t } = useI18n();

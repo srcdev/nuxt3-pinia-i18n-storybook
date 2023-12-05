@@ -3,12 +3,20 @@
 </template>
 
 <script setup lang="ts">
+  import { type PropType } from "vue";
   import { useI18n } from "vue-i18n";
   const { t } = useI18n();
 
   /*
    * defineProps
    */
+
+  // import from external file
+  interface ISomeObject {
+    name: string;
+    description: string;
+  }
+
   const props = defineProps({
     someText: {
       type: String,
@@ -20,6 +28,15 @@
     someBoolean: {
       type: Boolean,
       value: true,
+    },
+    someObject: {
+      type: Object as PropType<ISomeObject>,
+      // default: {}, // emmpty
+      default: {
+        // or populated
+        name: "string",
+        description: "string",
+      },
     },
   });
 
