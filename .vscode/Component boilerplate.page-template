@@ -41,6 +41,13 @@
   });
 
   /*
+   * Only do something client side
+   */
+  // if (import.meta.client) {
+  //   console.log("Client only");
+  // }
+
+  /*
    * defineEmits
    */
   const emit = defineEmits(["emitName"]);

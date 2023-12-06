@@ -7,18 +7,18 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    FlexGroup: typeof import('./components/scaffolding/flex-group/FlexGroup.vue')['default']
-    FlexGroupItem: typeof import('./components/scaffolding/flex-group/FlexGroupItem.vue')['default']
-    Footer: typeof import('./components/functional/footer/Footer.vue')['default']
+    FlexGroup: typeof import('./components/flex-group/FlexGroup.vue')['default']
+    FlexGroupItem: typeof import('./components/flex-group/FlexGroupItem.vue')['default']
+    Footer: typeof import('./components/footer/Footer.vue')['default']
     FormInputButton: typeof import('./components/forms/FormInputButton.vue')['default']
-    Header: typeof import('./components/functional/header/Header.vue')['default']
-    LayoutRow: typeof import('./components/scaffolding/layout-row/LayoutRow.vue')['default']
+    Header: typeof import('./components/header/Header.vue')['default']
+    LayoutRow: typeof import('./components/layout-row/LayoutRow.vue')['default']
     LocaleSwitcher: typeof import('./components/locale-switcher/LocaleSwitcher.vue')['default']
-    PageRow: typeof import('./components/scaffolding/page-row/PageRow.vue')['default']
+    PageRow: typeof import('./components/page-row/PageRow.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SectionParallax: typeof import('./components/section-parallax/SectionParallax.vue')['default']
-    SimpleGrid: typeof import('./components/scaffolding/simple-grid/SimpleGrid.vue')['default']
-    SimpleGridItem: typeof import('./components/scaffolding/simple-grid/SimpleGridItem.vue')['default']
+    SimpleGrid: typeof import('./components/simple-grid/SimpleGrid.vue')['default']
+    SimpleGridItem: typeof import('./components/simple-grid/SimpleGridItem.vue')['default']
   }
 }
