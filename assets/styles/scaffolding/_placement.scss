@@ -3,8 +3,8 @@
 * <div placement="bottom-right"></siv>
 **/
 [placement] {
-  // @include mqMinTablet {
-  // display: flex;
+  // @include minWidth($tabletSmall) {
+  display: flex;
   // }
 }
 
@@ -30,4 +30,46 @@
 
 [placement$="center"] {
   align-self: center;
+}
+
+/*
+* <div align-content="top-left"></siv>
+* <div align-content="bottom-right"></siv>
+**/
+[align-content] {
+  // @include minWidth($tabletSmall) {
+  display: flex;
+  // }
+}
+
+[align-content^="center"] {
+  align-items: center;
+}
+
+[align-content^="top"] {
+  align-items: start;
+}
+
+[align-content^="bottom"] {
+  align-items: end;
+}
+
+[align-content$="center"] {
+  justify-content: center;
+}
+
+[align-content$="left"] {
+  justify-content: start;
+}
+
+[align-content$="right"] {
+  justify-content: end;
+}
+
+[align-content$="space-around"] {
+  justify-content: space-around;
+}
+
+[align-content$="space-between"] {
+  justify-content: space-between;
 }

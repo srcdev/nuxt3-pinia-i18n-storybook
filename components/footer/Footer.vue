@@ -49,6 +49,10 @@
       text: "footer.links.server-routes.text",
       url: "footer.links.server-routes.url",
     },
+    {
+      text: "footer.links.test-form.text",
+      url: "footer.links.test-form.url",
+    },
   ];
   // const { t } = useI18n();
   // const rootStore = useRootStore();

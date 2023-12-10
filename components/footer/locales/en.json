@@ -18,6 +18,10 @@
         "text": "Server Routes",
         "url": "/samples/server-routes"
       },
+      "test-form": {
+        "text": "Test form",
+        "url": "/samples/forms/guided-form"
+      },
       "contact": {
         "text": "Contact",
         "url": "/"

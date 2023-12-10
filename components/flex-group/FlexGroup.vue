@@ -24,7 +24,24 @@
     alignContent: {
       type: String,
       default: "top-left",
-      validator: (val: string) => ["top-center", "center-center", "bottom-center", "top-left", "center-left", "bottom-left", "top-right", "center-right", "bottom-right", "top-space-around", "center-space-around", "bottom-space-around", "top-space-between", "center-space-between", "bottom-space-between"].includes(val),
+      validator: (val: string) =>
+        [
+          "top-center",
+          "center-center",
+          "bottom-center",
+          "top-left",
+          "center-left",
+          "bottom-left",
+          "top-right",
+          "center-right",
+          "bottom-right",
+          "top-space-around",
+          "center-space-around",
+          "bottom-space-around",
+          "top-space-between",
+          "center-space-between",
+          "bottom-space-between",
+        ].includes(val),
     },
     gap: {
       type: String,

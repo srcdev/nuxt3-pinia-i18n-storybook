@@ -49,6 +49,10 @@
     font-size: 1.4rem;
     transition: all linear 200ms;
 
+    &[readonly] {
+      background-color: $color-blue-2;
+    }
+
     &-primary {
       background-color: $color-white;
       // color: $color-grey-1;
