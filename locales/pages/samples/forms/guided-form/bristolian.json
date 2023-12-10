@@ -1,0 +1,11 @@
+{
+  "pages-samples-forms-guided-form": {
+    "head": {
+      "title": "useFetch examples",
+      "description": "Example Server API routes",
+      "keywords": "Nuxt3, Server Routes"
+    },
+    "pageTitle": "Example of a multi step form",
+    "pageInfo": "Step { step } of { steps }."
+  }
+}

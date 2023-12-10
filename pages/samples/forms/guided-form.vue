@@ -5,8 +5,8 @@
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
             <div>
-              <h1 class="text-header-large">Page title</h1>
-              <p>Step {{ guidedFormData.step }} of {{ steps }}.</p>
+              <h1 class="text-header-large">1: {{ $t("pages-samples-forms-guided-form.pageTitle") }}</h1>
+              <p>{{ $t("pages-samples-forms-guided-form.pageInfo", { step: guidedFormData.step, steps: steps }) }}</p>
             </div>
           </template>
         </PageRow>
@@ -31,19 +31,17 @@
 </template>
 
 <script setup lang="ts">
-  // import { useI18n } from "vue-i18n";
-
+  import { useI18n } from "vue-i18n";
   import { ConcreteComponent, ComputedOptions, MethodOptions } from "vue";
-
-  // const { t } = useI18n();
+  const { t } = useI18n();
 
   definePageMeta({
     layout: false,
   });
 
   useHead({
-    title: "Multi Step Form",
-    meta: [{ name: "description", content: "Testing a form with multiple steps" }],
+    title: t("pages-samples-forms-guided-form.head.title"),
+    meta: [{ name: "description", content: t("pages-samples-forms-guided-form.head.description") }],
     bodyAttrs: {
       class: "",
     },

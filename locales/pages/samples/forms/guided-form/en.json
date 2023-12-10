@@ -1,0 +1,10 @@
+{
+  "pages-samples-forms-guided-form": {
+    "head": {
+      "title": "Example of a multi step form",
+      "description": "Example of a multi step form"
+    },
+    "pageTitle": "Example of a multi step form",
+    "pageInfo": "Step { step } of { steps }."
+  }
+}

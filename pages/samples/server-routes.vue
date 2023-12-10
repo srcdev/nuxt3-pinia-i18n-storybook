@@ -5,23 +5,23 @@
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
             <div>
-              <h1 class="text-header-large mt-12">{{ $t("pages.server-routes.pageTitle") }}</h1>
-              <p class="text-header-medium mt-8">{{ $t("pages.server-routes.pageInfo") }}</p>
-              <h2 class="text-header-large mt-12">{{ $t("pages.server-routes.get.header") }}</h2>
+              <h1 class="text-header-large mt-12">{{ $t("pages.samples.server-routes.pageTitle") }}</h1>
+              <p class="text-header-medium mt-8">{{ $t("pages.samples.server-routes.pageInfo") }}</p>
+              <h2 class="text-header-large mt-12">{{ $t("pages.samples.server-routes.get.header") }}</h2>
 
               <p>Array: {{ exampleGetParam }}</p>
               <p>Array => key value: {{ exampleGetParam?.isValid }}</p>
               <p>Array => key value: {{ exampleGetParam?.param1 }}</p>
               <hr />
 
-              <h2 class="text-header-large mt-12">{{ $t("pages.server-routes.post.header") }}</h2>
+              <h2 class="text-header-large mt-12">{{ $t("pages.samples.server-routes.post.header") }}</h2>
               <p>Array: {{ examplePostParam }}</p>
               <p>Array => key value: {{ examplePostParam }}</p>
 
               <hr />
 
-              <h2 class="text-header-large mt-12">{{ $t("pages.server-routes.route.header") }}</h2>
-              <p>{{ $t("pages.server-routes.route.info") }}</p>
+              <h2 class="text-header-large mt-12">{{ $t("pages.samples.server-routes.route.header") }}</h2>
+              <p>{{ $t("pages.samples.server-routes.route.info") }}</p>
               <p>
                 exampleIdromRoute: <strong>{{ exampleIdromRoute }}</strong>
               </p>
@@ -35,7 +35,6 @@
 
 <script setup lang="ts">
   import { useI18n } from "vue-i18n";
-
   const { t } = useI18n();
 
   definePageMeta({
@@ -43,8 +42,8 @@
   });
 
   useHead({
-    title: t("pages.server-routes.head.title"),
-    meta: [{ name: "description", content: t("pages.server-routes.head.description") }],
+    title: t("pages.samples.server-routes.head.title"),
+    meta: [{ name: "description", content: t("pages.samples.server-routes.head.description") }],
     bodyAttrs: {
       class: "",
     },
