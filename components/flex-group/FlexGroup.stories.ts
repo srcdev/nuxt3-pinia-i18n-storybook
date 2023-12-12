@@ -7,12 +7,15 @@ export default {
   title: "Components/Scaffolding/Flex Group",
   component: FlexGroup,
   args: {
-    flexType: "flex",
-    flexFlow: "row",
-    alignContent: "top-center",
-    placementX: "top",
-    placementY: "left",
+    flexType: "flex", //"flex", "inline-flex"
+    flexFlow: "row", // "column", "column-reverse", "row", "row-reverse", "cols-to-row"
+    flexWrap: "nowrap", // "initial", "nowrap", "wrap", "wrap-reverse", "cols-to-row"
+    alignContent: "top-left", //"top-center", "center-center", "bottom-center", "top-left", "center-left", "bottom-left", "top-right", "center-right", "bottom-right", "top-space-around", "center-space-around", "bottom-space-around", "top-space-between", "center-space-between", "bottom-space-between"
     gap: "0",
+    maxWidth: false,
+    fillHeight: false,
+    maxHeight: false,
+    applyClasses: "",
   },
 } as Meta<typeof FlexGroup>;
 
@@ -23,302 +26,127 @@ const Template: StoryFn<typeof FlexGroup> = (args) => ({
   },
   template: `
     <FlexGroup v-bind="args">
-      <template v-slot:flexGroup>${args.default}</template>
+      <template v-slot:flexGroup>
+        <FlexGroupItem>
+          <template v-slot:default>
+            <div>
+              <h1 class="text-header-large">Item 1</h1>
+            </div>
+          </template>
+        </FlexGroupItem>
+        <FlexGroupItem>
+          <template v-slot:default>
+            <div>
+              <h1 class="text-header-large">Item 2</h1>
+            </div>
+          </template>
+        </FlexGroupItem>
+        <FlexGroupItem>
+          <template v-slot:default>
+            <div>
+              <h1 class="text-header-large">Item 3</h1>
+            </div>
+          </template>
+        </FlexGroupItem>
+        <FlexGroupItem>
+          <template v-slot:default>
+            <div>
+              <h1 class="text-header-large">Item 4</h1>
+            </div>
+          </template>
+        </FlexGroupItem>
+      </template>
     </FlexGroup>
   `,
 });
 
-export const FlowRow = Template.bind({});
-let defaultArgs = `
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 1</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 2</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 3</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 4</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-`;
-
-FlowRow.args = {
-  default: defaultArgs,
-  flexType: "flex",
-  flexFlow: "row",
-  alignContent: "top-center",
-  placementX: "top",
-  placementY: "left",
-  gap: "0",
+export const FlexRowTopLeft = Template.bind({});
+FlexRowTopLeft.args = {
+  flexType: "flex", //"flex", "inline-flex"
+  flexFlow: "row", // "column", "column-reverse", "row", "row-reverse", "cols-to-row"
+  flexWrap: "nowrap", // "initial", "nowrap", "wrap", "wrap-reverse", "cols-to-row"
+  alignContent: "top-left", //"top-center", "center-center", "bottom-center", "top-left", "center-left", "bottom-left", "top-right", "center-right", "bottom-right", "top-space-around", "center-space-around", "bottom-space-around", "top-space-between", "center-space-between", "bottom-space-between"
+  gap: "20px",
+  maxWidth: false,
+  fillHeight: false,
+  maxHeight: false,
+  applyClasses: "",
 };
 
-export const FlowRowReverse = Template.bind({});
-defaultArgs = `
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 1</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 2</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 3</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 4</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-`;
-
-FlowRowReverse.args = {
-  default: defaultArgs,
-  flexType: "flex",
-  flexFlow: "row-reverse",
-  alignContent: "top",
-  placementX: "top",
-  placementY: "left",
-  gap: "0",
+export const FlexRowTopCenter = Template.bind({});
+FlexRowTopCenter.args = {
+  flexType: "flex", //"flex", "inline-flex"
+  flexFlow: "row", // "column", "column-reverse", "row", "row-reverse", "cols-to-row"
+  flexWrap: "nowrap", // "initial", "nowrap", "wrap", "wrap-reverse", "cols-to-row"
+  alignContent: "top-center", //"top-center", "center-center", "bottom-center", "top-left", "center-left", "bottom-left", "top-right", "center-right", "bottom-right", "top-space-around", "center-space-around", "bottom-space-around", "top-space-between", "center-space-between", "bottom-space-between"
+  gap: "20px",
+  maxWidth: true,
+  fillHeight: false,
+  maxHeight: false,
+  applyClasses: "",
 };
 
-export const FlowColumn = Template.bind({});
-defaultArgs = `
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 1</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 2</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 3</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 4</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-`;
-FlowColumn.args = {
-  default: defaultArgs,
-  flexType: "flex",
-  flexFlow: "column",
-  alignContent: "top",
-  justifyItems: "left",
-  placementX: "top",
-  placementY: "left",
-  gap: "20",
+export const FlexRowTopRight = Template.bind({});
+FlexRowTopRight.args = {
+  flexType: "flex", //"flex", "inline-flex"
+  flexFlow: "row", // "column", "column-reverse", "row", "row-reverse", "cols-to-row"
+  flexWrap: "nowrap", // "initial", "nowrap", "wrap", "wrap-reverse", "cols-to-row"
+  alignContent: "top-right", //"top-center", "center-center", "bottom-center", "top-left", "center-left", "bottom-left", "top-right", "center-right", "bottom-right", "top-space-around", "center-space-around", "bottom-space-around", "top-space-between", "center-space-between", "bottom-space-between"
+  gap: "20px",
+  maxWidth: true,
+  fillHeight: false,
+  maxHeight: false,
+  applyClasses: "",
 };
 
-export const FlowColumnReverse = Template.bind({});
-defaultArgs = `
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 1</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 2</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 3</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 4</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-`;
-FlowColumnReverse.args = {
-  default: defaultArgs,
-  flexType: "flex",
-  flexFlow: "column-reverse",
-  alignContent: "top",
-  justifyItems: "left",
-  placementX: "top",
-  placementY: "left",
-  gap: "20",
-};
-export const WithItemGrow = Template.bind({});
-defaultArgs = `
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 1</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 2</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem :flexGrow="true">
-    <template>
-      <div>
-        <h1>Item 3</h1>
-        <p>Grow: true</p>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 4</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-`;
-
-WithItemGrow.args = {
-  default: defaultArgs,
-  flexType: "flex",
-  flexFlow: "row",
-  alignContent: "top",
-  justifyItems: "left",
-  placementX: "top",
-  placementY: "left",
-  gap: "0",
+export const FlexRowTopSpaceAround = Template.bind({});
+FlexRowTopSpaceAround.args = {
+  flexType: "flex", //"flex", "inline-flex"
+  flexFlow: "row", // "column", "column-reverse", "row", "row-reverse", "cols-to-row"
+  flexWrap: "nowrap", // "initial", "nowrap", "wrap", "wrap-reverse", "cols-to-row"
+  alignContent: "top-space-around", //"top-center", "center-center", "bottom-center", "top-left", "center-left", "bottom-left", "top-right", "center-right", "bottom-right", "top-space-around", "center-space-around", "bottom-space-around", "top-space-between", "center-space-between", "bottom-space-between"
+  gap: "20px",
+  maxWidth: false,
+  fillHeight: false,
+  maxHeight: false,
+  applyClasses: "",
 };
 
-export const ColumnSpaceAround = Template.bind({});
-defaultArgs = `
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 1</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 2</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 3</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 4</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-`;
-ColumnSpaceAround.args = {
-  default: defaultArgs,
-  flexType: "flex",
-  flexFlow: "row",
-  alignContent: "top",
-  justifyItems: "space-around",
-  placementX: "top",
-  placementY: "left",
-  gap: "20",
+export const FlexRowTopSpaceBetween = Template.bind({});
+FlexRowTopSpaceBetween.args = {
+  flexType: "flex", //"flex", "inline-flex"
+  flexFlow: "row", // "column", "column-reverse", "row", "row-reverse", "cols-to-row"
+  flexWrap: "nowrap", // "initial", "nowrap", "wrap", "wrap-reverse", "cols-to-row"
+  alignContent: "top-space-between", //"top-center", "center-center", "bottom-center", "top-left", "center-left", "bottom-left", "top-right", "center-right", "bottom-right", "top-space-around", "center-space-around", "bottom-space-around", "top-space-between", "center-space-between", "bottom-space-between"
+  gap: "20px",
+  maxWidth: false,
+  fillHeight: false,
+  maxHeight: false,
+  applyClasses: "",
 };
 
-export const ColumnSpaceBetween = Template.bind({});
-defaultArgs = `
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 1</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 2</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 3</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-  <FlexGroupItem>
-    <template>
-      <div>
-        <h1>Item 4</h1>
-      </div>
-    </template>
-  </FlexGroupItem>
-`;
-ColumnSpaceBetween.args = {
-  default: defaultArgs,
-  flexType: "flex",
-  flexFlow: "row",
-  alignContent: "top",
-  justifyItems: "space-between",
-  placementX: "top",
-  placementY: "left",
-  gap: "20",
+export const FlexRowCenterSpaceAround = Template.bind({});
+FlexRowCenterSpaceAround.args = {
+  flexType: "flex", //"flex", "inline-flex"
+  flexFlow: "row", // "column", "column-reverse", "row", "row-reverse", "cols-to-row"
+  flexWrap: "nowrap", // "initial", "nowrap", "wrap", "wrap-reverse", "cols-to-row"
+  alignContent: "center-space-around", //"top-center", "center-center", "bottom-center", "top-left", "center-left", "bottom-left", "top-right", "center-right", "bottom-right", "top-space-around", "center-space-around", "bottom-space-around", "top-space-between", "center-space-between", "bottom-space-between"
+  gap: "20px",
+  maxWidth: false,
+  fillHeight: true,
+  maxHeight: false,
+  applyClasses: "",
+};
+
+export const FlexRowCenterSpaceBetween = Template.bind({});
+FlexRowCenterSpaceBetween.args = {
+  flexType: "flex", //"flex", "inline-flex"
+  flexFlow: "row", // "column", "column-reverse", "row", "row-reverse", "cols-to-row"
+  flexWrap: "nowrap", // "initial", "nowrap", "wrap", "wrap-reverse", "cols-to-row"
+  alignContent: "center-space-between", //"top-center", "center-center", "bottom-center", "top-left", "center-left", "bottom-left", "top-right", "center-right", "bottom-right", "top-space-around", "center-space-around", "bottom-space-around", "top-space-between", "center-space-between", "bottom-space-between"
+  gap: "20px",
+  maxWidth: false,
+  fillHeight: true,
+  maxHeight: false,
+  applyClasses: "",
 };
