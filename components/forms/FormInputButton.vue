@@ -1,11 +1,11 @@
 <template>
-  <button :type?="buttonType" class="btn btn-primary">{{ buttonText }}</button>
+  <button :type="buttonType" class="btn btn-primary">{{ buttonText }}</button>
 </template>
 
 <script setup lang="ts">
-  import { type PropType } from "vue";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  // import { type PropType } from "vue";
+  // import { useI18n } from "vue-i18n";
+  // const { t } = useI18n();
 
   /*
    * defineProps
@@ -33,9 +33,9 @@
    */
   const emit = defineEmits(["emitName"]);
 
-  const someMethod = (data: any) => {
-    emit("emitName", data);
-  };
+  // const someMethod = (data: any) => {
+  //   emit("emitName", data);
+  // };
 </script>
 
 <style lang="scss" scoped>
