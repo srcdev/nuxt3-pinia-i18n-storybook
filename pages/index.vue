@@ -13,6 +13,9 @@
         <PageRow :fit-content="true" :apply-gutters="false">
           <template #pageRowContent>
             <SectionParallax bg-image="/assets/images/sample.jpg" bg-height="100vh" justify-items="left">
+              <template #sidePanel>
+                <h1 class="text-header-large">This is a sidePanel</h1>
+              </template>
               <template #content>
                 <PageRow :fit-content="true" :apply-gutters="true" apply-classes="pt-40 pb-40">
                   <template #pageRowContent>
@@ -21,6 +24,9 @@
                     </div>
                   </template>
                 </PageRow>
+              </template>
+              <template #infoRow>
+                <h1 class="text-header-large">This is a infoRow</h1>
               </template>
             </SectionParallax>
           </template>

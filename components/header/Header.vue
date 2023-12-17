@@ -1,6 +1,19 @@
 <template>
   <header class="header" :class="[headerTheme]">
-    <h1 class="text-header-large text-color-orange">{{ $t("components.header.text") }}</h1>
+    <FlexGroup>
+      <template #flexGroup>
+        <FlexGroupItem :flex-grow="true">
+          <template #default>
+            <h1 class="text-header-large text-color-white">{{ $t("components.header.text") }}</h1>
+          </template>
+        </FlexGroupItem>
+        <FlexGroupItem>
+          <template #default>
+            <HeaderNavigation></HeaderNavigation>
+          </template>
+        </FlexGroupItem>
+      </template>
+    </FlexGroup>
   </header>
 </template>
 
@@ -47,7 +60,8 @@
   }
 
   .header {
-    background-color: var(--bgColour);
+    // background-color: var(--bgColour);
+    background-color: $black;
     padding: 16px;
 
     @include mqMinTablet {

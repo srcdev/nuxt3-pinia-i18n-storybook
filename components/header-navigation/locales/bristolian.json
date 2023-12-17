@@ -1,0 +1,35 @@
+{
+  "components": {
+    "header-navigation": {
+      "title": "Menu",
+      "nav-links": {
+        "examples": {
+          "summary": "Examples",
+          "links": [
+            {
+              "text": "Sample layout",
+              "url": "/samples/components"
+            },
+            {
+              "text": "Language switcher",
+              "url": "/lang-switcher"
+            },
+            {
+              "text": "Test form",
+              "url": "/samples/forms/guided-form"
+            }
+          ]
+        },
+        "ui": {
+          "summary": "UI Components",
+          "links": [
+            {
+              "text": "Parallax section",
+              "url": "/"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

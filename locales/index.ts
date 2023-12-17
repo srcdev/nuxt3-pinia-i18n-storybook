@@ -55,6 +55,8 @@ Object.keys(messages).forEach((key, element) => {
     const componentSource = parsedSource[0][1];
     translations[currentLangKey][currentComponentKey][childName] = Object.assign(componentTarget, componentSource);
   }
+
+  // console.log("2: Final translations file: ", translations);
 });
 
 export default translations;
