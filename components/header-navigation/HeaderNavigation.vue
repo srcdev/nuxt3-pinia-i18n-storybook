@@ -28,10 +28,6 @@
 
   const { t } = useI18n();
 
-  console.log(t("components.header-navigation.title"));
-  console.log(t("components.header-navigation.nav-links"));
-
-  // const navItems = toRaw(t("components.header-navigation.nav-links"));
   const navItems = {
     examples: {
       summary: "Examples",
@@ -47,6 +43,10 @@
         {
           text: "Test form",
           url: "/samples/forms/guided-form",
+        },
+        {
+          text: "Data Fetching",
+          url: "/samples/server-routes",
         },
       ],
     },
@@ -104,14 +104,19 @@
       border-radius: 6px;
       border: 1px solid $color-grey-6;
       position: absolute;
-      right: 30px;
-      top: 30px;
+      right: 12px;
+      top: 12px;
       z-index: -1;
       padding: 12px;
       color: $color-grey-4;
       opacity: 0;
       transition: opacity ease-in-out 200ms;
       min-width: 200px;
+
+      @media all and (min-width: 768px) {
+        right: 30px;
+        top: 30px;
+      }
       &.open {
         opacity: 1;
         z-index: 2;
