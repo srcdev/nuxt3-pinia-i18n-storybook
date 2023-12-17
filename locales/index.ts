@@ -1,6 +1,5 @@
 import { createPinia } from "pinia";
 import { useI18nStore } from "@/stores/store.i18n";
-import { file } from "@babel/types";
 const i18nStore = useI18nStore(createPinia());
 
 export const translations: any = {};
@@ -56,8 +55,6 @@ Object.keys(messages).forEach((key, element) => {
     const componentSource = parsedSource[0][1];
     translations[currentLangKey][currentComponentKey][childName] = Object.assign(componentTarget, componentSource);
   }
-
-  // console.log("2: Final translations file: ", translations);
 });
 
 export default translations;
