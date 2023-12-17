@@ -45,11 +45,7 @@ Object.keys(messages).forEach((key, element) => {
     }
   }
 
-  // const childName = fileJson[0][1];
   const childName = Object.keys(fileJson[0][1])[0];
-  // console.log(childName);
-  // console.log(`translations[${currentLangKey}][${currentComponentKey}][${childName}]: `, typeof translations[currentLangKey][currentComponentKey][childName] === "undefined");
-
   if (typeof translations[currentLangKey][currentComponentKey][childName] === "undefined") {
     const componentTarget = translations[currentLangKey][currentComponentKey];
     const componentSource = Object.values(fileJson[0])[1];
