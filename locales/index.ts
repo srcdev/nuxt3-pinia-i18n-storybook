@@ -33,23 +33,35 @@ Object.keys(messages).forEach((key, element) => {
   const fileJson = JSON.parse(JSON.stringify(Object.entries(messages[key])));
   const currentComponentKey = <string | number>Object.values(fileJson[0])[0];
 
-  const topLevelComponent = fileJson[0][1];
-  // console.log("topLevelComponent: ", Object.values(topLevelComponent));
-
+  // If parent component name doesn;t exist, add it.
   if (Object.entries(fileJson[currentComponentKey] === null)) {
     const target = translations[currentLangKey];
     const source = {
       [currentComponentKey]: {},
     };
+
     if (typeof translations[currentLangKey][currentComponentKey] === "undefined") {
       translations[currentLangKey] = Object.assign(target, source);
     }
   }
-  const componentTarget = translations[currentLangKey][currentComponentKey];
-  const componentSource = Object.values(fileJson[0])[1];
-  translations[currentLangKey][currentComponentKey] = Object.assign(componentTarget, componentSource);
 
-  // console.log("2: Final translations file: ", translations);
+  // const childName = fileJson[0][1];
+  const childName = Object.keys(fileJson[0][1])[0];
+  // console.log(childName);
+  // console.log(`translations[${currentLangKey}][${currentComponentKey}][${childName}]: `, typeof translations[currentLangKey][currentComponentKey][childName] === "undefined");
+
+  if (typeof translations[currentLangKey][currentComponentKey][childName] === "undefined") {
+    const componentTarget = translations[currentLangKey][currentComponentKey];
+    const componentSource = Object.values(fileJson[0])[1];
+    translations[currentLangKey][currentComponentKey] = Object.assign(componentTarget, componentSource);
+  } else {
+    const componentTarget = translations[currentLangKey][currentComponentKey][childName];
+    const parsedSource = JSON.parse(JSON.stringify(Object.entries(fileJson[0][1])));
+    const componentSource = parsedSource[0][1];
+    translations[currentLangKey][currentComponentKey][childName] = Object.assign(componentTarget, componentSource);
+  }
+
+  console.log("2: Final translations file: ", translations);
 });
 
 export default translations;
