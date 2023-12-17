@@ -1,32 +1,34 @@
 {
-  "footer": {
-    "title": "Footer bits 'n' bobs",
-    "links": {
-      "home": {
-        "text": "Main gurt page",
-        "url": "/"
+  "components": {
+    "footer": {
+      "title": "Footer bits 'n' bobs",
+      "links": {
+        "home": {
+          "text": "Main gurt page",
+          "url": "/"
+        },
+        "components": {
+          "text": "Sample layout",
+          "url": "/samples/components"
+        },
+        "lang-switcher": {
+          "text": "Gert big talky changer",
+          "url": "/lang-switcher"
+        },
+        "server-routes": {
+          "text": "useFetch bits 'n' bobs",
+          "url": "/samples/server-routes"
+        },
+        "test-form": {
+          "text": "Test form",
+          "url": "/samples/forms/guided-form"
+        },
+        "contact": {
+          "text": "Gerrin' touch wif us",
+          "url": "/"
+        }
       },
-      "components": {
-        "text": "Sample layout",
-        "url": "/samples/components"
-      },
-      "lang-switcher": {
-        "text": "Gert big talky changer",
-        "url": "/lang-switcher"
-      },
-      "server-routes": {
-        "text": "useFetch bits 'n' bobs",
-        "url": "/samples/server-routes"
-      },
-      "test-form": {
-        "text": "Test form",
-        "url": "/samples/forms/guided-form"
-      },
-      "contact": {
-        "text": "Gerrin' touch wif us",
-        "url": "/"
-      }
-    },
-    "copyright": "&copy;{ year } all roights reserved"
+      "copyright": "&copy;{ year } all roights reserved"
+    }
   }
 }

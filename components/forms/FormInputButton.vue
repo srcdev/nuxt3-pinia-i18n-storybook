@@ -1,9 +1,9 @@
 <template>
-  <button :type="buttonType" class="btn btn-primary">{{ buttonText }}</button>
+  <button v-bind="$attrs" :type="buttonType" class="btn btn-primary">{{ buttonText }}</button>
 </template>
 
 <script setup lang="ts">
-  // import { type PropType } from "vue";
+  import { type PropType } from "vue";
   // import { useI18n } from "vue-i18n";
   // const { t } = useI18n();
 
@@ -12,7 +12,7 @@
    */
   const props = defineProps({
     buttonType: {
-      type: String,
+      type: String as PropType<String>,
       value: "button",
       validator(value: string) {
         return ["button", "cancel", "reset", "submit"].includes(value);

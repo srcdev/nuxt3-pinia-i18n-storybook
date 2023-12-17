@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 class="text-header-large" data-test-id="locale-switcher-header">{{ t("locale-switcher.title") }}</h1>
-    <p class="mt-12 mb-12" data-test-id="locale-switcher-info">{{ t("locale-switcher.info") }}</p>
+    <h1 class="text-header-large" data-test-id="locale-switcher-header">{{ t("components.locale-switcher.title") }}</h1>
+    <p class="mt-12 mb-12" data-test-id="locale-switcher-info">{{ t("components.locale-switcher.info") }}</p>
   </div>
   <ClientOnly>
     <div v-for="locale in availableLocales" :key="locale.code">

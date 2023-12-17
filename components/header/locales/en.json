@@ -1,5 +1,7 @@
 {
-  "header": {
-    "text": "Nuxt3 Playground Site"
+  "components": {
+    "header": {
+      "text": "Nuxt3 Playground Site"
+    }
   }
 }

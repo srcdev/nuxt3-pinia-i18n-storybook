@@ -1,10 +1,12 @@
 {
-  "pages-index": {
-    "head": {
-      "title": "Homepage",
-      "description": "A boiler plate Nuxt 3, Pinia, Vitest and Storybook",
-      "keywords": "Nuxt3, Nuxt, Pinia, Storybook, Vitest"
-    },
-    "header": "A boiler plate Nuxt 3, Pinia, Vitest and Storybook"
+  "pages": {
+    "index": {
+      "head": {
+        "title": "Homepage",
+        "description": "A boiler plate Nuxt 3, Pinia, Vitest and Storybook",
+        "keywords": "Nuxt3, Nuxt, Pinia, Storybook, Vitest"
+      },
+      "header": "A boiler plate Nuxt 3, Pinia, Vitest and Storybook"
+    }
   }
 }

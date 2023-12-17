@@ -1,13 +1,13 @@
 <template>
   <footer class="footer" :class="[footerTheme]">
     <div class="footer-inner">
-      <p>{{ $t("footer.title") }}</p>
+      <p>{{ $t("components.footer.title") }}</p>
       <ul class="footer-links-list">
         <li v-for="link in footerLinks" class="footer-links-item">
           <NuxtLink :to="$t(link.url)" class="footer-links-link">{{ $t(link.text) }}</NuxtLink>
         </li>
       </ul>
-      <p v-html="$t('footer.copyright', { year: currentYear })"></p>
+      <p v-html="$t('components.footer.copyright', { year: currentYear })"></p>
     </div>
   </footer>
 </template>
@@ -34,24 +34,24 @@
 
   const footerLinks = [
     {
-      text: "footer.links.home.text",
-      url: "footer.links.home.url",
+      text: "components.footer.links.home.text",
+      url: "components.footer.links.home.url",
     },
     {
-      text: "footer.links.components.text",
-      url: "footer.links.components.url",
+      text: "components.footer.links.components.text",
+      url: "components.footer.links.components.url",
     },
     {
-      text: "footer.links.lang-switcher.text",
-      url: "footer.links.lang-switcher.url",
+      text: "components.footer.links.lang-switcher.text",
+      url: "components.footer.links.lang-switcher.url",
     },
     {
-      text: "footer.links.server-routes.text",
-      url: "footer.links.server-routes.url",
+      text: "components.footer.links.server-routes.text",
+      url: "components.footer.links.server-routes.url",
     },
     {
-      text: "footer.links.test-form.text",
-      url: "footer.links.test-form.url",
+      text: "components.footer.links.test-form.text",
+      url: "components.footer.links.test-form.url",
     },
   ];
   // const { t } = useI18n();

@@ -5,7 +5,7 @@
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
             <div>
-              <h1 class="text-header-large">{{ $t("pages-index.header") }}</h1>
+              <h1 class="text-header-large">{{ $t("pages.index.header") }}</h1>
             </div>
           </template>
         </PageRow>
@@ -93,8 +93,8 @@
   });
 
   useHead({
-    title: t("pages-index.head.title"),
-    meta: [{ name: "description", content: t("pages-index.head.description") }],
+    title: t("pages.index.head.title"),
+    meta: [{ name: "description", content: t("pages.index.head.description") }],
     bodyAttrs: {
       class: "",
     },

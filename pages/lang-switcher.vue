@@ -2,6 +2,14 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
+        <PageRow :fit-content="true" :apply-gutters="true">
+          <template #pageRowContent>
+            <div>
+              <h1 class="text-header-large">{{ $t("pages.language-switcher.header") }}</h1>
+            </div>
+          </template>
+        </PageRow>
+
         <PageRow :fit-content="true" :apply-gutters="true" page-row-theme="theme-default" page-row-inner-theme="theme-default">
           <template #pageRowContent>
             <LocaleSwitcher></LocaleSwitcher>

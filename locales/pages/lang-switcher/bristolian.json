@@ -1,0 +1,12 @@
+{
+  "pages": {
+    "language-switcher": {
+      "head": {
+        "title": "Language Switcher",
+        "description": "Example of a Language Switcher",
+        "keywords": "Nuxt3, Nuxt, i18n"
+      },
+      "header": "An exmaple of a Language Switcher"
+    }
+  }
+}

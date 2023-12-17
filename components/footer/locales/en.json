@@ -1,32 +1,34 @@
 {
-  "footer": {
-    "title": "Footer links",
-    "links": {
-      "home": {
-        "text": "Homepage",
-        "url": "/"
+  "components": {
+    "footer": {
+      "title": "Footer links",
+      "links": {
+        "home": {
+          "text": "Homepage",
+          "url": "/"
+        },
+        "components": {
+          "text": "Sample layout",
+          "url": "/samples/components"
+        },
+        "lang-switcher": {
+          "text": "Language switcher",
+          "url": "/lang-switcher"
+        },
+        "server-routes": {
+          "text": "Server Routes",
+          "url": "/samples/server-routes"
+        },
+        "test-form": {
+          "text": "Test form",
+          "url": "/samples/forms/guided-form"
+        },
+        "contact": {
+          "text": "Contact",
+          "url": "/"
+        }
       },
-      "components": {
-        "text": "Sample layout",
-        "url": "/samples/components"
-      },
-      "lang-switcher": {
-        "text": "Language switcher",
-        "url": "/lang-switcher"
-      },
-      "server-routes": {
-        "text": "Server Routes",
-        "url": "/samples/server-routes"
-      },
-      "test-form": {
-        "text": "Test form",
-        "url": "/samples/forms/guided-form"
-      },
-      "contact": {
-        "text": "Contact",
-        "url": "/"
-      }
-    },
-    "copyright": "&copy;{ year } all rights reserved"
+      "copyright": "&copy;{ year } all rights reserved"
+    }
   }
 }

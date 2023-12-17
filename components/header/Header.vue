@@ -1,6 +1,6 @@
 <template>
   <header class="header" :class="[headerTheme]">
-    <h1 class="text-header-large text-color-orange">{{ $t("header.text") }}</h1>
+    <h1 class="text-header-large text-color-orange">{{ $t("components.header.text") }}</h1>
   </header>
 </template>
 
@@ -31,7 +31,7 @@
   const accountStore = useAccountStore();
 
   const signedIntext = computed(() => {
-    return accountStore.signedIn ? t("header.signedIn") : t("header.signedOut");
+    return accountStore.signedIn ? t("components.header.signedIn") : t("components.header.signedOut");
   });
 </script>
 

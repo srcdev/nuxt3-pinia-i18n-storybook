@@ -5,8 +5,8 @@
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
             <div>
-              <h1 class="text-header-large">1: {{ $t("pages-samples-forms-guided-form.pageTitle") }}</h1>
-              <p>{{ $t("pages-samples-forms-guided-form.pageInfo", { step: guidedFormData.step, steps: steps }) }}</p>
+              <h1 class="text-header-large">1: {{ $t("pages.samples.forms-guided-form.pageTitle") }}</h1>
+              <p>{{ $t("pages.samples.forms-guided-form.pageInfo", { step: guidedFormData.step, steps: steps }) }}</p>
             </div>
           </template>
         </PageRow>
@@ -19,8 +19,8 @@
           <template #pageRowContent>
             <FlexGroup gap="12px" align-content="center-right">
               <template #flexGroup>
-                <FormInputButton @click.prevent="goToStep(-1)" button-text="Previous" :readonly="guidedFormData.step === 1"></FormInputButton>
-                <FormInputButton @click.prevent="goToStep(1)" button-text="Next" :readonly="guidedFormData.step === steps"></FormInputButton>
+                <FormInputButton type="button" @click.prevent="goToStep(-1)" button-text="Previous" :readonly="guidedFormData.step === 1"></FormInputButton>
+                <FormInputButton type="button" @click.prevent="goToStep(1)" button-text="Next" :readonly="guidedFormData.step === steps"></FormInputButton>
               </template>
             </FlexGroup>
           </template>
@@ -40,8 +40,8 @@
   });
 
   useHead({
-    title: t("pages-samples-forms-guided-form.head.title"),
-    meta: [{ name: "description", content: t("pages-samples-forms-guided-form.head.description") }],
+    title: t("pages.samples.forms-guided-form.head.title"),
+    meta: [{ name: "description", content: t("pages.samples.forms-guided-form.head.description") }],
     bodyAttrs: {
       class: "",
     },
