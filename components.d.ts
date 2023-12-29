@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    DisplayCard: typeof import('./components/display-card/DisplayCard.vue')['default']
     FlexGroup: typeof import('./components/flex-group/FlexGroup.vue')['default']
     FlexGroupItem: typeof import('./components/flex-group/FlexGroupItem.vue')['default']
     Footer: typeof import('./components/footer/Footer.vue')['default']

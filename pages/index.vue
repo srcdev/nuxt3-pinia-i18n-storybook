@@ -51,13 +51,46 @@
                 <li>And another element</li>
                 <li>4th element</li>
                 <li>so it continues</li>
-                <li>Item 1</li>
-                <li>Some other tiem</li>
-                <li>And another element</li>
-                <li>4th element</li>
-                <li>so it continues</li>
               </ul>
             </div>
+          </template>
+        </PageRow>
+
+        <PageRow :fit-content="true" :apply-gutters="false" apply-classes="pt-12">
+          <template #pageRowContent>
+            <DisplayCard
+              direction="row"
+              gap="12px"
+              :content="{
+                image: {
+                  url: '/assets/images/marrakech.jpg',
+                  alignContent: 'top-center',
+                },
+              }"
+              apply-classes="m-12 p-12"
+            >
+              <template #header>
+                <h1 class="text-header-large">This is a display card</h1>
+              </template>
+              <template #cardContent>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur faucibus erat, eget auctor lorem tristique at. Suspendisse neque tellus, venenatis sit amet erat eget, varius mattis magna. Pellentesque ut turpis rhoncus,
+                  commodo ex id, egestas felis. Vestibulum vitae blandit ex. Aliquam quis purus tellus. Aliquam iaculis cursus leo nec suscipit. Etiam non mattis orci. Integer congue condimentum cursus. Interdum et malesuada fames ac ante ipsum
+                  primis in faucibus.
+                </p>
+                <p>
+                  Donec condimentum mauris nec elementum sagittis. Aenean at arcu sit amet mauris sodales dignissim vel vel ligula. Mauris ac quam at ipsum commodo aliquam quis sed tortor. Donec pulvinar mollis quam ac sodales. Ut tristique ex sed
+                  enim tempus egestas. Donec sit amet aliquet libero. Donec vitae magna a massa ultrices pulvinar et eu nisi. Donec tempor, elit tincidunt suscipit bibendum, justo nisl blandit nisi, et cursus orci metus eget turpis. Ut ac sem eros.
+                  Nulla ac cursus quam. Nulla egestas finibus mi quis elementum. Proin semper sed nunc vitae venenatis. Fusce sed lectus a justo tincidunt fringilla.
+                </p>
+                <p>
+                  Praesent eget sem vel erat hendrerit ullamcorper quis sed dui. Suspendisse id commodo ipsum. Integer molestie porttitor laoreet. Donec cursus, erat non venenatis efficitur, sapien nisi varius enim, at lobortis leo eros id leo. Proin
+                  at pellentesque nunc. Quisque egestas hendrerit maximus. Etiam pellentesque malesuada dapibus. Vivamus tincidunt massa pharetra posuere fringilla. Suspendisse velit turpis, posuere sit amet lorem sit amet, pharetra ultrices nibh.
+                  Sed posuere placerat nulla, et dignissim ligula. Vestibulum sit amet leo vitae mi tempus cursus. In sollicitudin nunc non tempus egestas. Pellentesque id erat eu turpis lobortis lobortis. Nunc pulvinar purus id diam ullamcorper
+                  scelerisque.
+                </p>
+              </template>
+            </DisplayCard>
           </template>
         </PageRow>
 

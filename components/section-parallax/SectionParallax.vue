@@ -1,5 +1,5 @@
 <template>
-  <section class="section-parallax" :class="[{ 'has-info-row': hasSlotInfoRow }, { 'has-slot-side-panel': hasSlotSidePanel }, { 'use-fixed-bg': useFixedBg }]" :align-content="`${alignContent}-${justifyItems}`" :id="hashId">
+  <section :class="['section-parallax', applyClasses, { 'has-info-row': hasSlotInfoRow }, { 'has-slot-side-panel': hasSlotSidePanel }, { 'use-fixed-bg': useFixedBg }]" :align-content="`${alignContent}-${justifyItems}`" :id="hashId">
     <template v-if="hasSlotSidePanel">
       <slot name="sidePanel"></slot>
     </template>
@@ -39,6 +39,10 @@
       default: "left",
       validator: (val: string) => ["center", "left", "right"].includes(val),
     },
+    applyClasses: {
+      type: String as PropType<String>,
+      default: "",
+    },
   });
 
   const rootStore = useRootStore();
@@ -59,7 +63,7 @@
   $bgHeight: v-bind(bgHeight);
 
   .section-parallax {
-    min-height: 120vh;
+    // min-height: 120vh;
     background-image: $backgroundImage;
     background-position: center;
     background-repeat: no-repeat;
@@ -69,7 +73,7 @@
     &.use-fixed-bg {
       background-attachment: fixed;
       background-size: cover;
-      min-height: 120vh;
+      // min-height: 120vh;
     }
 
     &.has-info-row {
@@ -83,10 +87,10 @@
       min-height: 75vh;
     }
     @media only screen and (min-width: $tabletLarge) {
-      min-height: 85vh;
+      // min-height: 85vh;
     }
     @media only screen and (min-width: $desktop) {
-      min-height: 100vh;
+      // min-height: 100vh;
     }
 
     // display: flex;

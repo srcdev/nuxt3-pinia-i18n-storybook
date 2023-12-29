@@ -27,7 +27,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@pinia/nuxt", "nuxt-vitest", "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt"],
+  modules: ["@pinia/nuxt", "nuxt-vitest", "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt", "nuxt-icon"],
   i18n: {
     vueI18n: "./i18n.config.ts",
   },

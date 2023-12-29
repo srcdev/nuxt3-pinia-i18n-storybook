@@ -28,5 +28,21 @@
     }
   },
   "eslint.alwaysShowStatus": true,
-  "eslint.validate": ["javascript", "typescript", "json", "jsonc", "vue", "markdown", "html"]
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "json",
+    "jsonc",
+    "vue",
+    "markdown",
+    "html"
+  ],
+  "[css][html][javascript][json][jsonc][markdown][scss][typescript][vue]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.stylelint": "explicit",
+      "source.fixAll.markdownlint": "explicit",
+      "editor.trimAutoWhitespace": "explicit"
+    }
+  }
 }

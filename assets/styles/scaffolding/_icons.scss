@@ -1,0 +1,67 @@
+// See https://icones.js.org/collection/material-symbols
+
+.icon {
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+
+  svg {
+    fill {
+      color: red;
+    }
+  }
+
+  &.invert {
+    filter: invert(100);
+  }
+
+  &.rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  &.rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  &.rotate-270 {
+    transform: rotate(270deg);
+  }
+}
+
+.cancel {
+}
+
+.burger-linear {
+}
+.burger-outline {
+}
+.burger-duotone {
+}
+
+.cancel-outline {
+}
+
+.cancel-outline-rounded {
+}
+
+.arrow-back {
+}
+
+.close-rounded {
+}
+
+.close {
+  color: red;
+}
+
+.zoom-in {
+}
+
+.zoom-in-map {
+}
+
+.zoom-out {
+}
+
+.zoom-out-map {
+}

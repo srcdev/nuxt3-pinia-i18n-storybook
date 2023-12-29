@@ -1,0 +1,15 @@
+{
+  "pages": {
+    "samples": {
+      "installed-icons": {
+        "head": {
+          "title": "Installed Icons",
+          "description": "Installed Icons",
+          "keywords": "Installed Icons"
+        },
+        "pageTitle": "Installed Icons",
+        "pageInfo": "Examples Installed Icons in the appication"
+      }
+    }
+  }
+}

@@ -57,6 +57,10 @@
           text: "Parallax section",
           url: "/",
         },
+        {
+          text: "Installed icons",
+          url: "/samples/installed-icons",
+        },
       ],
     },
   };
@@ -86,10 +90,9 @@
   }
   .menu {
     &__wrapper {
-      border: 1px solid $color-grey-9;
       aspect-ratio: 1;
       background-color: $color-grey-8;
-      border: 1px solid $color-grey-10;
+      border: 1px solid $color-grey-10; // --border-color-dark-grey
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -122,10 +125,20 @@
         z-index: 2;
       }
       &_link {
+        display: block;
         color: $color-grey-10;
         text-decoration: none;
         line-height: 14px;
         margin-left: 6px;
+      }
+
+      details {
+        summary {
+          &:hover,
+          &:focus {
+            cursor: pointer;
+          }
+        }
       }
     }
 
