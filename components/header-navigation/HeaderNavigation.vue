@@ -1,32 +1,32 @@
 <template>
-  <nav class="navigation__wrapper">
-    <div class="menu__wrapper">
-      <button type="button" :class="['menu__button', { open: navActive }]" @click="toggleMenu($event)">
-        <Icon :name="navActive ? 'material-symbols:close' : 'solar:hamburger-menu-linear'" class="menu__button-icon" />
-      </button>
-    </div>
-    <div :class="['menu__items', { open: navActive }]">
-      <p class="text-header-medium">{{ t("components.header-navigation.title") }}</p>
-      <details v-for="item in navItems">
-        <summary>
-          <p>{{ item.summary }}</p>
-        </summary>
-        <div>
-          <ul>
-            <li v-for="link in item.links">
-              <NuxtLink class="menu__items_link" :to="link.url">{{ link.text }}</NuxtLink>
-            </li>
-          </ul>
-        </div>
-      </details>
-    </div>
-  </nav>
+  <focus-trap v-model:active="navActive" :clickOutsideDeactivates="true">
+    <nav class="navigation__wrapper" tabindex="-1">
+      <div class="menu__wrapper">
+        <button type="button" :class="['menu__button', { open: navActive }]" @click="toggleMenu($event)">
+          <Icon :name="navActive ? 'material-symbols:close' : 'solar:hamburger-menu-linear'" class="menu__button-icon" />
+        </button>
+      </div>
+      <div :class="['menu__items', { open: navActive }]">
+        <p class="text-header-medium">{{ t("components.header-navigation.title") }}</p>
+        <details class="nav-details" v-for="(item, key, index) in navItems" ref="itemRefs">
+          <summary>
+            <p><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
+          </summary>
+          <div>
+            <ul>
+              <li v-for="link in item.links">
+                <NuxtLink class="menu__items_link" :to="link.url">{{ link.text }}</NuxtLink>
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </nav>
+  </focus-trap>
 </template>
 
 <script setup lang="ts">
-  // import { useAccountStore } from "@/stores/store.account";
-  // import { useRootStore } from "@/stores/store.root";
-  // import { useI18n } from "vue-i18n";
+  import { FocusTrap } from "focus-trap-vue";
 
   const { t } = useI18n();
 
@@ -66,14 +66,21 @@
       ],
     },
   };
-  // const rootStore = useRootStore();
-  // const accountStore = useAccountStore();
 
   const navActive = ref(false);
+  const activeDetailsIndex = ref<number | null>(null);
 
   const toggleMenu = (event: any) => {
     navActive.value = !navActive.value;
+    activeDetailsIndex.value = null;
   };
+
+  // Handle Top nav expander
+  const itemRefs = ref<any>([]);
+  // const handleSummary = (index: number) => {
+  //   console.log(`handleSummary(${index}):`, itemRefs.value[index].attributes);
+  //   activeDetailsIndex.value = index === activeDetailsIndex.value ? null : index;
+  // };
 </script>
 
 <style lang="scss" scoped>
@@ -81,7 +88,6 @@
 
   .navigation {
     &__wrapper {
-      // position: relative;
       display: grid;
 
       & > * {
@@ -128,27 +134,42 @@
         text-decoration: none;
         line-height: 14px;
         margin-left: 6px;
-        &:hover,
-        &:focus {
+        &:hover {
           cursor: pointer;
           text-decoration: underline;
         }
+        &:focus {
+          @include a11y-focus;
+        }
       }
 
-      details {
+      .nav-details {
+        &:not([open]) {
+          .nav-details-icon {
+            transform: scale(1, 1);
+          }
+        }
+        .nav-details-icon {
+          transition: all ease-in-out 350ms;
+          transform: scale(1, -1);
+        }
+
         summary {
           color: $color-grey-5;
           font-weight: 700;
-          &:hover,
-          &:focus {
+          &:hover {
             cursor: pointer;
             text-decoration: underline;
+          }
+          &:focus {
+            @include a11y-focus;
           }
         }
       }
     }
 
     &__button {
+      $self: &;
       aspect-ratio: 1;
       width: 30px;
 
@@ -160,10 +181,13 @@
       padding: 2px;
       z-index: 3;
       cursor: pointer;
-      // &:hover,
-      // &:focus {
-      //   border-color: $color-grey-3;
-      // }
+      &:hover {
+      }
+      &:focus {
+        #{ $self }-icon {
+          @include a11y-focus;
+        }
+      }
 
       &-icon {
         border: 1px solid $color-grey-10;
