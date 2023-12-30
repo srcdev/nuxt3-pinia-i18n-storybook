@@ -9,6 +9,74 @@
               <p class="text-header-medium mt-8">{{ $t("pages.samples.installed-icons.pageInfo") }}</p>
               <p>See https://icones.js.org/collection/material-symbols</p>
 
+              <p class="text-header-medium mt-8">{{ $t("pages.samples.installed-icons.section.arrows.title") }}</p>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="radix-icons:caret-up" class="caret-up" /></span>
+                </div>
+                <div class="icon-name">
+                  <span class="text-normal">{{ $t("pages.samples.installed-icons.section.arrows.caret-up") }}</span>
+                </div>
+              </div>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="radix-icons:caret-right" class="caret-right" /></span>
+                </div>
+                <div class="icon-name">
+                  <span class="text-normal">{{ $t("pages.samples.installed-icons.section.arrows.caret-right") }}</span>
+                </div>
+              </div>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="radix-icons:caret-down" class="caret-down" /></span>
+                </div>
+                <div class="icon-name">
+                  <span class="text-normal">{{ $t("pages.samples.installed-icons.section.arrows.caret-down") }}</span>
+                </div>
+              </div>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="radix-icons:caret-left" class="caret-left" /></span>
+                </div>
+                <div class="icon-name">
+                  <span class="text-normal">{{ $t("pages.samples.installed-icons.section.arrows.caret-left") }}</span>
+                </div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="radix-icons:chevron-up" class="chevron-up" /></span>
+                </div>
+                <div class="icon-name">
+                  <span class="text-normal">{{ $t("pages.samples.installed-icons.section.arrows.chevron-up") }}</span>
+                </div>
+              </div>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="radix-icons:chevron-right" class="chevron-right" /></span>
+                </div>
+                <div class="icon-name">
+                  <span class="text-normal">{{ $t("pages.samples.installed-icons.section.arrows.chevron-right") }}</span>
+                </div>
+              </div>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="radix-icons:chevron-down" class="chevron-down" /></span>
+                </div>
+                <div class="icon-name">
+                  <span class="text-normal">{{ $t("pages.samples.installed-icons.section.arrows.chevron-down") }}</span>
+                </div>
+              </div>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="radix-icons:chevron-left" class="chevron-left" /></span>
+                </div>
+                <div class="icon-name">
+                  <span class="text-normal">{{ $t("pages.samples.installed-icons.section.arrows.chevron-left") }}</span>
+                </div>
+              </div>
+
+              <p class="text-header-medium mt-8">{{ $t("pages.samples.installed-icons.section.navigation.title") }}</p>
               <div class="icon-table">
                 <div class="icon-display">
                   <span class="icon"><Icon name="solar:hamburger-menu-bold" class="burger-outline" /></span>

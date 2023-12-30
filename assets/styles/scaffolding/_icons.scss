@@ -28,6 +28,27 @@
   }
 }
 
+.caret {
+  &-up {
+  }
+  &-right {
+  }
+  &-down {
+  }
+  &-left {
+  }
+}
+
+.chevron {
+  &-up {
+  }
+  &-right {
+  }
+  &-down {
+  }
+  &-left {
+  }
+}
 .cancel {
 }
 
@@ -51,7 +72,7 @@
 }
 
 .close {
-  color: red;
+  // color: red;
 }
 
 .zoom-in {

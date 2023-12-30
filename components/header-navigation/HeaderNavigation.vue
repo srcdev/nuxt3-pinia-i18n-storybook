@@ -1,7 +1,9 @@
 <template>
   <nav class="navigation__wrapper">
     <div class="menu__wrapper">
-      <button type="button" :class="['menu__button', { open: navActive }]" @click="toggleMenu($event)"></button>
+      <button type="button" :class="['menu__button', { open: navActive }]" @click="toggleMenu($event)">
+        <Icon :name="navActive ? 'material-symbols:close' : 'solar:hamburger-menu-linear'" class="menu__button-icon" />
+      </button>
     </div>
     <div :class="['menu__items', { open: navActive }]">
       <p class="text-header-medium">{{ t("components.header-navigation.title") }}</p>
@@ -91,13 +93,9 @@
   .menu {
     &__wrapper {
       aspect-ratio: 1;
-      background-color: $color-grey-8;
-      border: 1px solid $color-grey-10; // --border-color-dark-grey
-      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
     }
 
     &__items {
@@ -126,17 +124,25 @@
       }
       &_link {
         display: block;
-        color: $color-grey-10;
+        color: $color-grey-5;
         text-decoration: none;
         line-height: 14px;
         margin-left: 6px;
+        &:hover,
+        &:focus {
+          cursor: pointer;
+          text-decoration: underline;
+        }
       }
 
       details {
         summary {
+          color: $color-grey-5;
+          font-weight: 700;
           &:hover,
           &:focus {
             cursor: pointer;
+            text-decoration: underline;
           }
         }
       }
@@ -144,23 +150,24 @@
 
     &__button {
       aspect-ratio: 1;
-      background: $color-grey-1 url("/assets/images/icons/burger-menu.svg") 0 0 no-repeat;
-      background-size: contain;
-      width: 24px;
+      width: 30px;
+
+      background-color: $color-grey-5;
+      border: 1px solid $color-grey-10; // --border-color-dark-grey
+      border-radius: 6px;
+
       outline: none;
-      border: 1px solid transparent;
+      padding: 2px;
       z-index: 3;
       cursor: pointer;
-      &:hover,
-      &:focus {
-        background-color: $color-grey-2;
-        border-color: $color-grey-3;
-        outline: 1px solid #fff;
-        border-radius: 4px;
-      }
+      // &:hover,
+      // &:focus {
+      //   border-color: $color-grey-3;
+      // }
 
-      &.open {
-        background-image: url("/assets/images/icons/close.svg");
+      &-icon {
+        border: 1px solid $color-grey-10;
+        border-radius: 3px;
       }
     }
   }

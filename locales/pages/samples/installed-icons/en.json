@@ -8,7 +8,23 @@
           "keywords": "Installed Icons"
         },
         "pageTitle": "Installed Icons",
-        "pageInfo": "Examples Installed Icons in the appication"
+        "pageInfo": "Examples Installed Icons in the appication",
+        "section": {
+          "navigation": {
+            "title": "Navigation"
+          },
+          "arrows": {
+            "title": "Arrows, chevrons and carets (https://icones.js.org/collection/radix-icons)",
+            "caret-up": "Caret - Up",
+            "caret-right": "Caret - Right",
+            "caret-down": "Caret -Down",
+            "caret-left": "Caret - Left",
+            "chevron-up": "Chevron - Up",
+            "chevron-right": "Chevron - Right",
+            "chevron-down": "Chevron -Down",
+            "chevron-left": "Chevron - Left"
+          }
+        }
       }
     }
   }
