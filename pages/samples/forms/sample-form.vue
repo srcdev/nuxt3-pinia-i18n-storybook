@@ -13,7 +13,11 @@
           <template #pageRowContent>
             <form :id="formData.formId">
               <p>Here is the form - "{{ formData.formId }}"</p>
-              <FormInputText input-type="text" v-model="formData.data.name" />
+              <FormInputText type="text" placeholder="Username" id="username" v-model="formData.data.username" />
+              <FormInputText type="password" placeholder="Password" id="password" v-model="formData.data.password" />
+              <FormInputText type="tel" placeholder="Mobile" id="mobile" v-model="formData.data.mobile" />
+              <FormInputText type="url" placeholder="Website" id="url" v-model="formData.data.url" />
+              <FormInputText type="email" placeholder="Email" id="email" v-model="formData.data.email" />
             </form>
           </template>
         </PageRow>
@@ -49,7 +53,11 @@
   const formData = ref({
     formId: "sample-form",
     data: {
-      name: "",
+      username: "",
+      password: "",
+      mobile: "",
+      url: "",
+      email: "",
     },
   });
 

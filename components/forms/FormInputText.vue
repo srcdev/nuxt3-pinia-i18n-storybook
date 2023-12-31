@@ -1,19 +1,29 @@
 <template>
   <div>
-    <input :type="inputType" class="input" v-model="modelValue" />
+    <label :for="id" class="label">Label: {{ placeholder }}</label>
+    <br />
+    <input :type="type" :placeholder="placeholder" :id="id" class="input" v-model="modelValue" />
   </div>
 </template>
 
 <script setup lang="ts">
   // import { type PropType } from "vue";
   const props = defineProps({
-    inputType: {
+    type: {
       // type: String as PropType<String>,
       type: String,
-      value: "text",
+      default: "text",
       validator(value: string) {
-        return ["text", "number", "email", "url"].includes(value);
+        return ["text", "password", "tel", "number", "email", "url"].includes(value);
       },
+    },
+    id: {
+      type: String,
+      required: true,
+    },
+    placeholder: {
+      type: String,
+      default: "",
     },
     isPending: {
       type: Boolean,
@@ -32,7 +42,7 @@
     outline: 1px solid $color-black;
     border-radius: 2px;
     box-shadow: none;
-    font-size: 1.4rem;
+    // font-size: 1.4rem;
     transition: all linear 200ms;
 
     &[readonly] {
@@ -52,5 +62,12 @@
     &:hover {
       border-color: $black;
     }
+  }
+
+  .label {
+    display: block;
+    border: 1px solid red;
+    // font-size: clamp(1.2rem, 4vw, 1.4rem);
+    // padding: 6px;
   }
 </style>
