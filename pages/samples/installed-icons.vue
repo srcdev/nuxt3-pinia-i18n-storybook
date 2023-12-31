@@ -79,6 +79,12 @@
               <p class="text-header-medium mt-8">{{ $t("pages.samples.installed-icons.section.navigation.title") }}</p>
               <div class="icon-table">
                 <div class="icon-display">
+                  <span class="icon"><Icon name="radix-icons:home" class="icon-home" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Home</span></div>
+              </div>
+              <div class="icon-table">
+                <div class="icon-display">
                   <span class="icon"><Icon name="solar:hamburger-menu-bold" class="burger-outline" /></span>
                 </div>
                 <div class="icon-name"><span class="text-normal">Burger Outline</span></div>

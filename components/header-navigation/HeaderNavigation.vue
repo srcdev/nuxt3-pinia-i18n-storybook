@@ -9,13 +9,16 @@
       <div :class="['menu__items', { open: navActive }]">
         <p class="text-header-medium">{{ t("components.header-navigation.title") }}</p>
         <details class="nav-details" v-for="(item, key, index) in navItems" ref="itemRefs">
-          <summary>
-            <p><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
+          <summary class="nav-summary">
+            <p class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
+            <p class="nav-summary-title" v-else>
+              <NuxtLink class="nav-summary-action" :to="item.url"><Icon name="radix-icons:caret-right" class="nav-details-icon mr-8" />{{ item.summary }}</NuxtLink>
+            </p>
           </summary>
-          <div>
+          <div v-if="item.hasChildren">
             <ul>
               <li v-for="link in item.links">
-                <NuxtLink class="menu__items_link" :to="link.url">{{ link.text }}</NuxtLink>
+                <NuxtLink class="menu__items_link" :to="link.url"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />{{ link.text }}</NuxtLink>
               </li>
             </ul>
           </div>
@@ -31,8 +34,15 @@
   const { t } = useI18n();
 
   const navItems = {
+    home: {
+      summary: "Home",
+      hasChildren: false,
+      url: "/",
+    },
     examples: {
       summary: "Examples",
+      hasChildren: true,
+      url: "",
       links: [
         {
           text: "Sample layout",
@@ -54,6 +64,8 @@
     },
     ui: {
       summary: "UI Components",
+      hasChildren: true,
+      url: "",
       links: [
         {
           text: "Parallax section",
@@ -118,7 +130,7 @@
       color: $color-grey-4;
       opacity: 0;
       transition: opacity ease-in-out 200ms;
-      min-width: 200px;
+      min-width: 250px;
 
       @media all and (min-width: 768px) {
         right: 30px;
@@ -129,14 +141,17 @@
         z-index: 2;
       }
       &_link {
+        border-radius: 1px;
         display: block;
         color: $color-grey-5;
         text-decoration: none;
         line-height: 14px;
-        margin-left: 6px;
+        margin-left: 0px;
+        padding-right: 8px;
         &:hover {
+          color: $white;
           cursor: pointer;
-          text-decoration: underline;
+          background-color: $color-green-1;
         }
         &:focus {
           @include a11y-focus;
@@ -144,6 +159,7 @@
       }
 
       .nav-details {
+        margin-top: 4px;
         &:not([open]) {
           .nav-details-icon {
             transform: scale(1, 1);
@@ -153,17 +169,36 @@
           transition: all ease-in-out 350ms;
           transform: scale(1, -1);
         }
+      }
 
-        summary {
+      .nav-summary {
+        color: $color-grey-5;
+        font-weight: 700;
+      }
+
+      .nav-summary-title {
+        background-color: transparent;
+        padding: 0;
+        & * {
           color: $color-grey-5;
-          font-weight: 700;
-          &:hover {
-            cursor: pointer;
-            text-decoration: underline;
-          }
-          &:focus {
-            @include a11y-focus;
-          }
+        }
+      }
+
+      .nav-summary-action {
+        border-bottom: 2px solid $color-green-2;
+        display: block;
+        text-decoration: none;
+        padding: 6px 0px;
+        margin-bottom: 2px;
+
+        &:hover {
+          color: $white;
+          cursor: pointer;
+          background-color: $color-green-1;
+          text-decoration: none;
+        }
+        &:focus {
+          @include a11y-focus;
         }
       }
     }
