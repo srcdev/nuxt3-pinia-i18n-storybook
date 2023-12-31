@@ -23,9 +23,9 @@
         </PageRow>
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
-            <code>
+            <p>
               {{ formData.data }}
-            </code>
+            </p>
           </template>
         </PageRow>
       </template>
