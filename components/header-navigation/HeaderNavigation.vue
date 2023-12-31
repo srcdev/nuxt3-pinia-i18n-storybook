@@ -57,6 +57,10 @@
           url: "/samples/forms/guided-form",
         },
         {
+          text: "Example form",
+          url: "/samples/forms/sample-form",
+        },
+        {
           text: "Data Fetching",
           url: "/samples/server-routes",
         },

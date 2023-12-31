@@ -1,5 +1,6 @@
 import { fileURLToPath } from "url";
 import { defineNuxtConfig } from "nuxt/config";
+import vue from "vue";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 // import { GlobalSettings } from "./environmentsettings";
@@ -26,7 +27,6 @@ export default defineNuxtConfig({
       apiBaseURL: "https://localhost:3000",
     },
   },
-
   modules: ["@pinia/nuxt", "nuxt-vitest", "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt", "nuxt-icon"],
   i18n: {
     vueI18n: "./i18n.config.ts",
@@ -67,6 +67,11 @@ export default defineNuxtConfig({
     },
   },
   vite: {
+    vue: {
+      script: {
+        defineModel: true,
+      },
+    },
     plugins: [
       AutoImport({
         imports: ["vue", "vue-router"],

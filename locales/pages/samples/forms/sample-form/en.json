@@ -1,0 +1,13 @@
+{
+  "pages": {
+    "samples": {
+      "sample-form": {
+        "head": {
+          "title": "Example form",
+          "description": "Example form"
+        },
+        "pageTitle": "Example of a form with many element"
+      }
+    }
+  }
+}

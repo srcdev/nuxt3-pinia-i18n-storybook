@@ -12,6 +12,8 @@ declare module 'vue' {
     FlexGroupItem: typeof import('./components/flex-group/FlexGroupItem.vue')['default']
     Footer: typeof import('./components/footer/Footer.vue')['default']
     FormInputButton: typeof import('./components/forms/FormInputButton.vue')['default']
+    FormInputText: typeof import('./components/forms/FormInputText.vue')['default']
+    FormInputtText: typeof import('./components/forms/FormInputtText.vue')['default']
     Header: typeof import('./components/header/Header.vue')['default']
     HeaderNavigation: typeof import('./components/header-navigation/HeaderNavigation.vue')['default']
     LayoutRow: typeof import('./components/layout-row/LayoutRow.vue')['default']
