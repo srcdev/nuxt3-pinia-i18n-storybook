@@ -1,8 +1,8 @@
 <template>
   <div>
-    <label :for="id" class="label">Label: {{ placeholder }}</label>
+    <label :for="id" class="label text-normal">{{ placeholder }}</label>
     <br />
-    <input :type="type" :placeholder="placeholder" :id="id" class="input" v-model="modelValue" />
+    <input :type="type" :placeholder="placeholder" :id="id" class="input text-normal" v-model="modelValue" />
   </div>
 </template>
 
@@ -34,7 +34,7 @@
   const modelValue = defineModel();
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "@/assets/styles/imports.scss";
 
   .input {
@@ -42,8 +42,9 @@
     outline: 1px solid $color-black;
     border-radius: 2px;
     box-shadow: none;
-    // font-size: 1.4rem;
+    // font-size: clamp(1.2rem, 4vw, 1.4rem);
     transition: all linear 200ms;
+    padding-left: 4px;
 
     &[readonly] {
       background-color: $color-blue-2;
@@ -66,8 +67,7 @@
 
   .label {
     display: block;
-    border: 1px solid red;
     // font-size: clamp(1.2rem, 4vw, 1.4rem);
-    // padding: 6px;
+    padding: 6px 0;
   }
 </style>

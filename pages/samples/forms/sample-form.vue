@@ -70,6 +70,6 @@
   );
 </script>
 
-<style lang="scss" scoped>
-  @import "@/assets/styles/imports.scss";
+<style lang="scss">
+  // @import "@/assets/styles/imports.scss";
 </style>
