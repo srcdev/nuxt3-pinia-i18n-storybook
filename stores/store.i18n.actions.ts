@@ -1,4 +1,4 @@
-import { II18nStore } from "@/types/types.i18n";
+import type { II18nStore } from "@/types/types.i18n";
 
 export const i18nActions = {
   updateLocale(this: II18nStore, payload: string) {

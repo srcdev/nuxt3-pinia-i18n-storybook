@@ -18,8 +18,8 @@
 </template>
 
 <script setup lang="ts">
-  import { useAccountStore } from "@/stores/store.account";
-  import { useRootStore } from "@/stores/store.root";
+  // import { useAccountStore } from "@/stores/store.account";
+  // import { useRootStore } from "@/stores/store.root";
   import { useI18n } from "vue-i18n";
 
   const props = defineProps({
@@ -40,12 +40,12 @@
   });
 
   const { t } = useI18n();
-  const rootStore = useRootStore();
-  const accountStore = useAccountStore();
+  // const rootStore = useRootStore();
+  // const accountStore = useAccountStore();
 
-  const signedIntext = computed(() => {
-    return accountStore.signedIn ? t("components.header.signedIn") : t("components.header.signedOut");
-  });
+  // const signedIntext = computed(() => {
+  //   return accountStore.signedIn ? t("components.header.signedIn") : t("components.header.signedOut");
+  // });
 </script>
 
 <style lang="scss" scoped>

@@ -1,5 +1,5 @@
 import StoryBookComponent from "./ArrayActions.vue";
-import { Meta, StoryFn } from "@storybook/vue3";
+import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
   title: "Pinia/Arrays/Display",

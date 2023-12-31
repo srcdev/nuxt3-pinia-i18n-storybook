@@ -1,5 +1,5 @@
 import StoryBookComponent from "./Header.vue";
-import { Meta, StoryFn } from "@storybook/vue3";
+import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
   title: "Components/UI/Header",
@@ -15,6 +15,6 @@ const Template: StoryFn<typeof StoryBookComponent> = (args: any) => ({
 });
 
 export const Primary = Template.bind({});
-// Primary.args = {
-//   subText: "subText as prop/arg",
-// };
+Primary.args = {
+  headerTheme: "header-default",
+};

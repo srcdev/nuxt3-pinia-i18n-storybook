@@ -1,4 +1,4 @@
-import { IAccountState } from "@/types/types.accountStore";
+import type { IAccountState } from "@/types/types.accountStore";
 
 export const accountActions = {
   async signIn(this: IAccountState) {
