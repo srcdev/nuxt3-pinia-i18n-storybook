@@ -67,11 +67,11 @@ export default defineNuxtConfig({
     },
   },
   vite: {
-    vue: {
-      script: {
-        defineModel: true,
-      },
-    },
+    // vue: {
+    //   script: {
+    //     defineModel: true,
+    //   },
+    // },
     plugins: [
       AutoImport({
         imports: ["vue", "vue-router"],
