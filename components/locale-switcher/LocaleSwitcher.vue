@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ILocaleItem } from "@/types/types.i18n";
+  import type { ILocaleItem } from "@/types/types.i18n";
   import { useI18nStore } from "@/stores/store.i18n";
   import { useI18n } from "vue-i18n";
 

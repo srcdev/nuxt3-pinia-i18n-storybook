@@ -27,7 +27,7 @@
   import { useI18n } from "vue-i18n";
   import { storeToRefs } from "pinia";
   import { useRootStore } from "@/stores/store.root"; // Only need to import here due to lack of imports support within Storybook.
-  import { ISbItemObj } from "@/types/types.rootStore";
+  import type { ISbItemObj } from "@/types/types.rootStore";
 
   const emit = defineEmits(["arrayUpdated"]);
 
