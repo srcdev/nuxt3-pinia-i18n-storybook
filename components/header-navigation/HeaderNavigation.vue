@@ -38,6 +38,7 @@
       summary: "Home",
       hasChildren: false,
       url: "/",
+      links: [],
     },
     examples: {
       summary: "Examples",
