@@ -13,11 +13,12 @@
           <template #pageRowContent>
             <form :id="formData.formId">
               <p>Here is the form - "{{ formData.formId }}"</p>
-              <FormInputText type="text" placeholder="Username" id="username" v-model="formData.data.username" />
-              <FormInputText type="password" placeholder="Password" id="password" v-model="formData.data.password" />
-              <FormInputText type="tel" placeholder="Mobile" id="mobile" v-model="formData.data.mobile" />
-              <FormInputText type="url" placeholder="Website" id="url" v-model="formData.data.url" />
-              <FormInputText type="email" placeholder="Email" id="email" v-model="formData.data.email" />
+              <FormInputText type="text" placeholder="Username" id="username" validation="username" :required="true" v-model="formData" />
+              <FormInputText type="password" placeholder="Password" id="password" validation="password" :required="true" v-model="formData" />
+              <FormInputText type="tel" placeholder="Mobile" id="mobile" validation="telephone" :required="true" v-model="formData" />
+              <FormInputText type="url" placeholder="Website" id="url" validation="url" :required="true" v-model="formData" />
+              <FormInputText type="email" placeholder="Email" id="email" validation="emailaddress" :required="true" v-model="formData" />
+              <input type="submit" value="Submit" />
             </form>
           </template>
         </PageRow>
@@ -34,6 +35,8 @@
 </template>
 
 <script setup lang="ts">
+  import type { IValidationPatterns, IFormData, IValidityStateArr, IValidityState } from "@/types/types.forms";
+
   import { useI18n } from "vue-i18n";
 
   const { t } = useI18n();
@@ -50,7 +53,15 @@
     },
   });
 
-  const formData = ref({
+  const formFieldStates = ref({
+    username: false,
+    password: false,
+    mobile: false,
+    url: false,
+    email: false,
+  });
+
+  const formData = ref<IFormData>({
     formId: "sample-form",
     data: {
       username: "",
@@ -59,15 +70,16 @@
       url: "",
       email: "",
     },
+    validityState: {} as IValidityStateArr,
   });
 
-  watch(
-    () => formData.value,
-    () => {
-      console.log(`formData.value:`, formData.value.data);
-    },
-    { deep: true }
-  );
+  // watch(
+  //   () => formData.value,
+  //   () => {
+  //     console.log(`formData.value:`, formData.value);
+  //   },
+  //   { deep: true }
+  // );
 </script>
 
 <style lang="scss">

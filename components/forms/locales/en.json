@@ -1,0 +1,41 @@
+{
+  "components": {
+    "forms": {
+      "generic-text": {
+        "hint": "hint"
+      },
+      "validation-patterns": {
+        "username": {
+          "pattern": "^[a-zA-Z0-9_ \\-',.\\s]{'{'}8,20{'}'}$",
+          "minlength": "8",
+          "maxlength": "20",
+          "hint": "Uppercase letters and numbers, with ,.- and space"
+        },
+        "password": {
+          "pattern": "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]){'{'}8,20{'}'}$",
+          "minlength": "8",
+          "maxlength": "20",
+          "hint": "!Pa55word"
+        },
+        "emailaddress": {
+          "pattern": "^(?!{'@'})((?!([\\.]))([\\w\\.\\-\\+']{'{'}1,255{'}'}))?(({'@'})([\\w\\-]{'{'}1,{'}'})+((\\.)([\\w]{'{'}2,{'}'}))+)$",
+          "minlength": "7",
+          "maxlength": "255",
+          "hint": "you{'@'}email.com"
+        },
+        "url": {
+          "pattern": "^((http|https)://){'{'}1{'}'}([\\w\\-]{'{'}1,{'}'}(\\.))+([\\w]{'{'}2,255{'}'})((/))*((/)[\\w\\-]{'{'}1,{'}'})*((/)[\\w]{'{'}1,{'}'}(/))*(/)*$",
+          "minlength": "13",
+          "maxlength": "255",
+          "hint": ""
+        },
+        "telephone": {
+          "pattern": "^(\\+44|\\+353)([\\d\\- ]{'{'}10{'}'})$",
+          "minlength": "10",
+          "maxlength": "10",
+          "hint": "+441632123123"
+        }
+      }
+    }
+  }
+}
