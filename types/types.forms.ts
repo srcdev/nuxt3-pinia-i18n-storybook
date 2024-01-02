@@ -5,6 +5,10 @@ export interface IValidationPatterns {
   hint: string;
 }
 
+export interface IFieldsInitialState {
+  [key: string]: string | boolean | number | URL;
+}
+
 export interface IValidityState {
   badInput: boolean;
   customError: boolean;
@@ -42,13 +46,7 @@ export interface IValidityStateArrShort {
 export interface IFormData {
   [x: string]: any;
   formId: string;
-  data: {
-    username: string;
-    password: string;
-    mobile: string;
-    url: string;
-    email: string;
-  };
+  data: IFieldsInitialState;
   validityState: IValidityStateArrShort;
   doSubmit: boolean;
   errorCount: number;

@@ -24,9 +24,9 @@
         </PageRow>
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
-            <p>
+            <code>
               {{ formData }}
-            </p>
+            </code>
           </template>
         </PageRow>
       </template>
@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { IFormData, IValidityStateArrShort } from "@/types/types.forms";
+  import type { IFieldsInitialState } from "@/types/types.forms";
 
   import { useI18n } from "vue-i18n";
 
@@ -53,44 +53,22 @@
     },
   });
 
-  const formData = ref<IFormData>({
-    formId: "sample-form",
-    data: {
-      username: "",
-      password: "",
-      mobile: "",
-      url: "",
-      email: "",
-    },
-    validityState: {},
-    doSubmit: false,
-    errorCount: 0,
-  });
+  // Setup formData
+  const formId = "sample-form";
+  const fieldsInitialState = <IFieldsInitialState>{
+    username: "",
+    password: "",
+    mobile: "",
+    url: "",
+    email: "",
+  };
+
+  const { formData } = useFormControl(formId, fieldsInitialState);
 
   const doSubmit = () => {
     formData.value.doSubmit = true;
+    // Do some actions if form is valid
   };
-
-  const getErrorCount = (validityState: IValidityStateArrShort) => {
-    let errors = 0;
-
-    for (const key in validityState) {
-      if (validityState.hasOwnProperty(key) && !validityState[key]) {
-        errors++;
-      }
-    }
-
-    return errors;
-  };
-
-  watch(
-    () => formData.value,
-    () => {
-      // console.log(`formData.value:`, formData.value);
-      formData.value.errorCount = getErrorCount(formData.value.validityState);
-    },
-    { deep: true }
-  );
 </script>
 
 <style lang="scss">
