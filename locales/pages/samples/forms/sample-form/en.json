@@ -6,7 +6,8 @@
           "title": "Example form",
           "description": "Example form"
         },
-        "pageTitle": "Example of a form with many element"
+        "pageTitle": "Example of a form with many element",
+        "formErrorsMessage": "Form has no errors | Form has 1 error | Form has {count} errors"
       }
     }
   }

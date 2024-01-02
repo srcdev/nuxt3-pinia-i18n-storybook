@@ -1,0 +1,32 @@
+{
+  "username": {
+    "pattern": "^[a-zA-Z0-9_ \\-',.\\s]{8,20}$",
+    "minlength": 8,
+    "maxlength": 20,
+    "hint": "Uppercase letters and numbers, with ,.- and space"
+  },
+  "password": {
+    "pattern": "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]){8,16}$",
+    "minlength": 8,
+    "maxlength": 20,
+    "hint": "!Pa55word"
+  },
+  "emailaddress": {
+    "pattern": "^(?!@)((?!([\\.]))([\\w\\.\\-\\+']{1,}))?((@)([\\w\\-]{2,})+((\\.)([\\w]{2,}))+)$",
+    "minlength": 7,
+    "maxlength": 255,
+    "hint": "you@your-email.com"
+  },
+  "url": {
+    "pattern": "^((http|https)://){1}([\\w\\-]{2,}(\\.))+([\\w]{2,})((/))*((/)[\\w\\-]{1,})*((/)[\\w]{1,}(/))*(/)*$",
+    "minlength": 13,
+    "maxlength": 255,
+    "hint": "https://your-website.com"
+  },
+  "telephone": {
+    "pattern": "^(0|\\+44|\\+353)([\\d\\- ]{10})$",
+    "minlength": 11,
+    "maxlength": 14,
+    "hint": "+441632123123"
+  }
+}

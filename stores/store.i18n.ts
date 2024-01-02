@@ -6,6 +6,7 @@ export const useI18nStore = defineStore({
   id: "i18nStore",
   state: (): II18nStore => ({
     fallbackLocale: "en",
+    validatorLocale: "en-GB",
     locale: "en",
     locales: [
       {

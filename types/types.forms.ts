@@ -40,6 +40,7 @@ export interface IValidityStateArrShort {
 }
 
 export interface IFormData {
+  [x: string]: any;
   formId: string;
   data: {
     username: string;
@@ -48,5 +49,7 @@ export interface IFormData {
     url: string;
     email: string;
   };
-  validityState: IValidityStateArr;
+  validityState: IValidityStateArrShort;
+  doSubmit: boolean;
+  errorCount: number;
 }

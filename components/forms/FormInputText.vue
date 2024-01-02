@@ -1,17 +1,31 @@
 <template>
   <div>
-    <label :for="id" :class="['label', 'text-normal', { error: !isValid }]">{{ placeholder }} </label>
+    <label :for="id" :class="['label', 'text-normal', { error: hasError() }]">{{ placeholder }}</label>
     <br />
-    <input :type="type" :placeholder="placeholder" :id="id" :pattern="validationPatterns.pattern" :maxlength="validationPatterns.maxlength" :required="required" class="input text-normal" v-model="modelValue.data[id]" ref="inputField" />
+    <input
+      :type="type"
+      :placeholder="placeholder"
+      :id="id"
+      :pattern="validationPatterns.pattern"
+      :maxlength="validationPatterns.maxlength"
+      :required="required"
+      :class="['input', 'text-normal', { error: hasError() }]"
+      v-model="modelValue.data[id]"
+      ref="inputField"
+    />
     <p>
-      <strong>({{ t(`components.forms.generic-text.hint`) }})</strong> {{ validationPatterns.hint }}
+      {{ t("components.forms.generic-text.hint", { hint: validationPatterns.hint }) }}
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
   import type { IValidationPatterns, IFormData } from "@/types/types.forms";
+  import { validationConfig } from "./config/index";
   import { useI18n } from "vue-i18n";
+  import { useRootStore } from "~/stores/store.root";
+  import { storeToRefs } from "pinia";
+  import { useI18nStore } from "~/stores/store.i18n";
 
   // import { type PropType } from "vue";
   const props = defineProps({
@@ -45,27 +59,21 @@
     },
   });
 
-  const modelValue = defineModel();
-
   const { t } = useI18n();
+  const modelValue = defineModel() as unknown as IFormData;
 
-  const validationPatterns = <IValidationPatterns>{
-    pattern: t(`components.forms.validation-patterns.${props.validation}.pattern`),
-    minlength: t(`components.forms.validation-patterns.${props.validation}.minlength`),
-    maxlength: t(`components.forms.validation-patterns.${props.validation}.maxlength`),
-    hint: t(`components.forms.validation-patterns.${props.validation}.hint`),
-  };
-
+  const { validatorLocale } = storeToRefs(useI18nStore());
+  const validationPatterns = validationConfig[validatorLocale.value][props.validation];
   const inputField = ref<HTMLInputElement | null>(null);
-  const isValid = ref(true);
+
+  const hasError = () => {
+    return !inputField.value?.validity.valid && modelValue.value.doSubmit;
+  };
 
   watch(
     () => modelValue.value,
     () => {
-      // console.log(`formData:`, modelValue.value);
-      // console.log(inputField.value?.validity.valid);
-      modelValue.value!.validityState[props.id] = inputField.value?.validity;
-      isValid.value = inputField.value?.validity.valid;
+      modelValue.value!.validityState[props.id] = inputField.value?.validity.valid;
     },
     { deep: true }
   );
@@ -73,6 +81,13 @@
 
 <style lang="scss">
   @import "@/assets/styles/imports.scss";
+
+  .label {
+    transition: all linear 200ms;
+    &.error {
+      color: $color-red-5;
+    }
+  }
 
   .input {
     border: 1px solid $color-white;
@@ -102,6 +117,8 @@
     }
 
     &.error {
+      color: $color-red-5;
+      border: 1px solid $color-red-2;
       outline: 1px solid $color-red-5;
     }
   }

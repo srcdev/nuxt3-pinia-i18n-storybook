@@ -11,21 +11,21 @@
         </PageRow>
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
-            <form :id="formData.formId">
-              <p>Here is the form - "{{ formData.formId }}"</p>
+            <form @submit.prevent="doSubmit()" :id="formData.formId">
+              <p>{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
               <FormInputText type="text" placeholder="Username" id="username" validation="username" :required="true" v-model="formData" />
               <FormInputText type="password" placeholder="Password" id="password" validation="password" :required="true" v-model="formData" />
               <FormInputText type="tel" placeholder="Mobile" id="mobile" validation="telephone" :required="true" v-model="formData" />
               <FormInputText type="url" placeholder="Website" id="url" validation="url" :required="true" v-model="formData" />
               <FormInputText type="email" placeholder="Email" id="email" validation="emailaddress" :required="true" v-model="formData" />
-              <input type="submit" value="Submit" />
+              <input @click.prevent="doSubmit()" type="submit" value="Submit" />
             </form>
           </template>
         </PageRow>
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
             <p>
-              {{ formData.data }}
+              {{ formData }}
             </p>
           </template>
         </PageRow>
@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { IValidationPatterns, IFormData, IValidityStateArr, IValidityState } from "@/types/types.forms";
+  import type { IFormData, IValidityStateArrShort } from "@/types/types.forms";
 
   import { useI18n } from "vue-i18n";
 
@@ -53,14 +53,6 @@
     },
   });
 
-  const formFieldStates = ref({
-    username: false,
-    password: false,
-    mobile: false,
-    url: false,
-    email: false,
-  });
-
   const formData = ref<IFormData>({
     formId: "sample-form",
     data: {
@@ -70,16 +62,35 @@
       url: "",
       email: "",
     },
-    validityState: {} as IValidityStateArr,
+    validityState: {},
+    doSubmit: false,
+    errorCount: 0,
   });
 
-  // watch(
-  //   () => formData.value,
-  //   () => {
-  //     console.log(`formData.value:`, formData.value);
-  //   },
-  //   { deep: true }
-  // );
+  const doSubmit = () => {
+    formData.value.doSubmit = true;
+  };
+
+  const getErrorCount = (validityState: IValidityStateArrShort) => {
+    let errors = 0;
+
+    for (const key in validityState) {
+      if (validityState.hasOwnProperty(key) && !validityState[key]) {
+        errors++;
+      }
+    }
+
+    return errors;
+  };
+
+  watch(
+    () => formData.value,
+    () => {
+      // console.log(`formData.value:`, formData.value);
+      formData.value.errorCount = getErrorCount(formData.value.validityState);
+    },
+    { deep: true }
+  );
 </script>
 
 <style lang="scss">
