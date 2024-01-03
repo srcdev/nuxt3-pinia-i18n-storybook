@@ -9,7 +9,7 @@ export function useFormControl(formId: string, fieldsInitialState: IFieldsInitia
     errorCount: 0,
   });
 
-  const getErrorCount = () => {
+  function getErrorCount() {
     let errors = 0;
     const validityState = formData.value.validityState;
     for (const key in validityState) {
@@ -19,9 +19,9 @@ export function useFormControl(formId: string, fieldsInitialState: IFieldsInitia
     }
 
     return errors;
-  };
+  }
 
-  const watchFormUpdates = () => {
+  function watchFormUpdates() {
     watch(
       () => formData.value,
       () => {
@@ -29,7 +29,7 @@ export function useFormControl(formId: string, fieldsInitialState: IFieldsInitia
       },
       { deep: true }
     );
-  };
+  }
 
   watchFormUpdates();
 

@@ -1,10 +1,11 @@
 <template>
   <div>
-    <label :for="id" :class="['label', 'text-normal', { error: hasError() }]">{{ placeholder }}</label>
+    <label :for="id" :class="['label', 'text-normal', { error: hasError() }]">{{ t(`${i18nKey}.label`) }}</label>
+    <p v-if="hasError(true)" :class="['text-normal', 'error-message', { show: hasError() }, { hide: hasError() }]">{{ errorMessage }}</p>
     <br />
     <input
       :type="type"
-      :placeholder="placeholder"
+      :placeholder="t(`${i18nKey}.placeholder`)"
       :id="id"
       :pattern="validationPatterns.pattern"
       :maxlength="validationPatterns.maxlength"
@@ -20,9 +21,10 @@
 </template>
 
 <script setup lang="ts">
-  import type { IFormData } from "@/types/types.forms";
+  import type { IValidationPatterns, IFormData } from "@/types/types.forms";
   import { validationConfig } from "./config/index";
   import { useI18n } from "vue-i18n";
+  import { useRootStore } from "~/stores/store.root";
   import { storeToRefs } from "pinia";
   import { useI18nStore } from "~/stores/store.i18n";
 
@@ -56,22 +58,19 @@
       type: Boolean,
       value: false,
     },
+    i18nKey: {
+      type: String,
+      required: true,
+    },
   });
 
   const { t } = useI18n();
   const modelValue = defineModel() as unknown as IFormData;
 
-  const [link, modifier] = defineModel<string>("msg", {
-    default: "default value",
-    set(value) {
-      if (modifier.capitalize) {
-        return value.charAt(0).toUpperCase() + value.slice(1);
-      } else if (modifier.uppercase) {
-        return value.toUpperCase();
-      }
-      return value;
-    },
-  });
+  const { errorMessage, setDefaultError, setCustomError, setUseCustomErrorMessage } = useErrorMessage();
+  setDefaultError(t(`${props.i18nKey}.error-message`));
+  setCustomError("Some custom error set by API reposnse");
+  setUseCustomErrorMessage(false);
 
   const { validatorLocale } = storeToRefs(useI18nStore());
   const validationPatterns = validationConfig[validatorLocale.value][props.validation];
@@ -93,9 +92,29 @@
 <style lang="scss">
   @import "@/assets/styles/imports.scss";
 
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+    }
+    100% {
+      height: 34px;
+      opacity: 1;
+    }
+  }
+
   .label {
     transition: all linear 200ms;
     &.error {
+      color: $color-red-5;
+    }
+  }
+
+  .error-message {
+    transition: all linear 200ms;
+    &.show {
+      animation: fadeIn ease-out 200ms;
       color: $color-red-5;
     }
   }

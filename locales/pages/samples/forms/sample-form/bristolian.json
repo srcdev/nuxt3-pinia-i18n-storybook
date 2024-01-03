@@ -7,7 +7,34 @@
           "description": "Example form"
         },
         "pageTitle": "Example of a form with many element",
-        "formErrorsMessage": "Form has no errors | Form has 1 error | Form has {count} errors"
+        "formErrorsMessage": "Form has no errors | Form has 1 error | Form has {count} errors",
+        "fields": {
+          "username": {
+            "label": "Choose Username",
+            "placeholder": "eg. YourUserName",
+            "error-message": "Please enter a valid username"
+          },
+          "password": {
+            "label": "Choose Password",
+            "placeholder": "eg. !Your5ecurePa55w0rd",
+            "error-message": "Please enter a valid password"
+          },
+          "telephone": {
+            "label": "Your Mobile Number",
+            "placeholder": "eg. 07123123123",
+            "error-message": "Please enter a valid mobile number"
+          },
+          "url": {
+            "label": "Website address",
+            "placeholder": "eg. http://your-website.co.uk",
+            "error-message": "Please enter a valid url"
+          },
+          "emailaddress": {
+            "label": "Your email address",
+            "placeholder": "eg. name{'@'}your-website.co.uk",
+            "error-message": "Please enter a valid email address"
+          }
+        }
       }
     }
   }
