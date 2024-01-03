@@ -20,10 +20,9 @@
 </template>
 
 <script setup lang="ts">
-  import type { IValidationPatterns, IFormData } from "@/types/types.forms";
+  import type { IFormData } from "@/types/types.forms";
   import { validationConfig } from "./config/index";
   import { useI18n } from "vue-i18n";
-  import { useRootStore } from "~/stores/store.root";
   import { storeToRefs } from "pinia";
   import { useI18nStore } from "~/stores/store.i18n";
 
@@ -61,6 +60,18 @@
 
   const { t } = useI18n();
   const modelValue = defineModel() as unknown as IFormData;
+
+  const [link, modifier] = defineModel<string>("msg", {
+    default: "default value",
+    set(value) {
+      if (modifier.capitalize) {
+        return value.charAt(0).toUpperCase() + value.slice(1);
+      } else if (modifier.uppercase) {
+        return value.toUpperCase();
+      }
+      return value;
+    },
+  });
 
   const { validatorLocale } = storeToRefs(useI18nStore());
   const validationPatterns = validationConfig[validatorLocale.value][props.validation];
