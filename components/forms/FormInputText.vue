@@ -1,27 +1,27 @@
 <template>
   <div>
     <label :for="id" :class="['label', 'text-normal', { error: hasError() }]">{{ t(`${i18nKey}.label`) }}</label>
-    <p v-if="hasError(true)" :class="['text-normal', 'error-message', { show: hasError() }, { hide: hasError() }]">{{ errorMessage }}</p>
+    <p v-if="hasError()" :class="['text-normal', 'error-message', { show: hasError() }, { hide: hasError() }]">{{ errorMessage }}</p>
     <br />
     <input
       :type="type"
       :placeholder="t(`${i18nKey}.placeholder`)"
       :id="id"
-      :pattern="validationPatterns.pattern"
-      :maxlength="validationPatterns.maxlength"
+      :pattern="componentValidation.pattern"
+      :maxlength="componentValidation.maxlength"
       :required="required"
       :class="['input', 'text-normal', { error: hasError() }]"
       v-model="modelValue.data[id]"
       ref="inputField"
     />
     <p>
-      {{ t("components.forms.generic-text.hint", { hint: validationPatterns.hint }) }}
+      {{ t("components.forms.generic-text.hint", { hint: componentValidation.hint }) }}
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
-  import type { IValidationPatterns, IFormData } from "@/types/types.forms";
+  import type { IValidationPatterns, IFormData, ICustomErrorMessage } from "@/types/types.forms";
   import { validationConfig } from "./config/index";
   import { useI18n } from "vue-i18n";
   import { useRootStore } from "~/stores/store.root";
@@ -67,13 +67,16 @@
   const { t } = useI18n();
   const modelValue = defineModel() as unknown as IFormData;
 
-  const { errorMessage, setDefaultError, setCustomError, setUseCustomErrorMessage } = useErrorMessage();
+  /*
+   * Handle custom error messaging
+   **/
+  const { errorMessage, setDefaultError } = useErrorMessage(props.id, modelValue.value);
+  const { updateCustomErrors } = useFormControl();
+
   setDefaultError(t(`${props.i18nKey}.error-message`));
-  setCustomError("Some custom error set by API reposnse");
-  setUseCustomErrorMessage(false);
 
   const { validatorLocale } = storeToRefs(useI18nStore());
-  const validationPatterns = validationConfig[validatorLocale.value][props.validation];
+  const componentValidation = validationConfig[validatorLocale.value][props.validation];
   const inputField = ref<HTMLInputElement | null>(null);
 
   const hasError = () => {

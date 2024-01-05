@@ -43,6 +43,15 @@ export interface IValidityStateArrShort {
   [key: string]: boolean;
 }
 
+export interface ICustomErrorMessage {
+  useCustomError: boolean;
+  message: string;
+}
+
+export interface ICustomErrorMessagesArr {
+  [x: string]: ICustomErrorMessage;
+}
+
 export interface IFormData {
   [x: string]: any;
   formId: string;
@@ -50,4 +59,5 @@ export interface IFormData {
   validityState: IValidityStateArrShort;
   doSubmit: boolean;
   errorCount: number;
+  customErrorMessages: ICustomErrorMessagesArr;
 }

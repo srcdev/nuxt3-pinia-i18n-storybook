@@ -1,12 +1,13 @@
-import type { IFormData, IFieldsInitialState } from "@/types/types.forms";
+import type { IFormData, IFieldsInitialState, ICustomErrorMessage } from "@/types/types.forms";
 
-export function useFormControl(formId: string, fieldsInitialState: IFieldsInitialState) {
+export function useFormControl(formId: string = "", fieldsInitialState: IFieldsInitialState = {}) {
   const formData = ref<IFormData>({
     formId: formId,
     data: fieldsInitialState,
     validityState: {},
     doSubmit: false,
     errorCount: 0,
+    customErrorMessages: {},
   });
 
   function getErrorCount() {
@@ -21,6 +22,29 @@ export function useFormControl(formId: string, fieldsInitialState: IFieldsInitia
     return errors;
   }
 
+  /*
+   *   Useage:
+   *
+   *   const { updateCustomErrors } = useFormControl();
+   *
+   *   Add/Update entry
+   *   const sampleCustomErrorEmail = {
+   *     useCustomError: true,
+   *     message: "This is a sample custom error for error EMAIL",
+   *   };
+   *   updateCustomErrors("email", modelValue, sampleCustomErrorEmail);
+   *
+   *   Delete entry
+   *   updateCustomErrors("username", formData, null);
+   */
+  function updateCustomErrors(id: string, formData: IFormData, errorObj: null | ICustomErrorMessage = null) {
+    if (errorObj === null) {
+      delete formData.value.customErrorMessages[id];
+    } else {
+      formData.value.customErrorMessages[id] = errorObj;
+    }
+  }
+
   function watchFormUpdates() {
     watch(
       () => formData.value,
@@ -33,5 +57,5 @@ export function useFormControl(formId: string, fieldsInitialState: IFieldsInitia
 
   watchFormUpdates();
 
-  return { formData };
+  return { formData, updateCustomErrors };
 }

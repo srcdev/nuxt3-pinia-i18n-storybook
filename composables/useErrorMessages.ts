@@ -1,28 +1,24 @@
-export function useErrorMessage() {
+import type { IFormData, ICustomErrorMessagesArr } from "@/types/types.forms";
+
+export function useErrorMessage(id: string, modelValue: IFormData) {
   const defaultError = ref("");
-  const customError = ref("");
-  const useCustomErrorMessage = ref(false);
+  const customErrorMessages = ref(toRaw(modelValue.customErrorMessages));
 
   const errorMessage = computed(() => {
-    return useCustomErrorMessage.value ? customError.value : defaultError.value;
+    if (customErrorMessages.value[id] !== undefined && customErrorMessages.value[id].useCustomError) {
+      console.log(customErrorMessages.value[id]);
+      return customErrorMessages.value[id].message;
+    } else {
+      return defaultError;
+    }
   });
 
   function setDefaultError(newDefaultError: string) {
     defaultError.value = newDefaultError;
   }
 
-  function setCustomError(newCustomError: string) {
-    customError.value = newCustomError;
-  }
-
-  function setUseCustomErrorMessage(value: boolean) {
-    useCustomErrorMessage.value = value;
-  }
-
   return {
     errorMessage,
     setDefaultError,
-    setCustomError,
-    setUseCustomErrorMessage,
   };
 }

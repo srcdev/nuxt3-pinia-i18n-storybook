@@ -24,9 +24,10 @@
         </PageRow>
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
-            <code>
-              {{ formData }}
-            </code>
+            <pre>
+  {{ formData.customErrorMessages }}
+</pre
+            >
           </template>
         </PageRow>
       </template>
@@ -62,9 +63,23 @@
     email: "",
   };
 
-  const msg = "testing";
+  const { formData, updateCustomErrors } = useFormControl(formId, fieldsInitialState);
 
-  const { formData } = useFormControl(formId, fieldsInitialState);
+  const sampleCustomErrorUrl = {
+    useCustomError: true,
+    message: "This is a sample custom error for error URL",
+  };
+  updateCustomErrors("url", formData, sampleCustomErrorUrl);
+
+  const sampleCustomErrorUsername = {
+    useCustomError: true,
+    message: "This is a sample custom error for error username",
+  };
+  updateCustomErrors("username", formData, sampleCustomErrorUsername);
+
+  setTimeout(() => {
+    updateCustomErrors("username", formData, null);
+  }, 5000);
 
   const doSubmit = () => {
     formData.value.doSubmit = true;
