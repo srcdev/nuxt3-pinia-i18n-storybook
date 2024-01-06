@@ -1,6 +1,6 @@
 <template>
-  <div class="flex-group-item" :class="[applyClasses, { grow: flexGrow }, { 'max-width': maxWidth }]">
-    <slot></slot>
+  <div class="flex-group-item HELLO" :class="[applyClasses, { grow: flexGrow }, { 'max-width': maxWidth }]">
+    <slot name="default"></slot>
   </div>
 </template>
 

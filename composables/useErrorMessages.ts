@@ -8,7 +8,7 @@ export function useErrorMessage(id: string, modelValue: IFormData) {
     if (customErrorMessages.value[id] !== undefined && customErrorMessages.value[id].useCustomError) {
       return customErrorMessages.value[id].message;
     } else {
-      return defaultError;
+      return defaultError.value;
     }
   });
 

@@ -44,6 +44,7 @@
   .btn {
     border: 1px solid $color-white;
     outline: 1px solid $color-black;
+    color: $color-black;
     border-radius: 2px;
     box-shadow: none;
     font-size: 1.4rem;

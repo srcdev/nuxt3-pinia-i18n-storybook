@@ -1,6 +1,6 @@
 <template>
   <div class="flex-group" :class="[applyClasses, `flow-${flexFlow}`, `flex-wrap`, { 'inline-flex': flexType === 'inline-flex' }, { 'fill-height': fillHeight }, { 'max-height': maxHeight }, { 'max-width': maxWidth }]" :align-content="alignContent">
-    <slot name="flexGroup"></slot>
+    <slot name="default"></slot>
   </div>
 </template>
 
@@ -127,6 +127,10 @@
       &-column,
       &-column-reverse,
       &-cols-to-row {
+        &[align-content^="center"] {
+          align-items: start;
+        }
+
         :deep(.flex-group-item) {
           width: 100%;
           // background-color: red;

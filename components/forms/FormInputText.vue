@@ -78,32 +78,20 @@
 <style lang="scss">
   @import "@/assets/styles/imports.scss";
 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      height: 0;
-      overflow: hidden;
-    }
-    100% {
-      height: 34px;
-      opacity: 1;
-    }
-  }
+  // .label {
+  //   transition: all linear 200ms;
+  //   &.error {
+  //     color: $color-red-5;
+  //   }
+  // }
 
-  .label {
-    transition: all linear 200ms;
-    &.error {
-      color: $color-red-5;
-    }
-  }
-
-  .error-message {
-    transition: all linear 200ms;
-    &.show {
-      animation: fadeIn ease-out 200ms;
-      color: $color-red-5;
-    }
-  }
+  // .error-message {
+  //   transition: all linear 200ms;
+  //   &.show {
+  //     animation: fadeIn ease-out 200ms;
+  //     color: $color-red-5;
+  //   }
+  // }
 
   .input {
     border: 1px solid $color-white;
@@ -113,6 +101,7 @@
     // font-size: clamp(1.2rem, 4vw, 1.4rem);
     transition: all linear 200ms;
     padding-left: 4px;
+    width: 100%;
 
     &[readonly] {
       background-color: $color-blue-2;

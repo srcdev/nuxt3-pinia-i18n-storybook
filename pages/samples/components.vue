@@ -80,14 +80,14 @@
         <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
           <template #pageRowContent>
             <FlexGroup align-content="center-center" :full-width="true">
-              <template>
+              <template #default>
                 <FlexGroupItem :flex-grow="false">
-                  <template>
+                  <template #default>
                     <p class="text-normal">Flex Group Item</p>
                   </template>
                 </FlexGroupItem>
                 <FlexGroupItem :flex-grow="false">
-                  <template>
+                  <template #default>
                     <p class="text-normal">Flex Group Item</p>
                   </template>
                 </FlexGroupItem>

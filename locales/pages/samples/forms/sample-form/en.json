@@ -19,20 +19,20 @@
             "placeholder": "eg. !Your5ecurePa55w0rd",
             "error-message": "Please enter a valid password"
           },
-          "telephone": {
+          "mobile": {
             "label": "Your Mobile Number",
             "placeholder": "eg. 07123123123",
-            "error-message": "Please enter a valid mobile number"
+            "error-message": "Enter the format 07123123123"
           },
           "url": {
             "label": "Website address",
             "placeholder": "eg. http://your-website.co.uk",
-            "error-message": "Please enter a valid url"
+            "error-message": "Enter the format http://your-domain.co.uk"
           },
           "emailaddress": {
             "label": "Your email address",
             "placeholder": "eg. name{'@'}your-website.co.uk",
-            "error-message": "Please enter a valid email address"
+            "error-message": "Enter the format your.name{'@'}your-domain.co.uk"
           }
         }
       }

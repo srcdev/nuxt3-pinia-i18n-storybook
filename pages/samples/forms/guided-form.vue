@@ -18,9 +18,17 @@
         <PageRow :fit-content="true" :apply-gutters="true">
           <template #pageRowContent>
             <FlexGroup gap="12px" align-content="center-right">
-              <template #flexGroup>
-                <FormInputButton type="button" @click.prevent="goToStep(-1)" button-text="Previous" :readonly="guidedFormData.step === 1"></FormInputButton>
-                <FormInputButton type="button" @click.prevent="goToStep(1)" button-text="Next" :readonly="guidedFormData.step === steps"></FormInputButton>
+              <template #default>
+                <FlexGroupItem>
+                  <template #default>
+                    <FormInputButton type="button" @click.prevent="goToStep(-1)" button-text="Previous" :readonly="guidedFormData.step === 1"></FormInputButton>
+                  </template>
+                </FlexGroupItem>
+                <FlexGroupItem>
+                  <template #default>
+                    <FormInputButton type="button" @click.prevent="goToStep(1)" button-text="Next" :readonly="guidedFormData.step === steps"></FormInputButton>
+                  </template>
+                </FlexGroupItem>
               </template>
             </FlexGroup>
           </template>
@@ -32,7 +40,6 @@
 
 <script setup lang="ts">
   import { useI18n } from "vue-i18n";
-  import { ConcreteComponent, ComputedOptions, MethodOptions } from "vue";
   const { t } = useI18n();
 
   definePageMeta({

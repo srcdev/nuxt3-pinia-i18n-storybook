@@ -1,7 +1,7 @@
 <template>
   <header class="header" :class="[headerTheme]">
     <FlexGroup>
-      <template #flexGroup>
+      <template #default>
         <FlexGroupItem :flex-grow="true">
           <template #default>
             <h1 class="text-header-large text-color-white">{{ $t("components.header.text") }}</h1>

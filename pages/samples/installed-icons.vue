@@ -76,6 +76,62 @@
                 </div>
               </div>
 
+              <p class="text-header-medium mt-8">Forms and warnings</p>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="radix-icons:eye-none" class="icon-eye-none" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Eye closed</span></div>
+              </div>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="radix-icons:eye-open" class="icon-eye-open" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Eye open</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:circle-alert" class="icon-circle-alert" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Circle Alert</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:circle-alert-fill" class="icon-circle-alert-fill" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Circle Alert Fill</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:triangle-alert" class="icon-triangle-alert" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Triangle Alert</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:triangle-alert-fill" class="icon-triangle-alert-fill" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Triangle Alert Fill</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:info" class="icon-info" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Info</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:info-fill" class="icon-info-fill" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Info Fill</span></div>
+              </div>
+
               <p class="text-header-medium mt-8">{{ $t("pages.samples.installed-icons.section.navigation.title") }}</p>
               <div class="icon-table">
                 <div class="icon-display">

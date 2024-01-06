@@ -45,6 +45,14 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     }
   }
 
+  const resetForm = (fieldsInitialState: IFieldsInitialState = {}) => {
+    console.log("composable resetForm");
+    formData.value.data = fieldsInitialState;
+    formData.value.validityState = {};
+    formData.value.errorCount = 0;
+    formData.value.doSubmit = false;
+  };
+
   function watchFormUpdates() {
     watch(
       () => formData.value,
@@ -57,5 +65,5 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
 
   watchFormUpdates();
 
-  return { formData, updateCustomErrors };
+  return { formData, updateCustomErrors, resetForm };
 }
