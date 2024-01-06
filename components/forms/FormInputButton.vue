@@ -1,19 +1,12 @@
 <template>
-  <button v-bind="$attrs" :type="type" class="btn btn-primary">{{ buttonText }}</button>
+  <button :type="type" class="btn btn-primary">{{ buttonText }}</button>
 </template>
 
 <script setup lang="ts">
-  import { type PropType } from "vue";
-  // import { useI18n } from "vue-i18n";
-  // const { t } = useI18n();
-
-  /*
-   * defineProps
-   */
   const props = defineProps({
     type: {
-      type: String as PropType<String>,
-      value: "button",
+      type: String,
+      default: "button",
       validator(value: string) {
         return ["button", "cancel", "reset", "submit"].includes(value);
       },
@@ -27,15 +20,6 @@
       value: false,
     },
   });
-
-  /*
-   * defineEmits
-   */
-  const emit = defineEmits(["emitName"]);
-
-  // const someMethod = (data: any) => {
-  //   emit("emitName", data);
-  // };
 </script>
 
 <style lang="scss" scoped>

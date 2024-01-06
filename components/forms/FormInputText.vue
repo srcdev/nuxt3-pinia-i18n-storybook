@@ -6,7 +6,7 @@
     :pattern="componentValidation.pattern"
     :maxlength="componentValidation.maxlength"
     :required="required"
-    :class="['input', 'text-normal', { error: fieldHasError() }]"
+    :class="['input-text', 'text-normal', { error: fieldHasError() }]"
     v-model="modelValue.data[id]"
     ref="inputField"
   />
@@ -19,10 +19,8 @@
   import { storeToRefs } from "pinia";
   import { useI18nStore } from "~/stores/store.i18n";
 
-  // import { type PropType } from "vue";
   const props = defineProps({
     type: {
-      // type: String as PropType<String>,
       type: String,
       default: "text",
       validator(value: string) {
@@ -32,10 +30,6 @@
     id: {
       type: String,
       required: true,
-    },
-    placeholder: {
-      type: String,
-      default: "",
     },
     validation: {
       type: String,
@@ -78,59 +72,40 @@
 <style lang="scss">
   @import "@/assets/styles/imports.scss";
 
-  // .label {
-  //   transition: all linear 200ms;
-  //   &.error {
-  //     color: $color-red-5;
-  //   }
-  // }
-
-  // .error-message {
-  //   transition: all linear 200ms;
-  //   &.show {
-  //     animation: fadeIn ease-out 200ms;
-  //     color: $color-red-5;
-  //   }
-  // }
-
   .input {
-    border: 1px solid $color-white;
-    outline: 1px solid $color-black;
-    border-radius: 2px;
-    box-shadow: none;
-    // font-size: clamp(1.2rem, 4vw, 1.4rem);
-    transition: all linear 200ms;
-    padding-left: 4px;
-    width: 100%;
+    &-text {
+      border: 1px solid $color-white;
+      outline: 1px solid $color-black;
+      border-radius: 2px;
+      box-shadow: none;
+      // font-size: clamp(1.2rem, 4vw, 1.4rem);
+      transition: all linear 200ms;
+      padding-left: 4px;
+      width: 100%;
 
-    &[readonly] {
-      background-color: $color-blue-2;
-    }
+      &[readonly] {
+        background-color: $color-blue-2;
+      }
 
-    &-primary {
-      background-color: $color-white;
-      // color: $color-grey-1;
+      &-primary {
+        background-color: $color-white;
+        // color: $color-grey-1;
 
-      @media (prefers-color-scheme: dark) {
-        background-color: $color-grey-4;
-        // color: $color-grey-4;
+        @media (prefers-color-scheme: dark) {
+          background-color: $color-grey-4;
+          // color: $color-grey-4;
+        }
+      }
+
+      &:hover {
+        border-color: $black;
+      }
+
+      &.error {
+        color: $color-red-5;
+        border: 1px solid $color-red-2;
+        outline: 1px solid $color-red-5;
       }
     }
-
-    &:hover {
-      border-color: $black;
-    }
-
-    &.error {
-      color: $color-red-5;
-      border: 1px solid $color-red-2;
-      outline: 1px solid $color-red-5;
-    }
-  }
-
-  .label {
-    display: block;
-    // font-size: clamp(1.2rem, 4vw, 1.4rem);
-    padding: 6px 0;
   }
 </style>

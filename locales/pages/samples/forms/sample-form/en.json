@@ -33,6 +33,10 @@
             "label": "Your email address",
             "placeholder": "eg. name{'@'}your-website.co.uk",
             "error-message": "Enter the format your.name{'@'}your-domain.co.uk"
+          },
+          "terms": {
+            "label": "Accept Terms and Conditions",
+            "error-message": "Please accept our terms and conditions"
           }
         }
       }

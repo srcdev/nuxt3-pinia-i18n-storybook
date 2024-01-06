@@ -132,6 +132,48 @@
                 <div class="icon-name"><span class="text-normal">Info Fill</span></div>
               </div>
 
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:box" class="icon-box" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Box (Checkbox)</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:check-box" class="icon-check-box" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Check Box</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:check-box-fill" class="icon-check-box-fill" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Check Box Fill</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:circle" class="icon-circle" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Circle</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:circle-check" class="icon-circle-check" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Circle Check</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="akar-icons:circle-check-fill" class="icon-circle-check-fill" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Circle Check Fill</span></div>
+              </div>
+
               <p class="text-header-medium mt-8">{{ $t("pages.samples.installed-icons.section.navigation.title") }}</p>
               <div class="icon-table">
                 <div class="icon-display">

@@ -14,35 +14,41 @@
             <form @submit.prevent="doSubmit()" :id="formData.formId" class="form-narrow">
               <p>{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
 
-              <FormInputWrapper id="username" validation="username" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.username">
+              <FormInputTextWrapper id="username" validation="username" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.username">
                 <template #default>
-                  <FormInputText type="text" placeholder="Username" id="username" validation="username" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.username" />
+                  <FormInputText type="text" id="username" validation="username" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.username" />
                 </template>
-              </FormInputWrapper>
+              </FormInputTextWrapper>
 
-              <FormInputWrapper id="mobile" validation="telephone" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.mobile">
+              <FormInputTextWrapper id="mobile" validation="telephone" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.mobile">
                 <template #default>
-                  <FormInputText type="tel" placeholder="Mobile" id="mobile" validation="telephone" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.mobile" />
+                  <FormInputText type="tel" id="mobile" validation="telephone" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.mobile" />
                 </template>
-              </FormInputWrapper>
+              </FormInputTextWrapper>
 
-              <FormInputWrapper id="password" validation="password" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.password">
+              <FormInputTextWrapper id="password" validation="password" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.password">
                 <template #default>
-                  <FormInputText type="password" placeholder="Password" id="password" validation="password" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.password" />
+                  <FormInputText type="password" id="password" validation="password" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.password" />
                 </template>
-              </FormInputWrapper>
+              </FormInputTextWrapper>
 
-              <FormInputWrapper id="url" validation="url" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.url">
+              <FormInputTextWrapper id="url" validation="url" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.url">
                 <template #default>
-                  <FormInputText type="url" placeholder="Website" id="url" validation="url" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.url" />
+                  <FormInputText type="url" id="url" validation="url" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.url" />
                 </template>
-              </FormInputWrapper>
+              </FormInputTextWrapper>
 
-              <FormInputWrapper id="email" validation="emailaddress" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.emailaddress">
+              <FormInputTextWrapper id="email" validation="emailaddress" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.emailaddress">
                 <template #default>
-                  <FormInputText type="email" placeholder="Email" id="email" validation="emailaddress" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
+                  <FormInputText type="email" id="email" validation="emailaddress" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
                 </template>
-              </FormInputWrapper>
+              </FormInputTextWrapper>
+
+              <FormInputCheckboxWrapper id="terms" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.terms">
+                <template #default>
+                  <FormInputCheckbox id="terms" true-value="Sure" false-value="Nope" :required="true" v-model:modelValue="formData" />
+                </template>
+              </FormInputCheckboxWrapper>
 
               <FlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" apply-classes="mt-12 mb-12">
                 <template #default>
@@ -100,6 +106,7 @@
     mobile: "",
     url: "",
     email: "",
+    terms: false,
   };
 
   const { formData, updateCustomErrors, resetForm } = useFormControl(formId, fieldsInitialState);

@@ -19,7 +19,7 @@
             "placeholder": "eg. !Your5ecurePa55w0rd",
             "error-message": "Please enter a valid password"
           },
-          "telephone": {
+          "mobile": {
             "label": "Your Mobile Number",
             "placeholder": "eg. 07123123123",
             "error-message": "Enter the format 07123123123"
@@ -33,6 +33,10 @@
             "label": "Your email address",
             "placeholder": "eg. name{'@'}your-website.co.uk",
             "error-message": "Enter the format your.name{'@'}your-domain.co.uk"
+          },
+          "terms": {
+            "label": "Accept Terms and Conditions",
+            "error-message": "Please accept our terms and conditions"
           }
         }
       }
