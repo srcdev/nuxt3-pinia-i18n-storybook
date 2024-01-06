@@ -1,5 +1,5 @@
 <template>
-  <button v-bind="$attrs" :type="buttonType" class="btn btn-primary">{{ buttonText }}</button>
+  <button v-bind="$attrs" :type="type" class="btn btn-primary">{{ buttonText }}</button>
 </template>
 
 <script setup lang="ts">
@@ -11,7 +11,7 @@
    * defineProps
    */
   const props = defineProps({
-    buttonType: {
+    type: {
       type: String as PropType<String>,
       value: "button",
       validator(value: string) {

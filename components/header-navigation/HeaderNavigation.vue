@@ -7,22 +7,24 @@
         </button>
       </div>
       <div :class="['menu__items', { open: navActive }]">
-        <p class="text-header-medium">{{ t("components.header-navigation.title") }}</p>
-        <details class="nav-details" v-for="(item, key, index) in navItems" ref="itemRefs">
-          <summary class="nav-summary">
-            <p class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
-            <p class="nav-summary-title" v-else>
-              <NuxtLink class="nav-summary-action" :to="item.url"><Icon name="radix-icons:caret-right" class="nav-details-icon mr-8" />{{ item.summary }}</NuxtLink>
-            </p>
-          </summary>
-          <div v-if="item.hasChildren">
-            <ul>
-              <li v-for="link in item.links">
-                <NuxtLink class="menu__items_link" :to="link.url"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />{{ link.text }}</NuxtLink>
-              </li>
-            </ul>
-          </div>
-        </details>
+        <p class="text-header-medium navigation-title">{{ t("components.header-navigation.title") }}</p>
+        <div class="nav-details-wrapper">
+          <details class="nav-details" v-for="(item, key, index) in navItems" ref="itemRefs">
+            <summary class="nav-summary">
+              <p class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
+              <p class="nav-summary-title" v-else>
+                <NuxtLink class="nav-summary-action" :to="item.url"><Icon name="radix-icons:caret-right" class="nav-details-icon mr-8" />{{ item.summary }}</NuxtLink>
+              </p>
+            </summary>
+            <div v-if="item.hasChildren">
+              <ul>
+                <li v-for="link in item.links">
+                  <NuxtLink class="menu__items_link" :to="link.url"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />{{ link.text }}</NuxtLink>
+                </li>
+              </ul>
+            </div>
+          </details>
+        </div>
       </div>
     </nav>
   </focus-trap>
@@ -112,6 +114,10 @@
         grid-column: 1;
       }
     }
+
+    &-title {
+      padding: 18px 28px;
+    }
   }
   .menu {
     &__wrapper {
@@ -131,7 +137,7 @@
       right: 12px;
       top: 12px;
       z-index: -1;
-      padding: 12px;
+      padding: 0;
       color: $color-grey-4;
       opacity: 0;
       transition: opacity ease-in-out 200ms;
@@ -164,11 +170,14 @@
       }
 
       .nav-details {
-        margin-top: 4px;
         &:not([open]) {
           .nav-details-icon {
             transform: scale(1, 1);
           }
+        }
+
+        &-wrapper {
+          margin-top: 4px;
         }
         .nav-details-icon {
           transition: all ease-in-out 350ms;
@@ -193,8 +202,7 @@
         border-bottom: 2px solid $color-green-2;
         display: block;
         text-decoration: none;
-        padding: 6px 0px;
-        margin-bottom: 2px;
+        padding: 6px;
 
         &:hover {
           color: $white;

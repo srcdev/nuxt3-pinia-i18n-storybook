@@ -5,7 +5,7 @@ export default {
   title: "Components/Forms/FormInputButton",
   component: StoryBookComponent,
   args: {
-    buttonType: "button",
+    type: "button",
     buttonText: "Button Text",
   },
 } as Meta<typeof StoryBookComponent>;
@@ -20,6 +20,6 @@ const Template: StoryFn<typeof StoryBookComponent> = (args) => ({
 
 export const ThemeDefault = Template.bind({});
 ThemeDefault.args = {
-  buttonType: "button",
+  type: "button",
   buttonText: "Button Text",
 };

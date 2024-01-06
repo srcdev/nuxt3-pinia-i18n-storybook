@@ -14,7 +14,7 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     let errors = 0;
     const validityState = formData.value.validityState;
     for (const key in validityState) {
-      if (validityState.hasOwnProperty(key) && !validityState[key]) {
+      if (validityState.hasOwnProperty(key) && !validityState[key] && formData.value.doSubmit) {
         errors++;
       }
     }

@@ -14,6 +14,7 @@ declare module 'vue' {
     FormInputButton: typeof import('./components/forms/FormInputButton.vue')['default']
     FormInputText: typeof import('./components/forms/FormInputText.vue')['default']
     FormInputtText: typeof import('./components/forms/FormInputtText.vue')['default']
+    FormInputWrapper: typeof import('./components/forms/FormInputWrapper.vue')['default']
     Header: typeof import('./components/header/Header.vue')['default']
     HeaderNavigation: typeof import('./components/header-navigation/HeaderNavigation.vue')['default']
     LayoutRow: typeof import('./components/layout-row/LayoutRow.vue')['default']

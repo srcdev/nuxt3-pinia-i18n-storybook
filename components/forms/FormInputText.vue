@@ -1,30 +1,21 @@
 <template>
-  <div>
-    <label :for="id" :class="['label', 'text-normal', { error: hasError() }]">{{ t(`${i18nKey}.label`) }}</label>
-    <p v-if="hasError()" :class="['text-normal', 'error-message', { show: hasError() }, { hide: hasError() }]">{{ errorMessage }}</p>
-    <br />
-    <input
-      :type="type"
-      :placeholder="t(`${i18nKey}.placeholder`)"
-      :id="id"
-      :pattern="componentValidation.pattern"
-      :maxlength="componentValidation.maxlength"
-      :required="required"
-      :class="['input', 'text-normal', { error: hasError() }]"
-      v-model="modelValue.data[id]"
-      ref="inputField"
-    />
-    <p>
-      {{ t("components.forms.generic-text.hint", { hint: componentValidation.hint }) }}
-    </p>
-  </div>
+  <input
+    :type="type"
+    :placeholder="t(`${i18nKey}.placeholder`)"
+    :id="id"
+    :pattern="componentValidation.pattern"
+    :maxlength="componentValidation.maxlength"
+    :required="required"
+    :class="['input', 'text-normal', { error: fieldHasError() }]"
+    v-model="modelValue.data[id]"
+    ref="inputField"
+  />
 </template>
 
 <script setup lang="ts">
   import type { IValidationPatterns, IFormData, ICustomErrorMessage } from "@/types/types.forms";
   import { validationConfig } from "./config/index";
   import { useI18n } from "vue-i18n";
-  import { useRootStore } from "~/stores/store.root";
   import { storeToRefs } from "pinia";
   import { useI18nStore } from "~/stores/store.i18n";
 
@@ -67,19 +58,11 @@
   const { t } = useI18n();
   const modelValue = defineModel() as unknown as IFormData;
 
-  /*
-   * Handle custom error messaging
-   **/
-  const { errorMessage, setDefaultError } = useErrorMessage(props.id, modelValue.value);
-  const { updateCustomErrors } = useFormControl();
-
-  setDefaultError(t(`${props.i18nKey}.error-message`));
-
   const { validatorLocale } = storeToRefs(useI18nStore());
   const componentValidation = validationConfig[validatorLocale.value][props.validation];
   const inputField = ref<HTMLInputElement | null>(null);
 
-  const hasError = () => {
+  const fieldHasError = () => {
     return !inputField.value?.validity.valid && modelValue.value.doSubmit;
   };
 

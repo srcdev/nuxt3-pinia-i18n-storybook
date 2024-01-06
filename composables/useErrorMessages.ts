@@ -6,7 +6,6 @@ export function useErrorMessage(id: string, modelValue: IFormData) {
 
   const errorMessage = computed(() => {
     if (customErrorMessages.value[id] !== undefined && customErrorMessages.value[id].useCustomError) {
-      console.log(customErrorMessages.value[id]);
       return customErrorMessages.value[id].message;
     } else {
       return defaultError;
@@ -17,8 +16,14 @@ export function useErrorMessage(id: string, modelValue: IFormData) {
     defaultError.value = newDefaultError;
   }
 
+  const fieldHasError = computed(() => {
+    return Object.keys(modelValue.validityState).length > 0 && modelValue.doSubmit ? !modelValue.validityState[id] : false;
+    // return true;
+  });
+
   return {
     errorMessage,
     setDefaultError,
+    fieldHasError,
   };
 }
