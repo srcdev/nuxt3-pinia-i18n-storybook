@@ -134,8 +134,8 @@
       border-radius: 6px;
       border: 1px solid $color-grey-6;
       position: absolute;
-      right: 12px;
-      top: 12px;
+      right: 6px;
+      top: 6px;
       z-index: -1;
       padding: 0;
       color: $color-grey-4;
@@ -144,8 +144,8 @@
       min-width: 250px;
 
       @media all and (min-width: 768px) {
-        right: 30px;
-        top: 30px;
+        right: 20px;
+        top: 20px;
       }
       &.open {
         opacity: 1;

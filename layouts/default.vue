@@ -1,10 +1,6 @@
 <template>
   <div :class="pageTheme">
-    <PageRow :fit-content="true" :apply-gutters="false">
-      <template #pageRowContent>
-        <Header :header-theme="headerTheme"></Header>
-      </template>
-    </PageRow>
+    <Header :header-theme="headerTheme"></Header>
 
     <PageRow :fit-content="true">
       <template #pageRowContent>

@@ -1,20 +1,24 @@
 <template>
-  <header class="header" :class="[headerTheme]">
-    <FlexGroup>
-      <template #default>
-        <FlexGroupItem :flex-grow="true">
+  <PageRow :fit-content="isFullWidth" :apply-gutters="false" page-row-theme="theme-black">
+    <template #pageRowContent>
+      <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }]">
+        <FlexGroup>
           <template #default>
-            <h1 class="text-header-large text-color-white">{{ $t("components.header.text") }}</h1>
+            <FlexGroupItem :flex-grow="true">
+              <template #default>
+                <h1 class="text-header-large text-color-white">{{ $t("components.header.text") }}</h1>
+              </template>
+            </FlexGroupItem>
+            <FlexGroupItem>
+              <template #default>
+                <HeaderNavigation></HeaderNavigation>
+              </template>
+            </FlexGroupItem>
           </template>
-        </FlexGroupItem>
-        <FlexGroupItem>
-          <template #default>
-            <HeaderNavigation></HeaderNavigation>
-          </template>
-        </FlexGroupItem>
-      </template>
-    </FlexGroup>
-  </header>
+        </FlexGroup>
+      </header>
+    </template>
+  </PageRow>
 </template>
 
 <script setup lang="ts">
@@ -40,6 +44,7 @@
   });
 
   const { t } = useI18n();
+  const isFullWidth = ref(false);
   // const rootStore = useRootStore();
   // const accountStore = useAccountStore();
 
@@ -62,14 +67,26 @@
   .header {
     // background-color: var(--bgColour);
     background-color: $black;
-    padding: 16px;
+    padding: 16px 0;
 
     @include mqMinTablet {
-      padding: 40px;
+      padding: 40px 0;
     }
 
     @include mqDesktopContentMax {
-      padding: 32px;
+      padding: 32px 0;
+    }
+
+    &.full-width {
+      padding: 16px;
+
+      @include mqMinTablet {
+        padding: 40px;
+      }
+
+      @include mqDesktopContentMax {
+        padding: 32px;
+      }
     }
   }
 </style>

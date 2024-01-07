@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :fit-content="true" :apply-gutters="true">
+        <PageRow :fit-content="false" :apply-gutters="false">
           <template #pageRowContent>
             <div>
               <h1 class="text-header-large">{{ $t("pages.index.header") }}</h1>
@@ -56,7 +56,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="true" :apply-gutters="false" apply-classes="pt-12">
+        <PageRow :fit-content="false" :apply-gutters="false" apply-classes="pt-12">
           <template #pageRowContent>
             <DisplayCard
               direction="row"
