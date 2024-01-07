@@ -8,17 +8,19 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     doSubmit: false,
     errorCount: 0,
     customErrorMessages: {},
+    formIsValid: false,
   });
 
   function getErrorCount() {
     let errors = 0;
     const validityState = formData.value.validityState;
+    // console.log(validityState);
     for (const key in validityState) {
       if (validityState.hasOwnProperty(key) && !validityState[key] && formData.value.doSubmit) {
         errors++;
       }
     }
-
+    formData.value.formIsValid = errors === 0;
     return errors;
   }
 
@@ -37,11 +39,11 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
    *   Delete entry
    *   updateCustomErrors("username", formData, null);
    */
-  function updateCustomErrors(id: string, formData: IFormData, errorObj: null | ICustomErrorMessage = null) {
+  function updateCustomErrors(name: string, formData: IFormData, errorObj: null | ICustomErrorMessage = null) {
     if (errorObj === null) {
-      delete formData.value.customErrorMessages[id];
+      delete formData.value.customErrorMessages[name];
     } else {
-      formData.value.customErrorMessages[id] = errorObj;
+      formData.value.customErrorMessages[name] = errorObj;
     }
   }
 
@@ -53,17 +55,17 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     formData.value.doSubmit = false;
   };
 
-  function watchFormUpdates() {
-    watch(
-      () => formData.value,
-      () => {
-        formData.value.errorCount = getErrorCount();
-      },
-      { deep: true }
-    );
-  }
+  // function watchFormUpdates() {
+  //   watch(
+  //     () => formData.value,
+  //     () => {
+  //       formData.value.errorCount = getErrorCount();
+  //     },
+  //     { deep: true }
+  //   );
+  // }
 
-  watchFormUpdates();
+  // watchFormUpdates();
 
-  return { formData, updateCustomErrors, resetForm };
+  return { formData, getErrorCount, updateCustomErrors, resetForm };
 }

@@ -14,6 +14,7 @@ declare module 'vue' {
     FormInputButton: typeof import('./components/forms/FormInputButton.vue')['default']
     FormInputCheckbox: typeof import('./components/forms/FormInputCheckbox.vue')['default']
     FormInputCheckboxMultipleWrapper: typeof import('./components/forms/FormInputCheckboxMultipleWrapper.vue')['default']
+    FormInputCheckboxWithLabel: typeof import('./components/forms/FormInputCheckboxWithLabel.vue')['default']
     FormInputCheckboxWrapper: typeof import('./components/forms/FormInputCheckboxWrapper.vue')['default']
     FormInputText: typeof import('./components/forms/FormInputText.vue')['default']
     FormInputTextWrapper: typeof import('./components/forms/FormInputTextWrapper.vue')['default']

@@ -8,7 +8,7 @@
     :maxlength="componentValidation.maxlength"
     :required="required"
     :class="['input-text', 'text-normal', { error: fieldHasError() }]"
-    v-model="modelValue.data[id]"
+    v-model="modelValue.data[name]"
     ref="inputField"
   />
 </template>
@@ -68,9 +68,10 @@
   };
 
   watch(
+    // () => modelValue.value.data[name.value],
     () => modelValue.value,
     () => {
-      modelValue.value!.validityState[props.id] = inputField.value?.validity.valid;
+      modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
     },
     { deep: true }
   );

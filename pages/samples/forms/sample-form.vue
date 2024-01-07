@@ -2,9 +2,9 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :fit-content="false" :apply-gutters="false">
+        <PageRow :fit-content="false" :apply-gutters="false" page-row-inner-theme="theme-white">
           <template #pageRowContent>
-            <div>
+            <div class="pt-32">
               <h1 class="text-header-large">{{ t("pages.samples.sample-form.pageTitle") }}</h1>
             </div>
           </template>
@@ -12,7 +12,7 @@
         <PageRow :fit-content="false" :apply-gutters="false" page-row-inner-theme="theme-white">
           <template #pageRowContent>
             <form @submit.prevent="doSubmit()" :id="formData.formId" class="form-narrow">
-              <p>{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
+              <p v-if="formData.formIsValid">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
 
               <FormInputTextWrapper id="username" validation="username" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.username">
                 <template #default>
@@ -44,13 +44,15 @@
                 </template>
               </FormInputTextWrapper>
 
-              <FormInputCheckboxMultipleWrapper id="terms-multi" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.terms">
+              <FormInputCheckboxMultipleWrapper id="places" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.places">
                 <template #inputTitle>
-                  <p class="header-small">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
+                  <p class="header-small">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
                 </template>
-                <!-- <template #inputField>
-                  <FormInputCheckbox id="terms" true-value="Sure" false-value="Nope" :required="true" v-model:modelValue="formData" />
-                </template> -->
+                <template #inputField>
+                  <template v-for="item in multiOptions">
+                    <FormInputCheckboxWithLabel :config="item" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.places" />
+                  </template>
+                </template>
               </FormInputCheckboxMultipleWrapper>
 
               <FormInputCheckboxWrapper id="terms" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.terms">
@@ -79,13 +81,16 @@
             </form>
           </template>
         </PageRow>
+        <pre>
+          {{ formData }}
+        </pre>
       </template>
     </NuxtLayout>
   </div>
 </template>
 
 <script setup lang="ts">
-  import type { IFieldsInitialState } from "@/types/types.forms";
+  import type { IOptionsConfig, IFieldsInitialState } from "@/types/types.forms";
 
   import { useI18n } from "vue-i18n";
   const { t } = useI18n();
@@ -106,29 +111,34 @@
     {
       id: "bath",
       name: "places",
-      value: "Bath",
+      value: "place-12",
+      label: "Bath",
     },
     {
       id: "bristol",
       name: "places",
-      value: "Bristol",
+      value: "place-23",
+      label: "Bristol",
     },
     {
       id: "london",
       name: "places",
-      value: "London",
+      value: "place-42",
+      label: "London",
     },
     {
       id: "sunderland",
       name: "places",
-      value: "Sunderland",
+      value: "place-56",
+      label: "Sunderland",
     },
     {
       id: "penzance",
       name: "places",
-      value: "Penzance",
+      value: "place-09",
+      label: "Penzance",
     },
-  ];
+  ] as IOptionsConfig[];
 
   // Setup formData
   const formId = "sample-form";
@@ -142,24 +152,14 @@
     terms: false,
   };
 
-  const { formData, updateCustomErrors, resetForm } = useFormControl(formId, fieldsInitialState);
+  const { formData, getErrorCount, updateCustomErrors, resetForm } = useFormControl(formId, fieldsInitialState);
 
   const doSubmit = () => {
+    getErrorCount();
     formData.value.doSubmit = true;
-    // Do some actions if form is valid
+
+    console.log(formData.value.data);
   };
-
-  // const sampleCustomError1 = {
-  //   useCustomError: true,
-  //   message: "This is a sample custom error for error MOBILE",
-  // };
-  // updateCustomErrors("mobile", formData, sampleCustomError1);
-
-  // const sampleCustomError2 = {
-  //   useCustomError: true,
-  //   message: "This is a sample custom error for error USERNAME",
-  // };
-  // updateCustomErrors("username", formData, sampleCustomError2);
 
   const doReset = () => {
     console.log("resetForm()");

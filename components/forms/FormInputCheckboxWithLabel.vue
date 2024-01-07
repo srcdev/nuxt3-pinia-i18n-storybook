@@ -1,40 +1,31 @@
 <template>
-  <div class="form-field-wrapper decorated" :class="[{ error: fieldHasError }]">
-    <div class="form-field-inner">
-      <slot v-if="hasTitle" name="inputTitle"></slot>
-      <FlexGroup flex-flow="row-reverse" align-content="center-left" gap="12px" :full-width="false">
+  <FlexGroup flex-flow="row-reverse" align-content="center-left" gap="12px" :full-width="false">
+    <template #default>
+      <FlexGroupItem apply-classes="form-field-label-wrapper">
         <template #default>
-          <FlexGroupItem apply-classes="form-field-label-wrapper">
-            <template #default>
-              <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
-            </template>
-          </FlexGroupItem>
-          <FlexGroupItem apply-classes="form-field-input-wrapper">
-            <template #default>
-              <slot name="inputField"></slot>
-            </template>
-          </FlexGroupItem>
+          <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ label }}</label>
         </template>
-      </FlexGroup>
-
-      <p v-if="fieldHasError" :class="['text-normal', 'form-field-error-message', { show: fieldHasError }, { hide: !fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
-    </div>
-  </div>
+      </FlexGroupItem>
+      <FlexGroupItem apply-classes="form-field-input-wrapper">
+        <template #default>
+          <FormInputCheckbox :id="id" :name="name" :true-value="trueValue" :required="required" :multiple-checkboxes="useConfig" v-model="modelValue" />
+        </template>
+      </FlexGroupItem>
+    </template>
+  </FlexGroup>
 </template>
 <script setup lang="ts">
-  import type { IFormData } from "@/types/types.forms";
+  import type { IFormData, IOptionsConfig } from "@/types/types.forms";
   import { useI18n } from "vue-i18n";
+  import { validationConfig } from "./config/index";
+  import { storeToRefs } from "pinia";
+  import { useI18nStore } from "~/stores/store.i18n";
 
   const props = defineProps({
     id: {
       type: String,
-      required: true,
+      default: "",
     },
-    name: {
-      type: String,
-      default: null,
-    },
-
     i18nKey: {
       type: String,
       required: true,
@@ -45,20 +36,46 @@
     },
     required: {
       type: Boolean,
-      value: false,
+      default: false,
+    },
+    trueValue: {
+      type: [String, Number, Boolean],
+      default: true,
+    },
+    falseValue: {
+      type: [String, Number, Boolean],
+      default: false,
+    },
+    config: {
+      type: Object as PropType<IOptionsConfig>,
+      default: {},
     },
   });
 
   const { t } = useI18n();
-  const name = computed(() => {
-    return props.name !== null ? props.name : props.id;
+
+  const useConfig = computed(() => {
+    return Object.keys(props.config).length > 0;
   });
 
-  const slots = useSlots();
-  const hasTitle = computed(() => slots.inputTitle !== undefined);
+  const id = computed(() => {
+    return useConfig.value ? props.config.id : props.id;
+  });
+
+  const name = computed(() => {
+    return useConfig.value ? props.config.name : null;
+  });
+
+  const label = computed(() => {
+    return useConfig.value ? props.config.label : t(`${props.i18nKey}.label`);
+  });
+
+  const trueValue = computed(() => {
+    return useConfig.value ? props.config.value : props.trueValue;
+  });
 
   const modelValue = defineModel() as unknown as IFormData;
-  const { errorMessage, setDefaultError, fieldHasError } = useErrorMessage(name.value, modelValue.value);
+  const { setDefaultError, fieldHasError } = useErrorMessage(props.id, modelValue.value);
   setDefaultError(t(`${props.i18nKey}.error-message`));
 </script>
 

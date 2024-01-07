@@ -2,22 +2,7 @@
   <div class="form-field-wrapper decorated" :class="[{ error: fieldHasError }]">
     <div class="form-field-inner">
       <slot v-if="hasTitle" name="inputTitle"></slot>
-      <div>
-        <FlexGroup flex-flow="row-reverse" align-content="center-left" gap="12px" :full-width="false">
-          <template #default>
-            <FlexGroupItem apply-classes="form-field-label-wrapper">
-              <template #default>
-                <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
-              </template>
-            </FlexGroupItem>
-            <FlexGroupItem apply-classes="form-field-input-wrapper">
-              <template #default>
-                <FormInputCheckbox :id="id" true-value="Sure" false-value="Nope" :required="required" v-model="modelValue" />
-              </template>
-            </FlexGroupItem>
-          </template>
-        </FlexGroup>
-      </div>
+      <slot name="inputField"></slot>
 
       <p v-if="fieldHasError" :class="['text-normal', 'form-field-error-message', { show: fieldHasError }, { hide: !fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
     </div>
@@ -35,6 +20,10 @@
       type: String,
       required: true,
     },
+    name: {
+      type: String,
+      default: null,
+    },
     i18nKey: {
       type: String,
       required: true,
@@ -50,14 +39,15 @@
   });
 
   const { t } = useI18n();
+  const name = computed(() => {
+    return props.name !== null ? props.name : props.id;
+  });
+
   const slots = useSlots();
   const hasTitle = computed(() => slots.inputTitle !== undefined);
 
-  const { validatorLocale } = storeToRefs(useI18nStore());
-  const componentValidation = validationConfig[validatorLocale.value][props.validation];
-
   const modelValue = defineModel() as unknown as IFormData;
-  const { errorMessage, setDefaultError, fieldHasError } = useErrorMessage(props.id, modelValue.value);
+  const { errorMessage, setDefaultError, fieldHasError } = useErrorMessage(name.value, modelValue.value);
   setDefaultError(t(`${props.i18nKey}.error-message`));
 </script>
 

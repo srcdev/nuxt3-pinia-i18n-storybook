@@ -5,6 +5,13 @@ export interface IValidationPatterns {
   hint: string;
 }
 
+export interface IOptionsConfig {
+  id: string;
+  name: string;
+  value: string;
+  label: string;
+}
+
 export interface IFieldsInitialState {
   [key: string]: string | boolean | number | URL | object;
 }
@@ -60,4 +67,5 @@ export interface IFormData {
   doSubmit: boolean;
   errorCount: number;
   customErrorMessages: ICustomErrorMessagesArr;
+  formIsValid: boolean;
 }

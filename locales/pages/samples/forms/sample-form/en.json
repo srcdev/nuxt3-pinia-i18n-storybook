@@ -38,6 +38,10 @@
             "title": "Terms & Conditions",
             "label": "Accept Terms and Conditions",
             "error-message": "Please accept our terms and conditions"
+          },
+          "places": {
+            "title": "Choose favourite places",
+            "error-message": "Please choose a favourite place"
           }
         }
       }

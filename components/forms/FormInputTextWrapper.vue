@@ -33,6 +33,11 @@
       type: String,
       required: true,
     },
+    name: {
+      type: String,
+      default: null,
+    },
+
     i18nKey: {
       type: String,
       required: true,
@@ -44,12 +49,15 @@
   });
 
   const { t } = useI18n();
+  const name = computed(() => {
+    return props.name !== null ? props.name : props.id;
+  });
 
   const { validatorLocale } = storeToRefs(useI18nStore());
   const componentValidation = validationConfig[validatorLocale.value][props.validation];
 
   const modelValue = defineModel() as unknown as IFormData;
-  const { errorMessage, setDefaultError, fieldHasError } = useErrorMessage(props.id, modelValue.value);
+  const { errorMessage, setDefaultError, fieldHasError } = useErrorMessage(name.value, modelValue.value);
   setDefaultError(t(`${props.i18nKey}.error-message`));
 </script>
 

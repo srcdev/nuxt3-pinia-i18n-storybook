@@ -1,6 +1,18 @@
 <template>
   <div>
-    <input type="checkbox" :true-value="trueValue" :false-value="falseValue" :id="id" :required="required" :class="['input-checkbox', { error: fieldHasError() }]" v-model="modelValue.data[id]" ref="inputField" />
+    <input
+      type="checkbox"
+      @input="isValid()"
+      :true-value="trueValue"
+      :false-value="falseValue"
+      :id="id"
+      :name="name"
+      :required="required"
+      :value="trueValue"
+      :class="['input-checkbox', { error: fieldHasError() }]"
+      v-model="modelValue.data[name]"
+      ref="inputField"
+    />
     <Icon :name="isChecked ? 'akar-icons:check-box' : 'akar-icons:box'" class="icon-box" />
   </div>
 </template>
@@ -33,6 +45,10 @@
       type: [String, Number, Boolean],
       default: false,
     },
+    multipleCheckboxes: {
+      type: Boolean,
+      default: false,
+    },
   });
 
   const modelValue = defineModel() as unknown as IFormData;
@@ -40,21 +56,29 @@
     return props.name !== null ? props.name : props.id;
   });
   const inputField = ref<HTMLInputElement | null>(null);
+  const modelIsObject = typeof modelValue.value.data[name.value] === "object";
 
-  const isChecked = ref<undefined | boolean>(false);
+  const isChecked = computed(() => {
+    if (modelIsObject) {
+      return Object.values(modelValue.value.data[name.value]).includes(props.trueValue);
+    } else {
+      return modelValue.value.data[name.value] === props.trueValue;
+    }
+  });
 
   const fieldHasError = () => {
     return !inputField.value?.validity.valid && modelValue.value.doSubmit;
   };
 
-  watch(
-    () => modelValue.value,
-    () => {
-      isChecked.value = inputField.value?.checked;
-      modelValue.value!.validityState[props.id] = inputField.value?.validity.valid;
-    },
-    { deep: true }
-  );
+  const isValid = () => {
+    setTimeout(() => {
+      if (modelIsObject) {
+        modelValue.value!.validityState[name.value] = Object.values(modelValue.value.data[name.value]).length > 0;
+      } else {
+        modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
+      }
+    }, 0);
+  };
 </script>
 
 <style lang="scss">
