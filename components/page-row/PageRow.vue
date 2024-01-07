@@ -50,6 +50,11 @@
           padding: 0;
         }
 
+        padding: 0 16px;
+        @include mqMinTablet {
+          padding: 0 40px;
+        }
+
         &.has-gutters {
           padding: 0 16px;
 

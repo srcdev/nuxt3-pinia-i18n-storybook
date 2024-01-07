@@ -2,7 +2,7 @@
   <PageRow :fit-content="isFullWidth" :apply-gutters="false" page-row-theme="theme-black">
     <template #pageRowContent>
       <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }]">
-        <FlexGroup>
+        <FlexGroup align-content="center-left">
           <template #default>
             <FlexGroupItem :flex-grow="true">
               <template #default>
@@ -70,23 +70,21 @@
     padding: 16px 0;
 
     @include mqMinTablet {
-      padding: 40px 0;
+      padding: 24px 0;
     }
 
-    @include mqDesktopContentMax {
-      padding: 32px 0;
-    }
+    // @include mqDesktopContentMax {
+    //   padding: 32px 0;
+    // }
 
     &.full-width {
-      padding: 16px;
-
       @include mqMinTablet {
-        padding: 40px;
+        padding: 24px;
       }
 
-      @include mqDesktopContentMax {
-        padding: 32px;
-      }
+      // @include mqDesktopContentMax {
+      //   padding: 32px;
+      // }
     }
   }
 </style>

@@ -67,14 +67,6 @@
             </form>
           </template>
         </PageRow>
-        <PageRow :fit-content="false" :apply-gutters="false" page-row-inner-theme="theme-white">
-          <template #pageRowContent>
-            <pre
-              >{{ formData }}
-</pre
-            >
-          </template>
-        </PageRow>
       </template>
     </NuxtLayout>
   </div>
