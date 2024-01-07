@@ -13,6 +13,10 @@
       type: String,
       required: true,
     },
+    name: {
+      type: String,
+      default: null,
+    },
     required: {
       type: Boolean,
       value: false,
@@ -32,6 +36,9 @@
   });
 
   const modelValue = defineModel() as unknown as IFormData;
+  const name = computed(() => {
+    return props.name !== null ? props.name : props.id;
+  });
   const inputField = ref<HTMLInputElement | null>(null);
 
   const isChecked = ref<undefined | boolean>(false);

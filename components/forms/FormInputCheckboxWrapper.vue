@@ -1,16 +1,17 @@
 <template>
   <div class="form-field-wrapper decorated" :class="[{ error: fieldHasError }]">
     <div class="form-field-inner">
+      <slot v-if="hasTitle" name="inputTitle"></slot>
       <FlexGroup flex-flow="row-reverse" align-content="center-left" gap="12px" :full-width="false">
         <template #default>
           <FlexGroupItem apply-classes="form-field-label-wrapper">
             <template #default>
-              <label :for="id" :class="['form-field-label', 'text-normal', { error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
+              <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
             </template>
           </FlexGroupItem>
           <FlexGroupItem apply-classes="form-field-input-wrapper">
             <template #default>
-              <slot name="default"></slot>
+              <slot name="inputField"></slot>
             </template>
           </FlexGroupItem>
         </template>
@@ -40,9 +41,15 @@
       type: String,
       default: "",
     },
+    required: {
+      type: Boolean,
+      value: false,
+    },
   });
 
   const { t } = useI18n();
+  const slots = useSlots();
+  const hasTitle = computed(() => slots.inputTitle !== undefined);
 
   const { validatorLocale } = storeToRefs(useI18nStore());
   const componentValidation = validationConfig[validatorLocale.value][props.validation];

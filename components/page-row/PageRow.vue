@@ -19,12 +19,12 @@
     pageRowTheme: {
       type: String,
       default: "theme-default",
-      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
+      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black"].includes(val as string),
     },
     pageRowInnerTheme: {
       type: String,
       default: "theme-default",
-      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green"].includes(val as string),
+      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black"].includes(val as string),
     },
     applyClasses: {
       type: String,

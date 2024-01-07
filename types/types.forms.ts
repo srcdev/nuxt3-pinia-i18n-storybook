@@ -6,7 +6,7 @@ export interface IValidationPatterns {
 }
 
 export interface IFieldsInitialState {
-  [key: string]: string | boolean | number | URL;
+  [key: string]: string | boolean | number | URL | object;
 }
 
 export interface IValidityState {

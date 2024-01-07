@@ -1,3 +1,5 @@
+@import "@/assets/styles/imports.scss";
+
 p,
 button,
 input,
@@ -46,4 +48,19 @@ dt,
   margin: 0;
   padding-bottom: clamp(0.2rem, 4vw, 0.6rem);
   padding-top: clamp(0.2rem, 4vw, 0.6rem);
+}
+
+.header-small {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.9rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+
+  @media only screen and (min-width: $tabletMed) {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
 }

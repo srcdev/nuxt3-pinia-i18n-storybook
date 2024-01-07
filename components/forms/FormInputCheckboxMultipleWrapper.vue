@@ -1,23 +1,25 @@
 <template>
   <div class="form-field-wrapper decorated" :class="[{ error: fieldHasError }]">
     <div class="form-field-inner">
-      <FlexGroup flex-flow="cols-to-row" align-content="center-left" :full-width="true">
-        <template #default>
-          <FlexGroupItem :flex-grow="true" apply-classes="form-field-label-wrapper">
-            <template #default>
-              <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
-            </template>
-          </FlexGroupItem>
-          <FlexGroupItem :flex-grow="false" apply-classes="form-field-input-wrapper">
-            <template #default>
-              <slot name="default"></slot>
-            </template>
-          </FlexGroupItem>
-        </template>
-      </FlexGroup>
+      <slot v-if="hasTitle" name="inputTitle"></slot>
+      <div>
+        <FlexGroup flex-flow="row-reverse" align-content="center-left" gap="12px" :full-width="false">
+          <template #default>
+            <FlexGroupItem apply-classes="form-field-label-wrapper">
+              <template #default>
+                <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
+              </template>
+            </FlexGroupItem>
+            <FlexGroupItem apply-classes="form-field-input-wrapper">
+              <template #default>
+                <FormInputCheckbox :id="id" true-value="Sure" false-value="Nope" :required="required" v-model="modelValue" />
+              </template>
+            </FlexGroupItem>
+          </template>
+        </FlexGroup>
+      </div>
 
       <p v-if="fieldHasError" :class="['text-normal', 'form-field-error-message', { show: fieldHasError }, { hide: !fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
-      <p class="form-field-info"><Icon name="akar-icons:info" class="icon icon-info" />{{ t("components.forms.generic-text.hint", { hint: componentValidation.hint }) }}</p>
     </div>
   </div>
 </template>
@@ -41,9 +43,15 @@
       type: String,
       default: "",
     },
+    required: {
+      type: Boolean,
+      value: false,
+    },
   });
 
   const { t } = useI18n();
+  const slots = useSlots();
+  const hasTitle = computed(() => slots.inputTitle !== undefined);
 
   const { validatorLocale } = storeToRefs(useI18nStore());
   const componentValidation = validationConfig[validatorLocale.value][props.validation];
@@ -53,7 +61,7 @@
   setDefaultError(t(`${props.i18nKey}.error-message`));
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   @import "@/assets/styles/imports.scss";
 
   @keyframes fadeIn {
@@ -139,11 +147,11 @@
 
     &-input {
       &-wrapper {
-        width: 100%;
-        max-width: 300px;
-        @media only screen and (min-width: $tabletMed) {
-          width: 270px;
-        }
+        width: initial;
+
+        // @media only screen and (min-width: $tabletMed) {
+        //   width: 270px;
+        // }
       }
     }
   }

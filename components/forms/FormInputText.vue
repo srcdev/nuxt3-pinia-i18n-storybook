@@ -3,6 +3,7 @@
     :type="type"
     :placeholder="t(`${i18nKey}.placeholder`)"
     :id="id"
+    :name="name"
     :pattern="componentValidation.pattern"
     :maxlength="componentValidation.maxlength"
     :required="required"
@@ -31,6 +32,10 @@
       type: String,
       required: true,
     },
+    name: {
+      type: String,
+      default: null,
+    },
     validation: {
       type: String,
       default: "",
@@ -51,7 +56,9 @@
 
   const { t } = useI18n();
   const modelValue = defineModel() as unknown as IFormData;
-
+  const name = computed(() => {
+    return props.name !== null ? props.name : props.id;
+  });
   const { validatorLocale } = storeToRefs(useI18nStore());
   const componentValidation = validationConfig[validatorLocale.value][props.validation];
   const inputField = ref<HTMLInputElement | null>(null);

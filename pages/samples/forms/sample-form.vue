@@ -44,8 +44,20 @@
                 </template>
               </FormInputTextWrapper>
 
+              <FormInputCheckboxMultipleWrapper id="terms-multi" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.terms">
+                <template #inputTitle>
+                  <p class="header-small">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
+                </template>
+                <!-- <template #inputField>
+                  <FormInputCheckbox id="terms" true-value="Sure" false-value="Nope" :required="true" v-model:modelValue="formData" />
+                </template> -->
+              </FormInputCheckboxMultipleWrapper>
+
               <FormInputCheckboxWrapper id="terms" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.terms">
-                <template #default>
+                <template #inputTitle>
+                  <p class="header-small">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
+                </template>
+                <template #inputField>
                   <FormInputCheckbox id="terms" true-value="Sure" false-value="Nope" :required="true" v-model:modelValue="formData" />
                 </template>
               </FormInputCheckboxWrapper>
@@ -90,6 +102,34 @@
     },
   });
 
+  const multiOptions = [
+    {
+      id: "bath",
+      name: "places",
+      value: "Bath",
+    },
+    {
+      id: "bristol",
+      name: "places",
+      value: "Bristol",
+    },
+    {
+      id: "london",
+      name: "places",
+      value: "London",
+    },
+    {
+      id: "sunderland",
+      name: "places",
+      value: "Sunderland",
+    },
+    {
+      id: "penzance",
+      name: "places",
+      value: "Penzance",
+    },
+  ];
+
   // Setup formData
   const formId = "sample-form";
   const fieldsInitialState = <IFieldsInitialState>{
@@ -98,6 +138,7 @@
     mobile: "",
     url: "",
     email: "",
+    places: [],
     terms: false,
   };
 
@@ -108,17 +149,17 @@
     // Do some actions if form is valid
   };
 
-  const sampleCustomError1 = {
-    useCustomError: true,
-    message: "This is a sample custom error for error MOBILE",
-  };
-  updateCustomErrors("mobile", formData, sampleCustomError1);
+  // const sampleCustomError1 = {
+  //   useCustomError: true,
+  //   message: "This is a sample custom error for error MOBILE",
+  // };
+  // updateCustomErrors("mobile", formData, sampleCustomError1);
 
-  const sampleCustomError2 = {
-    useCustomError: true,
-    message: "This is a sample custom error for error USERNAME",
-  };
-  updateCustomErrors("username", formData, sampleCustomError2);
+  // const sampleCustomError2 = {
+  //   useCustomError: true,
+  //   message: "This is a sample custom error for error USERNAME",
+  // };
+  // updateCustomErrors("username", formData, sampleCustomError2);
 
   const doReset = () => {
     console.log("resetForm()");

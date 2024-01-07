@@ -35,6 +35,7 @@
             "error-message": "Enter the format your.name{'@'}your-domain.co.uk"
           },
           "terms": {
+            "title": "Terms & Conditions",
             "label": "Accept Terms and Conditions",
             "error-message": "Please accept our terms and conditions"
           }
