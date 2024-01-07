@@ -5,7 +5,7 @@
         <template #default>
           <FlexGroupItem :flex-grow="true" apply-classes="form-field-label-wrapper">
             <template #default>
-              <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
+              <label :for="id" class="form-field-label header-small font-700" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
             </template>
           </FlexGroupItem>
           <FlexGroupItem :flex-grow="false" apply-classes="form-field-input-wrapper">
@@ -134,7 +134,6 @@
 
     &-label {
       display: block;
-      font-weight: bolder;
       padding: 10px 0;
 
       @media only screen and (min-width: $tabletMed) {

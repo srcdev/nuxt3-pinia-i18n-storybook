@@ -11,9 +11,6 @@
 <script setup lang="ts">
   import type { IFormData } from "@/types/types.forms";
   import { useI18n } from "vue-i18n";
-  import { validationConfig } from "./config/index";
-  import { storeToRefs } from "pinia";
-  import { useI18nStore } from "~/stores/store.i18n";
 
   const props = defineProps({
     id: {
@@ -124,7 +121,6 @@
 
     &-label {
       display: block;
-      font-weight: bolder;
       padding: 10px 0;
 
       @media only screen and (min-width: $tabletMed) {

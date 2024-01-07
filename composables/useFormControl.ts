@@ -53,6 +53,8 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     formData.value.validityState = {};
     formData.value.errorCount = 0;
     formData.value.doSubmit = false;
+    formData.value.customErrorMessages = {};
+    formData.value.formIsValid = false;
   };
 
   // function watchFormUpdates() {

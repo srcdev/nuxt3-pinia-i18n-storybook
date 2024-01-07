@@ -46,7 +46,7 @@
 
               <FormInputCheckboxMultipleWrapper id="places" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.places">
                 <template #inputTitle>
-                  <p class="header-small">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
+                  <p class="header-small font-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
                 </template>
                 <template #inputField>
                   <template v-for="item in multiOptions">
@@ -57,7 +57,7 @@
 
               <FormInputCheckboxWrapper id="terms" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.terms">
                 <template #inputTitle>
-                  <p class="header-small">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
+                  <p class="header-small font-700">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
                 </template>
                 <template #inputField>
                   <FormInputCheckbox id="terms" true-value="Sure" false-value="Nope" :required="true" v-model:modelValue="formData" />
@@ -66,7 +66,7 @@
 
               <FlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" apply-classes="mt-12 mb-12">
                 <template #default>
-                  <FlexGroupItem :flex-grow="false">
+                  <FlexGroupItem :flex-grow="false" apply-classes="hide">
                     <template #default>
                       <FormInputButton type="reset" @click.prevent="doReset()" :is-pending="false" button-text="Reset" />
                     </template>

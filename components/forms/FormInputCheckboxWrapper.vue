@@ -135,7 +135,6 @@
 
     &-label {
       display: block;
-      font-weight: bolder;
       padding: 10px 0;
 
       @media only screen and (min-width: $tabletMed) {

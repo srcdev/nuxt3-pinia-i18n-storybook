@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { IValidationPatterns, IFormData, ICustomErrorMessage } from "@/types/types.forms";
+  import type { IFormData } from "@/types/types.forms";
   import { validationConfig } from "./config/index";
   import { useI18n } from "vue-i18n";
   import { storeToRefs } from "pinia";
