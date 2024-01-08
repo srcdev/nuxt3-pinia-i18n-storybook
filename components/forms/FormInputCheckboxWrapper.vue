@@ -17,7 +17,7 @@
         </template>
       </FlexGroup>
 
-      <p v-if="fieldHasError" :class="['text-normal', 'form-field-error-message', { show: fieldHasError }, { hide: !fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
+      <p v-if="fieldHasError" :class="['text-normal', 'form-field-error-message', 'font-700', { show: fieldHasError }, { hide: !fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
     </div>
   </div>
 </template>
@@ -106,7 +106,6 @@
       display: flex;
       align-items: center;
       color: $color-red-2;
-      font-weight: bolder;
       .icon {
         display: inline-block;
         color: $color-red-2;

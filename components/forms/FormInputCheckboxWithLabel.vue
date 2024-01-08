@@ -120,7 +120,6 @@
       display: flex;
       align-items: center;
       color: $color-red-2;
-      font-weight: bolder;
       .icon {
         display: inline-block;
         color: $color-red-2;
