@@ -1,4 +1,4 @@
-import { mountSuspended } from "nuxt-vitest/utils";
+import { mountSuspended } from "@nuxt/test-utils/runtime";
 import { describe, it, expect } from "vitest";
 import Header from "./Header.vue";
 import { useAccountStore } from "@/stores/store.account";
@@ -29,7 +29,7 @@ describe("Header", () => {
     wrapper = await wrapperFactory();
 
     const textCheck = wrapper.find("h1");
-    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 data-v-b96573a8=\\"\\" class=\\"text-header-large text-color-orange\\">Nuxt3 Playground Site</h1>"');
+    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 data-v-2b517c36="" class="text-header-large text-color-white">Nuxt3 Playground Site</h1>"');
   });
 
   it("Component i18n text", async () => {

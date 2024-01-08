@@ -1,4 +1,4 @@
-import { mountSuspended } from "nuxt-vitest/utils";
+import { mountSuspended } from "@nuxt/test-utils/runtime";
 import { describe, it, expect, vi } from "vitest";
 import _sut from "./LocaleSwitcher.vue";
 
@@ -33,7 +33,7 @@ describe("_sut", () => {
     wrapper = await wrapperFactory();
 
     const textCheck = wrapper.find("h1");
-    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 class=\\"text-header-large\\" data-test-id=\\"locale-switcher-header\\">Language switcher</h1>"');
+    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 data-v-c99ff694="" class="text-header-large" data-test-id="locale-switcher-header">Language switcher</h1>"');
   });
 
   it("Shared i18n text", async () => {
@@ -43,11 +43,11 @@ describe("_sut", () => {
     expect(textCheck.text()).toEqual("Language switcher");
   });
 
-  it("Lang switch button to be 'Español'", async () => {
+  it("Lang switch button to be 'Bristolian'", async () => {
     wrapper = await wrapperFactory();
 
     const textCheck = wrapper.find("[data-test-id='locale-switch-btn']");
-    expect(textCheck.text()).toEqual("Español");
+    expect(textCheck.text()).toEqual("English - Bristolian");
   });
 
   it("Default locale should be 'en'", async () => {

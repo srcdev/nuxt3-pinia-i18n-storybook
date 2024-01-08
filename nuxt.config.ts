@@ -27,7 +27,7 @@ export default defineNuxtConfig({
       apiBaseURL: "https://localhost:3000",
     },
   },
-  modules: ["@pinia/nuxt", "nuxt-vitest", "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt", "nuxt-icon"],
+  modules: ["@pinia/nuxt", "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt", "nuxt-icon", "@nuxt/test-utils"],
   i18n: {
     vueI18n: "./i18n.config.ts",
   },
