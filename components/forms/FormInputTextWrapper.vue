@@ -3,12 +3,12 @@
     <div class="form-field-inner">
       <FlexGroup flex-flow="cols-to-row" align-content="center-left" :full-width="true">
         <template #default>
-          <FlexGroupItem :flex-grow="true" apply-classes="form-field-label-wrapper">
+          <FlexGroupItem :flex-grow="true" style-class-passthrough="form-field-label-wrapper">
             <template #default>
               <label :for="id" class="form-field-label header-small font-700" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
             </template>
           </FlexGroupItem>
-          <FlexGroupItem :flex-grow="false" apply-classes="form-field-input-wrapper">
+          <FlexGroupItem :flex-grow="false" style-class-passthrough="form-field-input-wrapper">
             <template #default>
               <slot name="default"></slot>
             </template>

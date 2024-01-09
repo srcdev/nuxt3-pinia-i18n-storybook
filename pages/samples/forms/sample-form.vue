@@ -64,9 +64,9 @@
                 </template>
               </FormInputCheckboxWrapper>
 
-              <FlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" apply-classes="mt-12 mb-12">
+              <FlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
                 <template #default>
-                  <FlexGroupItem :flex-grow="false" apply-classes="hide">
+                  <FlexGroupItem :flex-grow="false" style-class-passthrough="hide">
                     <template #default>
                       <FormInputButton type="reset" @click.prevent="doReset()" :is-pending="false" button-text="Reset" />
                     </template>

@@ -15,7 +15,7 @@ export default {
     maxWidth: false,
     fillHeight: false,
     maxHeight: false,
-    applyClasses: "",
+    styleClassPassthrough: "",
   },
 } as Meta<typeof FlexGroup>;
 
@@ -70,7 +70,7 @@ FlexRowTopLeft.args = {
   maxWidth: false,
   fillHeight: false,
   maxHeight: false,
-  applyClasses: "",
+  styleClassPassthrough: "",
 };
 
 export const FlexRowTopCenter = Template.bind({});
@@ -83,7 +83,7 @@ FlexRowTopCenter.args = {
   maxWidth: true,
   fillHeight: false,
   maxHeight: false,
-  applyClasses: "",
+  styleClassPassthrough: "",
 };
 
 export const FlexRowTopRight = Template.bind({});
@@ -96,7 +96,7 @@ FlexRowTopRight.args = {
   maxWidth: true,
   fillHeight: false,
   maxHeight: false,
-  applyClasses: "",
+  styleClassPassthrough: "",
 };
 
 export const FlexRowTopSpaceAround = Template.bind({});
@@ -109,7 +109,7 @@ FlexRowTopSpaceAround.args = {
   maxWidth: false,
   fillHeight: false,
   maxHeight: false,
-  applyClasses: "",
+  styleClassPassthrough: "",
 };
 
 export const FlexRowTopSpaceBetween = Template.bind({});
@@ -122,7 +122,7 @@ FlexRowTopSpaceBetween.args = {
   maxWidth: false,
   fillHeight: false,
   maxHeight: false,
-  applyClasses: "",
+  styleClassPassthrough: "",
 };
 
 export const FlexRowCenterSpaceAround = Template.bind({});
@@ -135,7 +135,7 @@ FlexRowCenterSpaceAround.args = {
   maxWidth: false,
   fillHeight: true,
   maxHeight: false,
-  applyClasses: "",
+  styleClassPassthrough: "",
 };
 
 export const FlexRowCenterSpaceBetween = Template.bind({});
@@ -148,5 +148,5 @@ FlexRowCenterSpaceBetween.args = {
   maxWidth: false,
   fillHeight: true,
   maxHeight: false,
-  applyClasses: "",
+  styleClassPassthrough: "",
 };

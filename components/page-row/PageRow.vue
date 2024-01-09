@@ -1,5 +1,5 @@
 <template>
-  <div class="page-row" :class="[applyClasses, pageRowTheme]">
+  <div class="page-row" :class="[styleClassPassthrough, pageRowTheme]">
     <div class="page-row-inner" :class="[pageRowInnerTheme, { 'fit-content': fitContent }, { 'has-gutters': applyGutters }]">
       <slot name="pageRowContent"></slot>
     </div>
@@ -26,7 +26,7 @@
       default: "theme-default",
       validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black"].includes(val as string),
     },
-    applyClasses: {
+    styleClassPassthrough: {
       type: String,
       default: "",
     },

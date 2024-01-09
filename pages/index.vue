@@ -17,7 +17,7 @@
                 <h1 class="text-header-large">This is a sidePanel</h1>
               </template>
               <template #content>
-                <PageRow :fit-content="true" :apply-gutters="true" apply-classes="pt-40 pb-40">
+                <PageRow :fit-content="true" :apply-gutters="true" style-class-passthrough="pt-40 pb-40">
                   <template #pageRowContent>
                     <div class="">
                       <h1 class="text-header-large">This is a parallax section 1</h1>
@@ -56,7 +56,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="false" :apply-gutters="false" apply-classes="pt-12">
+        <PageRow :fit-content="false" :apply-gutters="false" style-class-passthrough="pt-12">
           <template #pageRowContent>
             <DisplayCard
               direction="row"
@@ -67,7 +67,7 @@
                   alignContent: 'top-center',
                 },
               }"
-              apply-classes="m-12 p-12"
+              style-class-passthrough="m-12 p-12"
             >
               <template #header>
                 <h1 class="text-header-large">This is a display card</h1>

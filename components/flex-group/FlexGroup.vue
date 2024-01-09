@@ -1,5 +1,9 @@
 <template>
-  <div class="flex-group" :class="[applyClasses, `flow-${flexFlow}`, `flex-wrap`, { 'inline-flex': flexType === 'inline-flex' }, { 'fill-height': fillHeight }, { 'max-height': maxHeight }, { 'max-width': maxWidth }]" :align-content="alignContent">
+  <div
+    class="flex-group"
+    :class="[styleClassPassthrough, `flow-${flexFlow}`, `flex-wrap`, { 'inline-flex': flexType === 'inline-flex' }, { 'fill-height': fillHeight }, { 'max-height': maxHeight }, { 'max-width': maxWidth }]"
+    :align-content="alignContent"
+  >
     <slot name="default"></slot>
   </div>
 </template>
@@ -59,7 +63,7 @@
       type: Boolean,
       default: false,
     },
-    applyClasses: {
+    styleClassPassthrough: {
       type: String,
       default: "",
     },

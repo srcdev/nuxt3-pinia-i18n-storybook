@@ -1,12 +1,12 @@
 <template>
   <FlexGroup flex-flow="row-reverse" align-content="center-left" gap="12px" :full-width="false">
     <template #default>
-      <FlexGroupItem apply-classes="form-field-label-wrapper">
+      <FlexGroupItem style-class-passthrough="form-field-label-wrapper">
         <template #default>
           <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ label }}</label>
         </template>
       </FlexGroupItem>
-      <FlexGroupItem apply-classes="form-field-input-wrapper">
+      <FlexGroupItem style-class-passthrough="form-field-input-wrapper">
         <template #default>
           <FormInputCheckbox :id="id" :name="name" :true-value="trueValue" :required="required" :multiple-checkboxes="useConfig" v-model="modelValue" />
         </template>

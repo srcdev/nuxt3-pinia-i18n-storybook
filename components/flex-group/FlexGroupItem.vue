@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-group-item HELLO" :class="[applyClasses, { grow: flexGrow }, { 'max-width': maxWidth }]">
+  <div class="flex-group-item HELLO" :class="[styleClassPassthrough, { grow: flexGrow }, { 'max-width': maxWidth }]">
     <slot name="default"></slot>
   </div>
 </template>
@@ -10,7 +10,7 @@
       type: Boolean,
       default: false,
     },
-    applyClasses: {
+    styleClassPassthrough: {
       type: String,
       default: "",
     },

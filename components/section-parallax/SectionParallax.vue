@@ -1,5 +1,5 @@
 <template>
-  <section :class="['section-parallax', applyClasses, { 'has-info-row': hasSlotInfoRow }, { 'has-slot-side-panel': hasSlotSidePanel }, { 'use-fixed-bg': useFixedBg }]" :align-content="`${alignContent}-${justifyItems}`" :id="hashId">
+  <section :class="['section-parallax', styleClassPassthrough, { 'has-info-row': hasSlotInfoRow }, { 'has-slot-side-panel': hasSlotSidePanel }, { 'use-fixed-bg': useFixedBg }]" :align-content="`${alignContent}-${justifyItems}`" :id="hashId">
     <template v-if="hasSlotSidePanel">
       <slot name="sidePanel"></slot>
     </template>
@@ -39,7 +39,7 @@
       default: "left",
       validator: (val: string) => ["center", "left", "right"].includes(val),
     },
-    applyClasses: {
+    styleClassPassthrough: {
       type: String as PropType<String>,
       default: "",
     },

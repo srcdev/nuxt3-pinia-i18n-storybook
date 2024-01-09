@@ -4,12 +4,12 @@
       <slot v-if="hasTitle" name="inputTitle"></slot>
       <FlexGroup flex-flow="row-reverse" align-content="center-left" gap="12px" :full-width="false">
         <template #default>
-          <FlexGroupItem apply-classes="form-field-label-wrapper">
+          <FlexGroupItem style-class-passthrough="form-field-label-wrapper">
             <template #default>
               <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
             </template>
           </FlexGroupItem>
-          <FlexGroupItem apply-classes="form-field-input-wrapper">
+          <FlexGroupItem style-class-passthrough="form-field-input-wrapper">
             <template #default>
               <slot name="inputField"></slot>
             </template>

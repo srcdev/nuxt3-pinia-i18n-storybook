@@ -1,5 +1,5 @@
 <template>
-  <div :class="['display-card', applyClasses]">
+  <div :class="['display-card', styleClassPassthrough]">
     <slot name="header" v-if="hasHeader"></slot>
     <div class="display-card-inner" :class="[`direction-${direction}`]">
       <div class="display-card-content">
@@ -36,7 +36,7 @@
       type: Object as PropType<ICardContent>,
       default: () => ({}),
     },
-    applyClasses: {
+    styleClassPassthrough: {
       type: String as PropType<String>,
       default: "",
     },
