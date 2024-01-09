@@ -94,3 +94,7 @@ npm run storybook
 ## Other references
 
 - Handy matrix of common [viewports on YesViz device insights](https://yesviz.com/viewport)
+
+## Updates
+
+- updated: `"storybook": "node fixStorybookPackageJson.js && storybook dev -p 6006",` to `"storybook": "storybook dev -p 6006",` Latest version of Storybook (7.6.7) appears to have fixed previous start issue. Leaving `fixStorybookPackageJson.js` for time being until fix is definately stable.
