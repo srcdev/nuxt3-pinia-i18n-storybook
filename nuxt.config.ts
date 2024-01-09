@@ -1,8 +1,7 @@
 import { fileURLToPath } from "url";
 import { defineNuxtConfig } from "nuxt/config";
-import vue from "vue";
-import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
+// import AutoImport from "unplugin-auto-import/vite";
+// import Components from "unplugin-vue-components/vite";
 // import { GlobalSettings } from "./environmentsettings";
 // const appEnv = process.env.NODE_ENV;
 
@@ -72,18 +71,18 @@ export default defineNuxtConfig({
     //     defineModel: true,
     //   },
     // },
-    plugins: [
-      AutoImport({
-        imports: ["vue", "vue-router"],
-        dirs: ["./composables", "./stores"],
-        vueTemplate: true,
-      }),
-      Components({
-        dirs: ["./composables", "./components"],
-        dts: true,
-        directoryAsNamespace: false,
-      }),
-    ],
+    // plugins: [
+    //   AutoImport({
+    //     imports: ["vue", "vue-router"],
+    //     dirs: ["./composables", "./stores"],
+    //     vueTemplate: true,
+    //   }),
+    //   Components({
+    //     dirs: ["./composables", "./components"],
+    //     dts: true,
+    //     directoryAsNamespace: false,
+    //   }),
+    // ],
     resolve: {
       alias: {
         "~": fileURLToPath(new URL("./", import.meta.url)),

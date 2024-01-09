@@ -98,3 +98,4 @@ npm run storybook
 ## Updates
 
 - updated: `"storybook": "node fixStorybookPackageJson.js && storybook dev -p 6006",` to `"storybook": "storybook dev -p 6006",` Latest version of Storybook (7.6.7) appears to have fixed previous start issue. Leaving `fixStorybookPackageJson.js` for time being until fix is definately stable.
+- Recent nuxt package upgrade - remove auto import methods - now internal
