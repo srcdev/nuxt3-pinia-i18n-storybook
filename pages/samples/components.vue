@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout :name="layoutName" :page-theme="pageTheme" :header-theme="headerTheme" :footer-theme="footerTheme">
       <template #layout-content>
-        <PageRow :fit-content="pageRowFitContent" :apply-gutters="pageRowGutters" :page-row-theme="pageRowTheme" :page-row-inner-theme="pageRowInnerTheme">
+        <PageRow :use-available-width="pageRowFitContent" :apply-gutters="pageRowGutters" :page-row-theme="pageRowTheme" :page-row-inner-theme="pageRowInnerTheme">
           <template #pageRowContent>
             <h1 class="text-header-large mt-12">Layouts and Schemes</h1>
             <div class="pb-12 pt-12 mb-12">
@@ -31,7 +31,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
+        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
           <template #pageRowContent>
             <div class="pb-12 pt-12 mb-12">
               <h2 class="text-header-medium">Toggle signed in navigation</h2>
@@ -77,7 +77,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
+        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
           <template #pageRowContent>
             <FlexGroup align-content="center-center" :full-width="true">
               <template #default>
@@ -96,7 +96,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
+        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
           <template #pageRowContent>
             <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fill"</code></h2>
 
@@ -122,7 +122,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
+        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
           <template #pageRowContent>
             <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fit"</code></h2>
 
@@ -148,7 +148,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
+        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
           <template #pageRowContent>
             <h2 class="text-header-medium">Simple grid, many items</h2>
 
@@ -189,7 +189,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
+        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
           <template #pageRowContent>
             <div>
               <h2 class="text-header-medium">Store Array Actions</h2>
@@ -203,7 +203,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
+        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
           <template #pageRowContent>
             <ul>
               <li>
@@ -213,7 +213,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
+        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
           <template #pageRowContent>
             <div>
               <h1>Layout Row - (Desktop)</h1>
@@ -234,7 +234,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="false" :apply-gutters="true" page-row-theme="theme-default">
+        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
           <template #pageRowContent>
             <div>
               <h1>Layout Row - (Max container)</h1>

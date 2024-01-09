@@ -1,6 +1,6 @@
 <template>
   <div class="page-row" :class="[styleClassPassthrough, pageRowTheme]">
-    <div class="page-row-inner" :class="[pageRowInnerTheme, { 'fit-content': fitContent }, { 'has-gutters': applyGutters }]">
+    <div class="page-row-inner" :class="[pageRowInnerTheme, { 'use-available-width': useAvailableWidth }, { 'has-gutters': applyGutters }]">
       <slot name="pageRowContent"></slot>
     </div>
   </div>
@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
   const props = defineProps({
-    fitContent: {
+    useAvailableWidth: {
       type: Boolean,
       default: false,
     },
@@ -45,7 +45,7 @@
         margin: 0 auto;
         max-width: $desktop-content-width;
 
-        &.fit-content {
+        &.use-available-width {
           max-width: initial;
           padding: 0;
         }

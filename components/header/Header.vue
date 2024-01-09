@@ -1,5 +1,5 @@
 <template>
-  <PageRow :fit-content="isFullWidth" :apply-gutters="false" page-row-theme="theme-black">
+  <PageRow :use-available-width="isFullWidth" :apply-gutters="false" page-row-theme="theme-black">
     <template #pageRowContent>
       <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }]">
         <FlexGroup align-content="center-left">

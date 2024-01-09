@@ -2,14 +2,14 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :fit-content="false" :apply-gutters="false" page-row-inner-theme="theme-white">
+        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
           <template #pageRowContent>
             <div class="pt-32">
               <h1 class="text-header-large">{{ t("pages.samples.sample-form.pageTitle") }}</h1>
             </div>
           </template>
         </PageRow>
-        <PageRow :fit-content="false" :apply-gutters="false" page-row-inner-theme="theme-white">
+        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
           <template #pageRowContent>
             <form @submit.prevent="doSubmit()" :id="formData.formId" class="form-narrow">
               <p v-if="formData.formIsValid">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>

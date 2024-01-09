@@ -2,7 +2,7 @@
   <div :class="pageTheme">
     <Header :header-theme="headerTheme"></Header>
 
-    <PageRow :fit-content="true">
+    <PageRow :use-available-width="true">
       <template #pageRowContent>
         <div class="layout-grid" :class="[{ 'has-nav': showLeftNav }]">
           <div v-if="showLeftNav" class="layout-left-nav">
@@ -20,7 +20,7 @@
       </template>
     </PageRow>
 
-    <PageRow :fit-content="true">
+    <PageRow :use-available-width="true">
       <template #pageRowContent>
         <Footer :footer-theme="footerTheme"></Footer>
       </template>

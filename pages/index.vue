@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :fit-content="false" :apply-gutters="false">
+        <PageRow :use-available-width="false" :apply-gutters="false">
           <template #pageRowContent>
             <div>
               <h1 class="text-header-large">{{ $t("pages.index.header") }}</h1>
@@ -10,14 +10,14 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="true" :apply-gutters="false">
+        <PageRow :use-available-width="true" :apply-gutters="false">
           <template #pageRowContent>
             <SectionParallax bg-image="/assets/images/sample.jpg" bg-height="100vh" justify-items="left">
               <template #sidePanel>
                 <h1 class="text-header-large">This is a sidePanel</h1>
               </template>
               <template #content>
-                <PageRow :fit-content="true" :apply-gutters="true" style-class-passthrough="pt-40 pb-40">
+                <PageRow :use-available-width="true" :apply-gutters="true" style-class-passthrough="pt-40 pb-40">
                   <template #pageRowContent>
                     <div class="">
                       <h1 class="text-header-large">This is a parallax section 1</h1>
@@ -32,7 +32,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="true" :apply-gutters="false">
+        <PageRow :use-available-width="true" :apply-gutters="false">
           <template #pageRowContent>
             <div class="row-parallax">
               <ul>
@@ -56,7 +56,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="false" :apply-gutters="false" style-class-passthrough="pt-12">
+        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pt-12">
           <template #pageRowContent>
             <DisplayCard
               direction="row"
@@ -94,7 +94,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="true" :apply-gutters="false">
+        <PageRow :use-available-width="true" :apply-gutters="false">
           <template #pageRowContent>
             <SectionParallax bg-image="/assets/images/marrakech.jpg" bg-height="100vh" justify-items="left">
               <template #content>
@@ -106,7 +106,7 @@
           </template>
         </PageRow>
 
-        <PageRow :fit-content="true" :apply-gutters="false">
+        <PageRow :use-available-width="true" :apply-gutters="false">
           <template #pageRowContent>
             <SectionParallax bg-image="/assets/images/antigua.jpg" bg-height="100vh" justify-items="left">
               <template #content>

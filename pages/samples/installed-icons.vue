@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :fit-content="true" :apply-gutters="true">
+        <PageRow :use-available-width="true" :apply-gutters="true">
           <template #pageRowContent>
             <div>
               <h1 class="text-header-large mt-12">{{ $t("pages.samples.installed-icons.pageTitle") }}</h1>
