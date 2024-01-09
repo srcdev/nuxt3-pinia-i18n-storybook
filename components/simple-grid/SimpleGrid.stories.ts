@@ -29,35 +29,35 @@ let defaultArgs = `
   <SimpleGridItem>
     <template #content>
       <div>
-        <h1>Item 1</h1>
+        <p class="text-normal">Grid Item</p>
       </div>
     </template>
   </SimpleGridItem>
   <SimpleGridItem>
     <template #content>
       <div>
-        <h1>Item 2</h1>
+        <p class="text-normal">Grid Item</p>
       </div>
     </template>
   </SimpleGridItem>
   <SimpleGridItem>
     <template #content>
       <div>
-        <h1>Item 3</h1>
+        <p class="text-normal">Grid Item</p>
       </div>
     </template>
   </SimpleGridItem>
   <SimpleGridItem>
     <template #content>
       <div>
-        <h1>Item 4</h1>
+        <p class="text-normal">Grid Item</p>
       </div>
     </template>
   </SimpleGridItem>
   <SimpleGridItem>
     <template #content>
       <div>
-        <h1>Item 5</h1>
+        <p class="text-normal">Grid Item</p>
       </div>
     </template>
   </SimpleGridItem>

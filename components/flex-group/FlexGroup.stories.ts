@@ -26,32 +26,32 @@ const Template: StoryFn<typeof FlexGroup> = (args) => ({
   },
   template: `
     <FlexGroup v-bind="args">
-      <template v-slot:flexGroup>
+      <template v-slot:default>
         <FlexGroupItem>
           <template v-slot:default>
             <div>
-              <h1 class="text-header-large">Item 1</h1>
+              <p class="text-normal">Grid Item</p>
             </div>
           </template>
         </FlexGroupItem>
         <FlexGroupItem>
           <template v-slot:default>
             <div>
-              <h1 class="text-header-large">Item 2</h1>
+              <p class="text-normal">Grid Item</p>
             </div>
           </template>
         </FlexGroupItem>
         <FlexGroupItem>
           <template v-slot:default>
             <div>
-              <h1 class="text-header-large">Item 3</h1>
+              <p class="text-normal">Grid Item</p>
             </div>
           </template>
         </FlexGroupItem>
         <FlexGroupItem>
           <template v-slot:default>
             <div>
-              <h1 class="text-header-large">Item 4</h1>
+              <p class="text-normal">Grid Item</p>
             </div>
           </template>
         </FlexGroupItem>
