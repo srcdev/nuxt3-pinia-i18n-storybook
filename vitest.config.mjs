@@ -12,6 +12,6 @@ export default defineVitestConfig({
         rootDir: fileURLToPath(new URL("./", import.meta.url)),
       },
     },
-    setupFiles: ["./tests/setupFiles/i18n.ts"],
+    setupFiles: ["./tests/setupFiles/i18n-by-value.ts"],
   },
 });
