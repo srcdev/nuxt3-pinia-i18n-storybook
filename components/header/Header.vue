@@ -29,14 +29,14 @@
   const props = defineProps({
     someProp: {
       type: String,
-      value: "value1",
+      default: "value1",
       validator(value: string) {
         return ["value1", "value2"].includes(value);
       },
     },
     headerTheme: {
       type: String,
-      value: "header-default",
+      default: "header-default",
       validator(value: string) {
         return ["header-default", "header-dark"].includes(value);
       },

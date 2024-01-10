@@ -39,6 +39,13 @@ describe("Header", () => {
     expect(textCheck.text()).toEqual("Nuxt3 Playground Site");
   });
 
+  it.skip("Component i18n text by key", async () => {
+    wrapper = await wrapperFactory();
+
+    const textCheck = wrapper.find("h1");
+    expect(textCheck.text()).toEqual("components.header.text");
+  });
+
   it("Store value entry", async () => {
     wrapper = await wrapperFactory();
     expect(rootStore.someString).toBe("someString value");
@@ -60,12 +67,12 @@ describe("Header", () => {
 
   it.skip("should render default props within nuxt suspense", async () => {
     const props = {
-      someProp: "value1",
+      someProp: "some test value",
     };
     wrapper = await wrapperFactory(props);
 
     const textCheck = wrapper.find("[data-test-id='props-test']");
-    expect(textCheck.text()).toEqual("value1");
+    expect(textCheck.text()).toEqual(props.someProp);
   });
 
   it("should render store signed out within nuxt suspense", async () => {
