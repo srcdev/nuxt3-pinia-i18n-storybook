@@ -55,8 +55,16 @@ describe("_sut", () => {
     expect(i18nStore.locale).toBe("en");
   });
 
-  it.skip("locale switch button calls store action", async () => {
+  it("locale switch button calls store action: (using 'mockUpdateLocale')", async () => {
+    i18nStore.locale = "en";
     const mockUpdateLocale = vi.spyOn(i18nStore, "updateLocale");
+    wrapper = await wrapperFactory();
+    await wrapper.get('[data-test-id="locale-switch-btn"]').trigger("click");
+    expect(mockUpdateLocale).toHaveBeenCalledWith("bristolian");
+  });
+
+  it.skip("locale switch button calls store action: (using setLocale)", async () => {
+    i18nStore.locale = "en";
 
     const setLocale = vi.fn();
     vi.stubGlobal("setLocale", setLocale);
@@ -64,18 +72,6 @@ describe("_sut", () => {
     wrapper = await wrapperFactory();
     await wrapper.get('[data-test-id="locale-switch-btn"]').trigger("click");
 
-    expect(mockUpdateLocale).toHaveBeenCalledWith("es");
-  });
-
-  it.skip("locale switch button calls store action", async () => {
-    const mockUpdateLocale = vi.spyOn(i18nStore, "updateLocale");
-    const { setLocale } = useI18n(); // Use the mock
-
-    wrapper = await wrapperFactory();
-    await wrapper.get('[data-test-id="locale-switch-btn"]').trigger("click");
-
-    // expect(i18nStore.updateLocale).toHaveBeenCalledWith("es");
-    expect(mockUpdateLocale).toHaveBeenCalledWith("es");
-    expect(setLocale).toHaveBeenCalledWith("es");
+    expect(setLocale).toHaveBeenCalledWith("bristolian");
   });
 });

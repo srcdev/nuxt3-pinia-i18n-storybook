@@ -2,7 +2,7 @@
   <focus-trap v-model:active="navActive" :clickOutsideDeactivates="true">
     <nav class="navigation__wrapper" tabindex="-1">
       <div class="menu__wrapper">
-        <button type="button" :class="['menu__button', { open: navActive }]" @click="toggleMenu($event)">
+        <button type="button" :class="['menu__button', { open: navActive }, { closed: !navActive }]" data-test-id="burger-nav" @click="toggleMenu($event)">
           <Icon :name="navActive ? 'material-symbols:close' : 'solar:hamburger-menu-linear'" class="menu__button-icon" />
         </button>
       </div>
