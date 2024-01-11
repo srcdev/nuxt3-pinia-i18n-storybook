@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-group-item HELLO" :class="[styleClassPassthrough, { grow: flexGrow }, { 'max-width': maxWidth }]">
+  <div class="flex-group-item" :class="[styleClassPassthrough, { grow: flexGrow }, { 'max-width': maxWidth }]" :data-test-id="dataTestId">
     <slot name="default"></slot>
   </div>
 </template>
@@ -21,6 +21,10 @@
     gap: {
       type: String,
       default: "0",
+    },
+    dataTestId: {
+      type: String,
+      default: null,
     },
   });
 </script>

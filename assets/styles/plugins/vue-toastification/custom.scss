@@ -1,0 +1,99 @@
+@import "@/assets/styles/imports.scss";
+/*
+* Use [top|bottom]-center for nbrly styles
+*/
+$toastGap: 17px;
+.Vue-Toastification__container {
+  z-index: 9999999;
+  &.top-center,
+  &.bottom-center {
+    position: fixed;
+    left: 0;
+    right: 0;
+
+    @media only screen and (min-width: 600px) {
+      width: initial !important;
+      padding: 0em;
+      left: $toastGap !important;
+      margin: initial !important;
+      right: $toastGap !important;
+    }
+    position: fixed;
+    left: 0;
+    right: 0;
+
+    @media only screen and (min-width: 600px) {
+      width: initial !important;
+      padding: 0em;
+      left: $toastGap !important;
+      margin: initial !important;
+      right: $toastGap !important;
+    }
+
+    .Vue-Toastification__toast {
+      border-radius: 10px;
+      justify-content: space-around;
+      margin-bottom: 0;
+      padding: 10px 15px;
+      max-width: initial;
+      min-height: initial;
+      width: initial;
+
+      &.top-center {
+        margin-bottom: $toastGap;
+      }
+
+      &.bottom-center {
+        margin: 17px;
+        align-items: center;
+      }
+
+      @media only screen and (min-width: 600px) {
+        margin-left: initial;
+        margin-right: initial;
+      }
+
+      &-body {
+        font-family: "Montserrat", sans-serif !important;
+      }
+
+      .alert {
+        font-size: 14px;
+      }
+
+      &--success {
+        background-color: $alertSuccess;
+      }
+
+      &--info {
+        background-color: $alertInfo;
+      }
+
+      &--warning {
+        background-color: $alertWarning;
+      }
+
+      &--error {
+        background-color: $alertError;
+      }
+    }
+  }
+
+  &.top-center {
+    top: $toastGap;
+  }
+
+  &.bottom-center {
+    bottom: $toastGap;
+  }
+}
+
+.Vue-Toastification__close-button {
+  &.fa.fa-times {
+    align-self: center;
+    display: inline-flex;
+    font-weight: normal;
+    font-size: 16px;
+    opacity: 1;
+  }
+}

@@ -3,6 +3,7 @@
     class="flex-group"
     :class="[styleClassPassthrough, `flow-${flexFlow}`, `flex-wrap`, { 'inline-flex': flexType === 'inline-flex' }, { 'fill-height': fillHeight }, { 'max-height': maxHeight }, { 'max-width': maxWidth }]"
     :align-content="alignContent"
+    :data-test-id="dataTestId"
   >
     <slot name="default"></slot>
   </div>
@@ -66,6 +67,10 @@
     styleClassPassthrough: {
       type: String,
       default: "",
+    },
+    dataTestId: {
+      type: String,
+      default: null,
     },
   });
 </script>

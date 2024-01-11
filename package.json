@@ -56,9 +56,12 @@
   },
   "dependencies": {
     "@pinia-plugin-persistedstate/nuxt": "^1.1.2",
+    "@vueuse/core": "^10.7.1",
+    "@vueuse/integrations": "^10.7.1",
     "focus-trap": "^7.5.4",
     "focus-trap-vue": "^4.0.3",
     "modern-normalize": "^2.0.0",
+    "qrcode": "^1.5.3",
     "sass": "^1.58.0",
     "vue": "3.4",
     "vue-router": "^4.2.5"

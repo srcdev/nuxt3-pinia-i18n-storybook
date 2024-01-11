@@ -1,0 +1,20 @@
+{
+  "pages": {
+    "display-qr-code": {
+      "head": {
+        "title": "Display a qr code",
+        "description": "An example of QR Code display",
+        "keywords": "QR, QR Code"
+      },
+      "header": "An example of QR Code display",
+      "qrCodeConfig": {
+        "qrCodeStr": "otpauth://totp/Neighbourly.Dev.Local:some.one+tfa5{'@'}neighbourly.com?secret=GU4DMMZRGI2TSLJVMFTDSLJUGUYTILLBGQZTELLDMYYGCOBQMIZDQOBUGE&issuer=Neighbourly.Dev.Local",
+        "manualCodeStr": "GU4DMMZRGI2TSLJVMFTDSLJUGUYTILLBGQZTELLDMYYGCOBQMIZDQOBUGE",
+        "copyLabel": "Secret Key",
+        "copyBtnText": "Copy",
+        "toastSuccess": "Copied to clipboard",
+        "summaryContent": "Summary content text"
+      }
+    }
+  }
+}

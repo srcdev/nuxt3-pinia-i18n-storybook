@@ -75,6 +75,10 @@
       url: "",
       links: [
         {
+          text: "Display QR Code",
+          url: "/display-qr-code",
+        },
+        {
           text: "Parallax section",
           url: "/",
         },

@@ -1,0 +1,8 @@
+{
+  "components": {
+    "qrCode": {
+      "imgAltText": "QR code image",
+      "dividerWords": "Or"
+    }
+  }
+}

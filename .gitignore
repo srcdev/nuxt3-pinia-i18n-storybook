@@ -8,3 +8,4 @@ node_modules
 dist
 *storybook-static*
 package-lock.json
+.DS_Store
