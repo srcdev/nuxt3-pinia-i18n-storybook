@@ -18,7 +18,7 @@
             <legend class="text-divider-legend">{{ t("components.qrCode.dividerWords") }}</legend>
           </fieldset>
 
-          <CopyTextToClipboard :copy-label="config.copyLabel" :copy-btn-text="config.copyBtnText" :toast-success="config.toastSuccess" :string-to-copy="config.manualCodeStr" :use-toast-confirm="true">
+          <CopyTextToClipboard :config="copyTextToClipboardConfig">
             <template #summaryContent>
               <p class="nbrly-txt-nav-item-description mt-0 mb-12">{{ config.summaryContent }}</p>
             </template>
@@ -33,6 +33,7 @@
   import { useI18n } from "vue-i18n";
   import { useQRCode } from "@vueuse/integrations/useQRCode";
   import type { IQrCodeConfig, IQrCodeColours } from "@/types/types.qrCode";
+  import type { ICopyTextConfig } from "@/types/types.copyTextToClipboard";
 
   const props = defineProps({
     qrCodeSize: {
@@ -73,6 +74,17 @@
     width: props.qrCodeSize,
     color: props.qrColours,
   });
+
+  const copyTextToClipboardConfig = <ICopyTextConfig>{
+    copyLabel: props.config.copyLabel,
+    copyBtnText: props.config.copyBtnText,
+    toastSuccess: props.config.toastSuccess,
+    stringToCopy: props.config.manualCodeStr,
+    useToastConfirm: true,
+    applyClasses: "customClass",
+  };
+
+  // console.log(copyTextToClipboardConfig);
 
   const qrCssWidth = computed(() => {
     return `${props.qrCodeSize}px`;

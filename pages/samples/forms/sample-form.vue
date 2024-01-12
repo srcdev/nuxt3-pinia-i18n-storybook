@@ -158,11 +158,11 @@
     getErrorCount();
     formData.value.doSubmit = true;
 
-    console.log(formData.value.data);
+    // console.log(formData.value.data);
   };
 
   const doReset = () => {
-    console.log("resetForm()");
+    // console.log("resetForm()");
     resetForm();
   };
 </script>

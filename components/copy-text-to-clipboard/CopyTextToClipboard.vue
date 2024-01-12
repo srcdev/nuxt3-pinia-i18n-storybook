@@ -1,18 +1,18 @@
 <template>
-  <div :class="['copy-text-to-clipboard', applyClasses]">
+  <div :class="['copy-text-to-clipboard', config.applyClasses]" data-test-id="copyTextToClipboard">
     <DisplayToast v-model="toastConfig"></DisplayToast>
     <template v-if="hasSummaryContent">
-      <div class="summary">
+      <div class="summary" data-test-id="copyTextToClipboard-summary">
         <slot name="summaryContent"></slot>
       </div>
     </template>
 
-    <p class="nbrly-txt-sub-header nbrly-txt-semibold mb-12">{{ copyLabel }}</p>
+    <p class="nbrly-txt-sub-header nbrly-txt-semibold mb-12">{{ config.copyLabel }}</p>
     <div class="nbrly-copy-to-clipboard">
-      <input type="text" :value="stringToCopy" disabled class="nbrly-txt-body clipboard-text" data-test-id="copy-string" />
+      <input type="text" :value="config.stringToCopy" disabled class="nbrly-txt-body clipboard-text" data-test-id="copy-string" />
       <button class="nbrl-copy-btn" @click.prevent="copyToClipboard()" @keydown.enter="copyToClipboard()">
         <span class="fa-regular fa-clone"></span>
-        <span class="nbrly-txt-body nbrly-txt-semibold">{{ copyBtnText }}</span>
+        <span class="nbrly-txt-body nbrly-txt-semibold">{{ config.copyBtnText }}</span>
       </button>
     </div>
   </div>
@@ -26,31 +26,14 @@
   // import { PluginOptions, POSITION, useToast } from "vue-toastification";
 
   import type { IToastConfig } from "@/types/types.displayToast";
+  import type { ICopyTextConfig } from "@/types/types.copyTextToClipboard";
 
   const props = defineProps({
-    copyLabel: {
-      type: String,
-      default: "",
-    },
-    copyBtnText: {
-      type: String,
-      default: "",
-    },
-    toastSuccess: {
-      type: String,
-      default: "",
-    },
-    stringToCopy: {
-      type: String,
-      default: "",
-    },
-    useToastConfirm: {
-      type: Boolean,
-      default: true,
-    },
-    applyClasses: {
-      type: String,
-      default: "",
+    config: {
+      type: Object as PropType<ICopyTextConfig>,
+      default() {
+        return {};
+      },
     },
   });
 
@@ -75,7 +58,7 @@
   });
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(props.stringToCopy);
+    navigator.clipboard.writeText(props.config.stringToCopy);
     // alert("Copy success");
     triggerToast();
     // if (useToastConfirm) {

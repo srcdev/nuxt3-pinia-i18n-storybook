@@ -48,7 +48,7 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
   }
 
   const resetForm = (fieldsInitialState: IFieldsInitialState = {}) => {
-    console.log("composable resetForm");
+    // console.log("composable resetForm");
     formData.value.data = fieldsInitialState;
     formData.value.validityState = {};
     formData.value.errorCount = 0;
