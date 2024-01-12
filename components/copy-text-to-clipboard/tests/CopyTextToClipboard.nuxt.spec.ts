@@ -28,7 +28,7 @@ const wrapperFactory = (propsData = {}) => {
 
   return mountSuspended(ComponentUnderTest, {
     slots: {
-      summaryContent: summarySlotContent,
+      summaryContent: () => summarySlotContent,
     },
     props: mockPropsData,
   });
