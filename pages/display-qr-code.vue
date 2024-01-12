@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="true" :apply-gutters="true">
+        <PageRow :use-available-width="false" :apply-gutters="true">
           <template #pageRowContent>
             <div>
               <h1 class="text-header-large">{{ $t("pages.display-qr-code.header") }}</h1>
@@ -10,7 +10,7 @@
           </template>
         </PageRow>
 
-        <PageRow :use-available-width="true" :apply-gutters="true" page-row-theme="theme-default" page-row-inner-theme="theme-default">
+        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default" page-row-inner-theme="theme-default">
           <template #pageRowContent>
             <QrCode :config="qrCodeConfig" :qr-code-size="350" :show-copy-to-clipboard="true" apply-classes="custom-class-name"></QrCode>
           </template>

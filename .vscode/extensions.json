@@ -34,7 +34,9 @@
     "github.vscode-github-actions",
 
     // Nuxt R
-    "nuxtr.nuxtr-vscode"
+    "nuxtr.nuxtr-vscode",
+    // Text Pastry lets you reduce repetitive work and use multiple cursors more effectively in VS Code.
+    "jkjustjoshing.vscode-text-pastry"
   ],
   "unwantedRecommendations": ["vscode.typescript-language-features", "octref.vetur", "vue.vscode-typescript-vue-plugin"]
 }
