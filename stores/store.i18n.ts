@@ -19,6 +19,11 @@ export const useI18nStore = defineStore({
       },
     ],
   }),
-  persist: true,
+  // persist: true,
+  persist: {
+    storage: persistedState.cookiesWithOptions({
+      sameSite: "strict",
+    }),
+  },
   actions: i18nActions,
 });

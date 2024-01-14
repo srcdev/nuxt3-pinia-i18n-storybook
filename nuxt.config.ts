@@ -26,17 +26,9 @@ export default defineNuxtConfig({
       apiBaseURL: "https://localhost:3000",
     },
   },
-  modules: [
-    "@pinia/nuxt",
-    "@nuxtjs/i18n",
-    "@pinia-plugin-persistedstate/nuxt",
-    "nuxt-icon",
-    "@nuxt/test-utils",
-    // "vue-toastification",
-    // "@vueuse/integrations/useQRCode"
-  ],
+  modules: ["@pinia/nuxt", "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt", "nuxt-icon", "@nuxt/test-utils"],
   i18n: {
-    vueI18n: "./i18n.config.ts",
+    vueI18n: "./i18n.config",
   },
   components: [
     {

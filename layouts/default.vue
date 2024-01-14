@@ -60,7 +60,7 @@
   });
 
   const accountStore = useAccountStore();
-  const rootStore = useRootStore();
+  // const rootStore = useRootStore();
   const showLeftNav = computed(() => accountStore.signedIn);
 
   // console.log("siteEnvironment:", runtimeConfig.public.siteEnvironment);
@@ -68,14 +68,14 @@
   /*
    * SET i18n locale from persisted store
    **/
-  const { setLocale } = useI18n();
-  const i18nStore = useI18nStore();
-  onMounted(() => {
-    setLocale(i18nStore.locale);
-    if (rootStore.isIos === null) {
-      rootStore.setIsIos();
-    }
-  });
+  // const { setLocale } = useI18n();
+  // const i18nStore = useI18nStore();
+  // onMounted(() => {
+  //   setLocale(i18nStore.locale);
+  //   if (rootStore.isIos === null) {
+  //     rootStore.setIsIos();
+  //   }
+  // });
 </script>
 
 <style lang="scss" scoped>

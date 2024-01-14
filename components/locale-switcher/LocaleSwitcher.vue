@@ -4,13 +4,21 @@
     <p class="mt-12 mb-12" data-test-id="locale-switcher-info">{{ t("components.locale-switcher.info") }}</p>
   </div>
   <ClientOnly>
-    <div v-for="locale in availableLocales" :key="locale.code">
-      <a @click.prevent="updateLocale(locale.code)" :id="`locale-${locale.code}`" class="link-underline" data-test-id="locale-switch-btn">{{ locale.name }}</a>
+    <p class="text-normal">Current locale id "{{ locale }}" from i18n config</p>
+    <p class="text-normal">Current locale id "{{ i18nStore.locale }}" from i18nStore config</p>
+
+    <div v-if="Object.keys(availableLocales).length > 1">
+      <p class="text-normal">Available locales</p>
+
+      <ul v-for="locale in availableLocales">
+        <li>Local name {{ locale }} ({ locale.id })</li>
+      </ul>
     </div>
 
     <hr />
 
-    <div v-for="locale in availableLocales" :key="locale.code">
+    <p>Switch to:</p>
+    <div v-for="locale in availableLocales">
       <FormInputButton @click.prevent="updateLocale(locale.code)" :button-text="locale.name"></FormInputButton>
     </div>
   </ClientOnly>
@@ -18,20 +26,20 @@
 
 <script setup lang="ts">
   import type { ILocaleItem } from "@/types/types.i18n";
-  import { useI18nStore } from "@/stores/store.i18n";
+
   import { useI18n } from "vue-i18n";
 
-  const { t } = useI18n();
-  const { setLocale } = useI18n();
+  const { t, locale, setLocale, setLocaleCookie } = useI18n();
   const i18nStore = useI18nStore();
 
   const availableLocales = computed(() => {
-    return i18nStore.locales.filter((item: ILocaleItem) => item.code !== i18nStore.locale);
+    return i18nStore.locales.filter((item: ILocaleItem) => item.code !== locale.value);
   });
 
   const updateLocale = (code: string) => {
-    i18nStore.updateLocale(code);
     setLocale(code);
+    setLocaleCookie(code);
+    i18nStore.updateLocale(code);
   };
 </script>
 
