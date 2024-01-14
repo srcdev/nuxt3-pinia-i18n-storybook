@@ -56,12 +56,16 @@
           url: "/lang-switcher",
         },
         {
-          text: "Test form",
+          text: "Multi Step form",
           url: "/samples/forms/guided-form",
         },
         {
           text: "Example form",
           url: "/samples/forms/sample-form",
+        },
+        {
+          text: "Update Store Action",
+          url: "/samples/update-store",
         },
         {
           text: "Data Fetching",

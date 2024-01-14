@@ -2,11 +2,16 @@
   <div>
     <h1 class="text-header-medium">Store array actions (Add/Remove object)</h1>
     <p class="text-normal">Passed as a prop in this example as follows.</p>
-    <code class="text-normal pt-10 pb-10"> &lt;ArrayActions :sb-array-item="{ name: 'Name D', description: 'Description D', }" &gt;&lt;/ArrayActions&gt; </code>
-    <section>
+    <pre class="text-normal pt-10 pb-10">
+      {
+        name: 'Name D',
+        description: 'Description D',
+      }</pre
+    >
+    <section class="mt-12 mb-12">
       <h2>Store actions</h2>
       <div>
-        <h3>{{ $t("store-sample-actions.array-actions.button-text-add") }} &raquo; <FormInputButton :button-text="buttonText" @click.prevent="addToStore()"></FormInputButton></h3>
+        <h3>{{ $t("components.array-actions.button-text-add") }} &raquo; <FormInputButton :button-text="buttonText" @click.prevent="addToStore()"></FormInputButton></h3>
       </div>
     </section>
     <section>
@@ -31,24 +36,26 @@
 
   const emit = defineEmits(["arrayUpdated"]);
 
-  const { sbArrayItem } = defineProps({
+  const props = defineProps({
     sbArrayItem: {
       type: Object as PropType<ISbItemObj>,
-      default: {},
+      default: {
+        name: "default",
+        description: "Default description",
+      },
     },
   });
   const { t } = useI18n();
-  const buttonText = ref(t("store-sample-actions.array-actions.button-text-add"));
 
   const rootStore = useRootStore();
   const { sbArray } = storeToRefs(rootStore);
 
+  const buttonText = computed(() => {
+    return sbArray.value.findIndex((obj: ISbItemObj) => obj.name === props.sbArrayItem.name) > -1 ? t("components.array-actions.button-text-remove") : t("components.array-actions.button-text-add");
+  });
+
   const addToStore = async () => {
-    const itemAdded = rootStore.addToArray(sbArrayItem);
-    emit("arrayUpdated", {
-      itemAdded: itemAdded,
-    });
-    buttonText.value = itemAdded ? t("store-sample-actions.array-actions.button-text-remove") : t("store-sample-actions.array-actions.button-text-add");
+    await rootStore.addToArray(props.sbArrayItem);
   };
 </script>
 

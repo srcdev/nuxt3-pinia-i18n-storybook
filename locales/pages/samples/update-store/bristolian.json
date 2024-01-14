@@ -1,0 +1,9 @@
+{
+  "pages": {
+    "samples": {
+      "update-store": {
+        "header": "Example of store update"
+      }
+    }
+  }
+}

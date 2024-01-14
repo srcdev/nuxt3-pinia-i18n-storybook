@@ -22,6 +22,11 @@ export const useRootStore = defineStore({
     ],
     isIos: null,
   }),
-  persist: true,
+  // persist: true,
+  persist: {
+    storage: persistedState.cookiesWithOptions({
+      sameSite: "strict",
+    }),
+  },
   actions: rootActions,
 });
