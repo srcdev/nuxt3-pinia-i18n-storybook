@@ -19,7 +19,7 @@
 
     <p>Switch to:</p>
     <div v-for="locale in availableLocales">
-      <FormInputButton @click.prevent="updateLocale(locale.code)" :button-text="locale.name"></FormInputButton>
+      <FormInputButton @click.prevent="setI18n(locale.code)" :button-text="locale.name" :data-test-id="`locale-switch-btn-${locale.code}'`"></FormInputButton>
     </div>
   </ClientOnly>
 </template>
@@ -36,7 +36,7 @@
     return i18nStore.locales.filter((item: ILocaleItem) => item.code !== locale.value);
   });
 
-  const updateLocale = (code: string) => {
+  const setI18n = (code: string) => {
     setLocale(code);
     setLocaleCookie(code);
     i18nStore.updateLocale(code);
