@@ -1,10 +1,11 @@
+import { flushPromises, mount, VueWrapper } from "@vue/test-utils";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 import { describe, it, expect } from "vitest";
-import HeaderNavigation from "./HeaderNavigation.vue";
+import ComponentUnderTest from "./HeaderNavigation.vue";
 
-let wrapper;
+let wrapper: VueWrapper<InstanceType<typeof ComponentUnderTest>>;
 const wrapperFactory = () => {
-  return mountSuspended(HeaderNavigation);
+  return mountSuspended(ComponentUnderTest);
 };
 
 describe("HeaderNavigation", () => {

@@ -4,7 +4,7 @@
       <FlexGroupItem>
         <template #default>
           <div v-if="config.qrCodeStr !== ''">
-            <img :src="qrcode" :alt="t('components.qrCode.imgAltText')" loading="lazy" class="qr-code-image" :class="applyClasses" :height="qrCodeSize" :width="qrCodeSize" data-test-id="qrCodeImage" />
+            <img :src="qrcode" :alt="t('components.qrCode.imgAltText')" class="qr-code-image" :class="applyClasses" :height="qrCodeSize" :width="qrCodeSize" data-test-id="qrCodeImage" />
           </div>
           <div v-else>
             <p class="nbrly-txt-nav-item-description mt-0 mb-12">ELSE</p>

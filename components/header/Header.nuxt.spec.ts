@@ -1,6 +1,7 @@
+import { flushPromises, mount, VueWrapper } from "@vue/test-utils";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 import { describe, it, expect } from "vitest";
-import Header from "./Header.vue";
+import ComponentUnderTest from "./Header.vue";
 import { useAccountStore } from "@/stores/store.account";
 import { useRootStore } from "@/stores/store.root";
 
@@ -8,11 +9,11 @@ let initialPropsData = {
   someProp: "value1",
 };
 
-let wrapper;
+let wrapper: VueWrapper<InstanceType<typeof ComponentUnderTest>>;
 const wrapperFactory = (propsData = {}) => {
   const mockPropsData = Object.keys(propsData).length > 0 ? propsData : initialPropsData;
 
-  return mountSuspended(Header, {
+  return mountSuspended(ComponentUnderTest, {
     props: mockPropsData,
   });
 };
