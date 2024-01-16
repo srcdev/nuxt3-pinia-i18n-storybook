@@ -60,8 +60,12 @@
     return props.name !== null ? props.name : props.id;
   });
   const { validatorLocale } = storeToRefs(useI18nStore());
+
   const componentValidation = validationConfig[validatorLocale.value][props.validation];
   const inputField = ref<HTMLInputElement | null>(null);
+
+  // const { updateValidityState } = useFormControl(name.value, modelValue);
+  // updateValidityState(name.value, modelValue, inputField.value?.validity.valid);
 
   const fieldHasError = () => {
     return !inputField.value?.validity.valid && modelValue.value.doSubmit;

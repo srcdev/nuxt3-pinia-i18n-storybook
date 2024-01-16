@@ -18,7 +18,6 @@ export function useErrorMessage(name: string, modelValue: IFormData) {
 
   const fieldHasError = computed(() => {
     return Object.keys(modelValue.validityState).length > 0 && modelValue.doSubmit ? !modelValue.validityState[name] : false;
-    // return true;
   });
 
   return {

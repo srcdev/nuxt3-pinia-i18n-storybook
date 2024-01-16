@@ -47,6 +47,16 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     }
   }
 
+  // function updateValidityState(name: string, formData: IFormData, valid: undefined | boolean) {
+  //   watch(
+  //     () => formData.value,
+  //     () => {
+  //       formData.value!.validityState[name] = valid;
+  //     },
+  //     { deep: true }
+  //   );
+  // }
+
   const resetForm = (fieldsInitialState: IFieldsInitialState = {}) => {
     // console.log("composable resetForm");
     formData.value.data = fieldsInitialState;

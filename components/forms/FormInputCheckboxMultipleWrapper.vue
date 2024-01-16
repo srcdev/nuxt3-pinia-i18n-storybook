@@ -4,7 +4,7 @@
       <slot v-if="hasTitle" name="inputTitle"></slot>
       <slot name="inputField"></slot>
 
-      <p v-if="fieldHasError" :class="['text-normal', 'form-field-error-message', 'font-700', { show: fieldHasError }, { hide: !fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
+      <p :class="['text-normal', 'form-field-error-message', 'font-700', { show: fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
     </div>
   </div>
 </template>
@@ -92,6 +92,11 @@
       display: flex;
       align-items: center;
       color: $color-red-2;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: all linear 200ms;
+      transform: translateY(-1rem);
       .icon {
         display: inline-block;
         color: $color-red-2;
@@ -99,7 +104,12 @@
       }
 
       &.show {
-        animation: fadeIn ease-out 200ms;
+        // animation: fadeIn ease-out 200ms;
+        opacity: 1;
+        height: 3.4rem;
+        overflow: hidden;
+
+        transform: translateY(0);
         color: $color-red-5;
       }
     }
