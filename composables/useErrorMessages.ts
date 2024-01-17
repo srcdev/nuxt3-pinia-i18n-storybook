@@ -1,4 +1,4 @@
-import type { IFormData, ICustomErrorMessagesArr } from "@/types/types.forms";
+import type { IFormData } from "@/types/types.forms";
 
 export function useErrorMessage(name: string, modelValue: IFormData) {
   const defaultError = ref("");

@@ -14,7 +14,6 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
   function getErrorCount() {
     let errors = 0;
     const validityState = formData.value.validityState;
-    // console.log(validityState);
     for (const key in validityState) {
       if (validityState.hasOwnProperty(key) && !validityState[key] && formData.value.doSubmit) {
         errors++;
@@ -47,18 +46,7 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     }
   }
 
-  // function updateValidityState(name: string, formData: IFormData, valid: undefined | boolean) {
-  //   watch(
-  //     () => formData.value,
-  //     () => {
-  //       formData.value!.validityState[name] = valid;
-  //     },
-  //     { deep: true }
-  //   );
-  // }
-
   const resetForm = (fieldsInitialState: IFieldsInitialState = {}) => {
-    // console.log("composable resetForm");
     formData.value.data = fieldsInitialState;
     formData.value.validityState = {};
     formData.value.errorCount = 0;
@@ -67,17 +55,9 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     formData.value.formIsValid = false;
   };
 
-  // function watchFormUpdates() {
-  //   watch(
-  //     () => formData.value,
-  //     () => {
-  //       formData.value.errorCount = getErrorCount();
-  //     },
-  //     { deep: true }
-  //   );
-  // }
+  const formIsValid = computed(() => {
+    return formData.value.errorCount === 0 && formData.value.doSubmit;
+  });
 
-  // watchFormUpdates();
-
-  return { formData, getErrorCount, updateCustomErrors, resetForm };
+  return { formData, getErrorCount, updateCustomErrors, resetForm, formIsValid };
 }

@@ -64,15 +64,11 @@
   const componentValidation = validationConfig[validatorLocale.value][props.validation];
   const inputField = ref<HTMLInputElement | null>(null);
 
-  // const { updateValidityState } = useFormControl(name.value, modelValue);
-  // updateValidityState(name.value, modelValue, inputField.value?.validity.valid);
-
   const fieldHasError = () => {
     return !inputField.value?.validity.valid && modelValue.value.doSubmit;
   };
 
   watch(
-    // () => modelValue.value.data[name.value],
     () => modelValue.value,
     () => {
       modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;

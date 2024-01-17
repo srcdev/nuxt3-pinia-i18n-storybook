@@ -71,6 +71,10 @@
           text: "Data Fetching",
           url: "/samples/server-routes",
         },
+        {
+          text: "Routed Pages",
+          url: "/companies/some-company-id/details",
+        },
       ],
     },
     ui: {

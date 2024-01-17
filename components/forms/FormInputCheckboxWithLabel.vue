@@ -8,7 +8,7 @@
       </FlexGroupItem>
       <FlexGroupItem style-class-passthrough="form-field-input-wrapper">
         <template #default>
-          <FormInputCheckbox :id="id" :name="name" :true-value="trueValue" :required="required" :multiple-checkboxes="useConfig" v-model="modelValue" />
+          <InputCheckboxCore :id="id" :name="name" :true-value="trueValue" :required="required" :multiple-checkboxes="useConfig" v-model="modelValue" />
         </template>
       </FlexGroupItem>
     </template>
@@ -20,6 +20,10 @@
 
   const props = defineProps({
     id: {
+      type: String,
+      default: "",
+    },
+    name: {
       type: String,
       default: "",
     },
@@ -60,7 +64,7 @@
   });
 
   const name = computed(() => {
-    return useConfig.value ? props.config.name : null;
+    return useConfig.value ? props.config.name : props.name;
   });
 
   const label = computed(() => {

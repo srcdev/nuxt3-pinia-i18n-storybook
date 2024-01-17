@@ -9,9 +9,7 @@
             </template>
           </FlexGroupItem>
           <FlexGroupItem :flex-grow="false" style-class-passthrough="form-field-input-wrapper">
-            <template #default>
-              <slot name="default"></slot>
-            </template>
+            <InputTextCore type="text" :id="id" :validation="validation" :required="required" v-model:modelValue="modelValue" :i18n-key="i18nKey" />
           </FlexGroupItem>
         </template>
       </FlexGroup>
@@ -33,14 +31,17 @@
       type: String,
       required: true,
     },
+    i18nKey: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       default: null,
     },
-
-    i18nKey: {
-      type: String,
-      required: true,
+    required: {
+      type: Boolean,
+      default: false,
     },
     validation: {
       type: String,

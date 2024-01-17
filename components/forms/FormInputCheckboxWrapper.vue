@@ -34,7 +34,6 @@
       type: String,
       default: null,
     },
-
     i18nKey: {
       type: String,
       required: true,
