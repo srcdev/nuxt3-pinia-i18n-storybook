@@ -4,7 +4,7 @@
       <slot v-if="hasTitle" name="inputTitle"></slot>
       <slot name="inputField"></slot>
 
-      <p :class="['text-normal', 'form-field-error-message', 'font-700', { show: fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
+      <p :class="['text-normal', 'form-field-error-message', 'wght-700', { show: fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
     </div>
   </div>
 </template>

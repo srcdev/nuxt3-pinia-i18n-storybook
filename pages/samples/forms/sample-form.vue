@@ -26,7 +26,7 @@
 
               <FormInputCheckboxMultipleWrapper id="places" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.places">
                 <template #inputTitle>
-                  <p class="header-small font-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
+                  <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
                 </template>
                 <template #inputField>
                   <template v-for="item in multiOptions">
@@ -37,7 +37,7 @@
 
               <FormInputCheckboxWrapper id="terms" name="terms" :required="true" v-model:modelValue="formData" i18n-key="pages.samples.sample-form.fields.terms">
                 <template #inputTitle>
-                  <p class="header-small font-700">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
+                  <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
                 </template>
                 <template #inputField>
                   <InputCheckboxCore id="terms" true-value="Sure" false-value="Nope" :required="true" v-model:modelValue="formData" />

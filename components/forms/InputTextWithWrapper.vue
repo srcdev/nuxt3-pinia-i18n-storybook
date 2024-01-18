@@ -5,7 +5,7 @@
         <template #default>
           <FlexGroupItem :flex-grow="true" style-class-passthrough="form-field-label-wrapper">
             <template #default>
-              <label :for="id" class="form-field-label header-small font-700" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
+              <label :for="id" class="form-field-label header-small wght-700" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
             </template>
           </FlexGroupItem>
           <FlexGroupItem :flex-grow="false" style-class-passthrough="form-field-input-wrapper">
@@ -14,7 +14,7 @@
         </template>
       </FlexGroup>
 
-      <p :class="['text-normal', 'form-field-error-message', 'font-700', { show: fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
+      <p :class="['text-normal', 'form-field-error-message', 'wght-700', { show: fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
       <p class="form-field-info"><Icon name="akar-icons:info" class="icon icon-info" />{{ t("components.forms.generic-text.hint", { hint: componentValidation.hint }) }}</p>
     </div>
   </div>
