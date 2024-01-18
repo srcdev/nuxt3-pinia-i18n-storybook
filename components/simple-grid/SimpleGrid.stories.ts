@@ -8,7 +8,6 @@ export default {
   component: SimpleGrid,
   args: {
     minTileWidth: "312px",
-    tileGap: "26px",
   },
 } as Meta<typeof SimpleGrid>;
 
@@ -66,7 +65,6 @@ let defaultArgs = `
 Default.args = {
   default: defaultArgs,
   minTileWidth: "312px",
-  tileGap: "26px",
 };
 
 // export const Default = Template.bind({})

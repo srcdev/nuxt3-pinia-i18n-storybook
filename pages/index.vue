@@ -94,6 +94,65 @@
           </template>
         </PageRow>
 
+        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default" style-class-passthrough="pb-20">
+          <template #pageRowContent>
+            <h2 class="text-header-medium">Simple grid (no scroll reveal)</h2>
+
+            <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fill">
+              <template #content>
+                <SimpleGridItem>
+                  <template #content>
+                    <div class="p-10">
+                      <p class="text-normal wght-700">Some title 1</p>
+                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </template>
+                </SimpleGridItem>
+                <SimpleGridItem>
+                  <template #content>
+                    <div class="p-10">
+                      <p class="text-normal wght-700">Some title 1</p>
+                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </template>
+                </SimpleGridItem>
+                <SimpleGridItem>
+                  <template #content>
+                    <div class="p-10">
+                      <p class="text-normal wght-700">Some title 1</p>
+                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </template>
+                </SimpleGridItem>
+                <SimpleGridItem>
+                  <template #content>
+                    <div class="p-10">
+                      <p class="text-normal wght-700">Some title 1</p>
+                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </template>
+                </SimpleGridItem>
+                <SimpleGridItem>
+                  <template #content>
+                    <div class="p-10">
+                      <p class="text-normal wght-700">Some title 1</p>
+                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </template>
+                </SimpleGridItem>
+                <SimpleGridItem>
+                  <template #content>
+                    <div class="p-10">
+                      <p class="text-normal wght-700">Some title 1</p>
+                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </template>
+                </SimpleGridItem>
+              </template>
+            </SimpleGrid>
+          </template>
+        </PageRow>
+
         <PageRow :use-available-width="true" :apply-gutters="false">
           <template #pageRowContent>
             <SectionParallax bg-image="/assets/images/marrakech.jpg" bg-height="100vh" justify-items="left">
