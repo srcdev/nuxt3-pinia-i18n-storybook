@@ -1,0 +1,25 @@
+@import "@/assets/styles/variables/_colours";
+
+.border {
+  border-style: solid;
+
+  &-1 {
+    border-width: 1px;
+  }
+
+  &-2 {
+    border-width: 2px;
+  }
+
+  &-grey-dark {
+    border-color: $color-grey-12;
+  }
+
+  &-r-2 {
+    border-radius: 2px;
+  }
+
+  &-r-4 {
+    border-radius: 4px;
+  }
+}

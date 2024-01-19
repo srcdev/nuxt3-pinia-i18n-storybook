@@ -153,6 +153,28 @@
           </template>
         </PageRow>
 
+        <PageRow :use-available-width="false" :apply-gutters="true">
+          <template #pageRowContent>
+            <h1 class="text-header-medium">Fetch Quotes from an API</h1>
+            <ClientOnly>
+              <SimpleGrid v-if="hasQuotesData" min-tile-width="300px" col-repeat-type="auto-fit" :align-heights="false">
+                <template #content>
+                  <SimpleGridItem v-for="item in quotesData?.quotes">
+                    <template #content>
+                      <div class="p-10 border border-1 border-grey-dark border-r-4">
+                        <p class="text-normal wght-700">{{ item.author }}</p>
+                        <p class="text-normal">{{ item.quote }}</p>
+                      </div>
+                    </template>
+                  </SimpleGridItem>
+                </template>
+              </SimpleGrid>
+
+              <p class="text-normal">&hellip;Loadins</p>
+            </ClientOnly>
+          </template>
+        </PageRow>
+
         <PageRow :use-available-width="true" :apply-gutters="false">
           <template #pageRowContent>
             <SectionParallax bg-image="/assets/images/marrakech.jpg" bg-height="100vh" justify-items="left">
@@ -182,6 +204,7 @@
 </template>
 
 <script setup lang="ts">
+  import type { IQuotes } from "@/types/types.quotes";
   import { useI18n } from "vue-i18n";
 
   const { t } = useI18n();
@@ -197,6 +220,12 @@
       class: "",
     },
   });
+
+  const hasQuotesData = ref(false);
+  const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes");
+  if (status.value === "success") {
+    hasQuotesData.value = true;
+  }
 </script>
 
 <style lang="scss" scoped>

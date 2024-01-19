@@ -1,6 +1,6 @@
 <template>
-  <div class="simple-grid-wrapper" :class="[colRepeatType, styleClassPassthrough]">
-    <slot name="content"></slot>
+  <div class="simple-grid-wrapper" :class="[colRepeatType, styleClassPassthrough, { 'align-heights': alignHeights }]">
+    <slot v-if="hasSlotComponent" name="content"></slot>
   </div>
 </template>
 
@@ -19,7 +19,14 @@
       type: String,
       default: "",
     },
+    alignHeights: {
+      type: Boolean,
+      default: false,
+    },
   });
+
+  const slots = useSlots();
+  const hasSlotComponent = computed(() => slots.content !== undefined);
 </script>
 
 <style scoped lang="scss">
@@ -29,16 +36,19 @@
     $self: &;
     &-wrapper {
       display: grid;
-      gap: 12px;
+      grid-gap: 12px;
       &.auto-fit {
-        grid-template-columns: repeat(auto-fit, minmax(v-bind(minTileWidth), 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(v-bind(minTileWidth), 1fr));
       }
       &.auto-fill {
         grid-template-columns: repeat(auto-fill, minmax(v-bind(minTileWidth), 1fr));
       }
-      @include mqMinTablet {
-        gap: 12px;
+
+      &.align-heights {
         grid-auto-rows: 1fr;
+      }
+      @include mqMinTablet {
+        // gap: 12px;
       }
 
       :deep(#{ $self }-item) {
