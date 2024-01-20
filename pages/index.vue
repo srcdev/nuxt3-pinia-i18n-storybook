@@ -67,7 +67,7 @@
                   alignContent: 'top-center',
                 },
               }"
-              style-class-passthrough="m-12 p-12"
+              style-class-passthrough="mt-12 mb-12 p-12"
             >
               <template #header>
                 <h1 class="text-header-large">This is a display card</h1>
@@ -91,86 +91,6 @@
                 </p>
               </template>
             </DisplayCard>
-          </template>
-        </PageRow>
-
-        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default" style-class-passthrough="pb-20">
-          <template #pageRowContent>
-            <h2 class="text-header-medium">Simple grid (no scroll reveal)</h2>
-
-            <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fill">
-              <template #content>
-                <SimpleGridItem>
-                  <template #content>
-                    <div class="p-10">
-                      <p class="text-normal wght-700">Some title 1</p>
-                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                  </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
-                  <template #content>
-                    <div class="p-10">
-                      <p class="text-normal wght-700">Some title 1</p>
-                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                  </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
-                  <template #content>
-                    <div class="p-10">
-                      <p class="text-normal wght-700">Some title 1</p>
-                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                  </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
-                  <template #content>
-                    <div class="p-10">
-                      <p class="text-normal wght-700">Some title 1</p>
-                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                  </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
-                  <template #content>
-                    <div class="p-10">
-                      <p class="text-normal wght-700">Some title 1</p>
-                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                  </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
-                  <template #content>
-                    <div class="p-10">
-                      <p class="text-normal wght-700">Some title 1</p>
-                      <p class="text-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                  </template>
-                </SimpleGridItem>
-              </template>
-            </SimpleGrid>
-          </template>
-        </PageRow>
-
-        <PageRow :use-available-width="false" :apply-gutters="true">
-          <template #pageRowContent>
-            <h1 class="text-header-medium">Fetch Quotes from an API</h1>
-            <ClientOnly>
-              <MasonryGrid v-if="hasQuotesData" min-tile-width="300px">
-                <template #content>
-                  <MasonryGridItem v-for="item in quotesData?.quotes">
-                    <template #content>
-                      <div class="p-10 border border-1 border-grey-dark border-r-4">
-                        <p class="text-normal wght-700">{{ item.author }}</p>
-                        <p class="text-normal">{{ item.quote }}</p>
-                      </div>
-                    </template>
-                  </MasonryGridItem>
-                </template>
-              </MasonryGrid>
-              <p v-else class="text-normal">&hellip;Loading</p>
-            </ClientOnly>
           </template>
         </PageRow>
 
@@ -219,28 +139,6 @@
       class: "",
     },
   });
-
-  const hasQuotesData = ref(false);
-  const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes");
-
-  // proxied version
-  // const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes", { server: false });
-
-  // Nuxt SSG can transform API resut to keep bundle size small
-  /*
-    const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes", {
-    transform(input) {
-      return {
-        quotes: input.quotes
-      }
-    }
-  });
-
-  */
-
-  if (status.value === "success") {
-    hasQuotesData.value = true;
-  }
 </script>
 
 <style lang="scss" scoped>

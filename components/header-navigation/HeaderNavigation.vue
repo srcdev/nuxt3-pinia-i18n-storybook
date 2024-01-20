@@ -87,6 +87,14 @@
           url: "/display-qr-code",
         },
         {
+          text: "Masonry Grid",
+          url: "/components/masonry-grid",
+        },
+        {
+          text: "Simple Grid",
+          url: "/components/simple-grid",
+        },
+        {
           text: "Parallax section",
           url: "/",
         },

@@ -38,7 +38,7 @@
       display: grid;
       grid-gap: 12px;
       &.auto-fit {
-        grid-template-columns: repeat(auto-fill, minmax(v-bind(minTileWidth), 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(v-bind(minTileWidth), 1fr));
       }
       &.auto-fill {
         grid-template-columns: repeat(auto-fill, minmax(v-bind(minTileWidth), 1fr));

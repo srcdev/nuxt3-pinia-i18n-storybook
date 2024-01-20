@@ -32,6 +32,7 @@
   @import "@/assets/styles/imports.scss";
 
   .masonry-grid {
+    $self: &;
     &-wrapper {
       column-count: v-bind(mobilePreferredColCount);
 
@@ -40,6 +41,20 @@
       }
 
       column-gap: 10px;
+
+      :deep(#{ $self }-item) {
+        margin: 0;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        margin-bottom: 10px;
+        break-inside: avoid;
+        transition: all ease-in-out 300ms;
+
+        &.scroll-reveal {
+          opacity: 0;
+          transform: translateY(75px);
+        }
+      }
     }
   }
 
