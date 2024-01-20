@@ -67,6 +67,15 @@ export default defineNuxtConfig({
     },
   },
   vite: {
+    // server: {
+    //   proxy: {
+    //     "/api": {
+    //       target: "https://jsonplaceholder.typicode.com",
+    //       changeOrigin: true,
+    //       rewrite: (path) => path.replace(/^\/api/, ""),
+    //     },
+    //   },
+    // },
     // vue: {
     //   script: {
     //     defineModel: true,

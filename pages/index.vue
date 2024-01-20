@@ -157,20 +157,19 @@
           <template #pageRowContent>
             <h1 class="text-header-medium">Fetch Quotes from an API</h1>
             <ClientOnly>
-              <SimpleGrid v-if="hasQuotesData" min-tile-width="300px" col-repeat-type="auto-fit" :align-heights="false">
+              <MasonryGrid v-if="hasQuotesData" min-tile-width="300px">
                 <template #content>
-                  <SimpleGridItem v-for="item in quotesData?.quotes">
+                  <MasonryGridItem v-for="item in quotesData?.quotes">
                     <template #content>
                       <div class="p-10 border border-1 border-grey-dark border-r-4">
                         <p class="text-normal wght-700">{{ item.author }}</p>
                         <p class="text-normal">{{ item.quote }}</p>
                       </div>
                     </template>
-                  </SimpleGridItem>
+                  </MasonryGridItem>
                 </template>
-              </SimpleGrid>
-
-              <p class="text-normal">&hellip;Loadins</p>
+              </MasonryGrid>
+              <p v-else class="text-normal">&hellip;Loading</p>
             </ClientOnly>
           </template>
         </PageRow>
@@ -223,6 +222,22 @@
 
   const hasQuotesData = ref(false);
   const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes");
+
+  // proxied version
+  // const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes", { server: false });
+
+  // Nuxt SSG can transform API resut to keep bundle size small
+  /*
+    const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes", {
+    transform(input) {
+      return {
+        quotes: input.quotes
+      }
+    }
+  });
+
+  */
+
   if (status.value === "success") {
     hasQuotesData.value = true;
   }
