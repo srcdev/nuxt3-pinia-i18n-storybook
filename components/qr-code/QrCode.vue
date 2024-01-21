@@ -78,7 +78,7 @@
   const copyTextToClipboardConfig = <ICopyTextConfig>{
     copyLabel: props.config.copyLabel,
     copyBtnText: props.config.copyBtnText,
-    toastSuccess: props.config.toastSuccess,
+    toastDisplayText: props.config.toastDisplayText,
     stringToCopy: props.config.manualCodeStr,
     useToastConfirm: true,
     applyClasses: "customClass",

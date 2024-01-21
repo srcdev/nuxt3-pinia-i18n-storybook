@@ -12,7 +12,7 @@
 
         <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default" page-row-inner-theme="theme-default">
           <template #pageRowContent>
-            <QrCode :config="qrCodeConfig" :qr-code-size="350" :show-copy-to-clipboard="true" apply-classes="custom-class-name"></QrCode>
+            <QrCode :config="qrCodeConfig" :qr-code-size="250" :show-copy-to-clipboard="true" apply-classes="custom-class-name"></QrCode>
           </template>
         </PageRow>
       </template>
@@ -42,7 +42,7 @@
     manualCodeStr: t("pages.display-qr-code.qrCodeConfig.manualCodeStr"),
     copyLabel: t("pages.display-qr-code.qrCodeConfig.copyLabel"),
     copyBtnText: t("pages.display-qr-code.qrCodeConfig.copyBtnText"),
-    toastSuccess: t("pages.display-qr-code.qrCodeConfig.toastSuccess"),
+    toastDisplayText: t("pages.display-qr-code.qrCodeConfig.toastDisplayText"),
     summaryContent: t("pages.display-qr-code.qrCodeConfig.summaryContent"),
   };
 </script>

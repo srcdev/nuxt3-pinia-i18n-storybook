@@ -3,7 +3,7 @@ export interface IQrCodeConfig {
   manualCodeStr: string;
   copyLabel: string;
   copyBtnText: string;
-  toastSuccess: string;
+  toastDisplayText: string;
   summaryContent: string;
 }
 

@@ -177,9 +177,9 @@
     &-input {
       &-wrapper {
         width: 100%;
-        max-width: 300px;
+        // max-width: 300px;
         @media only screen and (min-width: $tabletMed) {
-          width: 270px;
+          max-width: 300px;
         }
       }
     }

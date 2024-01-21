@@ -1,7 +1,7 @@
 export interface ICopyTextConfig {
   copyLabel: string;
   copyBtnText: string;
-  toastSuccess: string;
+  toastDisplayText: string;
   stringToCopy: string;
   useToastConfirm: boolean;
   applyClasses: string;

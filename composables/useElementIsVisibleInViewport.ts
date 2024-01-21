@@ -28,9 +28,10 @@ const useElementIsVisibleInViewport = () => {
     allowPartiallyVisible = partiallyVisible;
     if (checkElementIsVisibleInViewport()) {
       visibilityRef.value?.classList.remove("scroll-reveal");
-    } else if (!visibilityRef.value?.classList.contains("scroll-reveal")) {
-      visibilityRef.value?.classList.add("scroll-reveal");
     }
+    // else if (!visibilityRef.value?.classList.contains("scroll-reveal")) {
+    //   visibilityRef.value?.classList.add("scroll-reveal");
+    // }
   };
 
   onMounted(() => {

@@ -12,7 +12,7 @@
         "manualCodeStr": "GU4DMMZRGI2TSLJVMFTDSLJUGUYTILLBGQZTELLDMYYGCOBQMIZDQOBUGE",
         "copyLabel": "Secret Key",
         "copyBtnText": "Copy",
-        "toastSuccess": "Copied to clipboard",
+        "toastDisplayText": "Copied to clipboard",
         "summaryContent": "Summary content text"
       }
     }
