@@ -83,6 +83,10 @@
       url: "",
       links: [
         {
+          text: "Expanding Spotlights",
+          url: "/components/expanding-spotlights",
+        },
+        {
           text: "Display QR Code",
           url: "/display-qr-code",
         },
