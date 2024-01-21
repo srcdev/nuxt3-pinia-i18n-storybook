@@ -17,7 +17,7 @@
 
             <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fill">
               <template #content>
-                <SimpleGridItem v-for="item in quotesData?.quotes">
+                <SimpleGridItem v-for="item in quotesData?.quotes" :use-scroll-reveal="false">
                   <template #content>
                     <div class="p-10">
                       <div class="p-10 border border-1 border-grey-dark border-r-4">

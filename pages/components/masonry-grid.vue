@@ -15,7 +15,7 @@
             <ClientOnly>
               <MasonryGrid v-if="hasQuotesData" min-tile-width="300px">
                 <template #content>
-                  <MasonryGridItem v-for="item in quotesData?.quotes">
+                  <MasonryGridItem v-for="item in quotesData?.quotes" :use-scroll-reveal="false">
                     <template #content>
                       <div class="p-10 border border-1 border-grey-dark border-r-4">
                         <p class="text-normal wght-700">{{ item.author }}</p>
