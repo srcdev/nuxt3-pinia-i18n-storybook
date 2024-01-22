@@ -1,22 +1,30 @@
 <template>
   <div class="display-expander-spotlights" :class="[styleClassPassthrough]">
-    <div class="spotlight">
-      <img src="/assets/images/spotlights/lakeview-elegance.jpg" alt="Lakeview Elegance preview" class="spotlight-inner" />
-    </div>
-    <div class="spotlight">
-      <img src="/assets/images/spotlights/skyline-oasis.jpg" alt="Skyline Oasis preview" class="spotlight-inner" />
-    </div>
-    <div class="spotlight">
-      <img src="/assets/images/spotlights/vista-paradiso.jpg" alt="Vista Paradiso preview" class="spotlight-inner" />
-    </div>
-    <div class="spotlight">
-      <img src="/assets/images/spotlights/villa-verde.jpg" alt="Villa Verde preview" class="spotlight-inner" />
-    </div>
+    <template v-if="type === 'gallery' && data.total > 0">
+      <div v-for="item in data.items" class="spotlight">
+        <img :src="item.url" :alt="item.alt" class="spotlight-inner" />
+      </div>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
+  import type { IGalleryBasic } from "@/types/types.gallery";
+
   const props = defineProps({
+    type: {
+      type: String,
+      required: true,
+    },
+    data: {
+      type: Object as PropType<IGalleryBasic>,
+      default: <IGalleryBasic>{
+        items: [],
+        total: 0,
+        skip: 0,
+        limit: 10,
+      },
+    },
     styleClassPassthrough: {
       type: String,
       default: "",

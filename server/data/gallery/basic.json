@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "url": "/assets/images/spotlights/lakeview-elegance.jpg",
+      "alt": "Lakeview Elegance preview"
+    },
+    {
+      "id": 2,
+      "url": "/assets/images/spotlights/skyline-oasis.jpg",
+      "alt": "Skyline Oasis preview"
+    },
+    {
+      "id": 3,
+      "url": "/assets/images/spotlights/vista-paradiso.jpg",
+      "alt": "Vista Paradiso preview"
+    },
+    {
+      "id": 4,
+      "url": "/assets/images/spotlights/villa-verde.jpg",
+      "alt": "Villa Verde preview"
+    }
+  ],
+  "total": 4,
+  "skip": 0,
+  "limit": 4
+}

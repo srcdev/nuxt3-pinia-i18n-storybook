@@ -12,7 +12,7 @@
         <PageRow :use-available-width="false" :apply-gutters="true" style-class-passthrough="pb-20 pt-20">
           <template #pageRowContent>
             <h1 class="text-header-medium">Display Expanding Spotlights</h1>
-            <DisplayExpandingSpotlights style-class-passthrough="pb-20 pt-20" />
+            <DisplayExpandingSpotlights v-if="hasData" style-class-passthrough="pb-20 pt-20" type="gallery" :data="galleryData" />
           </template>
         </PageRow>
       </template>
@@ -21,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+  import type { IGalleryBasic } from "@/types/types.gallery";
   definePageMeta({
     layout: false,
   });
@@ -32,4 +33,10 @@
       class: "",
     },
   });
+
+  const hasData = ref(false);
+  const { data: galleryData, pending, status, error, refresh } = await useFetch<IGalleryBasic>("/api/gallery/basic");
+  if (status.value === "success") {
+    hasData.value = true;
+  }
 </script>
