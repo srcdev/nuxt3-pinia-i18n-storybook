@@ -1,16 +1,16 @@
 <template>
   <div class="gallery" :class="[styleClassPassthrough]">
     <div class="card">
-      <img src="/assets/images/spotlights/lakeview-elegance.png" alt="Lakeview Elegance preview" />
+      <img src="/assets/images/spotlights/lakeview-elegance.jpg" alt="Lakeview Elegance preview" />
     </div>
     <div class="card">
-      <img src="/assets/images/spotlights/skyline-oasis.png" alt="Skyline Oasis preview" />
+      <img src="/assets/images/spotlights/skyline-oasis.jpg" alt="Skyline Oasis preview" />
     </div>
     <div class="card">
-      <img src="/assets/images/spotlights/vista-paradiso.png" alt="Vista Paradiso preview" />
+      <img src="/assets/images/spotlights/vista-paradiso.jpg" alt="Vista Paradiso preview" />
     </div>
     <div class="card">
-      <img src="/assets/images/spotlights/villa-verde.png" alt="Villa Verde preview" />
+      <img src="/assets/images/spotlights/villa-verde.jpg" alt="Villa Verde preview" />
     </div>
   </div>
 </template>
