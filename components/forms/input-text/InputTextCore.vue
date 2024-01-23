@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
   import type { IFormData } from "@/types/types.forms";
-  import { validationConfig } from "./config/index";
+  import { validationConfig } from "@/components/forms/config/index";
   import { useI18n } from "vue-i18n";
   import { storeToRefs } from "pinia";
   import { useI18nStore } from "~/stores/store.i18n";
