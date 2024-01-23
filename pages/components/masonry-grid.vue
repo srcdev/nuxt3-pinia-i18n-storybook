@@ -13,7 +13,7 @@
           <template #pageRowContent>
             <h1 class="text-header-medium">Fetch Quotes from an API</h1>
             <ClientOnly>
-              <MasonryGrid v-if="hasQuotesData" min-tile-width="300px">
+              <MasonryGrid v-if="!pending" min-tile-width="300px">
                 <template #content>
                   <MasonryGridItem v-for="item in quotesData?.quotes" :use-scroll-reveal="false">
                     <template #content>
@@ -52,7 +52,6 @@
     },
   });
 
-  const hasQuotesData = ref(false);
   const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes");
 
   // proxied version
@@ -69,10 +68,6 @@
   });
 
   */
-
-  if (status.value === "success") {
-    hasQuotesData.value = true;
-  }
 </script>
 
 <style lang="scss" scoped>

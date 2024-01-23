@@ -6,13 +6,34 @@
           <template #pageRowContent>
             <div>
               <h1 class="text-header-large">Expanding Spotlights Example</h1>
+              <p class="text-normal">Has a 3000ms delay to test pending behaviour</p>
+              <p>pending({{ pending }}) | status({{ status }})</p>
             </div>
           </template>
         </PageRow>
-        <PageRow :use-available-width="false" :apply-gutters="true" style-class-passthrough="pb-20 pt-20">
+        <ClientOnly>
+          <PageRow :use-available-width="false" :apply-gutters="true" style-class-passthrough="pb-20 pt-20">
+            <template #pageRowContent>
+              <h1 class="text-header-medium">Display Expanding Spotlights</h1>
+              <template v-if="status === 'idle'">
+                <div>
+                  <button @click="execute()">Get data</button>
+                </div>
+              </template>
+              <template v-if="status === 'success'">
+                <DisplayExpandingSpotlights style-class-passthrough="pb-20 pt-20" type="gallery" :data="galleryData ?? {}" />
+              </template>
+              <template v-if="status === 'pending'">
+                <p class="text-normal wght-700">&hellip; Loading</p>
+              </template>
+            </template>
+          </PageRow>
+        </ClientOnly>
+        <PageRow :use-available-width="false" :apply-gutters="false">
           <template #pageRowContent>
-            <h1 class="text-header-medium">Display Expanding Spotlights</h1>
-            <DisplayExpandingSpotlights v-if="hasData" style-class-passthrough="pb-20 pt-20" type="gallery" :data="galleryData" />
+            <div>
+              <button @click="refresh()">Refresh data</button>
+            </div>
           </template>
         </PageRow>
       </template>
@@ -34,9 +55,14 @@
     },
   });
 
-  const hasData = ref(false);
-  const { data: galleryData, pending, status, error, refresh } = await useFetch<IGalleryBasic>("/api/gallery/basic");
-  if (status.value === "success") {
-    hasData.value = true;
-  }
+  const {
+    data: galleryData,
+    execute,
+    status,
+    pending,
+    error,
+    refresh,
+  } = await useFetch<IGalleryBasic>("/api/gallery/basic?delay=3000", {
+    immediate: false,
+  });
 </script>
