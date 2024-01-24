@@ -22,6 +22,7 @@
 
   const props = defineProps({
     type: {
+      // type: String as PropType<"text" | "password" | "tel" | "number" | "email" | "url">, // This breaks props setup in unit tests
       type: String,
       default: "text",
       validator(value: string) {
@@ -29,6 +30,7 @@
       },
     },
     id: {
+      // type: String as PropType<string>,
       type: String,
       required: true,
     },
@@ -56,6 +58,7 @@
 
   const { t } = useI18n();
   const modelValue = defineModel() as unknown as IFormData;
+
   const name = computed(() => {
     return props.name !== null ? props.name : props.id;
   });
