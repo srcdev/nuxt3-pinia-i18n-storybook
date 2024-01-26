@@ -14,15 +14,15 @@
             <form @submit.prevent="doSubmit()" :id="formData.formId" class="form-narrow">
               <p v-if="formData.formIsValid">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
 
-              <InputTextWithWrapper id="username" validation="username" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.username" />
+              <InputTextWithWrapper id="username" type="text" validation="username" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.username" />
 
-              <InputTextWithWrapper id="mobile" validation="telephone" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.mobile" />
+              <InputTextWithWrapper id="mobile" type="tel" validation="telephone" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.mobile" />
 
-              <InputTextWithWrapper id="password" validation="password" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.password" />
+              <InputTextWithWrapper id="password" type="password" validation="password" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.password" />
 
-              <InputTextWithWrapper id="url" validation="url" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.url" />
+              <InputTextWithWrapper id="url" type="url" validation="url" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.url" />
 
-              <InputTextWithWrapper id="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
+              <InputTextWithWrapper id="email" type="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
 
               <FormInputCheckboxMultipleWrapper id="places" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
                 <template #inputTitle>

@@ -9,7 +9,7 @@
             </template>
           </FlexGroupItem>
           <FlexGroupItem :flex-grow="false" style-class-passthrough="form-field-input-wrapper">
-            <InputTextCore type="text" :id="id" :validation="validation" :required="required" v-model:modelValue="modelValue" :i18n-key="i18nKey" />
+            <InputTextCore :type="type" :id="id" :validation="validation" :required="required" v-model:modelValue="modelValue" :i18n-key="i18nKey" />
           </FlexGroupItem>
         </template>
       </FlexGroup>
@@ -27,6 +27,14 @@
   import { useI18nStore } from "~/stores/store.i18n";
 
   const props = defineProps({
+    type: {
+      // type: String as PropType<"text" | "password" | "tel" | "number" | "email" | "url">, // This breaks props setup in unit tests
+      type: String,
+      default: "text",
+      validator(value: string) {
+        return ["text", "password", "tel", "number", "email", "url"].includes(value);
+      },
+    },
     id: {
       type: String,
       required: true,
