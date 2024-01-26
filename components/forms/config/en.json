@@ -1,6 +1,6 @@
 {
   "username": {
-    "pattern": "^[a-zA-Z0-9_\\-',.]{8,20}$",
+    "pattern": "^[a-zA-Z0-9_\\-'.]{8,20}$",
     "minlength": 8,
     "maxlength": 20,
     "hint": "Uppercase letters and numbers, with ,.- and space"
