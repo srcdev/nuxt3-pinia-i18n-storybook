@@ -36,6 +36,8 @@
     // Nuxt R
     "nuxtr.nuxtr-vscode",
     // Text Pastry lets you reduce repetitive work and use multiple cursors more effectively in VS Code.
+    // Use 'alt' or 'option' plus click to place multiple cursors
+    // To add incremental number, 'shift' + 'command' + p, search for Text Pastry and select option
     "jkjustjoshing.vscode-text-pastry"
   ],
   "unwantedRecommendations": ["vscode.typescript-language-features", "octref.vetur", "vue.vscode-typescript-vue-plugin"]
