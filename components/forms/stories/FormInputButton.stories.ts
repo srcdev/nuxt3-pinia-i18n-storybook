@@ -1,8 +1,8 @@
-import StoryBookComponent from "../FormInputButton.vue";
+import StoryBookComponent from "../input-button/InputButtonCore.vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/Forms/FormInputButton",
+  title: "Components/Forms/InputButtonCore",
   component: StoryBookComponent,
   args: {
     type: "button",

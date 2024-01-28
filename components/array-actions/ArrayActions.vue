@@ -11,7 +11,7 @@
     <section class="mt-12 mb-12">
       <h2>Store actions</h2>
       <div>
-        <h3>{{ $t("components.array-actions.button-text-add") }} &raquo; <FormInputButton :button-text="buttonText" @click.prevent="addToStore()"></FormInputButton></h3>
+        <h3>{{ $t("components.array-actions.button-text-add") }} &raquo; <InputButton type="submit" variant="primary" :button-text="buttonText" @click.prevent="addToStore()" /></h3>
       </div>
     </section>
     <section>

@@ -1,0 +1,27 @@
+{
+  "pages": {
+    "samples": {
+      "sample-buttons": {
+        "head": {
+          "title": "Example buttons",
+          "description": "Example buttons"
+        },
+        "pageTitle": "Example buttons",
+        "buttons": {
+          "primary": {
+            "label": "Primary",
+            "classes": ""
+          },
+          "secondary": {
+            "label": "Secondary",
+            "classes": ""
+          },
+          "tertiary": {
+            "label": "tertiary",
+            "classes": ""
+          }
+        }
+      }
+    }
+  }
+}

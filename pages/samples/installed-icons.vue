@@ -211,6 +211,55 @@
                 </div>
                 <div class="icon-name"><span class="text-normal">Burger Duotone</span></div>
               </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:warning-outline" class="warning-outline" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Warning Outline</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:warning-rounded" class="warning-rounded" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Warning Rounded</span></div>
+              </div>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:warning-outline-rounded" class="warning-outline-rounded" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Warning Outline Rounded</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:check-circle" class="check-circle" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Check Circle</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:check-circle-outline" class="check-circle-outline" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Check Circle Outline</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:check-circle-outline-rounded" class="check-circle-outline-rounded" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Check Circle Outline Rounded</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:info-outline" class="info-outline" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Info Outline</span></div>
+              </div>
+
               <div class="icon-table">
                 <div class="icon-display">
                   <span class="icon"><Icon name="material-symbols:cancel-outline" class="cancel-outline" /></span>

@@ -48,12 +48,12 @@
                 <template #default>
                   <FlexGroupItem :flex-grow="false" style-class-passthrough="hide">
                     <template #default>
-                      <FormInputButton type="reset" @click.prevent="doReset()" :is-pending="false" button-text="Reset" />
+                      <InputButton type="reset" variant="primary" @click.prevent="doReset()" :is-pending="false" button-text="Reset" />
                     </template>
                   </FlexGroupItem>
                   <FlexGroupItem :flex-grow="false">
                     <template #default>
-                      <FormInputButton type="submit" @click.prevent="doSubmit()" :is-pending="false" button-text="Submit" />
+                      <InputButton type="submit" variant="primary" @click.prevent="doSubmit()" :is-pending="false" button-text="Submit" />
                     </template>
                   </FlexGroupItem>
                 </template>

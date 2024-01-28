@@ -64,6 +64,10 @@
           url: "/samples/forms/sample-form",
         },
         {
+          text: "Example buttons",
+          url: "/samples/forms/sample-buttons",
+        },
+        {
           text: "Update Store Action",
           url: "/samples/update-store",
         },

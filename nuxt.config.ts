@@ -19,6 +19,13 @@ export default defineNuxtConfig({
   //   "/api/": { target: "http://localhost:234123" },
   // },
   // ssr: false,
+  // experimental: {
+  //   defaults: {
+  //     useAsyncData: {
+  //       deep: false, // This will return data as shallowRef for performance improvements
+  //     },
+  //   },
+  // },
   css: ["modern-normalize", "~/assets/styles/index.scss"],
   runtimeConfig: {
     public: {

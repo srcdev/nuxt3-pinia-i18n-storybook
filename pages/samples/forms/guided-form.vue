@@ -21,12 +21,12 @@
               <template #default>
                 <FlexGroupItem>
                   <template #default>
-                    <FormInputButton type="button" @click.prevent="goToStep(-1)" button-text="Previous" :readonly="guidedFormData.step === 1"></FormInputButton>
+                    <InputButton type="button" variant="primary" @click.prevent="goToStep(-1)" button-text="Previous" :readonly="guidedFormData.step === 1" />
                   </template>
                 </FlexGroupItem>
                 <FlexGroupItem>
                   <template #default>
-                    <FormInputButton type="button" @click.prevent="goToStep(1)" button-text="Next" :readonly="guidedFormData.step === steps"></FormInputButton>
+                    <InputButton type="button" variant="primary" @click.prevent="goToStep(1)" button-text="Next" :readonly="guidedFormData.step === steps" />
                   </template>
                 </FlexGroupItem>
               </template>
@@ -66,7 +66,7 @@
 
   const steps = guidedFormData.value.steps.length;
 
-  const componentName: string | ConcreteComponent<{}, any, any, ComputedOptions, MethodOptions> = computed(() => {
+  const componentName = computed(() => {
     switch (guidedFormData.value.step) {
       case 1:
         return resolveComponent("MultiStepFormStep1");

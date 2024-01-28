@@ -8,24 +8,24 @@
             <div class="pb-12 pt-12 mb-12">
               <h2 class="text-header-medium">Page Row Props</h2>
               <ul class="sample-list flex">
-                <li><FormInputButton button-text="Toggle wide page row" @click.prevent="togglePageRowFitContent()"></FormInputButton></li>
-                <li><FormInputButton button-text="Toggle page row gutters" @click.prevent="togglePageRowGutters()"></FormInputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Toggle wide page row" @click.prevent="togglePageRowFitContent()"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Toggle page row gutters" @click.prevent="togglePageRowGutters()"></InputButton></li>
               </ul>
               <h2 class="text-header-medium">Page Row Theme</h2>
               <ul class="sample-list flex">
-                <li><FormInputButton button-text="Default (transparent background)" @click.prevent="togglePageRowTheme('theme-default')"></FormInputButton></li>
-                <li><FormInputButton button-text="White" @click.prevent="togglePageRowTheme('theme-white')"></FormInputButton></li>
-                <li><FormInputButton button-text="Grey" @click.prevent="togglePageRowTheme('theme-grey')"></FormInputButton></li>
-                <li><FormInputButton button-text="Blue" @click.prevent="togglePageRowTheme('theme-blue')"></FormInputButton></li>
-                <li><FormInputButton button-text="Green" @click.prevent="togglePageRowTheme('theme-green')"></FormInputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Default (transparent background)" @click.prevent="togglePageRowTheme('theme-default')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="White" @click.prevent="togglePageRowTheme('theme-white')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Grey" @click.prevent="togglePageRowTheme('theme-grey')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Blue" @click.prevent="togglePageRowTheme('theme-blue')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Green" @click.prevent="togglePageRowTheme('theme-green')"></InputButton></li>
               </ul>
               <h2 class="text-header-medium">Page Row Inner theme</h2>
               <ul class="sample-list flex">
-                <li><FormInputButton button-text="Default (transparent background)" @click.prevent="togglePageRowInnerTheme('theme-default')"></FormInputButton></li>
-                <li><FormInputButton button-text="White" @click.prevent="togglePageRowInnerTheme('theme-white')"></FormInputButton></li>
-                <li><FormInputButton button-text="Grey" @click.prevent="togglePageRowInnerTheme('theme-grey')"></FormInputButton></li>
-                <li><FormInputButton button-text="Blue" @click.prevent="togglePageRowInnerTheme('theme-blue')"></FormInputButton></li>
-                <li><FormInputButton button-text="Green" @click.prevent="togglePageRowInnerTheme('theme-green')"></FormInputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Default (transparent background)" @click.prevent="togglePageRowInnerTheme('theme-default')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="White" @click.prevent="togglePageRowInnerTheme('theme-white')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Grey" @click.prevent="togglePageRowInnerTheme('theme-grey')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Blue" @click.prevent="togglePageRowInnerTheme('theme-blue')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Green" @click.prevent="togglePageRowInnerTheme('theme-green')"></InputButton></li>
               </ul>
             </div>
           </template>
@@ -36,30 +36,30 @@
             <div class="pb-12 pt-12 mb-12">
               <h2 class="text-header-medium">Toggle signed in navigation</h2>
 
-              <FormInputButton button-text="Toggle laft nav open/closed" @click.prevent="toggleLeftNav()"></FormInputButton>
+              <InputButton type="submit" variant="primary" button-text="Toggle laft nav open/closed" @click.prevent="toggleLeftNav()"></InputButton>
 
               <h2 class="text-header-medium">Header themes</h2>
               <ul class="sample-list flex">
-                <li><FormInputButton button-text="Page is light colour" @click.prevent="toggleHeaderTheme('header-default')"></FormInputButton></li>
-                <li><FormInputButton button-text="Page is dark colour" @click.prevent="toggleHeaderTheme('header-dark')"></FormInputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Page is light colour" @click.prevent="toggleHeaderTheme('header-default')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Page is dark colour" @click.prevent="toggleHeaderTheme('header-dark')"></InputButton></li>
               </ul>
 
               <h2 class="text-header-medium">Footer themes</h2>
               <ul class="sample-list flex">
-                <li><FormInputButton button-text="Default (transparent background)" @click.prevent="toggleFooterTheme('theme-default')"></FormInputButton></li>
-                <li><FormInputButton button-text="White" @click.prevent="toggleFooterTheme('theme-white')"></FormInputButton></li>
-                <li><FormInputButton button-text="Grey" @click.prevent="toggleFooterTheme('theme-grey')"></FormInputButton></li>
-                <li><FormInputButton button-text="Blue" @click.prevent="toggleFooterTheme('theme-blue')"></FormInputButton></li>
-                <li><FormInputButton button-text="Green" @click.prevent="toggleFooterTheme('theme-green')"></FormInputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Default (transparent background)" @click.prevent="toggleFooterTheme('theme-default')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="White" @click.prevent="toggleFooterTheme('theme-white')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Grey" @click.prevent="toggleFooterTheme('theme-grey')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Blue" @click.prevent="toggleFooterTheme('theme-blue')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Green" @click.prevent="toggleFooterTheme('theme-green')"></InputButton></li>
               </ul>
 
               <h2 class="text-header-medium">Full Page themes</h2>
               <ul class="sample-list flex">
-                <li><FormInputButton button-text="Default (transparent background)" @click.prevent="togglePageTheme('theme-default')"></FormInputButton></li>
-                <li><FormInputButton button-text="White" @click.prevent="togglePageTheme('theme-white')"></FormInputButton></li>
-                <li><FormInputButton button-text="Grey" @click.prevent="togglePageTheme('theme-grey')"></FormInputButton></li>
-                <li><FormInputButton button-text="Blue" @click.prevent="togglePageTheme('theme-blue')"></FormInputButton></li>
-                <li><FormInputButton button-text="Green" @click.prevent="togglePageTheme('theme-green')"></FormInputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Default (transparent background)" @click.prevent="togglePageTheme('theme-default')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="White" @click.prevent="togglePageTheme('theme-white')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Grey" @click.prevent="togglePageTheme('theme-grey')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Blue" @click.prevent="togglePageTheme('theme-blue')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Green" @click.prevent="togglePageTheme('theme-green')"></InputButton></li>
               </ul>
 
               <div class="mt-12 mb-12 spotlight">
@@ -366,9 +366,6 @@
           margin: 0 0 0 12px;
         }
       }
-    }
-
-    li {
     }
   }
 </style>
