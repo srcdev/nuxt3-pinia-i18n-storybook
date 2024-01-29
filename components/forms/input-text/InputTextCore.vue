@@ -16,9 +16,8 @@
 <script setup lang="ts">
   import type { IFormData } from "@/types/types.forms";
   import { validationConfig } from "@/components/forms/config/index";
-  // import { useI18n } from "vue-i18n";
   import { storeToRefs } from "pinia";
-  // import { useI18nStore } from "~/stores/store.i18n";
+  // import { createSignal } from "@/composables/useCreateSignal";
 
   const props = defineProps({
     type: {
@@ -68,8 +67,11 @@
   const inputField = ref<HTMLInputElement | null>(null);
 
   const fieldHasError = () => {
+    // console.log("fieldHasError()");
+    // setValue(inputField.value?.validity.valid);
     return !inputField.value?.validity.valid && modelValue.value.doSubmit;
   };
+  // const [currentValue, setValue] = createSignal(modelValue.value!.validityState[name.value], inputField.value?.validity.valid);
 
   watch(
     () => modelValue.value,
