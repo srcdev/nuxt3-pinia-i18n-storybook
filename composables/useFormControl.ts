@@ -1,6 +1,6 @@
 import type { IFormData, IFieldsInitialState, ICustomErrorMessage } from "@/types/types.forms";
 
-export function useFormControl(formId: string = "", fieldsInitialState: IFieldsInitialState = {}) {
+export function useFormControl(formId: string = "", fieldsInitialState: IFieldsInitialState) {
   const formData = ref<IFormData>({
     formId: formId,
     data: fieldsInitialState,
@@ -46,7 +46,7 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     }
   }
 
-  const resetForm = (fieldsInitialState: IFieldsInitialState = {}) => {
+  const resetForm = () => {
     formData.value.data = fieldsInitialState;
     formData.value.validityState = {};
     formData.value.errorCount = 0;

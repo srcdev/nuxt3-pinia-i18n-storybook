@@ -67,11 +67,8 @@
   const inputField = ref<HTMLInputElement | null>(null);
 
   const fieldHasError = () => {
-    // console.log("fieldHasError()");
-    // setValue(inputField.value?.validity.valid);
     return !inputField.value?.validity.valid && modelValue.value.doSubmit;
   };
-  // const [currentValue, setValue] = createSignal(modelValue.value!.validityState[name.value], inputField.value?.validity.valid);
 
   watch(
     () => modelValue.value,

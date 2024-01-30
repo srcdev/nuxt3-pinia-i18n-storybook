@@ -1,6 +1,6 @@
 // import { shallowRef, triggerRef } from "vue";
 
-export function createSignal(value: any, options: any) {
+export const createSignal = (value: any, options: any) => {
   console.log("createSignal()");
   const ref = shallowRef(value);
   const get = () => ref.value;
@@ -9,4 +9,4 @@ export function createSignal(value: any, options: any) {
     if (options?.equals === false) triggerRef(ref);
   };
   return [get, set];
-}
+};
