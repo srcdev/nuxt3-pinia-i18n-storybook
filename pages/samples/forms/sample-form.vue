@@ -29,7 +29,7 @@
                   <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
                 </template>
                 <template #inputField>
-                  <template v-for="item in multiOptions">
+                  <template v-for="item in placesData?.data">
                     <FormInputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places" />
                   </template>
                 </template>
@@ -46,7 +46,7 @@
 
               <FlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
                 <template #default>
-                  <FlexGroupItem :flex-grow="false" style-class-passthrough="hides">
+                  <FlexGroupItem :flex-grow="false" style-class-passthrough="hide">
                     <template #default>
                       <InputButton type="reset" variant="primary" @click.prevent="doReset()" :is-pending="false" button-text="Reset" />
                     </template>
@@ -70,7 +70,8 @@
 </template>
 
 <script setup lang="ts">
-  import type { IOptionsConfig, IFieldsInitialState } from "@/types/types.forms";
+  import type { IFieldsInitialState } from "@/types/types.forms";
+  import type { IPlacesList } from "@/types/types.places";
 
   import { useI18n } from "vue-i18n";
   const { t } = useI18n();
@@ -87,38 +88,7 @@
     },
   });
 
-  const multiOptions = [
-    {
-      id: "bath",
-      name: "places",
-      value: "place-12",
-      label: "Bath",
-    },
-    {
-      id: "bristol",
-      name: "places",
-      value: "place-23",
-      label: "Bristol",
-    },
-    {
-      id: "london",
-      name: "places",
-      value: "place-42",
-      label: "London",
-    },
-    {
-      id: "sunderland",
-      name: "places",
-      value: "place-56",
-      label: "Sunderland",
-    },
-    {
-      id: "penzance",
-      name: "places",
-      value: "place-09",
-      label: "Penzance",
-    },
-  ] as IOptionsConfig[];
+  const { data: placesData, pending, status, error, refresh } = await useFetch<IPlacesList>("/api/places/list");
 
   // Setup formData
   const formId = "sample-form";

@@ -153,10 +153,11 @@
     &-label {
       display: block;
       font-variation-settings: "wght" 500;
-      padding: 10px 0;
+      padding: 10px 0 10px 28px;
+      transform: translateX(-32px);
 
       @media only screen and (min-width: $tabletMed) {
-        padding: 12px 0;
+        padding: 12px 0 12px 28px;
       }
 
       &-wrapper {

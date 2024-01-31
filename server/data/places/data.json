@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "id": "bath",
+      "name": "places",
+      "value": "place-12",
+      "label": "Bath"
+    },
+    {
+      "id": "bristol",
+      "name": "places",
+      "value": "place-23",
+      "label": "Bristol"
+    },
+    {
+      "id": "london",
+      "name": "places",
+      "value": "place-42",
+      "label": "London"
+    },
+    {
+      "id": "sunderland",
+      "name": "places",
+      "value": "place-56",
+      "label": "Sunderland"
+    },
+    {
+      "id": "penzance",
+      "name": "places",
+      "value": "place-09",
+      "label": "Penzance"
+    }
+  ],
+  "total": 5,
+  "skip": 0,
+  "limit": 10
+}

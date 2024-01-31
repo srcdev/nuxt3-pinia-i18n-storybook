@@ -71,8 +71,6 @@
   };
 
   const isValid = () => {
-    console.log("isVaid()");
-    console.log(modelValue.value.data[name.value]);
     setTimeout(() => {
       if (modelIsObject) {
         modelValue.value!.validityState[name.value] = Object.values(modelValue.value.data[name.value]).length > 0;
