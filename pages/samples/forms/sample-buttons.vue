@@ -187,6 +187,22 @@
                     <IconButtonEyeClosed button-text="Eye Closed Small" size="large" style-class-passthrough="mb-12" />
                   </div>
                 </div>
+
+                <p class="text-normal mb-12"><code>&lt;IconButtonInfo&gt;</code></p>
+                <div placement="left-center" gap="12px">
+                  <div>
+                    <IconButtonInfo button-text="Info Small" size="small" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonInfo button-text="Info Small" size="normal" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonInfo button-text="Info Small" size="medium" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonInfo button-text="Info Small" size="large" style-class-passthrough="mb-12" />
+                  </div>
+                </div>
               </div>
             </form>
           </template>
