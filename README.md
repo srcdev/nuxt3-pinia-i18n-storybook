@@ -39,6 +39,30 @@ If `npm install` exits with errors for peer dependancies in Vue packages:
 npm install --save-dev @storybook/addon-a11y @storybook/addon-actions @storybook/addon-essentials @storybook/addon-interactions @storybook/addon-links @storybook/testing-library @storybook/vue3 @storybook/vue3-vite react react-dom storybook storybook-i18n
 ```
 
+## Setup cert for localhost (OSx)
+
+Other OS's see [mkcert git repo]{<https://github.com/FiloSottile/mkcert}>
+
+```node
+brew install mkcert
+```
+
+then
+
+```node
+mkcert localhost
+```
+
+- locate 2 news files created by `mkcert` (localhost.pem and localhost-key.pem)
+- create new folder in root of website `/certs/`
+- Copy these 2 files into new dir
+
+then update the `dev` script in package.json
+
+```node
+"dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert ./certs/localhost.pem --ssl-key ./certs/localhost-key.pem --dotenv .env",
+```
+
 #### Storybook errors with duplicate templates
 
 Delete one of the template folders located within `~/node_modules/@storybook/vue3/template/cli`
