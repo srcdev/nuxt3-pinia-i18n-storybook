@@ -41,7 +41,7 @@ npm install --save-dev @storybook/addon-a11y @storybook/addon-actions @storybook
 
 ## Setup cert for localhost (OSx)
 
-Other OS's see [mkcert git repo]{<https://github.com/FiloSottile/mkcert}>
+Other OS's see [mkcert git repo](https://github.com/FiloSottile/mkcert)
 
 ```node
 brew install mkcert
