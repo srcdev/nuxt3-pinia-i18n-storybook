@@ -5,7 +5,10 @@
         <template #default>
           <FlexGroupItem :flex-grow="true" style-class-passthrough="form-field-label-wrapper">
             <template #default>
-              <label :for="id" class="form-field-label header-small wght-700" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
+              <label :for="id" class="form-field-label" :class="[{ error: fieldHasError }]">
+                <span class="form-field-label-text header-small wght-700">{{ t(`${i18nKey}.label`) }}</span>
+                <DisplayTooltip :tooltip-id="id" :text="t('components.forms.generic-text.hint', { hint: componentValidation.hint })" style-class-passthrough="ml-6" />
+              </label>
             </template>
           </FlexGroupItem>
           <FlexGroupItem :flex-grow="false" style-class-passthrough="form-field-input-wrapper">
@@ -14,8 +17,7 @@
         </template>
       </FlexGroup>
 
-      <p :class="['text-normal', 'form-field-error-message', 'wght-700', { show: fieldHasError }]"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
-      <p class="form-field-info"><Icon name="akar-icons:info" class="icon icon-info" />{{ t("components.forms.generic-text.hint", { hint: componentValidation.hint }) }}</p>
+      <InputErrorMessage :id="id" :field-has-error="fieldHasError" :error-message="errorMessage" />
     </div>
   </div>
 </template>
@@ -122,70 +124,25 @@
     &-inner {
       margin-left: 6px;
     }
-    &-error-message {
-      display: flex;
-      align-items: center;
-      color: $color-red-2;
-
-      opacity: 0;
-      height: 0;
-      overflow: hidden;
-      transition: all linear 200ms;
-
-      transform: translateY(-1rem);
-
-      .icon {
-        display: inline-block;
-        color: $color-red-2;
-        margin-right: 10px;
-      }
-
-      &.show {
-        // animation: fadeIn ease-out 200ms;
-        opacity: 1;
-        height: 3.4rem;
-        overflow: hidden;
-
-        transform: translateY(0);
-        color: $color-red-5;
-      }
-
-      &.hide {
-        // animation: fadeOut ease-out 200ms;
-        color: $color-red-5;
-      }
-    }
-    &-info {
-      display: flex;
-      align-items: center;
-      padding: 10px 0;
-
-      @media only screen and (min-width: $tabletMed) {
-        padding: 12px 0;
-      }
-
-      .icon {
-        display: inline-block;
-        margin-right: 10px;
-      }
-    }
 
     &-label {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
       padding: 10px 0;
 
       @media only screen and (min-width: $tabletMed) {
-        padding: 12px 0;
+        padding: 0;
       }
 
-      &-wrapper {
+      &-text {
+        display: inline-block;
       }
     }
 
     &-input {
       &-wrapper {
         width: 100%;
-        // max-width: 300px;
         @media only screen and (min-width: $tabletMed) {
           max-width: 300px;
         }

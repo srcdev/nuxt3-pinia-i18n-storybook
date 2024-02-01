@@ -11,54 +11,56 @@
         </PageRow>
         <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
           <template #pageRowContent>
-            <form @submit.prevent="doSubmit()" :id="formData.formId" class="form-narrow">
-              <p v-if="formData.formIsValid">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
+            <ClientOnly>
+              <form @submit.prevent="doSubmit()" :id="formData.formId" class="form-narrow" novalidate>
+                <p v-if="formData.formIsValid">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
 
-              <InputTextWithWrapper id="username" type="text" validation="username" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.username" />
+                <InputTextWithWrapper id="username" type="text" validation="username" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.username" />
 
-              <InputTextWithWrapper id="mobile" type="tel" validation="telephone" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.mobile" />
+                <InputTextWithWrapper id="mobile" type="tel" validation="telephone" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.mobile" />
 
-              <InputTextWithWrapper id="password" type="password" validation="password" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.password" />
+                <InputTextWithWrapper id="password" type="password" validation="password" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.password" />
 
-              <InputTextWithWrapper id="url" type="url" validation="url" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.url" />
+                <InputTextWithWrapper id="url" type="url" validation="url" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.url" />
 
-              <InputTextWithWrapper id="email" type="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
+                <InputTextWithWrapper id="email" type="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
 
-              <FormInputCheckboxMultipleWrapper id="places" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
-                <template #inputTitle>
-                  <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
-                </template>
-                <template #inputField>
-                  <template v-for="item in placesData?.data">
-                    <FormInputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places" />
+                <FormInputCheckboxMultipleWrapper id="places" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
+                  <template #inputTitle>
+                    <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
                   </template>
-                </template>
-              </FormInputCheckboxMultipleWrapper>
-
-              <FormInputCheckboxWrapper id="terms" name="terms" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.terms">
-                <template #inputTitle>
-                  <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
-                </template>
-                <template #inputField>
-                  <InputCheckboxCore id="terms" true-value="Sure" false-value="Nope" :required="true" v-model="formData" />
-                </template>
-              </FormInputCheckboxWrapper>
-
-              <FlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
-                <template #default>
-                  <FlexGroupItem :flex-grow="false" style-class-passthrough="hide">
-                    <template #default>
-                      <InputButton type="reset" variant="primary" @click.prevent="doReset()" :is-pending="false" button-text="Reset" />
+                  <template #inputField>
+                    <template v-for="item in placesData?.data">
+                      <FormInputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places" />
                     </template>
-                  </FlexGroupItem>
-                  <FlexGroupItem :flex-grow="false">
-                    <template #default>
-                      <InputButton type="submit" variant="primary" @click.prevent="doSubmit()" :is-pending="false" button-text="Submit" />
-                    </template>
-                  </FlexGroupItem>
-                </template>
-              </FlexGroup>
-            </form>
+                  </template>
+                </FormInputCheckboxMultipleWrapper>
+
+                <FormInputCheckboxWrapper id="terms" name="terms" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.terms">
+                  <template #inputTitle>
+                    <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
+                  </template>
+                  <template #inputField>
+                    <InputCheckboxCore id="terms" true-value="Sure" false-value="Nope" :required="true" v-model="formData" />
+                  </template>
+                </FormInputCheckboxWrapper>
+
+                <FlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
+                  <template #default>
+                    <FlexGroupItem :flex-grow="false" style-class-passthrough="hide">
+                      <template #default>
+                        <InputButton type="reset" variant="primary" @click.prevent="doReset()" :is-pending="false" button-text="Reset" />
+                      </template>
+                    </FlexGroupItem>
+                    <FlexGroupItem :flex-grow="false">
+                      <template #default>
+                        <InputButton type="submit" variant="primary" @click.prevent="doSubmit()" :is-pending="false" button-text="Submit" />
+                      </template>
+                    </FlexGroupItem>
+                  </template>
+                </FlexGroup>
+              </form>
+            </ClientOnly>
           </template>
         </PageRow>
         <pre>
