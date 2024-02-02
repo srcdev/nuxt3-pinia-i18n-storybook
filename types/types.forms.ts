@@ -68,4 +68,5 @@ export interface IFormData {
   errorCount: number;
   customErrorMessages: ICustomErrorMessagesArr;
   formIsValid: boolean;
+  showErrors: boolean;
 }

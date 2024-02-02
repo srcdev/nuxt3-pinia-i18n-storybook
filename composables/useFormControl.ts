@@ -9,6 +9,7 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     errorCount: 0,
     customErrorMessages: {},
     formIsValid: false,
+    showErrors: false,
   });
 
   async function getErrorCount() {
@@ -52,8 +53,12 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     formData.value.formIsValid = false;
   };
 
+  const showErrors = computed(() => {
+    return formData.value.errorCount > 0 && formData.value.doSubmit;
+  });
+
   const formIsValid = computed(() => {
-    return formData.value.errorCount === 0 && formData.value.doSubmit;
+    return formData.value.errorCount === 0;
   });
 
   // Keep an eye on this for performance issue
@@ -66,5 +71,5 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     { deep: true }
   );
 
-  return { formData, getErrorCount, updateCustomErrors, resetForm, formIsValid };
+  return { formData, getErrorCount, updateCustomErrors, resetForm, showErrors, formIsValid };
 }
