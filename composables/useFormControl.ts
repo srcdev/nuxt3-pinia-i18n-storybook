@@ -11,16 +11,13 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     formIsValid: false,
   });
 
-  function getErrorCount() {
-    let errors = 0;
-    const validityState = formData.value.validityState;
-    for (const key in validityState) {
-      if (validityState.hasOwnProperty(key) && !validityState[key] && formData.value.doSubmit) {
-        errors++;
-      }
-    }
-    formData.value.formIsValid = errors === 0;
-    return errors;
+  async function getErrorCount() {
+    await nextTick();
+
+    const errorCount = Object.values(formData.value.validityState).filter((value) => !value).length;
+    formData.value.errorCount = errorCount;
+    formData.value.formIsValid = errorCount === 0;
+    return formData.value.errorCount;
   }
 
   /*
@@ -58,6 +55,16 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
   const formIsValid = computed(() => {
     return formData.value.errorCount === 0 && formData.value.doSubmit;
   });
+
+  // Keep an eye on this for performance issue
+  watch(
+    () => formData.value.validityState,
+    () => {
+      console.log("watch() formData.value.validityState triggered");
+      getErrorCount();
+    },
+    { deep: true }
+  );
 
   return { formData, getErrorCount, updateCustomErrors, resetForm, formIsValid };
 }

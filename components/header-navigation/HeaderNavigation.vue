@@ -42,6 +42,17 @@
       url: "/",
       links: [],
     },
+    account: {
+      summary: "Account",
+      hasChildren: true,
+      url: "/",
+      links: [
+        {
+          text: "Login",
+          url: "/login",
+        },
+      ],
+    },
     examples: {
       summary: "Examples",
       hasChildren: true,
@@ -258,8 +269,8 @@
       padding: 2px;
       z-index: 3;
       cursor: pointer;
-      &:hover {
-      }
+      // &:hover {
+      // }
       &:focus {
         #{ $self }-icon {
           @include a11y-focus;

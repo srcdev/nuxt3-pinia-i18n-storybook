@@ -79,6 +79,10 @@
       }
     }, 0);
   };
+
+  onUpdated(() => {
+    modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
+  });
 </script>
 
 <style lang="scss">

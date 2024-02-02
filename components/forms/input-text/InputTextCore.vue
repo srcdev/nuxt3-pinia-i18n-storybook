@@ -17,7 +17,6 @@
   import type { IFormData } from "@/types/types.forms";
   import { validationConfig } from "@/components/forms/config/index";
   import { storeToRefs } from "pinia";
-  // import { createSignal } from "@/composables/useCreateSignal";
 
   const props = defineProps({
     type: {
@@ -70,13 +69,9 @@
     return !inputField.value?.validity.valid && modelValue.value.doSubmit;
   };
 
-  watch(
-    () => modelValue.value,
-    () => {
-      modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
-    },
-    { deep: true }
-  );
+  onUpdated(() => {
+    modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
+  });
 </script>
 
 <style lang="scss">
@@ -88,7 +83,6 @@
       outline: 1px solid $color-black;
       border-radius: 2px;
       box-shadow: none;
-      // font-size: clamp(1.2rem, 4vw, 1.4rem);
       transition: all linear 200ms;
       padding-left: 4px;
       width: 100%;
