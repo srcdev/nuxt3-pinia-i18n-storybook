@@ -1,0 +1,33 @@
+{
+  "pages": {
+    "login": {
+      "head": {
+        "title": "Login",
+        "description": "Login using your email address and password"
+      },
+      "pageTitle": "Login",
+      "formErrorsMessage": "Form has no errors | Form has 1 error | Form has {count} errors",
+      "fields": {
+        "username": {
+          "label": "Email",
+          "placeholder": "eg. me{'@'}email.com",
+          "error-message": "Please enter a valid email address"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "eg. !Your5ecurePa55w0rd",
+          "error-message": "Please enter a valid password"
+        },
+        "rememberMe": {
+          "title": "Remember me on this device",
+          "label": "You will not need to sign in again for 7 days",
+          "error-message": ""
+        }
+      },
+      "buttons": {
+        "submit": "Login",
+        "reset": "Reset"
+      }
+    }
+  }
+}
