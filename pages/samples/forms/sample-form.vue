@@ -13,7 +13,7 @@
           <template #pageRowContent>
             <ClientOnly>
               <form @submit.prevent="doSubmit()" :id="formData.formId" class="form-narrow" novalidate>
-                <p v-if="formData.formIsValid">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
+                <p v-if="showErrors">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
 
                 <InputTextWithWrapper id="username" type="text" validation="username" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.username" />
 
@@ -25,25 +25,25 @@
 
                 <InputTextWithWrapper id="email" type="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
 
-                <FormInputCheckboxMultipleWrapper id="places" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
+                <InputCheckboxMultipleWrapper id="places" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
                   <template #inputTitle>
                     <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
                   </template>
                   <template #inputField>
                     <template v-for="item in placesData?.data">
-                      <FormInputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places" />
+                      <InputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places" />
                     </template>
                   </template>
-                </FormInputCheckboxMultipleWrapper>
+                </InputCheckboxMultipleWrapper>
 
-                <FormInputCheckboxWrapper id="terms" name="terms" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.terms">
+                <InputCheckboxWrapper id="terms" name="terms" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.terms">
                   <template #inputTitle>
                     <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
                   </template>
                   <template #inputField>
                     <InputCheckboxCore id="terms" true-value="Sure" false-value="Nope" :required="true" v-model="formData" />
                   </template>
-                </FormInputCheckboxWrapper>
+                </InputCheckboxWrapper>
 
                 <FlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
                   <template #default>
@@ -104,7 +104,7 @@
     terms: false,
   };
 
-  const { formData, getErrorCount, updateCustomErrors, resetForm, formIsValid } = useFormControl(formId, fieldsInitialState);
+  const { formData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl(formId, fieldsInitialState);
 
   const doSubmit = () => {
     formData.value.doSubmit = true;
