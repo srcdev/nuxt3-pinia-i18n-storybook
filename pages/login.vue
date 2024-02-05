@@ -69,10 +69,10 @@
   // Setup formData
   const formId = "login";
   const fieldsInitialState = <IFieldsInitialState>{
-    // username: "",
-    // password: "",
-    username: "kminchelle",
-    password: "0lelplR",
+    username: "",
+    password: "",
+    // username: "kminchelle",
+    // password: "0lelplR",
     // username: "kminchelle1", // invalid creds
     // password: "0lelplR1", // invalid creds
     rememberMe: false,

@@ -57,17 +57,38 @@ export function useFormControl(formId: string = "") {
    *   updateCustomErrors("username", formData, null);
    */
   async function updateCustomErrors(name: string, message: null | string = null) {
+    console.log(`updateCustomErrors(name: "${name}", message: ${message})`);
     await nextTick();
     // useSleep(10);
     if (message === null) {
+      console.log("IF");
       formData.value.validityState[name] = true;
       delete formData.value.customErrorMessages[name];
+
+      // To properly trigger reactivity, use Vue's set method
+      // to delete the property from customErrorMessages
+
+      // const customErrors = { ...formData.value.customErrorMessages };
+      // delete customErrors[name];
+      // formData.value.customErrorMessages = customErrors;
     } else {
+      console.log("ELSE");
       formData.value.validityState[name] = false;
       formData.value.customErrorMessages[name] = {
         useCustomError: true,
         message,
       };
+
+      // To properly trigger reactivity, use Vue's set method
+      // to add or update the property in customErrorMessages
+
+      // formData.value.customErrorMessages = {
+      //   ...formData.value.customErrorMessages,
+      //   [name]: {
+      //     useCustomError: true,
+      //     message,
+      //   },
+      // };
     }
     formData.value.hasCustomErrorMessages = countItemsWithCustomError(formData.value.customErrorMessages) > 0;
     // getErrorCount();

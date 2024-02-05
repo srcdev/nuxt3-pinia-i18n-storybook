@@ -65,6 +65,8 @@
   const componentValidation = validationConfig[validatorLocale.value][props.validation];
   const inputField = ref<HTMLInputElement | null>(null);
 
+  const { updateCustomErrors } = useFormControl(modelValue.value.formId);
+
   const { hasCustomError } = useErrorMessage(name.value, modelValue.value);
 
   const fieldHasError = () => {
@@ -74,9 +76,26 @@
     return false;
   };
 
-  onUpdated(() => {
-    modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
-  });
+  // onUpdated(() => {
+  //   console.log(`onUpdated(${name.value})`);
+  //   modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
+  //   if (hasCustomError()) {
+  //   updateCustomErrors(name.value, null);
+  //   }
+  // });
+
+  // Keep an eye on this for performance issue
+  watch(
+    () => modelValue.value.data[name.value],
+    () => {
+      console.log(`watch(${name.value}) modelValue`);
+      modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
+      if (hasCustomError()) {
+        updateCustomErrors(name.value, null);
+      }
+    },
+    { deep: true }
+  );
 </script>
 
 <style lang="scss">
