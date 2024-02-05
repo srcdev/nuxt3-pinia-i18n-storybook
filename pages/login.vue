@@ -51,6 +51,7 @@
   import type { ILoginPayload, ILoginResponse } from "@/types/types.auth";
 
   import { useI18n } from "vue-i18n";
+  import { useAuthApi } from "~/composables/useAuthApi";
   const { t } = useI18n();
 
   definePageMeta({
@@ -68,10 +69,10 @@
   // Setup formData
   const formId = "login";
   const fieldsInitialState = <IFieldsInitialState>{
-    username: "",
-    password: "",
-    // username: "kminchelle",
-    // password: "0lelplR",
+    // username: "",
+    // password: "",
+    username: "kminchelle",
+    password: "0lelplR",
     // username: "kminchelle1", // invalid creds
     // password: "0lelplR1", // invalid creds
     rememberMe: false,
@@ -80,6 +81,8 @@
   const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl(formId);
   await initFormData(fieldsInitialState);
 
+  const { doAuthUseFetch, doAuthDollarFetch } = useAuthApi();
+
   const isPending = async () => {
     formData.value.isPending = true;
     await getErrorCount();
@@ -87,30 +90,66 @@
     if (formIsValid.value) {
       console.log("Form valid - will progress");
 
-      const {
-        data: userData,
-        pending,
-        status,
-        error,
-        refresh,
-      } = await useFetch<ILoginResponse>("https://dummyjson.com/auth/login", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: {
+      // These for testing alternatives
+      const useComposable = true;
+      const useDollarFetchVersion = false;
+
+      if (useComposable) {
+        const body = <ILoginPayload>{
           username: formData.value.data.username,
           password: formData.value.data.password,
-        },
-      });
+        };
 
-      if (userData.value) {
-        const token = useCookie("token");
-        token.value = userData?.value?.token;
-        useAccountStore().setAuthenticationState(true);
-        navigateTo("/");
-      }
-      if (status.value === "error") {
-        updateCustomErrors("username", error.value?.data.message);
-        updateCustomErrors("password", error.value?.data.message);
+        if (useDollarFetchVersion) {
+          try {
+            const result = await doAuthDollarFetch(body);
+            const token = useCookie("token");
+            token.value = result.token;
+            useAccountStore().setAuthenticationState(true);
+            navigateTo("/");
+          } catch (error) {
+            console.error("error: ", error);
+            // updateCustomErrors("username", error.message);
+            // updateCustomErrors("password", error.message);
+          }
+        } else {
+          const { data: userData, error, status } = await doAuthUseFetch(body);
+          if (userData.value) {
+            const token = useCookie("token");
+            token.value = userData?.value?.token;
+            useAccountStore().setAuthenticationState(true);
+            navigateTo("/");
+          }
+          if (status.value === "error") {
+            updateCustomErrors("username", error.value?.data.message);
+            updateCustomErrors("password", error.value?.data.message);
+          }
+        }
+      } else {
+        const {
+          data: userData,
+          pending,
+          status,
+          error,
+          refresh,
+        } = await useFetch<ILoginResponse>("https://dummyjson.com/auth/login", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: {
+            username: formData.value.data.username,
+            password: formData.value.data.password,
+          },
+        });
+        if (userData.value) {
+          const token = useCookie("token");
+          token.value = userData?.value?.token;
+          useAccountStore().setAuthenticationState(true);
+          navigateTo("/");
+        }
+        if (status.value === "error") {
+          updateCustomErrors("username", error.value?.data.message);
+          updateCustomErrors("password", error.value?.data.message);
+        }
       }
     } else {
       console.warn("Form has errors");

@@ -11,6 +11,8 @@ export const useAccountStore = defineStore({
       name: null,
     },
   }),
-  persist: true,
+  persist: {
+    paths: ["authenticated"],
+  },
   actions: accountActions,
 });
