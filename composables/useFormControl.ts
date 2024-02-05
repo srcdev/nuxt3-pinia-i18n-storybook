@@ -1,16 +1,23 @@
-import type { IFormData, IFieldsInitialState, ICustomErrorMessage } from "@/types/types.forms";
+import type { IFormData, IFieldsInitialState, ICustomErrorMessage, ICustomErrorMessagesArr } from "@/types/types.forms";
 
-export function useFormControl(formId: string = "", fieldsInitialState: IFieldsInitialState) {
+export function useFormControl(formId: string = "") {
+  let savedInitialState = {};
   const formData = ref<IFormData>({
     formId: formId,
-    data: fieldsInitialState,
+    data: {},
     validityState: {},
-    doSubmit: false,
+    isPending: false,
     errorCount: 0,
     customErrorMessages: {},
     formIsValid: false,
     showErrors: false,
   });
+
+  async function initFormData(fieldsInitialState: IFieldsInitialState) {
+    savedInitialState = fieldsInitialState;
+    formData.value.data = fieldsInitialState;
+    return;
+  }
 
   async function getErrorCount() {
     await nextTick();
@@ -19,6 +26,19 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
     formData.value.errorCount = errorCount;
     formData.value.formIsValid = errorCount === 0;
     return formData.value.errorCount;
+  }
+
+  // Function to count items with "useCustomError" set to true
+  function countItemsWithCustomError(obj: ICustomErrorMessagesArr) {
+    let count = 0;
+
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key) && obj[key].useCustomError === true) {
+        count++;
+      }
+    }
+
+    return count;
   }
 
   /*
@@ -31,30 +51,39 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
    *     useCustomError: true,
    *     message: "This is a sample custom error for error EMAIL",
    *   };
-   *   updateCustomErrors("email", modelValue, sampleCustomErrorEmail);
+   *   updateCustomErrors("email", sampleCustomErrorEmail);
    *
    *   Delete entry
    *   updateCustomErrors("username", formData, null);
    */
-  function updateCustomErrors(name: string, formData: IFormData, errorObj: null | ICustomErrorMessage = null) {
-    if (errorObj === null) {
+  async function updateCustomErrors(name: string, message: null | string = null) {
+    await nextTick();
+    // useSleep(10);
+    if (message === null) {
+      formData.value.validityState[name] = true;
       delete formData.value.customErrorMessages[name];
     } else {
-      formData.value.customErrorMessages[name] = errorObj;
+      formData.value.validityState[name] = false;
+      formData.value.customErrorMessages[name] = {
+        useCustomError: true,
+        message,
+      };
     }
+    formData.value.hasCustomErrorMessages = countItemsWithCustomError(formData.value.customErrorMessages) > 0;
+    // getErrorCount();
   }
 
-  const resetForm = () => {
-    formData.value.data = fieldsInitialState;
+  function resetForm() {
+    formData.value.data = savedInitialState;
     formData.value.validityState = {};
     formData.value.errorCount = 0;
-    formData.value.doSubmit = false;
+    formData.value.isPending = false;
     formData.value.customErrorMessages = {};
     formData.value.formIsValid = false;
-  };
+  }
 
   const showErrors = computed(() => {
-    return formData.value.errorCount > 0 && formData.value.doSubmit;
+    return formData.value.errorCount > 0 && formData.value.isPending;
   });
 
   const formIsValid = computed(() => {
@@ -65,11 +94,10 @@ export function useFormControl(formId: string = "", fieldsInitialState: IFieldsI
   watch(
     () => formData.value.validityState,
     () => {
-      console.log("watch() formData.value.validityState triggered");
       getErrorCount();
     },
     { deep: true }
   );
 
-  return { formData, getErrorCount, updateCustomErrors, resetForm, showErrors, formIsValid };
+  return { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, showErrors, formIsValid };
 }

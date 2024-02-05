@@ -64,7 +64,7 @@ export interface IFormData {
   formId: string;
   data: IFieldsInitialState;
   validityState: IValidityStateArrShort;
-  doSubmit: boolean;
+  isPending: boolean;
   errorCount: number;
   customErrorMessages: ICustomErrorMessagesArr;
   formIsValid: boolean;

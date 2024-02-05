@@ -9,6 +9,25 @@
       <div :class="['menu__items', { open: navActive }]">
         <p class="text-header-medium navigation-title">{{ t("components.header-navigation.title") }}</p>
         <div class="nav-details-wrapper">
+          <details class="nav-details">
+            <summary class="nav-summary">
+              <p class="nav-summary-title nav-summary-action"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />Account</p>
+            </summary>
+            <div>
+              <ul>
+                <li v-if="authenticated">
+                  <NuxtLink class="menu__items_link" to="/logout"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />Logout</NuxtLink>
+                </li>
+                <li v-else>
+                  <NuxtLink class="menu__items_link" to="/login"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />Login</NuxtLink>
+                </li>
+                <li>
+                  <NuxtLink class="menu__items_link" to="/profile"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />Profile</NuxtLink>
+                </li>
+              </ul>
+            </div>
+          </details>
+
           <details class="nav-details" v-for="(item, key, index) in navItems" ref="itemRefs">
             <summary class="nav-summary">
               <p class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
@@ -31,9 +50,13 @@
 </template>
 
 <script setup lang="ts">
+  import { storeToRefs } from "pinia";
+
   import { FocusTrap } from "focus-trap-vue";
 
   const { t } = useI18n();
+
+  const { authenticated } = storeToRefs(useAccountStore());
 
   const navItems = {
     home: {
@@ -42,17 +65,21 @@
       url: "/",
       links: [],
     },
-    account: {
-      summary: "Account",
-      hasChildren: true,
-      url: "/",
-      links: [
-        {
-          text: "Login",
-          url: "/login",
-        },
-      ],
-    },
+    // account: {
+    //   summary: "Account",
+    //   hasChildren: true,
+    //   url: "/",
+    //   links: [
+    //     {
+    //       text: "Login",
+    //       url: "/login",
+    //     },
+    //     {
+    //       text: "Profile",
+    //       url: "/profile",
+    //     },
+    //   ],
+    // },
     examples: {
       summary: "Examples",
       hasChildren: true,

@@ -7,7 +7,7 @@ export const accountActions = {
         sameSite: true,
       });
       if (response.data.value) {
-        this.signedIn = response.data.value;
+        this.authenticated = response.data.value;
         this.currentUser.name = "Test";
         cookieSignedIn.value = "true";
       }
@@ -15,7 +15,7 @@ export const accountActions = {
   },
   async signOut(this: IAccountState) {
     await useFetch("/api/sign-out").then(() => {
-      this.signedIn = false;
+      this.authenticated = false;
       this.currentUser.name = "";
 
       const cookieSignedIn = useCookie(".AUTH", {
@@ -24,11 +24,7 @@ export const accountActions = {
       cookieSignedIn.value = null;
     });
   },
-  // async updateLoginState(this: IAccountState, payload: boolean) {
-  //   if (this.signedIn) {
-  //     this.signOut(payload);
-  //   } else {
-  //     this.signIn(payload);
-  //   }
-  // },
+  async setAuthenticationState(this: IAccountState, payload: boolean) {
+    this.authenticated;
+  },
 };

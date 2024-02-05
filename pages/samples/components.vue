@@ -284,7 +284,7 @@
   // await CommonServices.samplePost("testing");
 
   const accountStore = useAccountStore();
-  const signedIn = computed(() => accountStore.signedIn);
+  const authenticated = computed(() => accountStore.authenticated);
 
   const layoutName = "default";
   const pageTheme = shallowRef("theme-default");
@@ -301,7 +301,7 @@
   });
 
   const toggleLeftNav = () => {
-    if (signedIn.value) {
+    if (authenticated.value) {
       accountStore.signOut();
     } else {
       accountStore.signIn();

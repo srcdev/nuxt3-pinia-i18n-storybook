@@ -12,11 +12,11 @@
         <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
           <template #pageRowContent>
             <ClientOnly>
-              <form @submit.prevent="doSubmit()" :id="formData.formId" class="form-narrow" novalidate>
+              <form @submit.prevent="isPending()" :id="formData.formId" class="form-narrow" novalidate>
                 <p v-if="showErrors">{{ t("pages.login.formErrorsMessage", formData.errorCount) }}</p>
 
-                <InputTextWithWrapper id="username" type="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.login.fields.username" />
-                <InputTextWithWrapper id="password" type="password" validation="password" :required="true" v-model="formData" i18n-key="pages.login.fields.password" />
+                <InputTextWithWrapper id="username" type="text" validation="usernameWeak" :required="true" v-model="formData" i18n-key="pages.login.fields.username" />
+                <InputTextWithWrapper id="password" type="password" validation="passwordWeak" :required="true" v-model="formData" i18n-key="pages.login.fields.password" />
 
                 <InputCheckboxWrapper id="rememberMe" name="rememberMe" :required="false" v-model="formData" i18n-key="pages.login.fields.rememberMe">
                   <template #inputTitle>
@@ -31,7 +31,7 @@
                   <template #default>
                     <FlexGroupItem :flex-grow="false">
                       <template #default>
-                        <InputButton type="submit" variant="primary" @click.prevent="doSubmit()" :is-pending="false" :button-text="t('pages.login.buttons.submit')" />
+                        <InputButton type="submit" variant="primary" @click.prevent="isPending()" :is-pending="false" :button-text="t('pages.login.buttons.submit')" />
                       </template>
                     </FlexGroupItem>
                   </template>
@@ -40,9 +40,7 @@
             </ClientOnly>
           </template>
         </PageRow>
-        <pre>
-          {{ formData }}
-        </pre>
+        <pre>{{ formData }}</pre>
       </template>
     </NuxtLayout>
   </div>
@@ -50,7 +48,7 @@
 
 <script setup lang="ts">
   import type { IFieldsInitialState } from "@/types/types.forms";
-  import type { IPlacesList } from "@/types/types.places";
+  import type { ILoginPayload, ILoginResponse } from "@/types/types.auth";
 
   import { useI18n } from "vue-i18n";
   const { t } = useI18n();
@@ -67,25 +65,53 @@
     },
   });
 
-  const { data: placesData, pending, status, error, refresh } = await useFetch<IPlacesList>("/api/places/list");
-
   // Setup formData
   const formId = "login";
   const fieldsInitialState = <IFieldsInitialState>{
     username: "",
     password: "",
+    // username: "kminchelle",
+    // password: "0lelplR",
+    // username: "kminchelle1", // invalid creds
+    // password: "0lelplR1", // invalid creds
     rememberMe: false,
   };
 
-  const { formData, getErrorCount, updateCustomErrors, formIsValid, showErrors } = useFormControl(formId, fieldsInitialState);
+  const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl(formId);
+  await initFormData(fieldsInitialState);
 
-  const doSubmit = async () => {
-    formData.value.doSubmit = true;
-    // getErrorCount();
+  const isPending = async () => {
+    formData.value.isPending = true;
+    await getErrorCount();
 
     if (formIsValid.value) {
-      console.log("formData.value.data: ", formData.value.data);
-      console.log("formData.value.errorCount: ", formData.value.errorCount);
+      console.log("Form valid - will progress");
+
+      const {
+        data: userData,
+        pending,
+        status,
+        error,
+        refresh,
+      } = await useFetch<ILoginResponse>("https://dummyjson.com/auth/login", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: {
+          username: formData.value.data.username,
+          password: formData.value.data.password,
+        },
+      });
+
+      if (userData.value) {
+        const token = useCookie("token");
+        token.value = userData?.value?.token;
+        useAccountStore().setAuthenticationState(true);
+        navigateTo("/");
+      }
+      if (status.value === "error") {
+        updateCustomErrors("username", error.value?.data.message);
+        updateCustomErrors("password", error.value?.data.message);
+      }
     } else {
       console.warn("Form has errors");
     }

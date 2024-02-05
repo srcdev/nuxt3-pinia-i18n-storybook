@@ -49,7 +49,7 @@
   // const accountStore = useAccountStore();
 
   // const signedIntext = computed(() => {
-  //   return accountStore.signedIn ? t("components.header.signedIn") : t("components.header.signedOut");
+  //   return accountStore.authenticated ? t("components.header.authenticated") : t("components.header.signedOut");
   // });
 </script>
 

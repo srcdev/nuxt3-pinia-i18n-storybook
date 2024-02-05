@@ -12,7 +12,7 @@
         <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
           <template #pageRowContent>
             <ClientOnly>
-              <form @submit.prevent="doSubmit()" :id="formData.formId" class="form-narrow" novalidate>
+              <form @submit.prevent="isPending()" :id="formData.formId" class="form-narrow" novalidate>
                 <p v-if="showErrors">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
 
                 <InputTextWithWrapper id="username" type="text" validation="username" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.username" />
@@ -54,7 +54,7 @@
                     </FlexGroupItem>
                     <FlexGroupItem :flex-grow="false">
                       <template #default>
-                        <InputButton type="submit" variant="primary" @click.prevent="doSubmit()" :is-pending="false" button-text="Submit" />
+                        <InputButton type="submit" variant="primary" @click.prevent="isPending()" :is-pending="false" button-text="Submit" />
                       </template>
                     </FlexGroupItem>
                   </template>
@@ -104,14 +104,15 @@
     terms: false,
   };
 
-  const { formData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl(formId, fieldsInitialState);
+  const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl(formId);
+  await initFormData(fieldsInitialState);
 
-  const doSubmit = () => {
-    formData.value.doSubmit = true;
-    getErrorCount();
+  const isPending = async () => {
+    formData.value.isPending = true;
+    await getErrorCount();
 
-    if (formIsValid.value) {
-      console.log(formData.value.data);
+    if (await formIsValid.value) {
+      console.log("Form valid - will progress");
     } else {
       console.warn("Form has errors");
     }

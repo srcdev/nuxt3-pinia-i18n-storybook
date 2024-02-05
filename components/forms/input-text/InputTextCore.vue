@@ -65,8 +65,13 @@
   const componentValidation = validationConfig[validatorLocale.value][props.validation];
   const inputField = ref<HTMLInputElement | null>(null);
 
+  const { hasCustomError } = useErrorMessage(name.value, modelValue.value);
+
   const fieldHasError = () => {
-    return !inputField.value?.validity.valid && modelValue.value.doSubmit;
+    if (modelValue.value.isPending) {
+      return hasCustomError() ? hasCustomError() : !inputField.value?.validity.valid;
+    }
+    return false;
   };
 
   onUpdated(() => {

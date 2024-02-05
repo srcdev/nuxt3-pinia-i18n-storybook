@@ -1,15 +1,27 @@
 {
   "username": {
-    "pattern": "^[a-zA-Z0-9_\\-',.]{8,20}$",
+    "pattern": "^[a-zA-Z0-9_\\-'.]{8,20}$",
     "minlength": 8,
     "maxlength": 20,
     "hint": "Uppercase letters and numbers, with ,.- and space"
+  },
+  "usernameWeak": {
+    "pattern": "^[a-zA-Z0-9]{6,20}$",
+    "minlength": 6,
+    "maxlength": 20,
+    "hint": "Mixed case letters"
   },
   "password": {
     "pattern": "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]){8,16}$",
     "minlength": 8,
     "maxlength": 20,
     "hint": "!Pa55word"
+  },
+  "passwordWeak": {
+    "pattern": "^[a-zA-Z0-9]{6,20}$",
+    "minlength": 6,
+    "maxlength": 20,
+    "hint": "password"
   },
   "emailaddress": {
     "pattern": "^(?!@)((?!([\\.]))([\\w\\.\\-\\+']{1,}))?((@)([\\w\\-]{2,})+((\\.)([\\w]{2,}))+)$",

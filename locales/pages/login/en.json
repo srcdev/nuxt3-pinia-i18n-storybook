@@ -9,9 +9,9 @@
       "formErrorsMessage": "Form has no errors | Form has 1 error | Form has {count} errors",
       "fields": {
         "username": {
-          "label": "Email",
-          "placeholder": "eg. me{'@'}email.com",
-          "error-message": "Please enter a valid email address"
+          "label": "Username",
+          "placeholder": "eg. JoeBloggs",
+          "error-message": "Please enter a valid username"
         },
         "password": {
           "label": "Password",

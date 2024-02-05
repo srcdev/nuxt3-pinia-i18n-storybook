@@ -60,8 +60,10 @@
   });
 
   const accountStore = useAccountStore();
+  const { authenticated } = storeToRefs(useAccountStore()); // make authenticated state reactive with storeToRefs
+
   // const rootStore = useRootStore();
-  const showLeftNav = computed(() => accountStore.signedIn);
+  const showLeftNav = computed(() => accountStore.authenticated);
 
   // console.log("siteEnvironment:", runtimeConfig.public.siteEnvironment);
 

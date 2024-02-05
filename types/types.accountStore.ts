@@ -1,5 +1,6 @@
 export interface IAccountState {
-  signedIn: boolean;
+  authenticated: boolean;
+  loading: boolean;
   currentUser: {
     name: null | string;
   };

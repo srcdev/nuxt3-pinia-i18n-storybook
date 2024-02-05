@@ -67,7 +67,7 @@
   });
 
   const fieldHasError = () => {
-    return !inputField.value?.validity.valid && modelValue.value.doSubmit;
+    return !inputField.value?.validity.valid && modelValue.value.isPending;
   };
 
   const isValid = () => {

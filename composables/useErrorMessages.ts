@@ -4,8 +4,12 @@ export function useErrorMessage(name: string, modelValue: IFormData) {
   const defaultError = ref("");
   const customErrorMessages = ref(toRaw(modelValue.customErrorMessages));
 
+  function hasCustomError() {
+    return customErrorMessages.value[name] !== undefined && customErrorMessages.value[name].useCustomError;
+  }
+
   const errorMessage = computed(() => {
-    if (customErrorMessages.value[name] !== undefined && customErrorMessages.value[name].useCustomError) {
+    if (hasCustomError()) {
       return customErrorMessages.value[name].message;
     } else {
       return defaultError.value;
@@ -17,10 +21,13 @@ export function useErrorMessage(name: string, modelValue: IFormData) {
   }
 
   const fieldHasError = computed(() => {
-    return Object.keys(modelValue.validityState).length > 0 && modelValue.doSubmit ? !modelValue.validityState[name] : false;
+    if (modelValue.isPending) {
+      return hasCustomError() ? hasCustomError() : Object.keys(modelValue.validityState).length > 0 && modelValue.isPending ? !modelValue.validityState[name] : false;
+    }
   });
 
   return {
+    hasCustomError,
     errorMessage,
     setDefaultError,
     fieldHasError,
