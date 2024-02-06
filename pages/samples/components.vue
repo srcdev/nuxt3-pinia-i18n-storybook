@@ -100,7 +100,7 @@
           <template #pageRowContent>
             <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fill"</code></h2>
 
-            <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fill">
+            <SimpleGrid :min-tile-width="125" col-repeat-type="auto-fill">
               <template #content>
                 <SimpleGridItem>
                   <template #content>
@@ -126,7 +126,7 @@
           <template #pageRowContent>
             <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fit"</code></h2>
 
-            <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fit">
+            <SimpleGrid :min-tile-width="125" col-repeat-type="auto-fit">
               <template #content>
                 <SimpleGridItem>
                   <template #content>
@@ -152,7 +152,7 @@
           <template #pageRowContent>
             <h2 class="text-header-medium">Simple grid, many items</h2>
 
-            <SimpleGrid min-tile-width="125px" col-repeat-type="auto-fill">
+            <SimpleGrid :min-tile-width="125" col-repeat-type="auto-fill">
               <template #content>
                 <SimpleGridItem>
                   <template #content>

@@ -1,5 +1,5 @@
 <template>
-  <div class="simple-grid-item" :class="[{ 'scroll-reveal': useScrollReveal }]" ref="visibilityRef">
+  <div class="simple-grid-item" :class="[styleClassPassthrough, { 'scroll-reveal': useScrollReveal }]" ref="visibilityRef">
     <slot name="content"></slot>
   </div>
 </template>
@@ -9,6 +9,10 @@
     useScrollReveal: {
       type: Boolean,
       default: true,
+    },
+    styleClassPassthrough: {
+      type: String,
+      default: "",
     },
   });
 

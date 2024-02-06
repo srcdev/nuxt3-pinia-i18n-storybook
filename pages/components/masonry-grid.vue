@@ -6,16 +6,150 @@
           <template #pageRowContent>
             <div>
               <h1 class="text-header-large">Masonry Grid Example</h1>
+              <h2 class="text-header-medium">Fetch Quotes from an API</h2>
             </div>
           </template>
         </PageRow>
-        <PageRow :use-available-width="false" :apply-gutters="true" style-class-passthrough="pb-20">
+
+        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #pageRowContent>
+            <p class="text-normal">Limit 1 items</p>
+
+            <ClientOnly>
+              <MasonryGrid v-if="!pending" :min-tile-width="300">
+                <template #content>
+                  <MasonryGridItem v-for="item in quotesData?.quotes.slice(0, 1)" :use-scroll-reveal="false">
+                    <template #content>
+                      <div class="p-10 border border-1 border-grey-dark border-r-4">
+                        <p class="text-normal wght-700">{{ item.author }}</p>
+                        <p class="text-normal">{{ item.quote }}</p>
+                      </div>
+                    </template>
+                  </MasonryGridItem>
+                </template>
+              </MasonryGrid>
+              <p v-else class="text-normal">&hellip;Loading</p>
+            </ClientOnly>
+          </template>
+        </PageRow>
+
+        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #pageRowContent>
+            <p class="text-normal">Limit 2 items</p>
+
+            <ClientOnly>
+              <MasonryGrid v-if="!pending" :min-tile-width="300">
+                <template #content>
+                  <MasonryGridItem v-for="item in quotesData?.quotes.slice(0, 2)" :use-scroll-reveal="false">
+                    <template #content>
+                      <div class="p-10 border border-1 border-grey-dark border-r-4">
+                        <p class="text-normal wght-700">{{ item.author }}</p>
+                        <p class="text-normal">{{ item.quote }}</p>
+                      </div>
+                    </template>
+                  </MasonryGridItem>
+                </template>
+              </MasonryGrid>
+              <p v-else class="text-normal">&hellip;Loading</p>
+            </ClientOnly>
+          </template>
+        </PageRow>
+
+        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #pageRowContent>
+            <p class="text-normal">Limit 3 items</p>
+
+            <ClientOnly>
+              <MasonryGrid v-if="!pending" :min-tile-width="300">
+                <template #content>
+                  <MasonryGridItem v-for="item in quotesData?.quotes.slice(0, 3)" :use-scroll-reveal="false">
+                    <template #content>
+                      <div class="p-10 border border-1 border-grey-dark border-r-4">
+                        <p class="text-normal wght-700">{{ item.author }}</p>
+                        <p class="text-normal">{{ item.quote }}</p>
+                      </div>
+                    </template>
+                  </MasonryGridItem>
+                </template>
+              </MasonryGrid>
+              <p v-else class="text-normal">&hellip;Loading</p>
+            </ClientOnly>
+          </template>
+        </PageRow>
+
+        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #pageRowContent>
+            <p class="text-normal">Limit 4 items</p>
+
+            <ClientOnly>
+              <MasonryGrid v-if="!pending" :min-tile-width="300">
+                <template #content>
+                  <MasonryGridItem v-for="item in quotesData?.quotes.slice(0, 4)" :use-scroll-reveal="false">
+                    <template #content>
+                      <div class="p-10 border border-1 border-grey-dark border-r-4">
+                        <p class="text-normal wght-700">{{ item.author }}</p>
+                        <p class="text-normal">{{ item.quote }}</p>
+                      </div>
+                    </template>
+                  </MasonryGridItem>
+                </template>
+              </MasonryGrid>
+              <p v-else class="text-normal">&hellip;Loading</p>
+            </ClientOnly>
+          </template>
+        </PageRow>
+
+        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #pageRowContent>
+            <p class="text-normal">Limit 5 items</p>
+
+            <ClientOnly>
+              <MasonryGrid v-if="!pending" :min-tile-width="300">
+                <template #content>
+                  <MasonryGridItem v-for="item in quotesData?.quotes.slice(0, 5)" :use-scroll-reveal="false">
+                    <template #content>
+                      <div class="p-10 border border-1 border-grey-dark border-r-4">
+                        <p class="text-normal wght-700">{{ item.author }}</p>
+                        <p class="text-normal">{{ item.quote }}</p>
+                      </div>
+                    </template>
+                  </MasonryGridItem>
+                </template>
+              </MasonryGrid>
+              <p v-else class="text-normal">&hellip;Loading</p>
+            </ClientOnly>
+          </template>
+        </PageRow>
+
+        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #pageRowContent>
+            <p class="text-normal">Limit 6 items</p>
+
+            <ClientOnly>
+              <MasonryGrid v-if="!pending" :min-tile-width="300">
+                <template #content>
+                  <MasonryGridItem v-for="item in quotesData?.quotes.slice(0, 6)" :use-scroll-reveal="false">
+                    <template #content>
+                      <div class="p-10 border border-1 border-grey-dark border-r-4">
+                        <p class="text-normal wght-700">{{ item.author }}</p>
+                        <p class="text-normal">{{ item.quote }}</p>
+                      </div>
+                    </template>
+                  </MasonryGridItem>
+                </template>
+              </MasonryGrid>
+              <p v-else class="text-normal">&hellip;Loading</p>
+            </ClientOnly>
+          </template>
+        </PageRow>
+
+        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
           <template #pageRowContent>
             <h1 class="text-header-medium">Fetch Quotes from an API</h1>
             <ClientOnly>
-              <MasonryGrid v-if="!pending" min-tile-width="300px">
+              <MasonryGrid v-if="!pending" :min-tile-width="300">
                 <template #content>
-                  <MasonryGridItem v-for="item in quotesData?.quotes" :use-scroll-reveal="false">
+                  <MasonryGridItem v-for="item in quotesData?.quotes.slice(0, 12)" :use-scroll-reveal="false">
                     <template #content>
                       <div class="p-10 border border-1 border-grey-dark border-r-4">
                         <p class="text-normal wght-700">{{ item.author }}</p>

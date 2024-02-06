@@ -7,26 +7,32 @@
 <script setup lang="ts">
   const props = defineProps({
     minTileWidth: {
-      type: String,
-      default: "312px",
+      type: Number,
+      default: 312,
     },
     colRepeatType: {
       type: String,
       default: null,
       validator: (val) => ["auto-fit", "auto-fill"].includes(val as string),
     },
-    styleClassPassthrough: {
-      type: String,
-      default: "",
-    },
     alignHeights: {
       type: Boolean,
       default: false,
+    },
+    fixedWidth: {
+      type: Boolean,
+      default: false,
+    },
+    styleClassPassthrough: {
+      type: String,
+      default: "",
     },
   });
 
   const slots = useSlots();
   const hasSlotComponent = computed(() => slots.content !== undefined);
+  const maxTileWidth = props.fixedWidth ? props.minTileWidth + "px" : "1fr";
+  const minTileWidth = props.minTileWidth + "px";
 </script>
 
 <style scoped lang="scss">
@@ -38,10 +44,16 @@
       display: grid;
       grid-gap: 12px;
       &.auto-fit {
-        grid-template-columns: repeat(auto-fit, minmax(v-bind(minTileWidth), 1fr));
+        grid-template-columns: v-bind(maxTileWidth);
+        @include mqMinTablet {
+          grid-template-columns: repeat(auto-fit, minmax(v-bind(minTileWidth), v-bind(maxTileWidth)));
+        }
       }
       &.auto-fill {
-        grid-template-columns: repeat(auto-fill, minmax(v-bind(minTileWidth), 1fr));
+        grid-template-columns: v-bind(maxTileWidth);
+        @include mqMinTablet {
+          grid-template-columns: repeat(auto-fill, minmax(v-bind(minTileWidth), v-bind(maxTileWidth)));
+        }
       }
 
       &.align-heights {

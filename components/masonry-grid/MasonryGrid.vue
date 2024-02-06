@@ -1,14 +1,16 @@
 <template>
-  <div class="masonry-grid-wrapper">
+  <div class="masonry-grid-wrapper" ref="gridWrapper">
     <slot v-if="hasSlotComponent" name="content"></slot>
   </div>
 </template>
 
 <script setup lang="ts">
+  import { useElementSize } from "@vueuse/core";
+
   const props = defineProps({
     minTileWidth: {
-      type: String,
-      default: "312px",
+      type: Number,
+      default: 312,
     },
     styleClassPassthrough: {
       type: String,
@@ -16,29 +18,41 @@
     },
     mobilePreferredColCount: {
       type: Number,
-      default: 2,
+      default: 1,
     },
     smTabletPreferredColCount: {
       type: Number,
-      default: 4,
+      default: 3,
+    },
+    fixedWidth: {
+      type: Boolean,
+      default: false,
     },
   });
 
   const slots = useSlots();
   const hasSlotComponent = computed(() => slots.content !== undefined);
+
+  const gridWrapper = ref<HTMLDivElement | null>(null);
+  const { width } = useElementSize(gridWrapper);
+  const columnCount = computed(() => {
+    return Math.floor(width.value / props.minTileWidth);
+  });
 </script>
 
 <style scoped lang="scss">
   @import "@/assets/styles/imports.scss";
 
+  // $colCount: v-bind($columnCount);
+
   .masonry-grid {
     $self: &;
     &-wrapper {
-      column-count: v-bind(mobilePreferredColCount);
+      column-count: v-bind(columnCount);
 
-      @media only screen and (min-width: $tabletSmall) {
-        column-count: v-bind(smTabletPreferredColCount);
-      }
+      // @media only screen and (min-width: $tabletSmall) {
+      //   column-count: v-bind(smTabletPreferredColCount);
+      // }
 
       column-gap: 10px;
 
