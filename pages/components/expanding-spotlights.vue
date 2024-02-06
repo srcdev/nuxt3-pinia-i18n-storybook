@@ -6,18 +6,22 @@
           <template #pageRowContent>
             <div>
               <h1 class="text-header-large">Expanding Spotlights Example</h1>
-              <p class="text-normal">Has a 3000ms delay to test pending behaviour</p>
-              <p>pending({{ pending }}) | status({{ status }})</p>
+              <p class="text-normal">Has a <span class="text-normal wght-700">3000ms delay</span> to test pending behaviour</p>
+              <p>
+                pending(<span class="text-normal wght-700">{{ pending }}</span
+                >) | status(<span class="text-normal wght-700">{{ status }}</span
+                >)
+              </p>
             </div>
           </template>
         </PageRow>
         <ClientOnly>
-          <PageRow :use-available-width="false" :apply-gutters="true" style-class-passthrough="pb-20 pt-20">
+          <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20 pt-20">
             <template #pageRowContent>
               <h1 class="text-header-medium">Display Expanding Spotlights</h1>
               <template v-if="status === 'idle'">
                 <div>
-                  <button @click="execute()">Get data</button>
+                  <InputButton @click="execute()" type="button" variant="primary" button-text="Get data" size="medium" style-class-passthrough="mt-12 mb-12" />
                 </div>
               </template>
               <template v-if="status === 'success'">
@@ -32,7 +36,7 @@
         <PageRow :use-available-width="false" :apply-gutters="false">
           <template #pageRowContent>
             <div>
-              <button @click="refresh()">Refresh data</button>
+              <InputButton @click="execute()" type="button" variant="primary" button-text="Refresh data" size="medium" style-class-passthrough="mb-12" />
             </div>
           </template>
         </PageRow>
