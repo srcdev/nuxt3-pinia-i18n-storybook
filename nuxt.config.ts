@@ -32,6 +32,7 @@ export default defineNuxtConfig({
       sitename: "Website name",
       siteEnvironment: "Dev",
       apiBaseURL: "https://localhost:3000",
+      openWeatherApiKey: "",
     },
   },
   modules: ["@pinia/nuxt", "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt", "nuxt-icon", "@nuxt/test-utils"],

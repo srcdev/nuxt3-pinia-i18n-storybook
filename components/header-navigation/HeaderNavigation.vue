@@ -43,8 +43,6 @@
 
   const { authenticated } = storeToRefs(useAccountStore());
 
-  console.log("HeaderNavigation | authenticated: ", authenticated.value);
-
   const navItems = {
     home: {
       summary: "Home",
@@ -130,6 +128,11 @@
       url: "",
       hidden: false,
       links: [
+        {
+          text: "Current Wether",
+          url: "/weather",
+          hidden: false,
+        },
         {
           text: "Expanding Spotlights",
           url: "/components/expanding-spotlights",
