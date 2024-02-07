@@ -9,40 +9,25 @@
       <div :class="['menu__items', { open: navActive }]">
         <p class="text-header-medium navigation-title">{{ t("components.header-navigation.title") }}</p>
         <div class="nav-details-wrapper">
-          <details class="nav-details">
-            <summary class="nav-summary">
-              <p class="nav-summary-title nav-summary-action"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />Account</p>
-            </summary>
-            <div>
-              <ul>
-                <li v-if="authenticated">
-                  <NuxtLink class="menu__items_link" to="/logout"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />Logout</NuxtLink>
-                </li>
-                <li v-else>
-                  <NuxtLink class="menu__items_link" to="/login"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />Login</NuxtLink>
-                </li>
-                <li>
-                  <NuxtLink class="menu__items_link" to="/profile"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />Profile</NuxtLink>
-                </li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="nav-details" v-for="(item, key, index) in navItems" ref="itemRefs">
-            <summary class="nav-summary">
-              <p class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
-              <p class="nav-summary-title" v-else>
-                <NuxtLink class="nav-summary-action" :to="item.url"><Icon name="radix-icons:caret-right" class="nav-details-icon mr-8" />{{ item.summary }}</NuxtLink>
-              </p>
-            </summary>
-            <div v-if="item.hasChildren">
-              <ul>
-                <li v-for="link in item.links">
-                  <NuxtLink class="menu__items_link" :to="link.url"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />{{ link.text }}</NuxtLink>
-                </li>
-              </ul>
-            </div>
-          </details>
+          <template v-for="(item, key, index) in navItems">
+            <details class="nav-details" :class="[{ hide: item.hidden }]" ref="itemRefs">
+              <summary class="nav-summary">
+                <p class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
+                <p class="nav-summary-title" v-else>
+                  <NuxtLink class="nav-summary-action" :to="item.url"><Icon name="radix-icons:caret-right" class="nav-details-icon mr-8" />{{ item.summary }}</NuxtLink>
+                </p>
+              </summary>
+              <div v-if="item.hasChildren">
+                <ul>
+                  <template v-for="link in item.links">
+                    <li :class="[{ hide: link.hidden }]">
+                      <NuxtLink class="menu__items_link" :to="link.url"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />{{ link.text }}</NuxtLink>
+                    </li>
+                  </template>
+                </ul>
+              </div>
+            </details>
+          </template>
         </div>
       </div>
     </nav>
@@ -58,64 +43,84 @@
 
   const { authenticated } = storeToRefs(useAccountStore());
 
+  console.log("HeaderNavigation | authenticated: ", authenticated.value);
+
   const navItems = {
     home: {
       summary: "Home",
       hasChildren: false,
       url: "/",
+      hidden: false,
       links: [],
     },
-    // account: {
-    //   summary: "Account",
-    //   hasChildren: true,
-    //   url: "/",
-    //   links: [
-    //     {
-    //       text: "Login",
-    //       url: "/login",
-    //     },
-    //     {
-    //       text: "Profile",
-    //       url: "/profile",
-    //     },
-    //   ],
-    // },
+    account: {
+      summary: "Account",
+      hasChildren: true,
+      url: "/",
+      hidden: true,
+      links: [
+        {
+          text: "Login",
+          url: "/login",
+          hidden: authenticated.value,
+        },
+        {
+          text: "Logout",
+          url: "/logout",
+          hidden: !authenticated.value,
+        },
+        {
+          text: "Profile",
+          url: "/profile",
+          hidden: false,
+        },
+      ],
+    },
     examples: {
       summary: "Examples",
       hasChildren: true,
       url: "",
+      hidden: false,
       links: [
         {
           text: "Sample layout",
           url: "/samples/components",
+          hidden: true,
         },
         {
           text: "Language switcher",
           url: "/lang-switcher",
+          hidden: false,
         },
         {
           text: "Multi Step form",
           url: "/samples/forms/guided-form",
+          hidden: false,
         },
         {
           text: "Example form",
           url: "/samples/forms/sample-form",
+          hidden: false,
         },
         {
           text: "Example buttons",
           url: "/samples/forms/sample-buttons",
+          hidden: false,
         },
         {
           text: "Update Store Action",
           url: "/samples/update-store",
+          hidden: false,
         },
         {
           text: "Data Fetching",
           url: "/samples/server-routes",
+          hidden: false,
         },
         {
           text: "Routed Pages",
           url: "/companies/some-company-id/details",
+          hidden: false,
         },
       ],
     },
@@ -123,30 +128,37 @@
       summary: "UI Components",
       hasChildren: true,
       url: "",
+      hidden: false,
       links: [
         {
           text: "Expanding Spotlights",
           url: "/components/expanding-spotlights",
+          hidden: false,
         },
         {
           text: "Display QR Code",
           url: "/display-qr-code",
+          hidden: true,
         },
         {
           text: "Masonry Grid",
           url: "/components/masonry-grid",
+          hidden: false,
         },
         {
           text: "Simple Grid",
           url: "/components/simple-grid",
+          hidden: false,
         },
         {
           text: "Parallax section",
           url: "/",
+          hidden: false,
         },
         {
           text: "Installed icons",
           url: "/samples/installed-icons",
+          hidden: false,
         },
       ],
     },

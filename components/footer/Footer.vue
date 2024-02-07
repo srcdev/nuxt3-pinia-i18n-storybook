@@ -2,7 +2,7 @@
   <footer class="footer" :class="[footerTheme]">
     <div class="footer-inner">
       <p>{{ $t("components.footer.title") }}</p>
-      <ul class="footer-links-list">
+      <ul class="footer-links-list hide">
         <li v-for="link in footerLinks" class="footer-links-item">
           <NuxtLink :to="$t(link.url)" class="footer-links-link">{{ $t(link.text) }}</NuxtLink>
         </li>

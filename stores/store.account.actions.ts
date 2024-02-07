@@ -14,17 +14,18 @@ export const accountActions = {
     });
   },
   async signOut(this: IAccountState) {
-    await useFetch("/api/sign-out").then(() => {
-      this.authenticated = false;
-      this.currentUser.name = "";
+    // await useFetch("/api/sign-out").then(() => {
+    this.authenticated = false;
+    this.currentUser.name = "";
 
-      const cookieSignedIn = useCookie(".AUTH", {
-        sameSite: true,
-      });
-      cookieSignedIn.value = null;
+    const cookieSignedIn = useCookie(".AUTH", {
+      sameSite: true,
     });
+    cookieSignedIn.value = null;
+    navigateTo("/");
+    // });
   },
   async setAuthenticationState(this: IAccountState, payload: boolean) {
-    this.authenticated;
+    this.authenticated = payload;
   },
 };

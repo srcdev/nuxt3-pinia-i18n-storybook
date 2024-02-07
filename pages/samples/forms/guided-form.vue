@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="true" :apply-gutters="true">
+        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
           <template #pageRowContent>
             <div>
               <h1 class="text-header-large">1: {{ $t("pages.samples.forms-guided-form.pageTitle") }}</h1>
@@ -10,12 +10,12 @@
             </div>
           </template>
         </PageRow>
-        <PageRow :use-available-width="true" :apply-gutters="true">
+        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
           <template #pageRowContent>
             <component :is="componentName"></component>
           </template>
         </PageRow>
-        <PageRow :use-available-width="true" :apply-gutters="true">
+        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
           <template #pageRowContent>
             <FlexGroup gap="12px" align-content="center-right">
               <template #default>
