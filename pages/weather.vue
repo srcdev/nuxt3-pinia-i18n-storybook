@@ -43,6 +43,8 @@
   // const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&appid=${key}`;
 
   console.log("key: ", key);
+  console.log(process.env.NODE_ENV);
+
   const {
     data: weatherData,
     execute,
