@@ -6,7 +6,7 @@
           <template #default>
             <FlexGroupItem :flex-grow="true">
               <template #default>
-                <h1 class="text-header-large text-color-white">{{ $t("components.header.text") }}</h1>
+                <NuxtLink to="/" class="text-header-large text-color-white">{{ $t("components.header.text") }}</NuxtLink>
               </template>
             </FlexGroupItem>
             <FlexGroupItem>

@@ -30,14 +30,14 @@ describe("Header", () => {
     wrapper = await wrapperFactory();
 
     const textCheck = wrapper.find("h1");
-    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 data-v-2b517c36="" class="text-header-large text-color-white">Nuxt3 Playground Site</h1>"');
+    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 data-v-2b517c36="" class="text-header-large text-color-white">On The Plains</h1>"');
   });
 
   it("Component i18n text", async () => {
     wrapper = await wrapperFactory();
 
     const textCheck = wrapper.find("h1");
-    expect(textCheck.text()).toEqual("Nuxt3 Playground Site");
+    expect(textCheck.text()).toEqual("On The Plains");
   });
 
   it.skip("Component i18n text by key", async () => {

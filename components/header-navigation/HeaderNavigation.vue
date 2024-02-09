@@ -129,8 +129,13 @@
       hidden: false,
       links: [
         {
-          text: "Current Wether",
+          text: "Current Weather",
           url: "/weather",
+          hidden: false,
+        },
+        {
+          text: "Feature Spotlights",
+          url: "/components/display-spotlights",
           hidden: false,
         },
         {

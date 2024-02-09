@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "url": "/assets/images/gallery/cheeta-looking-down-on-a-herd-of-zebra.jpeg",
+      "alt": "Dining out"
+    },
+    {
+      "id": 2,
+      "url": "/assets/images/gallery/elephants-with-young-at-an-oasis.jpeg",
+      "alt": "Watering holes"
+    },
+    {
+      "id": 3,
+      "url": "/assets/images/gallery/kenya-storm-clouds.jpeg",
+      "alt": "Will it rain?"
+    },
+    {
+      "id": 4,
+      "url": "/assets/images/gallery/lion-mouth-wide-open.jpeg",
+      "alt": "Dental Services"
+    }
+  ],
+  "total": 4,
+  "skip": 0,
+  "limit": 4
+}
