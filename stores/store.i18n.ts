@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+
 import type { II18nStore } from "@/types/types.i18n";
 import { i18nActions } from "@/stores/store.i18n.actions";
 
@@ -19,11 +20,14 @@ export const useI18nStore = defineStore({
       },
     ],
   }),
-  // persist: true,
-  persist: {
-    storage: persistedState.cookiesWithOptions({
-      sameSite: "strict",
-    }),
-  },
+  persist: true,
+  // persist: {
+  //   storage: persistedState.cookiesWithOptions({
+  //     sameSite: "strict",
+  //   }),
+  // },
+  // persist: {
+  //   storage: persistedState.localStorage,
+  // },
   actions: i18nActions,
 });

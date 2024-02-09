@@ -1,12 +1,17 @@
 <template>
   <PageRow :use-available-width="isFullWidth" :apply-gutters="false" page-row-theme="theme-black">
     <template #pageRowContent>
-      <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }]">
-        <FlexGroup align-content="center-left">
+      <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }, { 'signed-in': authenticated }]">
+        <FlexGroup align-content="center-left" gap="24px">
           <template #default>
             <FlexGroupItem :flex-grow="true">
               <template #default>
                 <NuxtLink to="/" class="text-header-large text-color-white">{{ $t("components.header.text") }}</NuxtLink>
+              </template>
+            </FlexGroupItem>
+            <FlexGroupItem v-if="authenticated">
+              <template #default>
+                <p class="text-header-large text-color-white">Signed In</p>
               </template>
             </FlexGroupItem>
             <FlexGroupItem>
@@ -32,15 +37,15 @@
       default: "value1",
       validator(value: string) {
         return ["value1", "value2"].includes(value);
-      },
+      }
     },
     headerTheme: {
       type: String,
       default: "header-default",
       validator(value: string) {
         return ["header-default", "header-dark"].includes(value);
-      },
-    },
+      }
+    }
   });
 
   const { t } = useI18n();
@@ -51,6 +56,8 @@
   // const signedIntext = computed(() => {
   //   return accountStore.authenticated ? t("components.header.authenticated") : t("components.header.signedOut");
   // });
+
+  const { authenticated } = storeToRefs(useAccountStore());
 </script>
 
 <style lang="scss" scoped>

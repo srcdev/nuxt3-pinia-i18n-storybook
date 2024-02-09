@@ -5,7 +5,7 @@ const i18nStore = useI18nStore(createPinia());
 export const translations: any = {};
 let messages = import.meta.glob("@/**/locales/**/*.json", {
   import: "default",
-  eager: true,
+  eager: true
 }) as any;
 
 const locales = i18nStore.locales;
@@ -28,7 +28,7 @@ Object.entries(locales).forEach(([keys, locale]) => {
 Object.keys(messages).forEach((key, element) => {
   const filePath = key;
   const currentFileObj = keyNameOfLocaleEntry(filePath);
-  const currentLangKey = currentFileObj[1] as string;
+  const currentLangKey = currentFileObj !== null ? currentFileObj[1] : "";
   const fileJson = JSON.parse(JSON.stringify(Object.entries(messages[key])));
   const currentComponentKey = <string | number>Object.values(fileJson[0])[0];
 
@@ -36,7 +36,7 @@ Object.keys(messages).forEach((key, element) => {
   if (Object.entries(fileJson[currentComponentKey] === null)) {
     const target = translations[currentLangKey];
     const source = {
-      [currentComponentKey]: {},
+      [currentComponentKey]: {}
     };
 
     if (typeof translations[currentLangKey][currentComponentKey] === "undefined") {

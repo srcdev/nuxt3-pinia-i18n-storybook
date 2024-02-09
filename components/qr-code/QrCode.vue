@@ -38,31 +38,35 @@
   const props = defineProps({
     qrCodeSize: {
       type: Number,
-      default: 150,
+      default: 150
     },
     showCopyToClipboard: {
       type: Boolean,
-      default: true,
+      default: true
     },
     config: {
-      type: Object as PropType<IQrCodeConfig>,
+      // type: Object as PropType<IQrCodeConfig>,
+      // type: Object as PropType<{}>,
+      type: Object,
       default() {
         return {};
-      },
+      }
     },
     qrColours: {
-      type: Object as PropType<IQrCodeColours>,
+      // type: Object as PropType<IQrCodeColours>,
+      // type: Object as PropType<{}>,
+      type: Object,
       default() {
         return {
-          dark: "#000",
-          light: "#fff",
+          dark: "#000000",
+          light: "#ffffff"
         };
-      },
+      }
     },
     applyClasses: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   });
 
   const { t } = useI18n();
@@ -72,7 +76,14 @@
     type: "image/svg",
     margin: 1,
     width: props.qrCodeSize,
-    color: props.qrColours,
+    // color: {
+    //   dark: props.qrColours.dark,
+    //   light: props.qrColours.light
+    // }
+    color: {
+      dark: "#000000ff",
+      light: "#ffffffff"
+    }
   });
 
   const copyTextToClipboardConfig = <ICopyTextConfig>{
@@ -81,7 +92,7 @@
     toastDisplayText: props.config.toastDisplayText,
     stringToCopy: props.config.manualCodeStr,
     useToastConfirm: true,
-    applyClasses: "customClass",
+    applyClasses: "customClass"
   };
 
   // console.log(copyTextToClipboardConfig);

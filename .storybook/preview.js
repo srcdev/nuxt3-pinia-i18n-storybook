@@ -1,9 +1,9 @@
 import { action } from "@storybook/addon-actions";
 import { setup } from "@storybook/vue3";
-import { createI18n } from "vue-i18n";
-import translations from "../locales";
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+import { createI18n } from "vue-i18n";
+import translations from "../locales";
 
 import "@/assets/styles/index.scss";
 
@@ -101,6 +101,12 @@ export const parameters = {
 };
 
 /*
+ * Pinia store set up
+ */
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
+
+/*
  * i118n set up
  */
 const i18n = createI18n({
@@ -110,15 +116,9 @@ const i18n = createI18n({
   locale: "en",
 });
 
-/*
- * Pinia store set up
- */
-const pinia = createPinia();
-pinia.use(piniaPluginPersistedstate);
-
 setup((app) => {
-  app.use(i18n);
   app.use(pinia);
+  app.use(i18n);
   app.component("NuxtLink", {
     props: ["to"],
     methods: {

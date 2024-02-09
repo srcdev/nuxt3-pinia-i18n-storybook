@@ -26,20 +26,20 @@
     direction: {
       type: String as PropType<String>,
       default: "column",
-      validator: (val: string) => ["column", "column-reverse", "row", "row-reverse"].includes(val),
+      validator: (val: string) => ["column", "column-reverse", "row", "row-reverse"].includes(val)
     },
     gap: {
       type: String as PropType<String>,
-      default: "0",
+      default: "0"
     },
     content: {
       type: Object as PropType<ICardContent>,
-      default: () => ({}),
+      default: () => ({})
     },
     styleClassPassthrough: {
       type: String as PropType<String>,
-      default: "",
-    },
+      default: ""
+    }
   });
 
   const slots = useSlots();

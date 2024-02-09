@@ -1,57 +1,107 @@
 import type { routeLocationKey } from 'vue-router'; import type { transform } from '@babel/core'; import type { InputErrorMessage } from '#build/components';
 <template>
-  <div class="display-spotlight-wrapper" placement="left-center" gap="12px">
-    <template v-if="type === 'gallery' && data.total > 0">
-      <div v-for="item in data.items" class="display-spotlight">
-        <div class="display-spotlight-inner">
-          <p class="display-spotlight-text">
-            <span class="text-normal wght-700 display-spotlight-text-inner">{{ item.alt }}</span>
-          </p>
-          <img :src="item.url" :alt="item.alt" />
+  <div class="display-spotlight">
+    <div class="display-spotlight-inner">
+      <div class="box display-spotlight-title">
+        <span class="display-spotlight-title-inner">{{ alt }}</span>
+      </div>
+      <div class="box display-spotlight-image">
+        <div class="box display-spotlight-image-inner">
+          <img :src="url" :alt="alt" />
         </div>
       </div>
-    </template>
+      <div class="box display-spotlight-more-info">
+        <span class="display-spotlight-more-info-inner">More info &raquo;</span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import type { IGalleryBasic } from "@/types/types.gallery";
-
   const props = defineProps({
-    type: {
+    alt: {
       type: String,
-      required: true,
+      required: true
     },
-    data: {
-      type: Object as PropType<IGalleryBasic>,
-      default: <IGalleryBasic>{
-        items: [],
-        total: 0,
-        skip: 0,
-        limit: 10,
-      },
+    url: {
+      type: String,
+      required: true
     },
     styleClassPassthrough: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   });
-  const { t } = useI18n();
 </script>
 
 <style lang="scss" scoped>
   @import "@/assets/styles/imports.scss";
 
   .display-spotlight {
-    &-wrapper {
-    }
+    aspect-ratio: 1;
+    background-color: #fff;
+    border: 1px solid #bc652f;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
 
     &-inner {
-      position: relative;
+      aspect-ratio: 1;
       overflow: hidden;
-      width: 200px;
-      height: 200px;
-      border-radius: 6px;
+      // position: relative;
+
+      display: grid;
+      // grid-template-columns: repeat(5, [col] 20%);
+      grid-template-columns: 0 repeat(4, [col] auto);
+      grid-template-rows: repeat(3, [row] auto);
+      background-color: #fff;
+      color: #444;
+
+      .box {
+        overflow: hidden;
+      }
+    }
+
+    &-title {
+      // position: absolute;
+      color: #fff;
+      text-align: right;
+      transform: rotate(180deg);
+      writing-mode: vertical-lr;
+      height: 100%;
+      line-height: unset;
+      padding: 0;
+      z-index: 10;
+
+      grid-column: col;
+      grid-row: row / span 3;
+
+      &-inner {
+        font-size: 1.6rem;
+        font-variation-settings: "wght" 600;
+        display: block;
+        background-color: #00000080;
+        padding: 12px 8px 12px 12px;
+        border-bottom-right-radius: 9px;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 9px;
+        border-top-left-radius: 0;
+        margin: 1px;
+        border: 1px solid #000;
+        letter-spacing: 1.5px;
+      }
+    }
+
+    &-image {
+      border-radius: 2px;
+      grid-column: col / span 5;
+      grid-row: row / span 3;
+      overflow: hidden;
+
+      &-inner {
+        border-radius: 2px;
+        overflow: hidden;
+      }
 
       img {
         width: 100%;
@@ -59,27 +109,27 @@ import type { routeLocationKey } from 'vue-router'; import type { transform } fr
 
         &:hover {
           // width: 120%;
-          transform: scale(1.1);
+          // transform: scale(1.1);
         }
       }
     }
 
-    &-text {
-      position: absolute;
+    &-more-info {
+      grid-column: col 4 / span 2;
+      grid-row: row 3;
+
+      border: 1px solid #bc652f;
       color: #fff;
-      transform: rotate(180deg);
-      writing-mode: vertical-lr;
-      height: 100%;
-      line-height: unset;
-      padding: 0;
-      z-index: 5;
+      border-top-left-radius: 9px;
+      border-bottom-right-radius: 9px;
+      display: block;
+      background-color: #bc652f75;
+      padding: 8px;
+      transform: translate3d(-1px, -1px, 0);
 
       &-inner {
-        display: block;
-        background-color: #00000075;
-        padding: 12px 8px 12px 12px;
-        border-radius: 2px;
-        margin: 2px;
+        font-size: 1.4rem;
+        font-variation-settings: "wght" 700;
       }
     }
   }

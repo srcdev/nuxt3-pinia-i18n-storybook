@@ -49,30 +49,30 @@
       hasChildren: false,
       url: "/",
       hidden: false,
-      links: [],
+      links: []
     },
     account: {
       summary: "Account",
       hasChildren: true,
       url: "/",
-      hidden: true,
+      hidden: false,
       links: [
         {
           text: "Login",
           url: "/login",
-          hidden: authenticated.value,
+          hidden: authenticated.value
         },
         {
           text: "Logout",
           url: "/logout",
-          hidden: !authenticated.value,
+          hidden: !authenticated.value
         },
         {
           text: "Profile",
           url: "/profile",
-          hidden: false,
-        },
-      ],
+          hidden: false
+        }
+      ]
     },
     examples: {
       summary: "Examples",
@@ -83,44 +83,44 @@
         {
           text: "Sample layout",
           url: "/samples/components",
-          hidden: true,
+          hidden: true
         },
         {
           text: "Language switcher",
           url: "/lang-switcher",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Multi Step form",
           url: "/samples/forms/guided-form",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Example form",
           url: "/samples/forms/sample-form",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Example buttons",
           url: "/samples/forms/sample-buttons",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Update Store Action",
           url: "/samples/update-store",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Data Fetching",
           url: "/samples/server-routes",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Routed Pages",
           url: "/companies/some-company-id/details",
-          hidden: false,
-        },
-      ],
+          hidden: false
+        }
+      ]
     },
     ui: {
       summary: "UI Components",
@@ -131,45 +131,45 @@
         {
           text: "Current Weather",
           url: "/weather",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Feature Spotlights",
           url: "/components/display-spotlights",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Expanding Spotlights",
           url: "/components/expanding-spotlights",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Display QR Code",
           url: "/display-qr-code",
-          hidden: true,
+          hidden: true
         },
         {
           text: "Masonry Grid",
           url: "/components/masonry-grid",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Simple Grid",
           url: "/components/simple-grid",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Parallax section",
           url: "/",
-          hidden: false,
+          hidden: false
         },
         {
           text: "Installed icons",
           url: "/samples/installed-icons",
-          hidden: false,
-        },
-      ],
-    },
+          hidden: false
+        }
+      ]
+    }
   };
 
   const navActive = ref(false);

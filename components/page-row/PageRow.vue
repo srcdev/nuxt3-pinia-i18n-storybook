@@ -10,26 +10,26 @@
   const props = defineProps({
     useAvailableWidth: {
       type: Boolean,
-      default: false,
+      default: false
     },
     applyGutters: {
       type: Boolean,
-      default: false,
+      default: false
     },
     pageRowTheme: {
       type: String,
       default: "theme-default",
-      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black"].includes(val as string),
+      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black"].includes(val as string)
     },
     pageRowInnerTheme: {
       type: String,
       default: "theme-default",
-      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black"].includes(val as string),
+      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black"].includes(val as string)
     },
     styleClassPassthrough: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   });
 </script>
 
@@ -43,7 +43,7 @@
       &-inner {
         display: grid;
         margin: 0 auto;
-        max-width: $desktop-content-width;
+        max-width: $desktop;
 
         &.use-available-width {
           max-width: initial;

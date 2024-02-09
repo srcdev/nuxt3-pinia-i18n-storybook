@@ -22,11 +22,12 @@ export const useRootStore = defineStore({
     ],
     isIos: null,
   }),
-  // persist: true,
-  persist: {
-    storage: persistedState.cookiesWithOptions({
-      sameSite: "strict",
-    }),
-  },
+  persist: true,
+  // persist: {
+  // storage: persistedState.localStorage,
+  // storage: persistedState.cookiesWithOptions({
+  //   sameSite: "strict",
+  // }),
+  // },
   actions: rootActions,
 });

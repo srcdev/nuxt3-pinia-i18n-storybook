@@ -5,7 +5,7 @@
 }
 
 @mixin mqDesktopContentMax {
-  @media all and (min-width: $desktop-content-width) {
+  @media all and (min-width: $desktop) {
     @content;
   }
 }

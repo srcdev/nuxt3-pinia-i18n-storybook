@@ -13,14 +13,14 @@ export default {
       copyLabel: "Secret Key",
       copyBtnText: "Copy",
       toastSuccess: "Copied to clipboard",
-      summaryContent: "Summary content text",
+      summaryContent: "Summary content text"
     },
     qrColours: {
-      dark: "#000",
-      light: "#fff",
+      dark: "#000000ff",
+      light: "#ffffffff"
     },
-    applyClasses: "customClassName",
-  },
+    applyClasses: "customClassName"
+  }
 } as Meta<typeof StoryBookComponent>;
 
 const Template: StoryFn<typeof StoryBookComponent> = (args) => ({
@@ -32,14 +32,14 @@ const Template: StoryFn<typeof StoryBookComponent> = (args) => ({
     <StoryBookComponent v-bind="args">
       <template v-slot:default>
       </template>
-    </StoryBookComponent>`,
+    </StoryBookComponent>`
 });
 
 export const Default = Template.bind({});
 
 // export const HyperlinkCode = Template.bind({});
 // HyperlinkCode.args = {
-//   textToEncode: "https://www.neighbourly.com/accounts/linkcompany/642addafcb3ed7804c9ccfad",
+//   textToEncode: "https://www.somesite.com",
 //   qrCodeSize: 228,
 // };
 
