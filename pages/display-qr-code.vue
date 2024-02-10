@@ -2,19 +2,19 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="true">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="true">
+          <template #default>
             <div>
               <h1 class="text-header-large">{{ $t("pages.display-qr-code.header") }}</h1>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default" page-row-inner-theme="theme-default">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default" display-row-inner-theme="theme-default">
+          <template #default>
             <QrCode :config="qrCodeConfig" :qr-code-size="250" :show-copy-to-clipboard="true" apply-classes="custom-class-name"></QrCode>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -24,15 +24,15 @@
   import type { IQrCodeConfig, IQrCodeColours } from "@/types/types.qrCode";
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: "Home page",
     meta: [{ name: "description", content: "Desciption meta tag content" }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 
   const { t } = useI18n();
@@ -43,7 +43,7 @@
     copyLabel: t("pages.display-qr-code.qrCodeConfig.copyLabel"),
     copyBtnText: t("pages.display-qr-code.qrCodeConfig.copyBtnText"),
     toastDisplayText: t("pages.display-qr-code.qrCodeConfig.toastDisplayText"),
-    summaryContent: t("pages.display-qr-code.qrCodeConfig.summaryContent"),
+    summaryContent: t("pages.display-qr-code.qrCodeConfig.summaryContent")
   };
 </script>
 

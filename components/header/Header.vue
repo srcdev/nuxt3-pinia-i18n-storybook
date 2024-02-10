@@ -1,6 +1,6 @@
 <template>
-  <PageRow :use-available-width="isFullWidth" :apply-gutters="false" page-row-theme="theme-black">
-    <template #pageRowContent>
+  <DisplayRow :use-available-width="isFullWidth" :apply-gutters="false" display-row-theme="theme-black">
+    <template #default>
       <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }, { 'signed-in': authenticated }]">
         <FlexGroup align-content="center-left" gap="24px">
           <template #default>
@@ -23,7 +23,7 @@
         </FlexGroup>
       </header>
     </template>
-  </PageRow>
+  </DisplayRow>
 </template>
 
 <script setup lang="ts">

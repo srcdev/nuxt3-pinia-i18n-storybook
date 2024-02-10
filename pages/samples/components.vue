@@ -2,37 +2,37 @@
   <div>
     <NuxtLayout :name="layoutName" :page-theme="pageTheme" :header-theme="headerTheme" :footer-theme="footerTheme">
       <template #layout-content>
-        <PageRow :use-available-width="pageRowFitContent" :apply-gutters="pageRowGutters" :page-row-theme="pageRowTheme" :page-row-inner-theme="pageRowInnerTheme">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="displayRowFitContent" :apply-gutters="displayRowGutters" :display-row-theme="displayRowTheme" :display-row-inner-theme="displayRowInnerTheme">
+          <template #default>
             <h1 class="text-header-large mt-12">Layouts and Schemes</h1>
             <div class="pb-12 pt-12 mb-12">
               <h2 class="text-header-medium">Page Row Props</h2>
               <ul class="sample-list flex">
-                <li><InputButton type="submit" variant="primary" button-text="Toggle wide page row" @click.prevent="togglePageRowFitContent()"></InputButton></li>
-                <li><InputButton type="submit" variant="primary" button-text="Toggle page row gutters" @click.prevent="togglePageRowGutters()"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Toggle wide page row" @click.prevent="toggleDisplayRowFitContent()"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Toggle page row gutters" @click.prevent="toggleDisplayRowGutters()"></InputButton></li>
               </ul>
               <h2 class="text-header-medium">Page Row Theme</h2>
               <ul class="sample-list flex">
-                <li><InputButton type="submit" variant="primary" button-text="Default (transparent background)" @click.prevent="togglePageRowTheme('theme-default')"></InputButton></li>
-                <li><InputButton type="submit" variant="primary" button-text="White" @click.prevent="togglePageRowTheme('theme-white')"></InputButton></li>
-                <li><InputButton type="submit" variant="primary" button-text="Grey" @click.prevent="togglePageRowTheme('theme-grey')"></InputButton></li>
-                <li><InputButton type="submit" variant="primary" button-text="Blue" @click.prevent="togglePageRowTheme('theme-blue')"></InputButton></li>
-                <li><InputButton type="submit" variant="primary" button-text="Green" @click.prevent="togglePageRowTheme('theme-green')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Default (transparent background)" @click.prevent="toggleDisplayRowTheme('theme-default')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="White" @click.prevent="toggleDisplayRowTheme('theme-white')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Grey" @click.prevent="toggleDisplayRowTheme('theme-grey')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Blue" @click.prevent="toggleDisplayRowTheme('theme-blue')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Green" @click.prevent="toggleDisplayRowTheme('theme-green')"></InputButton></li>
               </ul>
               <h2 class="text-header-medium">Page Row Inner theme</h2>
               <ul class="sample-list flex">
-                <li><InputButton type="submit" variant="primary" button-text="Default (transparent background)" @click.prevent="togglePageRowInnerTheme('theme-default')"></InputButton></li>
-                <li><InputButton type="submit" variant="primary" button-text="White" @click.prevent="togglePageRowInnerTheme('theme-white')"></InputButton></li>
-                <li><InputButton type="submit" variant="primary" button-text="Grey" @click.prevent="togglePageRowInnerTheme('theme-grey')"></InputButton></li>
-                <li><InputButton type="submit" variant="primary" button-text="Blue" @click.prevent="togglePageRowInnerTheme('theme-blue')"></InputButton></li>
-                <li><InputButton type="submit" variant="primary" button-text="Green" @click.prevent="togglePageRowInnerTheme('theme-green')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Default (transparent background)" @click.prevent="toggleDisplayRowInnerTheme('theme-default')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="White" @click.prevent="toggleDisplayRowInnerTheme('theme-white')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Grey" @click.prevent="toggleDisplayRowInnerTheme('theme-grey')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Blue" @click.prevent="toggleDisplayRowInnerTheme('theme-blue')"></InputButton></li>
+                <li><InputButton type="submit" variant="primary" button-text="Green" @click.prevent="toggleDisplayRowInnerTheme('theme-green')"></InputButton></li>
               </ul>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default">
+          <template #default>
             <div class="pb-12 pt-12 mb-12">
               <h2 class="text-header-medium">Toggle signed in navigation</h2>
 
@@ -75,10 +75,10 @@
               </p>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default">
+          <template #default>
             <FlexGroup align-content="center-center" :full-width="true">
               <template #default>
                 <FlexGroupItem :flex-grow="false">
@@ -94,10 +94,10 @@
               </template>
             </FlexGroup>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default">
+          <template #default>
             <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fill"</code></h2>
 
             <SimpleGrid :min-tile-width="125" col-repeat-type="auto-fill">
@@ -120,10 +120,10 @@
               </template>
             </SimpleGrid>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default">
+          <template #default>
             <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fit"</code></h2>
 
             <SimpleGrid :min-tile-width="125" col-repeat-type="auto-fit">
@@ -146,10 +146,10 @@
               </template>
             </SimpleGrid>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default">
+          <template #default>
             <h2 class="text-header-medium">Simple grid, many items</h2>
 
             <SimpleGrid :min-tile-width="125" col-repeat-type="auto-fill">
@@ -187,34 +187,34 @@
               </template>
             </SimpleGrid>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default">
+          <template #default>
             <div>
               <h2 class="text-header-medium">Store Array Actions</h2>
               <ArrayActions
                 :sb-array-item="{
                   name: 'Name D',
-                  description: 'Description D',
+                  description: 'Description D'
                 }"
               ></ArrayActions>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default">
+          <template #default>
             <ul>
               <li>
                 <NuxtLink to="/companies/123abcqwer0987/details">Company ID:123abcqwer0987</NuxtLink>
               </li>
             </ul>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default">
+          <template #default>
             <div>
               <h1>Layout Row - (Desktop)</h1>
               <p class="text-normal">
@@ -232,10 +232,10 @@
               <p class="text-normal">Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="true" page-row-theme="theme-default">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default">
+          <template #default>
             <div>
               <h1>Layout Row - (Max container)</h1>
               <p class="text-normal">
@@ -253,7 +253,7 @@
               String: <em>"{{ rootStore.someString }}"</em> from <strong><code>rootStore.someString</code></strong>
             </p>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -269,12 +269,12 @@
   const { public: config } = useRuntimeConfig();
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: "Sample components " + config.sitename,
-    meta: [{ name: "description", content: "Desciption meta tag content" }],
+    meta: [{ name: "description", content: "Desciption meta tag content" }]
   });
 
   // const { t } = useI18n();
@@ -290,14 +290,14 @@
   const pageTheme = shallowRef("theme-default");
   const footerTheme = shallowRef("theme-default");
   const headerTheme = shallowRef("header-default");
-  const pageRowTheme = shallowRef("theme-default");
-  const pageRowInnerTheme = shallowRef("theme-default");
-  const pageRowFitContent = shallowRef(false);
-  const pageRowGutters = shallowRef(true);
+  const displayRowTheme = shallowRef("theme-default");
+  const displayRowInnerTheme = shallowRef("theme-default");
+  const displayRowFitContent = shallowRef(false);
+  const displayRowGutters = shallowRef(true);
 
   const showWhiteText = computed(() => {
     return false;
-    // return pageTheme.value === "theme-grey" || pageTheme.value === "theme-blue" || pageTheme.value === "theme-green" || pageRowTheme.value === "theme-grey" || pageRowTheme.value === "theme-blue" || pageRowTheme.value === "theme-green" || pageRowInnerTheme.value === "theme-grey" || pageRowInnerTheme.value === "theme-blue" || pageRowInnerTheme.value === "theme-green";
+    // return pageTheme.value === "theme-grey" || pageTheme.value === "theme-blue" || pageTheme.value === "theme-green" || displayRowTheme.value === "theme-grey" || displayRowTheme.value === "theme-blue" || displayRowTheme.value === "theme-green" || displayRowInnerTheme.value === "theme-grey" || displayRowInnerTheme.value === "theme-blue" || displayRowInnerTheme.value === "theme-green";
   });
 
   const toggleLeftNav = () => {
@@ -326,20 +326,20 @@
     headerTheme.value = brand;
   };
 
-  const togglePageRowTheme = (brand: string) => {
-    pageRowTheme.value = brand;
+  const toggleDisplayRowTheme = (brand: string) => {
+    displayRowTheme.value = brand;
   };
 
-  const togglePageRowInnerTheme = (brand: string) => {
-    pageRowInnerTheme.value = brand;
+  const toggleDisplayRowInnerTheme = (brand: string) => {
+    displayRowInnerTheme.value = brand;
   };
 
-  const togglePageRowFitContent = () => {
-    pageRowFitContent.value = !pageRowFitContent.value;
+  const toggleDisplayRowFitContent = () => {
+    displayRowFitContent.value = !displayRowFitContent.value;
   };
 
-  const togglePageRowGutters = () => {
-    pageRowGutters.value = !pageRowGutters.value;
+  const toggleDisplayRowGutters = () => {
+    displayRowGutters.value = !displayRowGutters.value;
   };
 </script>
 

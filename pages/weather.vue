@@ -2,21 +2,21 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
             <div class="pt-32">
               <h1 class="text-header-large">Find current weather conditions for your location</h1>
             </div>
           </template>
-        </PageRow>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
-          <template #pageRowContent>
+        </DisplayRow>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
             <div class="pt-32">
               <h1 class="text-header-large">Current Weather at Bologonja Gate</h1>
               <pre v-if="status === 'success'">{{ weatherData }}</pre>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -24,15 +24,15 @@
 
 <script setup lang="ts">
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: "Find current weather conditions for your location",
     meta: [{ name: "description", content: "Find current weather conditions for your location" }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 
   const key = useRuntimeConfig().public.openWeatherApiKey;
@@ -51,9 +51,9 @@
     status,
     pending,
     error,
-    refresh,
+    refresh
   } = await useFetch<any>(url, {
-    immediate: true,
+    immediate: true
   });
 </script>
 

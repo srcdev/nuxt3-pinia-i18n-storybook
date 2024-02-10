@@ -2,8 +2,8 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
+          <template #default>
             <div>
               <h1 class="text-header-large mt-12">{{ $t("pages.samples.installed-icons.pageTitle") }}</h1>
               <p class="text-header-medium mt-8">{{ $t("pages.samples.installed-icons.pageInfo") }}</p>
@@ -403,7 +403,7 @@
               </div>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>

@@ -2,15 +2,15 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
             <div class="pt-32">
               <h1 class="text-header-large">{{ t("pages.samples.sample-form.pageTitle") }}</h1>
             </div>
           </template>
-        </PageRow>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
-          <template #pageRowContent>
+        </DisplayRow>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
             <ClientOnly>
               <form @submit.prevent="isPending()" :id="formData.formId" class="form-narrow" novalidate>
                 <p v-if="showErrors">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
@@ -62,7 +62,7 @@
               </form>
             </ClientOnly>
           </template>
-        </PageRow>
+        </DisplayRow>
         <pre>
           {{ formData }}
         </pre>
@@ -79,15 +79,15 @@
   const { t } = useI18n();
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: t("pages.samples.sample-form.head.title"),
     meta: [{ name: "description", content: t("pages.samples.sample-form.head.description") }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 
   const { data: placesData, pending, status, error, refresh } = await useFetch<IPlacesList>("/api/places/list");
@@ -101,7 +101,7 @@
     url: "",
     email: "",
     places: [],
-    terms: false,
+    terms: false
   };
 
   const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl(formId);

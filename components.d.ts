@@ -28,7 +28,7 @@ declare module "vue" {
     MultiStepFormStep1: typeof import("./components/multi-step-form/MultiStepFormStep1.vue")["default"];
     MultiStepFormStep2: typeof import("./components/multi-step-form/MultiStepFormStep2.vue")["default"];
     MultiStepFormStep3: typeof import("./components/multi-step-form/MultiStepFormStep3.vue")["default"];
-    PageRow: typeof import("./components/page-row/PageRow.vue")["default"];
+    DisplayRow: typeof import("./components/display-row/DisplayRow.vue")["default"];
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
     SectionParallax: typeof import("./components/section-parallax/SectionParallax.vue")["default"];

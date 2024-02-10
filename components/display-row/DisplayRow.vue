@@ -1,7 +1,7 @@
 <template>
-  <div class="page-row" :class="[styleClassPassthrough, pageRowTheme]">
-    <div class="page-row-inner" :class="[pageRowInnerTheme, { 'use-available-width': useAvailableWidth }, { 'has-gutters': applyGutters }]">
-      <slot name="pageRowContent"></slot>
+  <div class="display-row" :class="[styleClassPassthrough, displayRowTheme]">
+    <div class="display-row-inner" :class="[displayRowInnerTheme, { 'use-available-width': useAvailableWidth }, { 'has-gutters': applyGutters }]">
+      <slot name="default"></slot>
     </div>
   </div>
 </template>
@@ -16,12 +16,12 @@
       type: Boolean,
       default: false
     },
-    pageRowTheme: {
+    displayRowTheme: {
       type: String,
       default: "theme-default",
       validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black"].includes(val as string)
     },
-    pageRowInnerTheme: {
+    displayRowInnerTheme: {
       type: String,
       default: "theme-default",
       validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black"].includes(val as string)
@@ -36,7 +36,7 @@
 <style lang="scss" scoped>
   @import "@/assets/styles/imports.scss";
 
-  .page {
+  .display {
     &-row {
       margin: 0;
 

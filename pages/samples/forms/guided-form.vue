@@ -2,21 +2,21 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
+          <template #default>
             <div>
               <h1 class="text-header-large">1: {{ $t("pages.samples.forms-guided-form.pageTitle") }}</h1>
               <p>{{ $t("pages.samples.forms-guided-form.pageInfo", { step: guidedFormData.step, steps: steps }) }}</p>
             </div>
           </template>
-        </PageRow>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
-          <template #pageRowContent>
+        </DisplayRow>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
+          <template #default>
             <component :is="componentName"></component>
           </template>
-        </PageRow>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
-          <template #pageRowContent>
+        </DisplayRow>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
+          <template #default>
             <FlexGroup gap="12px" align-content="center-right">
               <template #default>
                 <FlexGroupItem>
@@ -32,7 +32,7 @@
               </template>
             </FlexGroup>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -43,15 +43,15 @@
   const { t } = useI18n();
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: t("pages.samples.forms-guided-form.head.title"),
     meta: [{ name: "description", content: t("pages.samples.forms-guided-form.head.description") }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 
   interface GuidedForm {
@@ -61,7 +61,7 @@
 
   const guidedFormData = ref<GuidedForm>({
     step: 1,
-    steps: ["MultiStepFormStep1", "MultiStepFormStep2", "MultiStepFormStep3"],
+    steps: ["MultiStepFormStep1", "MultiStepFormStep2", "MultiStepFormStep3"]
   });
 
   const steps = guidedFormData.value.steps.length;

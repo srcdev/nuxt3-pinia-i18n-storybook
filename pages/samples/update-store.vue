@@ -2,24 +2,24 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
+          <template #default>
             <div>
               <h1 class="text-header-large">{{ $t("pages.samples.update-store.header") }}</h1>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
+          <template #default>
             <ArrayActions
               :sb-array-item="{
                 name: 'Name D',
-                description: 'Description D',
+                description: 'Description D'
               }"
             ></ArrayActions>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -27,15 +27,15 @@
 
 <script setup lang="ts">
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: "Update Store Examples",
     meta: [{ name: "description", content: "" }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 </script>
 

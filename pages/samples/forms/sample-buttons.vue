@@ -2,15 +2,15 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
             <div class="pt-32">
               <h1 class="text-header-large">{{ t("pages.samples.sample-buttons.pageTitle") }}</h1>
             </div>
           </template>
-        </PageRow>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
-          <template #pageRowContent>
+        </DisplayRow>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
             <form>
               <div>
                 <p class="text-normal mb-12"><code>&lt;InputButton variant="primary"&gt;</code></p>
@@ -206,7 +206,7 @@
               </div>
             </form>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -217,15 +217,15 @@
   const { t } = useI18n();
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: t("pages.samples.sample-buttons.head.title"),
     meta: [{ name: "description", content: t("pages.samples.sample-buttons.head.description") }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 </script>
 

@@ -2,13 +2,13 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="true" :apply-gutters="true">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="true" :apply-gutters="true">
+          <template #default>
             <div>
               <h1 class="text-header-large">Page title</h1>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -20,15 +20,15 @@
   const { t } = useI18n();
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: t("path.to.head.title"),
     meta: [{ name: "description", content: t("path.to.head.description") }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 </script>
 

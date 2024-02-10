@@ -2,38 +2,38 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false">
+          <template #default>
             <div>
               <h1 class="text-header-large">{{ $t("pages.index.header") }}</h1>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="true" :apply-gutters="false">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="true" :apply-gutters="false">
+          <template #default>
             <SectionParallax bg-image="/assets/images/sample.jpg" bg-height="100vh" justify-items="left">
               <template #sidePanel>
                 <h1 class="text-header-large">This is a sidePanel</h1>
               </template>
               <template #content>
-                <PageRow :use-available-width="true" :apply-gutters="true" style-class-passthrough="pt-40 pb-40">
-                  <template #pageRowContent>
+                <DisplayRow :use-available-width="true" :apply-gutters="true" style-class-passthrough="pt-40 pb-40">
+                  <template #default>
                     <div class="">
                       <h1 class="text-header-large">This is a parallax section 1</h1>
                     </div>
                   </template>
-                </PageRow>
+                </DisplayRow>
               </template>
               <template #infoRow>
                 <h1 class="text-header-large">This is a infoRow</h1>
               </template>
             </SectionParallax>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="true" :apply-gutters="false">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="true" :apply-gutters="false">
+          <template #default>
             <div class="row-parallax">
               <ul>
                 <li>Item 1</li>
@@ -54,18 +54,18 @@
               </ul>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pt-12">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pt-12">
+          <template #default>
             <DisplayCard
               direction="row"
               gap="12px"
               :content="{
                 image: {
                   url: '/assets/images/marrakech.jpg',
-                  alignContent: 'top-center',
-                },
+                  alignContent: 'top-center'
+                }
               }"
               style-class-passthrough="mt-12 mb-12 p-12"
             >
@@ -92,10 +92,10 @@
               </template>
             </DisplayCard>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="true" :apply-gutters="false">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="true" :apply-gutters="false">
+          <template #default>
             <SectionParallax bg-image="/assets/images/marrakech.jpg" bg-height="100vh" justify-items="left">
               <template #content>
                 <div class="">
@@ -104,10 +104,10 @@
               </template>
             </SectionParallax>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="true" :apply-gutters="false">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="true" :apply-gutters="false">
+          <template #default>
             <SectionParallax bg-image="/assets/images/antigua.jpg" bg-height="100vh" justify-items="left">
               <template #content>
                 <div class="">
@@ -116,7 +116,7 @@
               </template>
             </SectionParallax>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -129,15 +129,15 @@
   const { t } = useI18n();
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: t("pages.index.head.title"),
     meta: [{ name: "description", content: t("pages.index.head.description") }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 </script>
 

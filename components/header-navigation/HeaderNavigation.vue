@@ -44,7 +44,7 @@
 
   const { authenticated } = storeToRefs(useAccountStore());
 
-  const navItems = {
+  const navItems = ref({
     home: {
       summary: "Home",
       hasChildren: false,
@@ -171,7 +171,7 @@
         }
       ]
     }
-  };
+  });
 
   const navActive = ref(false);
   const activeDetailsIndex = ref<number | null>(null);

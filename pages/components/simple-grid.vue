@@ -2,8 +2,8 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false">
+          <template #default>
             <div>
               <h1 class="text-header-large">Simple Grid Example</h1>
               <p class="text-normal">Grid display.</p>
@@ -13,10 +13,10 @@
               </p>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-theme="theme-default" style-class-passthrough="pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-theme="theme-default" style-class-passthrough="pb-20">
+          <template #default>
             <h2 class="text-header-medium">CSS Grid</h2>
             <p class="text-header-medium">Items have min max set so will expand to fit parent element at certain viewports.</p>
             <p class="text-normal">Limit 1 item</p>
@@ -105,10 +105,10 @@
             </SimpleGrid>
             <p v-else class="text-normal">&hellip;Loading</p>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-theme="theme-default" style-class-passthrough="pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-theme="theme-default" style-class-passthrough="pb-20">
+          <template #default>
             <h2 class="text-header-medium">CSS Grid</h2>
             <h3 class="text-header-medium">Fixed width items 324px. <span class="text-normal">Differences can be noted when only 1 or 2 items on smaller viewports.</span></h3>
             <p class="text-normal">Limit 1 item <span class="text-normal wght-700">(Fixed width)</span></p>
@@ -197,7 +197,7 @@
             </SimpleGrid>
             <p v-else class="text-normal">&hellip;Loading</p>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -210,15 +210,15 @@
   // const { t } = useI18n();
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: "Masonry Grid Example",
     meta: [{ name: "description", content: "Masonry Grid Example" }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 
   const useScrollReveal = ref<boolean>(false);

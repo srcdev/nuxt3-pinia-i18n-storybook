@@ -2,33 +2,33 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
+          <template #default>
             <div>
               <h1 class="text-header-large">{{ companyId }} Company Projects List</h1>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
+          <template #default>
             <ul>
               <li class="pb-6 pt-6">
                 <NuxtLink :to="`/companies/${companyId}/details`" class="text-normal">Company ({{ companyId }}) details</NuxtLink>
               </li>
             </ul>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
+          <template #default>
             <ul>
               <li v-for="item in projects" class="pb-6 pt-6">
                 <NuxtLink :to="projectUrl(item)" class="text-normal">{{ item.name }}</NuxtLink>
               </li>
             </ul>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -41,15 +41,15 @@
   }
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: "List Projects",
     meta: [{ name: "description", content: "Desciption meta tag content" }],
     bodyAttrs: {
-      class: "companies",
-    },
+      class: "companies"
+    }
   });
 
   const route = useRoute();
@@ -62,16 +62,16 @@
   const projects = <IProject[]>[
     {
       projectId: "123qwsdfertgh-6",
-      name: "Help the homeless",
+      name: "Help the homeless"
     },
     {
       projectId: "123qwswq12dfertgh-6",
-      name: "Help the hungry",
+      name: "Help the hungry"
     },
     {
       projectId: "123qwwqpoertgh-3",
-      name: "Help the small animals",
-    },
+      name: "Help the small animals"
+    }
   ];
 </script>
 

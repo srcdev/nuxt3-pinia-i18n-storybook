@@ -2,15 +2,15 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
             <div class="pt-32">
               <h1 class="text-header-large">{{ t("pages.login.pageTitle") }}</h1>
             </div>
           </template>
-        </PageRow>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
-          <template #pageRowContent>
+        </DisplayRow>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
             <ClientOnly>
               <form @submit.prevent="isPending()" :id="formData.formId" class="form-narrow" novalidate>
                 <p v-if="showErrors">{{ t("pages.login.formErrorsMessage", formData.errorCount) }}</p>
@@ -39,7 +39,7 @@
               </form>
             </ClientOnly>
           </template>
-        </PageRow>
+        </DisplayRow>
         <pre>{{ formData }}</pre>
       </template>
     </NuxtLayout>
@@ -84,14 +84,14 @@
   const { doAuthUseFetch, doAuthDollarFetch } = useAuthApi();
 
   const isPending = async () => {
-    formData.value.isPending = true;
     await getErrorCount();
+    formData.value.isPending = true;
 
     if (formIsValid.value) {
       console.log("Form valid - will progress");
 
       // These for testing alternatives
-      const useComposable = true;
+      const useComposable = false;
       const useDollarFetchVersion = false;
 
       if (useComposable) {

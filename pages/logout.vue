@@ -2,13 +2,13 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-white">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
             <div class="pt-32">
               <h1 class="text-header-large">Logout page</h1>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -16,15 +16,15 @@
 
 <script setup lang="ts">
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: "Logout page",
     meta: [{ name: "description", content: "Logout page" }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 </script>
 

@@ -2,15 +2,15 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20 pt-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20 pt-20">
+          <template #default>
             <h1 class="text-header-large">Display Feature Spotlights</h1>
             <p class="text-normal wght-700">(WIP) Not currently responsive</p>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #default>
             <ClientOnly>
               <MasonryGrid :min-tile-width="300">
                 <template #content>
@@ -23,7 +23,7 @@
               </MasonryGrid>
             </ClientOnly>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>

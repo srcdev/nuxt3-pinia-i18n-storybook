@@ -2,17 +2,17 @@
   <div :class="pageTheme">
     <Header :header-theme="headerTheme"></Header>
 
-    <PageRow :use-available-width="true">
-      <template #pageRowContent>
+    <DisplayRow :use-available-width="true">
+      <template #default>
         <slot name="layout-content"></slot>
       </template>
-    </PageRow>
+    </DisplayRow>
 
-    <PageRow :use-available-width="true">
-      <template #pageRowContent>
+    <DisplayRow :use-available-width="true">
+      <template #default>
         <Footer :footer-theme="footerTheme"></Footer>
       </template>
-    </PageRow>
+    </DisplayRow>
   </div>
 </template>
 

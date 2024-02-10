@@ -2,8 +2,8 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false" page-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
+          <template #default>
             <div>
               <h1 class="text-header-large mt-12">{{ $t("pages.samples.server-routes.pageTitle") }}</h1>
               <p class="text-header-medium mt-8">{{ $t("pages.samples.server-routes.pageInfo") }}</p>
@@ -27,7 +27,7 @@
               </p>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -38,15 +38,15 @@
   const { t } = useI18n();
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: t("pages.samples.server-routes.head.title"),
     meta: [{ name: "description", content: t("pages.samples.server-routes.head.description") }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 
   // useFetch infers returned data types
@@ -55,9 +55,9 @@
     data: getResults,
     pending: getPending,
     error: getError,
-    refresh: getRefresh,
+    refresh: getRefresh
   } = await useFetch("/api/example", {
-    query: { param1, param2: "GET: This is Param 2 value" },
+    query: { param1, param2: "GET: This is Param 2 value" }
   });
   const exampleGetParam = ref(getResults);
 
@@ -65,12 +65,12 @@
     data: postResult,
     pending: postPending,
     error: postError,
-    refresh: postRefresh,
+    refresh: postRefresh
   } = await useFetch("/api/example", {
     method: "post",
     body: {
-      body1: "POST: Body 1",
-    },
+      body1: "POST: Body 1"
+    }
   });
   const examplePostParam = ref(postResult);
 

@@ -2,17 +2,17 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
       <template #layout-content>
-        <PageRow :use-available-width="false" :apply-gutters="false">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false">
+          <template #default>
             <div>
               <h1 class="text-header-large">Masonry Grid Example</h1>
               <h2 class="text-header-medium">Fetch Quotes from an API</h2>
             </div>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #default>
             <p class="text-normal">Limit 1 items</p>
 
             <ClientOnly>
@@ -31,10 +31,10 @@
               <p v-else class="text-normal">&hellip;Loading</p>
             </ClientOnly>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #default>
             <p class="text-normal">Limit 2 items</p>
 
             <ClientOnly>
@@ -53,10 +53,10 @@
               <p v-else class="text-normal">&hellip;Loading</p>
             </ClientOnly>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #default>
             <p class="text-normal">Limit 3 items</p>
 
             <ClientOnly>
@@ -75,10 +75,10 @@
               <p v-else class="text-normal">&hellip;Loading</p>
             </ClientOnly>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #default>
             <p class="text-normal">Limit 4 items</p>
 
             <ClientOnly>
@@ -97,10 +97,10 @@
               <p v-else class="text-normal">&hellip;Loading</p>
             </ClientOnly>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #default>
             <p class="text-normal">Limit 5 items</p>
 
             <ClientOnly>
@@ -119,10 +119,10 @@
               <p v-else class="text-normal">&hellip;Loading</p>
             </ClientOnly>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #default>
             <p class="text-normal">Limit 6 items</p>
 
             <ClientOnly>
@@ -141,10 +141,10 @@
               <p v-else class="text-normal">&hellip;Loading</p>
             </ClientOnly>
           </template>
-        </PageRow>
+        </DisplayRow>
 
-        <PageRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
-          <template #pageRowContent>
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+          <template #default>
             <h1 class="text-header-medium">Fetch Quotes from an API</h1>
             <ClientOnly>
               <MasonryGrid v-if="!pending" :min-tile-width="300">
@@ -162,7 +162,7 @@
               <p v-else class="text-normal">&hellip;Loading</p>
             </ClientOnly>
           </template>
-        </PageRow>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -175,15 +175,15 @@
   const { t } = useI18n();
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: "Masonry Grid Example",
     meta: [{ name: "description", content: "Masonry Grid Example" }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 
   const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes");
