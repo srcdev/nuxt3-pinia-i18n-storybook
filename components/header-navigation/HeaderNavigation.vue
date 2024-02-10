@@ -3,6 +3,7 @@
     <nav class="navigation__wrapper" tabindex="-1">
       <div class="menu__wrapper">
         <button type="button" :class="['menu__button', { open: navActive }, { closed: !navActive }]" data-test-id="burger-nav" @click="toggleMenu($event)">
+          <span class="sr-only">{{ t("components.header-navigation.toggle-btn") }}</span>
           <Icon :name="navActive ? 'material-symbols:close' : 'solar:hamburger-menu-linear'" class="menu__button-icon" />
         </button>
       </div>

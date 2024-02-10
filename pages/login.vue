@@ -55,27 +55,27 @@
   const { t } = useI18n();
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: t("pages.login.head.title"),
     meta: [{ name: "description", content: t("pages.login.head.description") }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 
   // Setup formData
   const formId = "login";
   const fieldsInitialState = <IFieldsInitialState>{
-    username: "",
-    password: "",
-    // username: "kminchelle",
-    // password: "0lelplR",
+    // username: "",
+    // password: "",
+    username: "kminchelle",
+    password: "0lelplR",
     // username: "kminchelle1", // invalid creds
     // password: "0lelplR1", // invalid creds
-    rememberMe: false,
+    rememberMe: false
   };
 
   const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl(formId);
@@ -97,7 +97,7 @@
       if (useComposable) {
         const body = <ILoginPayload>{
           username: formData.value.data.username,
-          password: formData.value.data.password,
+          password: formData.value.data.password
         };
 
         if (useDollarFetchVersion) {
@@ -131,14 +131,14 @@
           pending,
           status,
           error,
-          refresh,
+          refresh
         } = await useFetch<ILoginResponse>("https://dummyjson.com/auth/login", {
           method: "post",
           headers: { "Content-Type": "application/json" },
           body: {
             username: formData.value.data.username,
-            password: formData.value.data.password,
-          },
+            password: formData.value.data.password
+          }
         });
         if (userData.value) {
           const token = useCookie("token");

@@ -11,7 +11,7 @@
             </FlexGroupItem>
             <FlexGroupItem v-if="authenticated">
               <template #default>
-                <p class="text-header-large text-color-white">Signed In</p>
+                <IconButtonLogout @click="doLogout()" :button-text="$t('components.header.logout-btn')" />
               </template>
             </FlexGroupItem>
             <FlexGroupItem>
@@ -58,6 +58,7 @@
   // });
 
   const { authenticated } = storeToRefs(useAccountStore());
+  const { doLogout } = useAuthApi();
 </script>
 
 <style lang="scss" scoped>

@@ -76,6 +76,42 @@
                 </div>
               </div>
 
+              <p class="text-header-medium mt-8">Account</p>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:logout" class="icon-logout" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Logout</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:logout-rounded" class="icon-logout-rounded" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Logout Rounded</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:logout-sharp" class="icon-logout-sharp" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Logout Sharp</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:account-circle" class="icon-account-circle" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Account Circle</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:account-circle-full" class="icon-account-circle-full" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Account Circle Full</span></div>
+              </div>
+
               <p class="text-header-medium mt-8">Forms and warnings</p>
               <div class="icon-table">
                 <div class="icon-display">
@@ -378,15 +414,15 @@
   const { t } = useI18n();
 
   definePageMeta({
-    layout: false,
+    layout: false
   });
 
   useHead({
     title: t("pages.samples.server-routes.head.title"),
     meta: [{ name: "description", content: t("pages.samples.server-routes.head.description") }],
     bodyAttrs: {
-      class: "",
-    },
+      class: ""
+    }
   });
 </script>
 

@@ -2,6 +2,8 @@ import type { IFormData, IFieldsInitialState, ICustomErrorMessage, ICustomErrorM
 import type { ILoginPayload, ILoginResponse } from "@/types/types.auth";
 
 export function useAuthApi() {
+  const { authenticated } = storeToRefs(useAccountStore());
+
   async function doAuthUseFetch(body: ILoginPayload) {
     const {
       data: userData,
@@ -9,14 +11,14 @@ export function useAuthApi() {
       status,
       execute,
       error,
-      refresh,
+      refresh
     } = await useFetch<ILoginResponse>("https://dummyjson.com/auth/login", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: {
         username: body.username,
-        password: body.password,
-      },
+        password: body.password
+      }
     });
 
     return {
@@ -25,7 +27,7 @@ export function useAuthApi() {
       status,
       execute,
       error,
-      refresh,
+      refresh
     };
   }
 
@@ -35,8 +37,8 @@ export function useAuthApi() {
       headers: { "Content-Type": "application/json" },
       body: {
         username: body.username,
-        password: body.password,
-      },
+        password: body.password
+      }
       // onResponseError({ request, response, options }) {
       //   console.log("[fetch response error]", request, response, response.status, response.body, options);
       // },
@@ -44,8 +46,14 @@ export function useAuthApi() {
     return response;
   }
 
+  function doLogout() {
+    authenticated.value = false;
+    navigateTo("/");
+  }
+
   return {
     doAuthUseFetch,
     doAuthDollarFetch,
+    doLogout
   };
 }

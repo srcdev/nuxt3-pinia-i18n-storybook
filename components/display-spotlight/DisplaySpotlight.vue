@@ -7,7 +7,7 @@ import type { routeLocationKey } from 'vue-router'; import type { transform } fr
       </div>
       <div class="box display-spotlight-image">
         <div class="box display-spotlight-image-inner">
-          <img :src="url" :alt="alt" />
+          <NuxtImg :src="url" :alt="alt" />
         </div>
       </div>
       <div class="box display-spotlight-more-info">

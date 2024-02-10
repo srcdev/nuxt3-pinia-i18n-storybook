@@ -1,6 +1,7 @@
 {
   "components": {
     "header-navigation": {
+      "toggle-btn": "Toggle navigation",
       "title": "Menu",
       "nav-links": {
         "examples": {

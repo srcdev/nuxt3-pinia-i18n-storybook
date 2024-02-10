@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   // },
   devServer: {
     https: true,
-    port: 3000,
+    port: 3000
   },
   // proxy: {
   //   "/api/": { target: "http://localhost:234123" },
@@ -32,47 +32,47 @@ export default defineNuxtConfig({
       sitename: "Website name",
       siteEnvironment: "Dev",
       apiBaseURL: "https://localhost:3000",
-      openWeatherApiKey: "e1db6f89d39fdc60083cacec2009d62f",
-    },
+      openWeatherApiKey: "e1db6f89d39fdc60083cacec2009d62f"
+    }
   },
-  modules: ["@pinia/nuxt", "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt", "nuxt-icon", "@nuxt/test-utils"],
+  modules: ["@pinia/nuxt", "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt", "nuxt-icon", "@nuxt/test-utils", "@nuxt/image"],
   i18n: {
-    vueI18n: "./i18n.config",
+    vueI18n: "./i18n.config"
   },
   components: [
     {
       path: "~/components",
-      pathPrefix: false,
-    },
+      pathPrefix: false
+    }
   ],
   // plugins: ["@/plugins/i18n"],
   app: {
     head: {
       htmlAttrs: {
-        lang: "en",
+        lang: "en"
       },
       titleTemplate: "%s - Website name",
       link: [
         {
           rel: "icon",
           type: "image/x-icon",
-          href: "./assets/images/favicon.jpg",
-        },
+          href: "./assets/images/favicon.jpg"
+        }
         // {
         //   rel: "stylesheet",
         //   href: "./node_modules/modern-normalize/modern-normalize.css",
         // },
       ],
-      meta: [{ charset: "utf-8" }, { name: "viewport", content: "width=device-width, initial-scale=1" }],
+      meta: [{ charset: "utf-8" }, { name: "viewport", content: "width=device-width, initial-scale=1" }]
     },
     pageTransition: {
       name: "page",
-      mode: "out-in",
+      mode: "out-in"
     },
     layoutTransition: {
       name: "layout",
-      mode: "out-in",
-    },
+      mode: "out-in"
+    }
   },
   vite: {
     // server: {
@@ -103,9 +103,9 @@ export default defineNuxtConfig({
     // ],
     resolve: {
       alias: {
-        "~": fileURLToPath(new URL("./", import.meta.url)),
-      },
-    },
+        "~": fileURLToPath(new URL("./", import.meta.url))
+      }
+    }
     // server: {
     //   proxy: {
     //     "/api/": {
@@ -115,5 +115,5 @@ export default defineNuxtConfig({
     //     },
     //   },
     // },
-  },
+  }
 });
