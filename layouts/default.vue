@@ -36,7 +36,7 @@
     },
     headerTheme: {
       type: String,
-      default: "header-default",
+      default: "header-dark",
       validator: (val) => ["header-default", "header-dark"].includes(val as string)
     }
   });

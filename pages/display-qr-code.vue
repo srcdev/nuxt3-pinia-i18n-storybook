@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtLayout name="default" page-theme="theme-default" header-theme="header-default" footer-theme="theme-default">
+    <NuxtLayout name="default" page-theme="theme-default" footer-theme="theme-default">
       <template #layout-content>
         <DisplayRow :use-available-width="false" :apply-gutters="true">
           <template #default>

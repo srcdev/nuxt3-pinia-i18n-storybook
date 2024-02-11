@@ -217,8 +217,8 @@
 
     &__items {
       background-color: $color-grey-8;
-      border: 1px solid $color-grey-10;
-      box-shadow: 5px 5px 10px 0px $color-grey-8;
+      border: 1px solid $color-orange-5;
+      box-shadow: 2px 2px 10px 0px $color-orange-5;
       border-radius: 6px;
       border: 1px solid $color-grey-6;
       position: absolute;
@@ -250,7 +250,7 @@
         &:hover {
           color: $white;
           cursor: pointer;
-          background-color: $color-green-1;
+          background-color: $color-orange-4;
         }
         &:focus {
           @include a11y-focus;
@@ -287,7 +287,7 @@
       }
 
       .nav-summary-action {
-        border-bottom: 2px solid $color-green-2;
+        border-bottom: 2px solid $color-orange-5;
         display: block;
         text-decoration: none;
         padding: 6px;
@@ -295,7 +295,7 @@
         &:hover {
           color: $white;
           cursor: pointer;
-          background-color: $color-green-1;
+          background-color: $color-orange-5;
           text-decoration: none;
         }
         &:focus {

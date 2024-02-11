@@ -1,12 +1,15 @@
 <template>
-  <DisplayRow :use-available-width="isFullWidth" :apply-gutters="false" display-row-theme="theme-black">
+  <DisplayRow :use-available-width="isFullWidth" :apply-gutters="false" display-row-theme="theme-dark">
     <template #default>
       <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }, { 'signed-in': authenticated }]">
         <DisplayFlexGroup align-content="center-left" gap="24px">
           <template #default>
             <DisplayFlexGroupItem :flex-grow="true">
               <template #default>
-                <NuxtLink to="/" class="text-header-large text-color-white">{{ $t("components.header.text") }}</NuxtLink>
+                <NuxtLink to="/" class="header-home-link text-header-large text-color-white">
+                  <span class="header-home-link-logo"></span>
+                  <span class="header-home-link-text">{{ $t("components.header.text") }}</span>
+                </NuxtLink>
               </template>
             </DisplayFlexGroupItem>
             <DisplayFlexGroupItem v-if="authenticated">
@@ -41,7 +44,7 @@
     },
     headerTheme: {
       type: String,
-      default: "header-default",
+      default: "header-dark",
       validator(value: string) {
         return ["header-default", "header-dark"].includes(value);
       }
@@ -64,17 +67,17 @@
 <style lang="scss" scoped>
   @import "@/assets/styles/imports.scss";
 
-  .header-default {
-    --bgColour: #e2e2e2;
-  }
+  // .header-default {
+  //   --bgColour: #e2e2e2;
+  // }
 
-  .header-dark {
-    --bgColour: #d2d2d2;
-  }
+  // .header-dark {
+  //   --bgColour: #d2d2d2;
+  // }
 
   .header {
     // background-color: var(--bgColour);
-    background-color: $black;
+    // background-color: $black;
     padding: 16px 0;
 
     @include mqMinTablet {
@@ -93,6 +96,28 @@
       // @include mqDesktopContentMax {
       //   padding: 32px;
       // }
+    }
+
+    &-home-link {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      text-decoration: none;
+
+      &-logo {
+        background: transparent url("/assets/images/logo/logo-1024.jpeg") 0 -5px no-repeat;
+        background-size: contain;
+        border: 1px solid $color-orange-5;
+        border-radius: 50%;
+        aspect-ratio: 1;
+        width: 75px;
+      }
+      &-text {
+        display: inline-block;
+        font-size: 1.8rem;
+        margin-left: 12px;
+        width: 80px;
+      }
     }
   }
 </style>

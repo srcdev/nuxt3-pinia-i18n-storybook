@@ -40,7 +40,7 @@ import type { routeLocationKey } from 'vue-router'; import type { transform } fr
   .display-spotlight {
     aspect-ratio: 1;
     background-color: #fff;
-    border: 1px solid #bc652f;
+    border: 1px solid $color-orange-5;
     border-radius: 10px;
     overflow: hidden;
     width: 100%;
