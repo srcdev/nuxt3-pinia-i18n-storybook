@@ -21,36 +21,36 @@
   const props = defineProps({
     id: {
       type: String,
-      default: "",
+      default: ""
     },
     name: {
       type: String,
-      default: "",
+      default: ""
     },
     i18nKey: {
       type: String,
-      required: true,
+      required: true
     },
     validation: {
       type: String,
-      default: "",
+      default: ""
     },
     required: {
       type: Boolean,
-      default: false,
+      default: false
     },
     trueValue: {
       type: [String, Number, Boolean],
-      default: true,
+      default: true
     },
     falseValue: {
       type: [String, Number, Boolean],
-      default: false,
+      default: false
     },
     config: {
       type: Object as PropType<IOptionsConfig>,
-      default: {},
-    },
+      default: {}
+    }
   });
 
   const { t } = useI18n();
@@ -76,7 +76,7 @@
   });
 
   const modelValue = defineModel() as unknown as IFormData;
-  const { setDefaultError, fieldHasError } = useErrorMessage(props.id, modelValue.value);
+  const { setDefaultError, fieldHasError } = useErrorMessage(props.id, modelValue);
   setDefaultError(t(`${props.i18nKey}.error-message`));
 </script>
 

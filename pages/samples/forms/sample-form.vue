@@ -98,7 +98,6 @@
   const { data: placesData, pending, status, error, refresh } = await useFetch<IPlacesList>("/api/places/list");
 
   // Setup formData
-  const formId = "sample-form";
   const fieldsInitialState = <IFieldsInitialState>{
     username: "",
     password: "",
@@ -109,7 +108,7 @@
     terms: false
   };
 
-  const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl(formId);
+  const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl();
   await initFormData(fieldsInitialState);
 
   const isPending = async () => {

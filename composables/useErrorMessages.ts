@@ -9,7 +9,6 @@ export function useErrorMessage(name: string, formData: IFormData) {
   }
 
   const errorMessage = computed(() => {
-    console.log(`errorMessage > hasCustomError(${hasCustomError()})`);
     if (hasCustomError()) {
       return customErrorMessages.value[name].message;
     } else {

@@ -1,10 +1,9 @@
 import type { IFormData, IFieldsInitialState, ICustomErrorMessage, ICustomErrorMessagesArr } from "@/types/types.forms";
 
-export function useFormControl(formId: string = "") {
+export function useFormControl() {
   let savedInitialState = {};
 
   const formData = ref<IFormData>({
-    formId: formId,
     data: {},
     validityState: {},
     isPending: false,

@@ -75,7 +75,6 @@
   });
 
   // Setup formData
-  const formId = "login";
   const fieldsInitialState = <IFieldsInitialState>{
     // username: "",
     // password: "",
@@ -86,7 +85,7 @@
     rememberMe: false
   };
 
-  const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl(formId);
+  const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl();
   await initFormData(fieldsInitialState);
 
   const { doAuthUseFetch, doAuthDollarFetch } = useAuthApi();

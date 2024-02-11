@@ -61,7 +61,6 @@ export interface ICustomErrorMessagesArr {
 
 export interface IFormData {
   [x: string]: any;
-  formId: string;
   data: IFieldsInitialState;
   validityState: IValidityStateArrShort;
   isPending: boolean;
