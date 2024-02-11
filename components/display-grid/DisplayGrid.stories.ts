@@ -1,13 +1,12 @@
+import type { Meta, StoryFn } from "@storybook/vue3";
 import DisplayGrid from "./DisplayGrid.vue";
 import DisplayGridItem from "./DisplayGridItem.vue";
 
-import type { Meta, StoryFn } from "@storybook/vue3";
-
 export default {
-  title: "Components/Scaffolding/DisplayGrid",
+  title: "Components/DisplayGrid",
   component: DisplayGrid,
   args: {
-    minTileWidth: "312px"
+    minTileWidth: 312
   }
 } as Meta<typeof DisplayGrid>;
 
@@ -18,7 +17,7 @@ const Template: StoryFn<typeof DisplayGrid> = (args) => ({
   },
   template: `
     <DisplayGrid v-bind="args">
-      <template v-slot:content>${args.default}</template>
+      <template v-slot:content>${args}</template>
     </DisplayGrid>
   `
 });
@@ -64,7 +63,7 @@ let defaultArgs = `
 
 Default.args = {
   default: defaultArgs,
-  minTileWidth: "312px"
+  minTileWidth: 312
 };
 
 // export const Default = Template.bind({})

@@ -5,6 +5,7 @@
 </template>
 
 <script setup lang="ts">
+  // import { computed, onMounted, useSlots } from "vue";
   const props = defineProps({
     minTileWidth: {
       type: Number,
@@ -31,8 +32,15 @@
 
   const slots = useSlots();
   const hasSlotComponent = computed(() => slots.content !== undefined);
-  const maxTileWidth = props.fixedWidth ? props.minTileWidth + "px" : "1fr";
-  const minTileWidth = props.minTileWidth + "px";
+
+  onMounted(() => {
+    const maxTileWidth = computed(() => {
+      return props.fixedWidth ? props.minTileWidth + "px" : "1fr";
+    });
+    const minTileWidth = computed(() => {
+      return props.minTileWidth + "px";
+    });
+  });
 </script>
 
 <style scoped lang="scss">
