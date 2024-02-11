@@ -155,8 +155,8 @@
           hidden: false
         },
         {
-          text: "Simple Grid",
-          url: "/components/simple-grid",
+          text: "Grid Items",
+          url: "/components/display-grid",
           hidden: false
         },
         {

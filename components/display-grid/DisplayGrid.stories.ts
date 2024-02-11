@@ -1,70 +1,70 @@
-import SimpleGrid from "./SimpleGrid.vue";
-import SimpleGridItem from "./SimpleGridItem.vue";
+import DisplayGrid from "./DisplayGrid.vue";
+import DisplayGridItem from "./DisplayGridItem.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/Scaffolding/Simple Grid",
-  component: SimpleGrid,
+  title: "Components/Scaffolding/DisplayGrid",
+  component: DisplayGrid,
   args: {
-    minTileWidth: "312px",
-  },
-} as Meta<typeof SimpleGrid>;
+    minTileWidth: "312px"
+  }
+} as Meta<typeof DisplayGrid>;
 
-const Template: StoryFn<typeof SimpleGrid> = (args) => ({
-  components: { SimpleGrid, SimpleGridItem },
+const Template: StoryFn<typeof DisplayGrid> = (args) => ({
+  components: { DisplayGrid, DisplayGridItem },
   setup() {
     return { args };
   },
   template: `
-    <SimpleGrid v-bind="args">
+    <DisplayGrid v-bind="args">
       <template v-slot:content>${args.default}</template>
-    </SimpleGrid>
-  `,
+    </DisplayGrid>
+  `
 });
 
 export const Default = Template.bind({});
 let defaultArgs = `
-  <SimpleGridItem>
+  <DisplayGridItem>
     <template #content>
       <div>
         <p class="text-normal">Grid Item</p>
       </div>
     </template>
-  </SimpleGridItem>
-  <SimpleGridItem>
+  </DisplayGridItem>
+  <DisplayGridItem>
     <template #content>
       <div>
         <p class="text-normal">Grid Item</p>
       </div>
     </template>
-  </SimpleGridItem>
-  <SimpleGridItem>
+  </DisplayGridItem>
+  <DisplayGridItem>
     <template #content>
       <div>
         <p class="text-normal">Grid Item</p>
       </div>
     </template>
-  </SimpleGridItem>
-  <SimpleGridItem>
+  </DisplayGridItem>
+  <DisplayGridItem>
     <template #content>
       <div>
         <p class="text-normal">Grid Item</p>
       </div>
     </template>
-  </SimpleGridItem>
-  <SimpleGridItem>
+  </DisplayGridItem>
+  <DisplayGridItem>
     <template #content>
       <div>
         <p class="text-normal">Grid Item</p>
       </div>
     </template>
-  </SimpleGridItem>
+  </DisplayGridItem>
 `;
 
 Default.args = {
   default: defaultArgs,
-  minTileWidth: "312px",
+  minTileWidth: "312px"
 };
 
 // export const Default = Template.bind({})
@@ -153,7 +153,7 @@ Default.args = {
 // })
 
 // topLevelLinks.forEach((element) => {
-//   defaultArgs += `<SimpleGridItem><template #content><h1>${element.label}</h1></template></SimpleGridItem>`
+//   defaultArgs += `<DisplayGridItem><template #content><h1>${element.label}</h1></template></DisplayGridItem>`
 // })
 
 // Default.args = {

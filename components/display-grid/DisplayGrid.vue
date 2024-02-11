@@ -1,5 +1,5 @@
 <template>
-  <div class="simple-grid-wrapper" :class="[colRepeatType, styleClassPassthrough, { 'align-heights': alignHeights }]">
+  <div class="display-grid-wrapper" :class="[colRepeatType, styleClassPassthrough, { 'align-heights': alignHeights }]">
     <slot v-if="hasSlotComponent" name="content"></slot>
   </div>
 </template>
@@ -8,25 +8,25 @@
   const props = defineProps({
     minTileWidth: {
       type: Number,
-      default: 312,
+      default: 312
     },
     colRepeatType: {
       type: String,
       default: null,
-      validator: (val) => ["auto-fit", "auto-fill"].includes(val as string),
+      validator: (val) => ["auto-fit", "auto-fill"].includes(val as string)
     },
     alignHeights: {
       type: Boolean,
-      default: false,
+      default: false
     },
     fixedWidth: {
       type: Boolean,
-      default: false,
+      default: false
     },
     styleClassPassthrough: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   });
 
   const slots = useSlots();
@@ -38,7 +38,7 @@
 <style scoped lang="scss">
   @import "@/assets/styles/imports.scss";
 
-  .simple-grid {
+  .display-grid {
     $self: &;
     &-wrapper {
       display: grid;

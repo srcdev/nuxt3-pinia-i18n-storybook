@@ -21,9 +21,9 @@
             <p class="text-header-medium">Items have min max set so will expand to fit parent element at certain viewports.</p>
             <p class="text-normal">Limit 1 item</p>
 
-            <SimpleGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" style-class-passthrough="theme-grey">
+            <DisplayGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" style-class-passthrough="theme-grey">
               <template #content>
-                <SimpleGridItem v-for="item in quotesData?.quotes.slice(0, 1)" :use-scroll-reveal="useScrollReveal">
+                <DisplayGridItem v-for="item in quotesData?.quotes.slice(0, 1)" :use-scroll-reveal="useScrollReveal">
                   <template #content>
                     <div class="m-10">
                       <div class="p-10 border border-1 border-grey-dark border-r-4 theme-white">
@@ -32,15 +32,15 @@
                       </div>
                     </div>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
             <hr />
             <p class="text-normal">Limit 2 items</p>
 
-            <SimpleGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" style-class-passthrough="theme-grey">
+            <DisplayGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" style-class-passthrough="theme-grey">
               <template #content>
-                <SimpleGridItem v-for="item in quotesData?.quotes.slice(0, 2)" :use-scroll-reveal="useScrollReveal">
+                <DisplayGridItem v-for="item in quotesData?.quotes.slice(0, 2)" :use-scroll-reveal="useScrollReveal">
                   <template #content>
                     <div class="m-10">
                       <div class="p-10 border border-1 border-grey-dark border-r-4 theme-white">
@@ -49,15 +49,15 @@
                       </div>
                     </div>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
             <hr />
             <p class="text-normal">Limit 3 items</p>
 
-            <SimpleGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" style-class-passthrough="theme-grey">
+            <DisplayGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" style-class-passthrough="theme-grey">
               <template #content>
-                <SimpleGridItem v-for="item in quotesData?.quotes.slice(0, 3)" :use-scroll-reveal="useScrollReveal">
+                <DisplayGridItem v-for="item in quotesData?.quotes.slice(0, 3)" :use-scroll-reveal="useScrollReveal">
                   <template #content>
                     <div class="m-10">
                       <div class="p-10 border border-1 border-grey-dark border-r-4 theme-white">
@@ -66,15 +66,15 @@
                       </div>
                     </div>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
             <hr />
             <p class="text-normal">Limit 4 items</p>
 
-            <SimpleGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" style-class-passthrough="theme-grey">
+            <DisplayGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" style-class-passthrough="theme-grey">
               <template #content>
-                <SimpleGridItem v-for="item in quotesData?.quotes.slice(0, 4)" :use-scroll-reveal="useScrollReveal">
+                <DisplayGridItem v-for="item in quotesData?.quotes.slice(0, 4)" :use-scroll-reveal="useScrollReveal">
                   <template #content>
                     <div class="m-10">
                       <div class="p-10 border border-1 border-grey-dark border-r-4 theme-white">
@@ -83,15 +83,15 @@
                       </div>
                     </div>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
             <hr />
             <p class="text-normal">Limit 5 items</p>
 
-            <SimpleGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" style-class-passthrough="theme-grey">
+            <DisplayGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" style-class-passthrough="theme-grey">
               <template #content>
-                <SimpleGridItem v-for="item in quotesData?.quotes.slice(0, 5)" :use-scroll-reveal="useScrollReveal">
+                <DisplayGridItem v-for="item in quotesData?.quotes.slice(0, 5)" :use-scroll-reveal="useScrollReveal">
                   <template #content>
                     <div class="m-10">
                       <div class="p-10 border border-1 border-grey-dark border-r-4 theme-white">
@@ -100,9 +100,9 @@
                       </div>
                     </div>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
             <p v-else class="text-normal">&hellip;Loading</p>
           </template>
         </DisplayRow>
@@ -113,9 +113,9 @@
             <h3 class="text-header-medium">Fixed width items 324px. <span class="text-normal">Differences can be noted when only 1 or 2 items on smaller viewports.</span></h3>
             <p class="text-normal">Limit 1 item <span class="text-normal wght-700">(Fixed width)</span></p>
 
-            <SimpleGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" :fixed-width="true" style-class-passthrough="theme-grey">
+            <DisplayGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" :fixed-width="true" style-class-passthrough="theme-grey">
               <template #content>
-                <SimpleGridItem v-for="item in quotesData?.quotes.slice(0, 1)" :use-scroll-reveal="useScrollReveal">
+                <DisplayGridItem v-for="item in quotesData?.quotes.slice(0, 1)" :use-scroll-reveal="useScrollReveal">
                   <template #content>
                     <div class="m-10">
                       <div class="p-10 border border-1 border-grey-dark border-r-4 theme-white">
@@ -124,15 +124,15 @@
                       </div>
                     </div>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
             <hr />
             <p class="text-normal">Limit 2 items <span class="text-normal wght-700">(Fixed width)</span></p>
 
-            <SimpleGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" :fixed-width="true" style-class-passthrough="theme-grey">
+            <DisplayGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" :fixed-width="true" style-class-passthrough="theme-grey">
               <template #content>
-                <SimpleGridItem v-for="item in quotesData?.quotes.slice(0, 2)" :use-scroll-reveal="useScrollReveal">
+                <DisplayGridItem v-for="item in quotesData?.quotes.slice(0, 2)" :use-scroll-reveal="useScrollReveal">
                   <template #content>
                     <div class="m-10">
                       <div class="p-10 border border-1 border-grey-dark border-r-4 theme-white">
@@ -141,15 +141,15 @@
                       </div>
                     </div>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
             <hr />
             <p class="text-normal">Limit 3 items <span class="text-normal wght-700">(Fixed width)</span></p>
 
-            <SimpleGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" :fixed-width="true" style-class-passthrough="theme-grey">
+            <DisplayGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" :fixed-width="true" style-class-passthrough="theme-grey">
               <template #content>
-                <SimpleGridItem v-for="item in quotesData?.quotes.slice(0, 3)" :use-scroll-reveal="useScrollReveal">
+                <DisplayGridItem v-for="item in quotesData?.quotes.slice(0, 3)" :use-scroll-reveal="useScrollReveal">
                   <template #content>
                     <div class="m-10">
                       <div class="p-10 border border-1 border-grey-dark border-r-4 theme-white">
@@ -158,15 +158,15 @@
                       </div>
                     </div>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
             <hr />
             <p class="text-normal">Limit 4 items <span class="text-normal wght-700">(Fixed width)</span></p>
 
-            <SimpleGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" :fixed-width="true" style-class-passthrough="theme-grey">
+            <DisplayGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" :fixed-width="true" style-class-passthrough="theme-grey">
               <template #content>
-                <SimpleGridItem v-for="item in quotesData?.quotes.slice(0, 4)" :use-scroll-reveal="useScrollReveal">
+                <DisplayGridItem v-for="item in quotesData?.quotes.slice(0, 4)" :use-scroll-reveal="useScrollReveal">
                   <template #content>
                     <div class="m-10">
                       <div class="p-10 border border-1 border-grey-dark border-r-4 theme-white">
@@ -175,15 +175,15 @@
                       </div>
                     </div>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
             <hr />
             <p class="text-normal">Limit 5 items <span class="text-normal wght-700">(Fixed width)</span></p>
 
-            <SimpleGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" :fixed-width="true" style-class-passthrough="theme-grey">
+            <DisplayGrid v-if="dataReady" :min-tile-width="320" col-repeat-type="auto-fill" :fixed-width="true" style-class-passthrough="theme-grey">
               <template #content>
-                <SimpleGridItem v-for="item in quotesData?.quotes.slice(0, 5)" :use-scroll-reveal="useScrollReveal">
+                <DisplayGridItem v-for="item in quotesData?.quotes.slice(0, 5)" :use-scroll-reveal="useScrollReveal">
                   <template #content>
                     <div class="m-10">
                       <div class="p-10 border border-1 border-grey-dark border-r-4 theme-white">
@@ -192,9 +192,9 @@
                       </div>
                     </div>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
             <p v-else class="text-normal">&hellip;Loading</p>
           </template>
         </DisplayRow>

@@ -32,7 +32,7 @@ declare module "vue" {
     RouterLink: typeof import("vue-router")["RouterLink"];
     RouterView: typeof import("vue-router")["RouterView"];
     SectionParallax: typeof import("./components/section-parallax/SectionParallax.vue")["default"];
-    SimpleGrid: typeof import("./components/simple-grid/SimpleGrid.vue")["default"];
-    SimpleGridItem: typeof import("./components/simple-grid/SimpleGridItem.vue")["default"];
+    DisplayGrid: typeof import("./components/simple-grid/DisplayGrid.vue")["default"];
+    DisplayGridItem: typeof import("./components/simple-grid/DisplayGridItem.vue")["default"];
   }
 }

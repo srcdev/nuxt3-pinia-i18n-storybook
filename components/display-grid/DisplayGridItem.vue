@@ -1,5 +1,5 @@
 <template>
-  <div class="simple-grid-item" :class="[styleClassPassthrough, { 'scroll-reveal': useScrollReveal }]" ref="visibilityRef">
+  <div class="display-grid-item" :class="[styleClassPassthrough, { 'scroll-reveal': useScrollReveal }]" ref="visibilityRef">
     <slot name="content"></slot>
   </div>
 </template>
@@ -8,12 +8,12 @@
   const props = defineProps({
     useScrollReveal: {
       type: Boolean,
-      default: true,
+      default: true
     },
     styleClassPassthrough: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   });
 
   const { visibilityRef, handleVisibility } = useElementIsVisibleInViewport();
@@ -25,8 +25,4 @@
 
 <style scoped lang="scss">
   // @import "@/assets/styles/imports.scss";
-
-  // .simple-grid-item {
-  // outline: 1px solid $color-grey-3;
-  // }
 </style>

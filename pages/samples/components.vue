@@ -100,25 +100,25 @@
           <template #default>
             <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fill"</code></h2>
 
-            <SimpleGrid :min-tile-width="125" col-repeat-type="auto-fill">
+            <DisplayGrid :min-tile-width="125" col-repeat-type="auto-fill">
               <template #content>
-                <SimpleGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
+                </DisplayGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
+                </DisplayGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
           </template>
         </DisplayRow>
 
@@ -126,25 +126,25 @@
           <template #default>
             <h2 class="text-header-medium">Simple grid, <code>col-repeat-type="auto-fit"</code></h2>
 
-            <SimpleGrid :min-tile-width="125" col-repeat-type="auto-fit">
+            <DisplayGrid :min-tile-width="125" col-repeat-type="auto-fit">
               <template #content>
-                <SimpleGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
+                </DisplayGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
+                </DisplayGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
           </template>
         </DisplayRow>
 
@@ -152,40 +152,40 @@
           <template #default>
             <h2 class="text-header-medium">Simple grid, many items</h2>
 
-            <SimpleGrid :min-tile-width="125" col-repeat-type="auto-fill">
+            <DisplayGrid :min-tile-width="125" col-repeat-type="auto-fill">
               <template #content>
-                <SimpleGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
+                </DisplayGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
+                </DisplayGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
+                </DisplayGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
+                </DisplayGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
-                <SimpleGridItem>
+                </DisplayGridItem>
+                <DisplayGridItem>
                   <template #content>
                     <p class="text-normal">Simple Grid Item</p>
                   </template>
-                </SimpleGridItem>
+                </DisplayGridItem>
               </template>
-            </SimpleGrid>
+            </DisplayGrid>
           </template>
         </DisplayRow>
 
