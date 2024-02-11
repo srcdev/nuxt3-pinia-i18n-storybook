@@ -203,6 +203,38 @@
                     <IconButtonInfo button-text="Info Small" size="large" style-class-passthrough="mb-12" />
                   </div>
                 </div>
+
+                <p class="text-normal mb-12"><code>&lt;IconButtonLogout&gt;</code></p>
+                <div placement="left-center" gap="12px">
+                  <div>
+                    <IconButtonLogout button-text="Logout Small" size="small" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonLogout button-text="Logout Small" size="normal" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonLogout button-text="Logout Small" size="medium" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonLogout button-text="Logout Small" size="large" style-class-passthrough="mb-12" />
+                  </div>
+                </div>
+
+                <p class="text-normal mb-12"><code>&lt;IconButtonAccount&gt;</code></p>
+                <div placement="left-center" gap="12px">
+                  <div>
+                    <IconButtonAccount button-text="Account Small" size="small" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonAccount button-text="Account Small" size="normal" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonAccount button-text="Account Small" size="medium" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonAccount button-text="Account Small" size="large" style-class-passthrough="mb-12" />
+                  </div>
+                </div>
               </div>
             </form>
           </template>

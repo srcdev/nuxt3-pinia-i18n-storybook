@@ -14,7 +14,12 @@
             </DisplayFlexGroupItem>
             <DisplayFlexGroupItem v-if="authenticated">
               <template #default>
-                <IconButtonLogout @click="doLogout()" :button-text="$t('components.header.logout-btn')" />
+                <IconButtonLogout @click="doLogout()" size="large" :button-text="$t('components.header.logout-btn')" />
+              </template>
+            </DisplayFlexGroupItem>
+            <DisplayFlexGroupItem v-else>
+              <template #default>
+                <IconButtonAccount @click="navigateTo('/login')" size="large" button-text="Login" />
               </template>
             </DisplayFlexGroupItem>
             <DisplayFlexGroupItem>
@@ -110,13 +115,20 @@
         border: 1px solid $color-orange-5;
         border-radius: 50%;
         aspect-ratio: 1;
-        width: 75px;
+        width: 50px;
+        @include mqMinTablet {
+          width: 75px;
+        }
       }
       &-text {
         display: inline-block;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         margin-left: 12px;
         width: 80px;
+
+        @include mqMinTablet {
+          font-size: 1.8rem;
+        }
       }
     }
   }

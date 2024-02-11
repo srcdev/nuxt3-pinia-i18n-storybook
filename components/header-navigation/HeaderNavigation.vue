@@ -56,18 +56,8 @@
       summary: "Account",
       hasChildren: true,
       url: "/",
-      hidden: false,
+      hidden: !authenticated.value,
       links: [
-        {
-          text: "Login",
-          url: "/login",
-          hidden: authenticated.value
-        },
-        {
-          text: "Logout",
-          url: "/logout",
-          hidden: !authenticated.value
-        },
         {
           text: "Profile",
           url: "/profile",
