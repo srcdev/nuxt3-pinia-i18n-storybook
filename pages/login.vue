@@ -92,8 +92,8 @@
   const { doAuthUseFetch, doAuthDollarFetch } = useAuthApi();
 
   const isPending = async () => {
-    await getErrorCount();
     formData.value.isPending = true;
+    await getErrorCount();
 
     if (formIsValid.value) {
       // These for testing alternatives

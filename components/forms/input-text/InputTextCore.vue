@@ -73,9 +73,14 @@
     const localCustomError = hasCustomError();
     const fieldIsInvalid = !inputField.value?.validity.valid;
 
+    console.log(`fieldHasError() | localCustomError(${localCustomError}) | fieldIsInvalid(${fieldIsInvalid})`);
+
     if (modelValue.value.isPending) {
+      console.log("IF");
+      modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
       return localCustomError ? localCustomError : fieldIsInvalid;
     }
+    console.log("ELSE");
     return false;
   };
 

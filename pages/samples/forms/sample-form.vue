@@ -63,9 +63,14 @@
             </ClientOnly>
           </template>
         </DisplayRow>
-        <pre>
-          {{ formData }}
-        </pre>
+
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
+            <div class="pt-32">
+              <pre>{{ formData }}</pre>
+            </div>
+          </template>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
