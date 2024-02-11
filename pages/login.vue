@@ -6,6 +6,7 @@
           <template #default>
             <div class="pt-32">
               <h1 class="text-header-large">{{ t("pages.login.pageTitle") }}</h1>
+              <p>Form pre filled with creds from <code class="text-normal">https://dummyjson.com/auth/login</code></p>
             </div>
           </template>
         </DisplayRow>
@@ -40,7 +41,14 @@
             </ClientOnly>
           </template>
         </DisplayRow>
-        <pre>{{ formData }}</pre>
+
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
+            <div class="pt-32">
+              <pre>{{ formData }}</pre>
+            </div>
+          </template>
+        </DisplayRow>
       </template>
     </NuxtLayout>
   </div>
@@ -88,8 +96,6 @@
     formData.value.isPending = true;
 
     if (formIsValid.value) {
-      console.log("Form valid - will progress");
-
       // These for testing alternatives
       const useComposable = false;
       const useDollarFetchVersion = false;

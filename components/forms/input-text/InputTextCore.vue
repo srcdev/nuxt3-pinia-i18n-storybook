@@ -25,33 +25,33 @@
       default: "text",
       validator(value: string) {
         return ["text", "password", "tel", "number", "email", "url"].includes(value);
-      },
+      }
     },
     id: {
       // type: String as PropType<string>,
       type: String,
-      required: true,
+      required: true
     },
     name: {
       type: String,
-      default: null,
+      default: null
     },
     validation: {
       type: String,
-      default: "",
+      default: ""
     },
     required: {
       type: Boolean,
-      value: false,
+      value: false
     },
     isPending: {
       type: Boolean,
-      value: false,
+      value: false
     },
     i18nKey: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   });
 
   const { t } = useI18n();
@@ -70,8 +70,11 @@
   const { hasCustomError } = useErrorMessage(name.value, modelValue.value);
 
   const fieldHasError = () => {
+    const localCustomError = hasCustomError();
+    const fieldIsInvalid = !inputField.value?.validity.valid;
+
     if (modelValue.value.isPending) {
-      return hasCustomError() ? hasCustomError() : !inputField.value?.validity.valid;
+      return localCustomError ? localCustomError : fieldIsInvalid;
     }
     return false;
   };

@@ -9,8 +9,9 @@ export function useFormControl(formId: string = "") {
     isPending: false,
     errorCount: 0,
     customErrorMessages: {},
+    hasCustomErrorMessages: false,
     formIsValid: false,
-    showErrors: false,
+    showErrors: false
   });
 
   async function initFormData(fieldsInitialState: IFieldsInitialState) {
@@ -57,11 +58,9 @@ export function useFormControl(formId: string = "") {
    *   updateCustomErrors("username", formData, null);
    */
   async function updateCustomErrors(name: string, message: null | string = null) {
-    console.log(`updateCustomErrors(name: "${name}", message: ${message})`);
     await nextTick();
     // useSleep(10);
     if (message === null) {
-      console.log("IF");
       formData.value.validityState[name] = true;
       delete formData.value.customErrorMessages[name];
 
@@ -72,11 +71,10 @@ export function useFormControl(formId: string = "") {
       // delete customErrors[name];
       // formData.value.customErrorMessages = customErrors;
     } else {
-      console.log("ELSE");
       formData.value.validityState[name] = false;
       formData.value.customErrorMessages[name] = {
         useCustomError: true,
-        message,
+        message
       };
 
       // To properly trigger reactivity, use Vue's set method

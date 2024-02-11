@@ -22,7 +22,12 @@ export function useErrorMessage(name: string, modelValue: IFormData) {
 
   const fieldHasError = computed(() => {
     if (modelValue.isPending) {
-      return hasCustomError() ? hasCustomError() : Object.keys(modelValue.validityState).length > 0 && modelValue.isPending ? !modelValue.validityState[name] : false;
+      if (hasCustomError()) {
+        return true;
+      } else if (Object.keys(modelValue.validityState).length > 0 && modelValue.validityState[name] !== undefined) {
+        return !modelValue.validityState[name];
+      }
+      return false;
     }
   });
 
@@ -30,6 +35,6 @@ export function useErrorMessage(name: string, modelValue: IFormData) {
     hasCustomError,
     errorMessage,
     setDefaultError,
-    fieldHasError,
+    fieldHasError
   };
 }
