@@ -132,6 +132,9 @@
           }
         }
       } else {
+        // updateCustomErrors("username", "Username or password incorrect");
+        // updateCustomErrors("password", "Username or password incorrect");
+        // return;
         const {
           data: userData,
           pending,

@@ -70,17 +70,17 @@
   const { hasCustomError } = useErrorMessage(name.value, modelValue.value);
 
   const fieldHasError = () => {
-    const localCustomError = hasCustomError();
-    const fieldIsInvalid = !inputField.value?.validity.valid;
+    const hasApiErrorMessage = hasCustomError();
+    const inputBad = !inputField.value?.validity.valid;
 
-    console.log(`fieldHasError() | localCustomError(${localCustomError}) | fieldIsInvalid(${fieldIsInvalid})`);
+    // console.log(`fieldHasError() | hasApiErrorMessage(${hasApiErrorMessage}) | inputBad(${inputBad})`);
 
     if (modelValue.value.isPending) {
-      console.log("IF");
+      // console.log("fieldHasError() | IF");
       modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
-      return localCustomError ? localCustomError : fieldIsInvalid;
+      return hasApiErrorMessage ? hasApiErrorMessage : inputBad;
     }
-    console.log("ELSE");
+    // console.log("fieldHasError() | ELSE");
     return false;
   };
 
@@ -99,7 +99,7 @@
       console.log(`watch(${name.value}) modelValue`);
       modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
       if (hasCustomError()) {
-        updateCustomErrors(name.value, null);
+        updateCustomErrors(name.value, null, inputField.value?.validity.valid);
       }
     },
     { deep: true }

@@ -1,14 +1,15 @@
 import type { IFormData } from "@/types/types.forms";
 
-export function useErrorMessage(name: string, modelValue: IFormData) {
+export function useErrorMessage(name: string, formData: IFormData) {
   const defaultError = ref("");
-  const customErrorMessages = ref(toRaw(modelValue.customErrorMessages));
+  const customErrorMessages = ref(toRaw(formData.customErrorMessages));
 
   function hasCustomError() {
     return customErrorMessages.value[name] !== undefined && customErrorMessages.value[name].useCustomError;
   }
 
   const errorMessage = computed(() => {
+    console.log(`errorMessage > hasCustomError(${hasCustomError()})`);
     if (hasCustomError()) {
       return customErrorMessages.value[name].message;
     } else {
@@ -21,11 +22,11 @@ export function useErrorMessage(name: string, modelValue: IFormData) {
   }
 
   const fieldHasError = computed(() => {
-    if (modelValue.isPending) {
+    if (formData.isPending) {
       if (hasCustomError()) {
         return true;
-      } else if (Object.keys(modelValue.validityState).length > 0 && modelValue.validityState[name] !== undefined) {
-        return !modelValue.validityState[name];
+      } else if (Object.keys(formData.validityState).length > 0 && formData.validityState[name] !== undefined) {
+        return !formData.validityState[name];
       }
       return false;
     }
