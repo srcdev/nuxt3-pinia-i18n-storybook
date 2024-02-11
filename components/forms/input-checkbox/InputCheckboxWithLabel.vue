@@ -1,18 +1,18 @@
 <template>
-  <FlexGroup flex-flow="row-reverse" align-content="center-left" gap="12px" :full-width="false">
+  <DisplayFlexGroup flex-flow="row-reverse" align-content="center-left" gap="12px" :full-width="false">
     <template #default>
-      <FlexGroupItem style-class-passthrough="form-field-label-wrapper">
+      <DisplayFlexGroupItem style-class-passthrough="form-field-label-wrapper">
         <template #default>
           <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ label }}</label>
         </template>
-      </FlexGroupItem>
-      <FlexGroupItem style-class-passthrough="form-field-input-wrapper">
+      </DisplayFlexGroupItem>
+      <DisplayFlexGroupItem style-class-passthrough="form-field-input-wrapper">
         <template #default>
           <InputCheckboxCore :id="id" :name="name" :true-value="trueValue" :required="required" :multiple-checkboxes="useConfig" v-model="modelValue" />
         </template>
-      </FlexGroupItem>
+      </DisplayFlexGroupItem>
     </template>
-  </FlexGroup>
+  </DisplayFlexGroup>
 </template>
 <script setup lang="ts">
   import type { IFormData, IOptionsConfig } from "@/types/types.forms";

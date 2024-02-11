@@ -8,8 +8,8 @@ export {}
 declare module "vue" {
   export interface GlobalComponents {
     DisplayCard: typeof import("./components/display-card/DisplayCard.vue")["default"];
-    FlexGroup: typeof import("./components/flex-group/FlexGroup.vue")["default"];
-    FlexGroupItem: typeof import("./components/flex-group/FlexGroupItem.vue")["default"];
+    DisplayFlexGroup: typeof import("./components/flex-group/DisplayFlexGroup.vue")["default"];
+    DisplayFlexGroupItem: typeof import("./components/flex-group/DisplayFlexGroupItem.vue")["default"];
     Footer: typeof import("./components/footer/Footer.vue")["default"];
     FormInputButton: typeof import("./components/forms/FormInputButton.vue")["default"];
     FormInputCheckbox: typeof import("./components/forms/FormInputCheckbox.vue")["default"];

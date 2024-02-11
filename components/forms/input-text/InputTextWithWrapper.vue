@@ -1,21 +1,21 @@
 <template>
   <div class="form-field-wrapper decorated" :class="[{ error: fieldHasError }]">
     <div class="form-field-inner">
-      <FlexGroup flex-flow="cols-to-row" align-content="center-left" :full-width="true">
+      <DisplayFlexGroup flex-flow="cols-to-row" align-content="center-left" :full-width="true">
         <template #default>
-          <FlexGroupItem :flex-grow="true" style-class-passthrough="form-field-label-wrapper">
+          <DisplayFlexGroupItem :flex-grow="true" style-class-passthrough="form-field-label-wrapper">
             <template #default>
               <label :for="id" class="form-field-label" :class="[{ error: fieldHasError }]">
                 <span class="form-field-label-text header-small wght-700">{{ t(`${i18nKey}.label`) }}</span>
                 <DisplayTooltip :tooltip-id="id" :text="t('components.forms.generic-text.hint', { hint: componentValidation.hint })" style-class-passthrough="ml-6" />
               </label>
             </template>
-          </FlexGroupItem>
-          <FlexGroupItem :flex-grow="false" style-class-passthrough="form-field-input-wrapper">
+          </DisplayFlexGroupItem>
+          <DisplayFlexGroupItem :flex-grow="false" style-class-passthrough="form-field-input-wrapper">
             <InputTextCore :type="type" :id="id" :validation="validation" :required="required" v-model:modelValue="modelValue" :i18n-key="i18nKey" />
-          </FlexGroupItem>
+          </DisplayFlexGroupItem>
         </template>
-      </FlexGroup>
+      </DisplayFlexGroup>
 
       <InputErrorMessage :id="id" :field-has-error="fieldHasError" :error-message="errorMessage" />
     </div>

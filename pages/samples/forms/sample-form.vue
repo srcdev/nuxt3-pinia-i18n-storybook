@@ -45,20 +45,20 @@
                   </template>
                 </InputCheckboxWrapper>
 
-                <FlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
+                <DisplayFlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
                   <template #default>
-                    <FlexGroupItem :flex-grow="false" style-class-passthrough="hide">
+                    <DisplayFlexGroupItem :flex-grow="false" style-class-passthrough="hide">
                       <template #default>
                         <InputButton type="reset" variant="primary" @click.prevent="doReset()" :is-pending="false" button-text="Reset" />
                       </template>
-                    </FlexGroupItem>
-                    <FlexGroupItem :flex-grow="false">
+                    </DisplayFlexGroupItem>
+                    <DisplayFlexGroupItem :flex-grow="false">
                       <template #default>
                         <InputButton type="submit" variant="primary" @click.prevent="isPending()" :is-pending="false" button-text="Submit" />
                       </template>
-                    </FlexGroupItem>
+                    </DisplayFlexGroupItem>
                   </template>
-                </FlexGroup>
+                </DisplayFlexGroup>
               </form>
             </ClientOnly>
           </template>

@@ -79,20 +79,20 @@
 
         <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default">
           <template #default>
-            <FlexGroup align-content="center-center" :full-width="true">
+            <DisplayFlexGroup align-content="center-center" :full-width="true">
               <template #default>
-                <FlexGroupItem :flex-grow="false">
+                <DisplayFlexGroupItem :flex-grow="false">
                   <template #default>
                     <p class="text-normal">Flex Group Item</p>
                   </template>
-                </FlexGroupItem>
-                <FlexGroupItem :flex-grow="false">
+                </DisplayFlexGroupItem>
+                <DisplayFlexGroupItem :flex-grow="false">
                   <template #default>
                     <p class="text-normal">Flex Group Item</p>
                   </template>
-                </FlexGroupItem>
+                </DisplayFlexGroupItem>
               </template>
-            </FlexGroup>
+            </DisplayFlexGroup>
           </template>
         </DisplayRow>
 

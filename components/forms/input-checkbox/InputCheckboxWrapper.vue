@@ -2,20 +2,20 @@
   <div class="form-field-wrapper decorated" :class="[{ error: fieldHasError }]">
     <div class="form-field-inner">
       <slot v-if="hasTitle" name="inputTitle"></slot>
-      <FlexGroup flex-flow="row-reverse" align-content="center-left" gap="12px" :full-width="false">
+      <DisplayFlexGroup flex-flow="row-reverse" align-content="center-left" gap="12px" :full-width="false">
         <template #default>
-          <FlexGroupItem style-class-passthrough="form-field-label-wrapper">
+          <DisplayFlexGroupItem style-class-passthrough="form-field-label-wrapper">
             <template #default>
               <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
             </template>
-          </FlexGroupItem>
-          <FlexGroupItem style-class-passthrough="form-field-input-wrapper">
+          </DisplayFlexGroupItem>
+          <DisplayFlexGroupItem style-class-passthrough="form-field-input-wrapper">
             <template #default>
               <slot name="inputField"></slot>
             </template>
-          </FlexGroupItem>
+          </DisplayFlexGroupItem>
         </template>
-      </FlexGroup>
+      </DisplayFlexGroup>
 
       <InputErrorMessage :id="id" :field-has-error="fieldHasError" :error-message="errorMessage" />
     </div>

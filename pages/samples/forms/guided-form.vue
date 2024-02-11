@@ -17,20 +17,20 @@
         </DisplayRow>
         <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
           <template #default>
-            <FlexGroup gap="12px" align-content="center-right">
+            <DisplayFlexGroup gap="12px" align-content="center-right">
               <template #default>
-                <FlexGroupItem>
+                <DisplayFlexGroupItem>
                   <template #default>
                     <InputButton type="button" variant="primary" @click.prevent="goToStep(-1)" button-text="Previous" :readonly="guidedFormData.step === 1" />
                   </template>
-                </FlexGroupItem>
-                <FlexGroupItem>
+                </DisplayFlexGroupItem>
+                <DisplayFlexGroupItem>
                   <template #default>
                     <InputButton type="button" variant="primary" @click.prevent="goToStep(1)" button-text="Next" :readonly="guidedFormData.step === steps" />
                   </template>
-                </FlexGroupItem>
+                </DisplayFlexGroupItem>
               </template>
-            </FlexGroup>
+            </DisplayFlexGroup>
           </template>
         </DisplayRow>
       </template>

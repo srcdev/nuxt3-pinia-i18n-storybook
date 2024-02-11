@@ -1,7 +1,7 @@
 <template>
-  <FlexGroup flex-flow="column" align-content="top-left" gap="0" apply-classes="qr-code">
+  <DisplayFlexGroup flex-flow="column" align-content="top-left" gap="0" apply-classes="qr-code">
     <template #default>
-      <FlexGroupItem>
+      <DisplayFlexGroupItem>
         <template #default>
           <div v-if="config.qrCodeStr !== ''">
             <img :src="qrcode" :alt="t('components.qrCode.imgAltText')" class="qr-code-image" :class="applyClasses" :height="qrCodeSize" :width="qrCodeSize" data-test-id="qrCodeImage" />
@@ -10,9 +10,9 @@
             <p class="nbrly-txt-nav-item-description mt-0 mb-12">ELSE</p>
           </div>
         </template>
-      </FlexGroupItem>
+      </DisplayFlexGroupItem>
 
-      <FlexGroupItem v-if="showCopyToClipboard" apply-classes="qr-code-clipboard" data-test-id="qrCodeClipboard">
+      <DisplayFlexGroupItem v-if="showCopyToClipboard" apply-classes="qr-code-clipboard" data-test-id="qrCodeClipboard">
         <template #default>
           <fieldset class="text-divider mb-32 mt-32">
             <legend class="text-divider-legend">{{ t("components.qrCode.dividerWords") }}</legend>
@@ -24,9 +24,9 @@
             </template>
           </CopyTextToClipboard>
         </template>
-      </FlexGroupItem>
+      </DisplayFlexGroupItem>
     </template>
-  </FlexGroup>
+  </DisplayFlexGroup>
 </template>
 
 <script setup lang="ts">

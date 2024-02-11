@@ -1,11 +1,11 @@
-import FlexGroup from "./FlexGroup.vue";
-import FlexGroupItem from "./FlexGroupItem.vue";
+import DisplayFlexGroup from "./DisplayFlexGroup.vue";
+import DisplayFlexGroupItem from "./DisplayFlexGroupItem.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/Scaffolding/Flex Group",
-  component: FlexGroup,
+  title: "Components/UI/Flex Group",
+  component: DisplayFlexGroup,
   args: {
     flexType: "flex", //"flex", "inline-flex"
     flexFlow: "row", // "column", "column-reverse", "row", "row-reverse", "cols-to-row"
@@ -15,49 +15,49 @@ export default {
     maxWidth: false,
     fillHeight: false,
     maxHeight: false,
-    styleClassPassthrough: "",
-  },
-} as Meta<typeof FlexGroup>;
+    styleClassPassthrough: ""
+  }
+} as Meta<typeof DisplayFlexGroup>;
 
-const Template: StoryFn<typeof FlexGroup> = (args) => ({
-  components: { FlexGroup, FlexGroupItem },
+const Template: StoryFn<typeof DisplayFlexGroup> = (args) => ({
+  components: { DisplayFlexGroup, DisplayFlexGroupItem },
   setup() {
     return { args };
   },
   template: `
-    <FlexGroup v-bind="args">
+    <DisplayFlexGroup v-bind="args">
       <template v-slot:default>
-        <FlexGroupItem>
+        <DisplayFlexGroupItem>
           <template v-slot:default>
             <div>
               <p class="text-normal">Grid Item</p>
             </div>
           </template>
-        </FlexGroupItem>
-        <FlexGroupItem>
+        </DisplayFlexGroupItem>
+        <DisplayFlexGroupItem>
           <template v-slot:default>
             <div>
               <p class="text-normal">Grid Item</p>
             </div>
           </template>
-        </FlexGroupItem>
-        <FlexGroupItem>
+        </DisplayFlexGroupItem>
+        <DisplayFlexGroupItem>
           <template v-slot:default>
             <div>
               <p class="text-normal">Grid Item</p>
             </div>
           </template>
-        </FlexGroupItem>
-        <FlexGroupItem>
+        </DisplayFlexGroupItem>
+        <DisplayFlexGroupItem>
           <template v-slot:default>
             <div>
               <p class="text-normal">Grid Item</p>
             </div>
           </template>
-        </FlexGroupItem>
+        </DisplayFlexGroupItem>
       </template>
-    </FlexGroup>
-  `,
+    </DisplayFlexGroup>
+  `
 });
 
 export const FlexRowTopLeft = Template.bind({});
@@ -70,7 +70,7 @@ FlexRowTopLeft.args = {
   maxWidth: false,
   fillHeight: false,
   maxHeight: false,
-  styleClassPassthrough: "",
+  styleClassPassthrough: ""
 };
 
 export const FlexRowTopCenter = Template.bind({});
@@ -83,7 +83,7 @@ FlexRowTopCenter.args = {
   maxWidth: true,
   fillHeight: false,
   maxHeight: false,
-  styleClassPassthrough: "",
+  styleClassPassthrough: ""
 };
 
 export const FlexRowTopRight = Template.bind({});
@@ -96,7 +96,7 @@ FlexRowTopRight.args = {
   maxWidth: true,
   fillHeight: false,
   maxHeight: false,
-  styleClassPassthrough: "",
+  styleClassPassthrough: ""
 };
 
 export const FlexRowTopSpaceAround = Template.bind({});
@@ -109,7 +109,7 @@ FlexRowTopSpaceAround.args = {
   maxWidth: false,
   fillHeight: false,
   maxHeight: false,
-  styleClassPassthrough: "",
+  styleClassPassthrough: ""
 };
 
 export const FlexRowTopSpaceBetween = Template.bind({});
@@ -122,7 +122,7 @@ FlexRowTopSpaceBetween.args = {
   maxWidth: false,
   fillHeight: false,
   maxHeight: false,
-  styleClassPassthrough: "",
+  styleClassPassthrough: ""
 };
 
 export const FlexRowCenterSpaceAround = Template.bind({});
@@ -135,7 +135,7 @@ FlexRowCenterSpaceAround.args = {
   maxWidth: false,
   fillHeight: true,
   maxHeight: false,
-  styleClassPassthrough: "",
+  styleClassPassthrough: ""
 };
 
 export const FlexRowCenterSpaceBetween = Template.bind({});
@@ -148,5 +148,5 @@ FlexRowCenterSpaceBetween.args = {
   maxWidth: false,
   fillHeight: true,
   maxHeight: false,
-  styleClassPassthrough: "",
+  styleClassPassthrough: ""
 };

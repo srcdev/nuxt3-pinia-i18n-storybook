@@ -2,25 +2,25 @@
   <DisplayRow :use-available-width="isFullWidth" :apply-gutters="false" display-row-theme="theme-black">
     <template #default>
       <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }, { 'signed-in': authenticated }]">
-        <FlexGroup align-content="center-left" gap="24px">
+        <DisplayFlexGroup align-content="center-left" gap="24px">
           <template #default>
-            <FlexGroupItem :flex-grow="true">
+            <DisplayFlexGroupItem :flex-grow="true">
               <template #default>
                 <NuxtLink to="/" class="text-header-large text-color-white">{{ $t("components.header.text") }}</NuxtLink>
               </template>
-            </FlexGroupItem>
-            <FlexGroupItem v-if="authenticated">
+            </DisplayFlexGroupItem>
+            <DisplayFlexGroupItem v-if="authenticated">
               <template #default>
                 <IconButtonLogout @click="doLogout()" :button-text="$t('components.header.logout-btn')" />
               </template>
-            </FlexGroupItem>
-            <FlexGroupItem>
+            </DisplayFlexGroupItem>
+            <DisplayFlexGroupItem>
               <template #default>
                 <HeaderNavigation></HeaderNavigation>
               </template>
-            </FlexGroupItem>
+            </DisplayFlexGroupItem>
           </template>
-        </FlexGroup>
+        </DisplayFlexGroup>
       </header>
     </template>
   </DisplayRow>
