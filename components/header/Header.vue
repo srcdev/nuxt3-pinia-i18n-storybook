@@ -105,7 +105,7 @@
       text-decoration: none;
 
       &-logo {
-        background: transparent url("/assets/images/logo/logo-1024.jpeg") 0 -5px no-repeat;
+        background: transparent url("/assets/images/logo/logo-75.webp") 0 -5px no-repeat;
         background-size: contain;
         border: 1px solid $color-orange-5;
         border-radius: 50%;
