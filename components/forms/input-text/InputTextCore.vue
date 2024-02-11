@@ -67,20 +67,16 @@
 
   const { updateCustomErrors } = useFormControl(modelValue.value.formId);
 
-  const { hasCustomError } = useErrorMessage(name.value, modelValue.value);
+  const { hasCustomError, removeCustomError } = useErrorMessage(name.value, modelValue);
 
   const fieldHasError = () => {
     const hasApiErrorMessage = hasCustomError();
     const inputBad = !inputField.value?.validity.valid;
 
-    // console.log(`fieldHasError() | hasApiErrorMessage(${hasApiErrorMessage}) | inputBad(${inputBad})`);
-
     if (modelValue.value.isPending) {
-      // console.log("fieldHasError() | IF");
       modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
       return hasApiErrorMessage ? hasApiErrorMessage : inputBad;
     }
-    // console.log("fieldHasError() | ELSE");
     return false;
   };
 
@@ -97,9 +93,11 @@
     () => modelValue.value.data[name.value],
     () => {
       console.log(`watch(${name.value}) modelValue`);
+      console.log(modelValue.value.customErrorMessages);
       modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
       if (hasCustomError()) {
-        updateCustomErrors(name.value, null, inputField.value?.validity.valid);
+        removeCustomError(inputField.value?.validity.valid);
+        // updateCustomErrors(name.value, null, inputField.value?.validity.valid);
       }
     },
     { deep: true }

@@ -28,24 +28,24 @@
   const props = defineProps({
     id: {
       type: String,
-      required: true,
+      required: true
     },
     name: {
       type: String,
-      default: null,
+      default: null
     },
     i18nKey: {
       type: String,
-      required: true,
+      required: true
     },
     validation: {
       type: String,
-      default: "",
+      default: ""
     },
     required: {
       type: Boolean,
-      value: false,
-    },
+      value: false
+    }
   });
 
   const { t } = useI18n();
@@ -57,7 +57,7 @@
   const hasTitle = computed(() => slots.inputTitle !== undefined);
 
   const modelValue = defineModel() as unknown as IFormData;
-  const { errorMessage, setDefaultError, fieldHasError } = useErrorMessage(name.value, modelValue.value);
+  const { errorMessage, setDefaultError, fieldHasError } = useErrorMessage(name.value, modelValue);
   setDefaultError(t(`${props.i18nKey}.error-message`));
 </script>
 

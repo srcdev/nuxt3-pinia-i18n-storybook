@@ -35,28 +35,28 @@
       default: "text",
       validator(value: string) {
         return ["text", "password", "tel", "number", "email", "url"].includes(value);
-      },
+      }
     },
     id: {
       type: String,
-      required: true,
+      required: true
     },
     i18nKey: {
       type: String,
-      required: true,
+      required: true
     },
     name: {
       type: String,
-      default: null,
+      default: null
     },
     required: {
       type: Boolean,
-      default: false,
+      default: false
     },
     validation: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   });
 
   const { t } = useI18n();
@@ -68,7 +68,7 @@
   const componentValidation = validationConfig[validatorLocale.value][props.validation];
 
   const modelValue = defineModel() as unknown as IFormData;
-  const { errorMessage, setDefaultError, fieldHasError } = useErrorMessage(name.value, modelValue.value);
+  const { errorMessage, setDefaultError, fieldHasError } = useErrorMessage(name.value, modelValue);
   setDefaultError(t(`${props.i18nKey}.error-message`));
 </script>
 
