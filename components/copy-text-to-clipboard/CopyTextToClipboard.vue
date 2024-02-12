@@ -9,11 +9,8 @@
 
     <p class="txt-sub-header txt-semibold mb-12">{{ config.copyLabel }}</p>
     <div class="copy-to-clipboard">
-      <input type="text" :value="config.stringToCopy" disabled class="txt-body clipboard-text" data-test-id="copy-string" />
-      <button class="copy-btn" @click.prevent="copyToClipboard()" @keydown.enter="copyToClipboard()">
-        <span class="fa-regular fa-clone"></span>
-        <span class="txt-body txt-semibold">{{ config.copyBtnText }}</span>
-      </button>
+      <InputTextReadOnlyCore type="text" variant="ghost" v-model="config.stringToCopy" />
+      <IconButtonCopyOutline @click.prevent="copyToClipboard()" @keydown.enter="copyToClipboard()" :button-text="config.copyBtnText" size="medium" style-class-passthrough="copy-btn" />
     </div>
   </div>
 </template>
@@ -28,8 +25,8 @@
       type: Object as PropType<ICopyTextConfig>,
       default() {
         return {};
-      },
-    },
+      }
+    }
   });
 
   const slots = useSlots();
@@ -39,8 +36,10 @@
     showToast: false,
     variant: "success",
     duration: 5000,
-    toastDisplayText: props.config.toastDisplayText,
+    toastDisplayText: props.config.toastDisplayText
   });
+
+  console.log(toastConfig.value);
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(props.config.stringToCopy);
@@ -56,6 +55,7 @@
   @import "@/assets/styles/imports.scss";
 
   .copy-to-clipboard {
+    background-color: white;
     border: 1px solid $color-grey-7;
     border-radius: 8px;
     display: flex;
@@ -63,7 +63,7 @@
     width: 100%;
 
     .clipboard-text {
-      background-color: transparent;
+      background-color: white;
       border: none;
       flex-grow: 1;
       outline: none;
@@ -78,20 +78,16 @@
 
     .copy-btn {
       border: 0;
-      background-color: transparent;
+      // background-color: transparent;
       white-space: nowrap;
 
-      &:hover,
-      &:focus {
-        cursor: pointer;
-        background-color: $color-grey-7;
-        border-color: $color-grey-7;
-        color: $color-grey-1;
-      }
-
-      [class^="fa"] {
-        margin-right: 6px;
-      }
+      // &:hover,
+      // &:focus {
+      //   cursor: pointer;
+      //   background-color: $color-grey-7;
+      //   border-color: $color-grey-7;
+      //   color: $color-grey-1;
+      // }
     }
   }
 </style>

@@ -22,6 +22,7 @@
 
 <script setup lang="ts">
   import type { IQrCodeConfig, IQrCodeColours } from "@/types/types.qrCode";
+  import type { ICopyTextConfig } from "@/types/types.copyTextToClipboard";
 
   definePageMeta({
     layout: false
@@ -37,14 +38,16 @@
 
   const { t } = useI18n();
 
-  const qrCodeConfig = <IQrCodeConfig>{
+  const qrCodeConfig = ref({
     qrCodeStr: t("pages.display-qr-code.qrCodeConfig.qrCodeStr"),
     manualCodeStr: t("pages.display-qr-code.qrCodeConfig.manualCodeStr"),
     copyLabel: t("pages.display-qr-code.qrCodeConfig.copyLabel"),
     copyBtnText: t("pages.display-qr-code.qrCodeConfig.copyBtnText"),
-    toastDisplayText: t("pages.display-qr-code.qrCodeConfig.toastDisplayText"),
+    toastSuccess: t("pages.display-qr-code.qrCodeConfig.toastDisplayText"),
     summaryContent: t("pages.display-qr-code.qrCodeConfig.summaryContent")
-  };
+  });
+
+  console.log(qrCodeConfig.value);
 </script>
 
 <style lang="scss" scoped>

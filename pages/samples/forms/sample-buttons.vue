@@ -235,6 +235,38 @@
                     <IconButtonAccount button-text="Account Small" size="large" style-class-passthrough="mb-12" />
                   </div>
                 </div>
+
+                <p class="text-normal mb-12"><code>&lt;IconButtonCopy&gt;</code></p>
+                <div placement="left-center" gap="12px">
+                  <div>
+                    <IconButtonCopy button-text="Copy Small" size="small" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonCopy button-text="Copy Small" size="normal" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonCopy button-text="Copy Small" size="medium" style-class-passthrough="mb-12" />
+                  </div>
+                  <div>
+                    <IconButtonCopy button-text="Copy Small" size="large" style-class-passthrough="mb-12" />
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-normal mb-12"><code>&lt;IconButtonCopyOutline&gt;</code></p>
+              <div placement="left-center" gap="12px">
+                <div>
+                  <IconButtonCopyOutline button-text="Copy Outline Small" size="small" style-class-passthrough="mb-12" />
+                </div>
+                <div>
+                  <IconButtonCopyOutline button-text="Copy Outline Small" size="normal" style-class-passthrough="mb-12" />
+                </div>
+                <div>
+                  <IconButtonCopyOutline button-text="Cop Outliney Small" size="medium" style-class-passthrough="mb-12" />
+                </div>
+                <div>
+                  <IconButtonCopyOutline button-text="Copy Outline Small" size="large" style-class-passthrough="mb-12" />
+                </div>
               </div>
             </form>
           </template>

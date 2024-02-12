@@ -76,26 +76,20 @@
     type: "image/svg",
     margin: 1,
     width: props.qrCodeSize,
-    // color: {
-    //   dark: props.qrColours.dark,
-    //   light: props.qrColours.light
-    // }
     color: {
       dark: "#000000ff",
       light: "#ffffffff"
     }
   });
 
-  const copyTextToClipboardConfig = <ICopyTextConfig>{
+  const copyTextToClipboardConfig = ref<ICopyTextConfig>({
     copyLabel: props.config.copyLabel,
     copyBtnText: props.config.copyBtnText,
-    toastDisplayText: props.config.toastDisplayText,
+    toastDisplayText: props.config.toastSuccess,
     stringToCopy: props.config.manualCodeStr,
     useToastConfirm: true,
     applyClasses: "customClass"
-  };
-
-  // console.log(copyTextToClipboardConfig);
+  });
 
   const qrCssWidth = computed(() => {
     return `${props.qrCodeSize}px`;

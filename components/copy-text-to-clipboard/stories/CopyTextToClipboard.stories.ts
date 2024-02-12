@@ -7,10 +7,10 @@ export default {
   args: {
     copyLabel: "You can copy text to the clipboard",
     copyBtnText: "Copy to Clipboard",
-    toastSuccess: "Copied to clipboard",
+    toastDisplayText: "Copied to clipboard",
     stringToCopy: "Copy this text",
-    useToastConfirm: true,
-  },
+    useToastConfirm: true
+  }
 } as Meta<typeof CopyTextToClipboard>;
 
 const Template: StoryFn<typeof CopyTextToClipboard> = (args) => ({
@@ -18,7 +18,7 @@ const Template: StoryFn<typeof CopyTextToClipboard> = (args) => ({
   setup() {
     return { args };
   },
-  template: `<CopyTextToClipboard v-bind="args"></CopyTextToClipboard>`,
+  template: `<CopyTextToClipboard v-bind="args"></CopyTextToClipboard>`
 });
 
 export const Default = Template.bind({});

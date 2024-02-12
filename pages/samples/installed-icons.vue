@@ -112,6 +112,20 @@
                 <div class="icon-name"><span class="text-normal">Account Circle Full</span></div>
               </div>
 
+              <p class="text-header-medium mt-8">Copy</p>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:copy-all" class="icon-copy-all" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Copy</span></div>
+              </div>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:copy-all-outline" class="icon-copy-all-outline" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Copy (Outline)</span></div>
+              </div>
+
               <p class="text-header-medium mt-8">Forms and warnings</p>
               <div class="icon-table">
                 <div class="icon-display">
