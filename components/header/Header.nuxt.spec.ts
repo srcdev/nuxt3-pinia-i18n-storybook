@@ -6,7 +6,7 @@ import { useAccountStore } from "@/stores/store.account";
 import { useRootStore } from "@/stores/store.root";
 
 let initialPropsData = {
-  someProp: "value1",
+  someProp: "value1"
 };
 
 let wrapper: VueWrapper<InstanceType<typeof ComponentUnderTest>>;
@@ -14,7 +14,7 @@ const wrapperFactory = (propsData = {}) => {
   const mockPropsData = Object.keys(propsData).length > 0 ? propsData : initialPropsData;
 
   return mountSuspended(ComponentUnderTest, {
-    props: mockPropsData,
+    props: mockPropsData
   });
 };
 
@@ -30,7 +30,10 @@ describe("Header", () => {
     wrapper = await wrapperFactory();
 
     const textCheck = wrapper.find("h1");
-    expect(textCheck.html()).toMatchInlineSnapshot('"<h1 data-v-2b517c36="" class="text-header-large text-color-white">On The Plains</h1>"');
+    console.log(textCheck.html());
+    expect(textCheck.html()).toMatchInlineSnapshot(
+      '"<h1 data-v-2b517c36="" class="ghost-text"><a data-v-2b517c36="" href="/" class="header-home-link text-header-large text-color-white"><span data-v-2b517c36="" class="header-home-link-logo"></span><span data-v-2b517c36="" class="header-home-link-text">On The Plains</span></a></h1>"'
+    );
   });
 
   it("Component i18n text", async () => {
@@ -68,7 +71,7 @@ describe("Header", () => {
 
   it.skip("should render default props within nuxt suspense", async () => {
     const props = {
-      someProp: "some test value",
+      someProp: "some test value"
     };
     wrapper = await wrapperFactory(props);
 

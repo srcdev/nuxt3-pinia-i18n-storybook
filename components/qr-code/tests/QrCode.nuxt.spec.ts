@@ -13,18 +13,18 @@ const initialPropsData = {
   qrCodeSize: 150,
   showCopyToClipboard: true,
   config: {
-    qrCodeStr: "otpauth://totp/PretendSite%20Dev%20Local:some.one+tfa5@neighbourly.com?secret=GU4DMMZRGI2TSLJVMFTDSLJUGUYTILLBGQZTELLDMYYGCOBQMIZDQOBUGE&issuer=PretendSite%20Dev%20Local",
+    qrCodeStr: "GU4DMMZRGI2TSLJVMFTDSLJUGUYTILLBGQZTELLDMYYGCOBQMIZDQOBUGE",
     manualCodeStr: "GU4DMMZRGI2TSLJVMFTDSLJUGUYTILLBGQZTELLDMYYGCOBQMIZDQOBUGE",
     copyLabel: "Secret Key",
     copyBtnText: "Copy",
     toastSuccess: "Copied to clipboard",
-    summaryContent: "Summary content text",
+    summaryContent: "Summary content text"
   },
   qrColours: {
     dark: "#000",
-    light: "#fff",
+    light: "#fff"
   },
-  applyClasses: "customClassName",
+  applyClasses: "customClassName"
 };
 
 let wrapper: VueWrapper<InstanceType<typeof ComponentUnderTest>>;
@@ -32,7 +32,7 @@ const wrapperFactory = (propsData = {}) => {
   const mockPropsData = Object.keys(propsData).length > 0 ? propsData : initialPropsData;
 
   return mountSuspended(ComponentUnderTest, {
-    props: mockPropsData,
+    props: mockPropsData
   });
 };
 
@@ -52,7 +52,7 @@ describe("QRCode", () => {
 
   it("Image size prop controls size", async () => {
     const props = {
-      qrCodeSize: 300,
+      qrCodeSize: 300
     };
     wrapper = await wrapperFactory(props);
     const qrImage = wrapper.find("[data-test-id='qrCodeImage']");
@@ -76,7 +76,7 @@ describe("QRCode", () => {
 
   it("Copy code to clipoard is hidden", async () => {
     const props = {
-      showCopyToClipboard: false,
+      showCopyToClipboard: false
     };
     wrapper = await wrapperFactory(props);
     await wrapper.vm.$nextTick();

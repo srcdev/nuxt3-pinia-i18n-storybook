@@ -8,7 +8,7 @@ export default {
     qrCodeSize: 150,
     showCopyToClipboard: true,
     config: {
-      qrCodeStr: "otpauth://totp/PretendSite%20Dev%20Local:some.one+tfa5@neighbourly.com?secret=GU4DMMZRGI2TSLJVMFTDSLJUGUYTILLBGQZTELLDMYYGCOBQMIZDQOBUGE&issuer=PretendSite%20Dev%20Local",
+      qrCodeStr: "GU4DMMZRGI2TSLJVMFTDSLJUGUYTILLBGQZTELLDMYYGCOBQMIZDQOBUGE",
       manualCodeStr: "GU4DMMZRGI2TSLJVMFTDSLJUGUYTILLBGQZTELLDMYYGCOBQMIZDQOBUGE",
       copyLabel: "Secret Key",
       copyBtnText: "Copy",

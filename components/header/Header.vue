@@ -6,10 +6,12 @@
           <template #default>
             <DisplayFlexGroupItem :flex-grow="true">
               <template #default>
-                <NuxtLink to="/" class="header-home-link text-header-large text-color-white">
-                  <span class="header-home-link-logo"></span>
-                  <span class="header-home-link-text">{{ $t("components.header.text") }}</span>
-                </NuxtLink>
+                <h1 class="ghost-text">
+                  <NuxtLink to="/" class="header-home-link text-header-large text-color-white">
+                    <span class="header-home-link-logo"></span>
+                    <span class="header-home-link-text">{{ $t("components.header.text") }}</span>
+                  </NuxtLink>
+                </h1>
               </template>
             </DisplayFlexGroupItem>
             <DisplayFlexGroupItem v-if="authenticated">

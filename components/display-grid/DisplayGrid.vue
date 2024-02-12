@@ -33,14 +33,14 @@
   const slots = useSlots();
   const hasSlotComponent = computed(() => slots.content !== undefined);
 
-  onMounted(() => {
-    const maxTileWidth = computed(() => {
-      return props.fixedWidth ? props.minTileWidth + "px" : "1fr";
-    });
-    const minTileWidth = computed(() => {
-      return props.minTileWidth + "px";
-    });
+  // onMounted(() => {
+  const maxTileWidth = computed(() => {
+    return props.fixedWidth ? props.minTileWidth + "px" : "1fr";
   });
+  const minTileWidth = computed(() => {
+    return props.minTileWidth + "px";
+  });
+  // });
 </script>
 
 <style scoped lang="scss">
