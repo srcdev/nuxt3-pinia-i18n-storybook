@@ -208,9 +208,9 @@
     &__items {
       background-color: $color-grey-8;
       border: 1px solid $color-orange-5;
-      box-shadow: 2px 2px 10px 0px $color-orange-5;
+      // box-shadow: 2px 2px 10px 0px $color-orange-5;
       border-radius: 6px;
-      border: 1px solid $color-grey-6;
+      outline: 1px solid $color-grey-6;
       position: absolute;
       right: -6px;
       top: -6px;
@@ -218,6 +218,7 @@
       padding: 0;
       color: $color-grey-4;
       opacity: 0;
+      overflow: hidden;
       transition: opacity ease-in-out 200ms;
       min-width: 250px;
 
