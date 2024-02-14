@@ -63,9 +63,7 @@ describe("DisplayPromptCore", () => {
   it("has no action if dismissible false", async () => {
     initialPropsData.dismissible = false;
     wrapper = await wrapperFactory(initialPropsData);
-    expect(wrapper.html()).toMatchInlineSnapshot(
-      '"<div class="display-prompt error customClassName" data-test-id="display-prompt"><div class="display-prompt-icon" data-test-id="prompt-icon"><span class="fa fa-ban"></span></div><div class="display-prompt-content"><p class="display-prompt-content-text nbrly-txt-semibold" data-test-id="display-prompt-title">Title slot text</p><p class="display-prompt-content-text" data-test-id="display-prompt-content">Content slot text</p></div><!--v-if--></div>"'
-    );
+    expect(wrapper.html()).toMatchSnapshot();
 
     // const testElem = wrapper.find("[data-test-id='display-prompt-action']");
     // console.log(">>>>>>>  testElem");
