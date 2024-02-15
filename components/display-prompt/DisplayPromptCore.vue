@@ -13,7 +13,7 @@
     </div>
     <div v-if="dismissible" class="display-prompt-action" data-test-id="display-prompt-action" @click.prevent="dismissPrompt()">
       <button class="display-prompt-action-btn" data-test-id="display-prompt-close-btn">
-        <span class="fa fa-close"></span>
+        <Icon name="material-symbols:close" class="close" />
       </button>
     </div>
   </div>
@@ -101,7 +101,7 @@
       }
 
       #{ $self }-icon {
-        :slotted(.fa) {
+        :slotted(.icon) {
           color: $color-grey-12;
         }
       }
@@ -110,7 +110,7 @@
     &-icon {
       display: inline-block;
 
-      :slotted(.fa) {
+      :slotted(.icon) {
         @include prompIcons();
       }
     }
@@ -138,7 +138,7 @@
         &:hover {
           cursor: pointer;
         }
-        .fa {
+        .icon {
           @include prompIcons();
         }
       }

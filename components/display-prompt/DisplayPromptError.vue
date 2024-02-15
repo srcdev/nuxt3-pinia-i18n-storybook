@@ -1,7 +1,7 @@
 <template>
   <DisplayPromptCore variant="error" :dismissible="dismissible" :apply-classes="applyClasses">
     <template #icon>
-      <span class="fa fa-ban"></span>
+      <Icon name="akar-icons:circle-alert" class="icon" />
     </template>
     <template #title>
       <slot name="title"></slot>
@@ -13,7 +13,6 @@
 </template>
 
 <script setup lang="ts">
-
   const { dismissible } = defineProps({
     dismissible: {
       type: Boolean,
@@ -23,9 +22,8 @@
       type: String,
       default: ""
     }
-  })
+  });
 
   const slots = useSlots();
   const hasContent = ref(slots.content !== undefined);
-
 </script>

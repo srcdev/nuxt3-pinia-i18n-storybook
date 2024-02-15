@@ -9,7 +9,7 @@ const initialPropsData = {
   applyClasses: "customClassName"
 };
 
-const slotIcon = `<span class="fa fa-ban"></span>`;
+const slotIcon = `<Icon name="akar-icons:circle-alert" class="icon" />`;
 const slotTitle = "Title slot text";
 const slotContent = "Content slot text";
 const initialSlots = {
@@ -63,19 +63,12 @@ describe("DisplayPromptCore", () => {
   it("has no action if dismissible false", async () => {
     initialPropsData.dismissible = false;
     wrapper = await wrapperFactory(initialPropsData);
-    expect(wrapper.html()).toMatchSnapshot();
-
-    // const testElem = wrapper.find("[data-test-id='display-prompt-action']");
-    // console.log(">>>>>>>  testElem");
-    // console.log(testElem.html());
-    // console.log(">>>>>>>  testElem");
-    // expect(testElem.html()).toBeUndefined();
+    expect(wrapper.find("[data-test-id='display-prompt-action']").exists()).toBe(false);
   });
 
   it("has applied classes from props", async () => {
     wrapper = await wrapperFactory();
-    const test1Elem = wrapper.find("[data-test-id='display-prompt']");
-    expect(test1Elem.classes()).toContain("customClassName");
+    expect(wrapper.find("[data-test-id='display-prompt']").classes()).toContain("customClassName");
   });
 
   // Variants
@@ -84,42 +77,42 @@ describe("DisplayPromptCore", () => {
     wrapper = await wrapperFactory(initialPropsData);
     const test1Elem = wrapper.find("[data-test-id='display-prompt']");
     expect(test1Elem.classes()).toContain("error");
-    expect(test1Elem.html()).toContain('<span class="fa fa-ban"></span>');
+    expect(test1Elem.html()).toContain('<Icon name="akar-icons:circle-alert" class="icon" />');
   });
 
   it("has correct 'info' class and icon", async () => {
     initialPropsData.variant = "info";
-    initialSlots.icon = () => '<span class="fa fa-square-info"></span>';
+    initialSlots.icon = () => '<Icon name="akar-icons:info" class="icon" />';
     wrapper = await wrapperFactory(initialPropsData, initialSlots);
     const test1Elem = wrapper.find("[data-test-id='display-prompt']");
     expect(test1Elem.classes()).toContain("info");
-    expect(test1Elem.html()).toContain('<span class="fa fa-square-info"></span>');
+    expect(test1Elem.html()).toContain('<Icon name="akar-icons:info" class="icon" />');
   });
 
   it("has correct 'secondary' class and icon", async () => {
     initialPropsData.variant = "secondary";
-    initialSlots.icon = () => '<span class="fa fa-square-info"></span>';
+    initialSlots.icon = () => '<Icon name="akar-icons:info" class="icon" />';
     wrapper = await wrapperFactory(initialPropsData, initialSlots);
     const test1Elem = wrapper.find("[data-test-id='display-prompt']");
     expect(test1Elem.classes()).toContain("secondary");
-    expect(test1Elem.html()).toContain('<span class="fa fa-square-info"></span>');
+    expect(test1Elem.html()).toContain('<Icon name="akar-icons:info" class="icon" />');
   });
 
   it("has correct 'success' class and icon", async () => {
     initialPropsData.variant = "success";
-    initialSlots.icon = () => '<span class="fa fa-square-info"></span>';
+    initialSlots.icon = () => '<Icon name="akar-icons:circle-check" class="icon" />';
     wrapper = await wrapperFactory(initialPropsData, initialSlots);
     const test1Elem = wrapper.find("[data-test-id='display-prompt']");
     expect(test1Elem.classes()).toContain("success");
-    expect(test1Elem.html()).toContain('<span class="fa fa-square-info"></span>');
+    expect(test1Elem.html()).toContain('<Icon name="akar-icons:circle-check" class="icon" />');
   });
 
   it("has correct 'warning' class and icon", async () => {
     initialPropsData.variant = "warning";
-    initialSlots.icon = () => '<span class="fa fa-square-info"></span>';
+    initialSlots.icon = () => '<Icon name="akar-icons:triangle-alert" class="icon" />';
     wrapper = await wrapperFactory(initialPropsData, initialSlots);
     const test1Elem = wrapper.find("[data-test-id='display-prompt']");
     expect(test1Elem.classes()).toContain("warning");
-    expect(test1Elem.html()).toContain('<span class="fa fa-square-info"></span>');
+    expect(test1Elem.html()).toContain('<Icon name="akar-icons:triangle-alert" class="icon" />');
   });
 });

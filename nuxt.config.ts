@@ -52,17 +52,17 @@ export default defineNuxtConfig({
         lang: "en"
       },
       titleTemplate: "%s - Website name",
-      link: [
-        {
-          rel: "icon",
-          type: "image/x-icon",
-          href: "./assets/images/favicon.jpg"
-        }
-        // {
-        //   rel: "stylesheet",
-        //   href: "./node_modules/modern-normalize/modern-normalize.css",
-        // },
-      ],
+      // link: [
+      //   {
+      //     rel: "icon",
+      //     type: "image/x-icon",
+      //     href: "./assets/images/favicon.jpg"
+      //   }
+      //   // {
+      //   //   rel: "stylesheet",
+      //   //   href: "./node_modules/modern-normalize/modern-normalize.css",
+      //   // },
+      // ],
       meta: [{ charset: "utf-8" }, { name: "viewport", content: "width=device-width, initial-scale=1" }]
     },
     pageTransition: {

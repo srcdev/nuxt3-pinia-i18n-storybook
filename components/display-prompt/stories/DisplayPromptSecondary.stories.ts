@@ -1,8 +1,8 @@
 import type { Meta, StoryFn } from "@storybook/vue3";
-import StoryBookComponent from "../DisplayPromptError.vue";
+import StoryBookComponent from "../DisplayPromptSecondary.vue";
 
 export default {
-  title: "Components/Common/DisplayPrompt/Error",
+  title: "Components/Common/DisplayPrompt/Secondary",
   component: StoryBookComponent,
   args: {
     dismissible: true,
@@ -25,21 +25,21 @@ const Template: StoryFn<typeof StoryBookComponent> = (args) => ({
 
 export const TitleOnlyDismissable = Template.bind({});
 TitleOnlyDismissable.args = {
-  title: "Error Prompt Title Only Dismissable",
+  title: "Secondary Prompt Title Only Dismissable",
   dismissible: true,
   applyClasses: "mt-20 mb-20"
 };
 
 export const TitleOnlyNotDismissable = Template.bind({});
 TitleOnlyNotDismissable.args = {
-  title: "Error Prompt Title Only Not Dismissable",
+  title: "Secondary Prompt Title Only Not Dismissable",
   dismissible: false,
   applyClasses: "mt-20 mb-20"
 };
 
 export const TitleAndContentDismissable = Template.bind({});
 TitleAndContentDismissable.args = {
-  title: "Error Prompt Title Only Dismissable",
+  title: "Secondary Prompt Title Only Dismissable",
   content: "Description text",
   dismissible: true,
   applyClasses: "mt-20 mb-20"
@@ -47,7 +47,7 @@ TitleAndContentDismissable.args = {
 
 export const TitleAndContentNotDismissable = Template.bind({});
 TitleAndContentNotDismissable.args = {
-  title: "Error Prompt Title Only Not Dismissable",
+  title: "Secondary Prompt Title Only Not Dismissable",
   content: "Description text",
   dismissible: false,
   applyClasses: "mt-20 mb-20"

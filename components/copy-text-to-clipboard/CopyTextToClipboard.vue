@@ -39,8 +39,6 @@
     toastDisplayText: props.config.toastDisplayText
   });
 
-  console.log(toastConfig.value);
-
   const copyToClipboard = () => {
     navigator.clipboard.writeText(props.config.stringToCopy);
     triggerToast();
