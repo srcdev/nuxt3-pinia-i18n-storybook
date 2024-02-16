@@ -93,7 +93,7 @@
       background-image: $backgroundImage;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed;
+      // background-attachment: fixed;
       background-size: cover;
     }
     &-foreground {
