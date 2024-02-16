@@ -38,7 +38,7 @@ import type { routeLocationKey } from 'vue-router'; import type { transform } fr
   @import "@/assets/styles/imports.scss";
 
   .display-spotlight {
-    aspect-ratio: 1;
+    // aspect-ratio: 1;
     background-color: #fff;
     border: 1px solid $color-orange-5;
     border-radius: 10px;
@@ -46,7 +46,7 @@ import type { routeLocationKey } from 'vue-router'; import type { transform } fr
     width: 100%;
 
     &-inner {
-      aspect-ratio: 1;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       // position: relative;
 

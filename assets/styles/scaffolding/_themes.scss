@@ -31,3 +31,8 @@
 .theme-orange {
   background-color: $color-orange-5;
 }
+
+.theme-header {
+  background: transparent url("/assets/images/banners/header-dark.webp") 0 0 no-repeat;
+  background-size: cover;
+}

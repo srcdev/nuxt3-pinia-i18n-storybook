@@ -1,5 +1,5 @@
 <template>
-  <DisplayRow :use-available-width="isFullWidth" :apply-gutters="false" display-row-theme="theme-dark">
+  <DisplayRow :use-available-width="isFullWidth" :apply-gutters="false" display-row-theme="theme-header">
     <template #default>
       <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }, { 'signed-in': authenticated }]">
         <DisplayFlexGroup align-content="center-left" gap="24px">
@@ -85,6 +85,8 @@
   .header {
     // background-color: var(--bgColour);
     // background-color: $black;
+    // background: transparent url("/assets/images/banners/header-dark.webp") 0 0 no-repeat;
+    // background-size: contain;
     padding: 16px 0;
 
     @include mqMinTablet {

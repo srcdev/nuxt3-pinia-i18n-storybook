@@ -12,15 +12,15 @@
         <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
           <template #default>
             <ClientOnly>
-              <MasonryGrid :min-tile-width="300">
+              <DisplayGrid :min-tile-width="414" col-repeat-type="auto-fill">
                 <template #content>
-                  <MasonryGridItem v-for="item in data?.items" :use-scroll-reveal="false">
+                  <DisplayGridItem v-for="item in data?.items" :use-scroll-reveal="false">
                     <template #content>
                       <DisplaySpotlight :alt="item.alt" :url="item.url" />
                     </template>
-                  </MasonryGridItem>
+                  </DisplayGridItem>
                 </template>
-              </MasonryGrid>
+              </DisplayGrid>
             </ClientOnly>
           </template>
         </DisplayRow>

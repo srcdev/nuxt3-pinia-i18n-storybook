@@ -2,22 +2,22 @@
   "items": [
     {
       "id": 1,
-      "url": "/assets/images/gallery/cheeta-looking-down-on-a-herd-of-zebra.jpeg",
+      "url": "/assets/images/spotlights/v2/dining-out.webp",
       "alt": "Dining out"
     },
     {
       "id": 2,
-      "url": "/assets/images/gallery/elephants-with-young-at-an-oasis.jpeg",
+      "url": "/assets/images/spotlights/v2/beer-gardens.webp",
       "alt": "Watering holes"
     },
     {
       "id": 3,
-      "url": "/assets/images/gallery/kenya-storm-clouds.jpeg",
+      "url": "/assets/images/spotlights/v2/will-it-rain.webp",
       "alt": "Will it rain?"
     },
     {
       "id": 4,
-      "url": "/assets/images/gallery/lion-mouth-wide-open.jpeg",
+      "url": "/assets/images/spotlights/v2/got-toothache.webp",
       "alt": "Dental Services"
     }
   ],
