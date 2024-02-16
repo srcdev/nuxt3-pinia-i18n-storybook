@@ -97,6 +97,8 @@
       background-size: cover;
     }
     &-foreground {
+      height: 100%;
+      position: relative;
     }
   }
   // .parallax__layer--back {
