@@ -12,10 +12,7 @@
 
         <DisplayRow :use-available-width="true" :apply-gutters="false">
           <template #default>
-            <SectionParallax bg-image="/assets/images/sample.jpg" bg-height="100vh" justify-items="left">
-              <template #sidePanel>
-                <h1 class="text-header-large">This is a sidePanel</h1>
-              </template>
+            <DisplayParallaxGroup bg-image="/assets/images/sample.jpg" bg-height="100vh" justify-items="left">
               <template #content>
                 <DisplayRow :use-available-width="true" :apply-gutters="true" style-class-passthrough="pt-40 pb-40">
                   <template #default>
@@ -25,10 +22,7 @@
                   </template>
                 </DisplayRow>
               </template>
-              <template #infoRow>
-                <h1 class="text-header-large">This is a infoRow</h1>
-              </template>
-            </SectionParallax>
+            </DisplayParallaxGroup>
           </template>
         </DisplayRow>
 
