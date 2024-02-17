@@ -51,7 +51,8 @@
 
       display: grid;
       // grid-template-columns: repeat(5, [col] 20%);
-      grid-template-columns: 0 repeat(4, [col] auto);
+      grid-template-columns: repeat(5, [col] auto);
+      // grid-template-columns: 0 repeat(4, [col] auto);
       grid-template-rows: repeat(3, [row] auto);
       background-color: #fff;
       color: #444;
@@ -70,6 +71,7 @@
       height: 100%;
       line-height: unset;
       padding: 0;
+      width: fit-content;
       z-index: 10;
 
       grid-column: col;

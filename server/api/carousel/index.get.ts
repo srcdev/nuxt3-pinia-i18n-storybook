@@ -1,4 +1,4 @@
-import data from "../../data/spotlights/data.json";
+import data from "../../data/carousel/data.json";
 
 export default defineEventHandler(async (event) => {
   const sleep = async (ms: number) => {

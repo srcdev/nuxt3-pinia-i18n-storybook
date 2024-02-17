@@ -2,17 +2,21 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" footer-theme="theme-default">
       <template #layout-content>
-        <DisplayRow :use-available-width="false" :apply-gutters="false">
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pt-40 pb-40">
           <template #default>
             <div>
               <h1 class="text-header-large">{{ $t("pages.index.header") }}</h1>
+              <p class="text-normal">{{ $t("pages.index.intro") }}</p>
             </div>
           </template>
         </DisplayRow>
 
         <DisplayRow :use-available-width="false" :apply-gutters="false">
           <template #default>
-            <DisplayCarousel></DisplayCarousel>
+            <template v-if="carouselStatus === 'success'">
+              <DisplayCarousel :data="carouselData"></DisplayCarousel>
+            </template>
+            <template v-else>Carousel loading</template>
           </template>
         </DisplayRow>
 
@@ -112,7 +116,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { IQuotes } from "@/types/types.quotes";
+  import type { ICarouselBasic } from "@/types/types.carousel";
   import { useI18n } from "vue-i18n";
 
   const { t } = useI18n();
@@ -127,6 +131,17 @@
     bodyAttrs: {
       class: ""
     }
+  });
+
+  const {
+    data: carouselData,
+    execute,
+    status: carouselStatus,
+    pending,
+    error,
+    refresh
+  } = await useFetch<ICarouselBasic>("/api/carousel", {
+    immediate: true
   });
 </script>
 

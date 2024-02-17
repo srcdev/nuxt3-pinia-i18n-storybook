@@ -6,7 +6,8 @@
         "description": "A boiler plate Nuxt 3, Pinia, Vitest and Storybook",
         "keywords": "Nuxt3, Nuxt, Pinia, Storybook, Vitest"
       },
-      "header": "A boiler plate Nuxt 3, Pinia, Vitest and Storybook"
+      "header": "For all your animal needs",
+      "intro": "For all things animal in Africa, catering to the discerning traveler and the inquisitive local alike. Whether you're seeking tips on how to outrun a cheetah (spoiler alert: you can't), or curious about the latest gossip from the savannah (who knew meerkats were such chatterboxes?), you've come to the right place."
     }
   }
 }
