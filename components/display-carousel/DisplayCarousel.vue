@@ -91,7 +91,7 @@ import type log from '~/server/middleware/log'; import type { imgProps } from '@
       flex-wrap: nowrap;
       flex-direction: row;
 
-      gap: 12px;
+      // gap: 12px;
 
       &.nextTransition {
         transform: translateX(-100%);
