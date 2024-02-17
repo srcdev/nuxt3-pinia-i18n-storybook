@@ -16,12 +16,12 @@
             </DisplayFlexGroupItem>
             <DisplayFlexGroupItem v-if="authenticated">
               <template #default>
-                <IconButtonLogout @click="doLogout()" size="large" :button-text="$t('components.header.logout-btn')" />
+                <IconButtonLogout type="button" @click="doLogout()" size="large" :button-text="$t('components.header.logout-btn')" />
               </template>
             </DisplayFlexGroupItem>
             <DisplayFlexGroupItem v-else>
               <template #default>
-                <IconButtonAccount @click="navigateTo('/login')" size="large" button-text="Login" />
+                <IconButtonAccount type="button" @click="navigateTo('/login')" size="large" button-text="Login" />
               </template>
             </DisplayFlexGroupItem>
             <DisplayFlexGroupItem>

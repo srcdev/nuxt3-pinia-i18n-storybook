@@ -1,5 +1,5 @@
 <template>
-  <button type="submit" :data-test-id="dataTestId" class="btn" :class="[`btn-${variant}`, styleClassPassthrough]">
+  <button :type="type" :data-test-id="dataTestId" class="btn" :class="[`btn-${variant}`, styleClassPassthrough]">
     <template v-if="hasLeftContent">
       <span class="btn-icon" :class="[size, { left: variant !== 'icon-only' }]">
         <slot name="left"></slot>
@@ -17,7 +17,7 @@
 <script setup lang="ts">
   const props = defineProps({
     type: {
-      type: String as PropType<string>,
+      type: String as PropType<"submit" | "button" | "reset">,
       default: "submit",
       validator(value: string) {
         return ["button", "cancel", "reset", "submit"].includes(value);
@@ -61,6 +61,8 @@
       }
     }
   });
+
+  const buttonType = computed(() => props.type);
 
   const slots = useSlots();
   const hasLeftContent = computed(() => slots.left !== undefined);
