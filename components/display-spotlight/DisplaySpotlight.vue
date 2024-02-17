@@ -1,4 +1,3 @@
-import type { routeLocationKey } from 'vue-router'; import type { transform } from '@babel/core'; import type { InputErrorMessage } from '#build/components';
 <template>
   <div class="display-spotlight">
     <div class="display-spotlight-inner">

@@ -10,6 +10,12 @@
           </template>
         </DisplayRow>
 
+        <DisplayRow :use-available-width="false" :apply-gutters="false">
+          <template #default>
+            <DisplayCarousel></DisplayCarousel>
+          </template>
+        </DisplayRow>
+
         <DisplayRow :use-available-width="true" :apply-gutters="false">
           <template #default>
             <DisplayParallaxGroup bg-image="/assets/images/sample.jpg" bg-height="100vh" justify-items="left">
