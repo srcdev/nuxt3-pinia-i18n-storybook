@@ -17,6 +17,11 @@
     },
     {
       "id": 4,
+      "url": "/assets/images/spotlights/v2/nightlife.webp",
+      "alt": "Nightlife"
+    },
+    {
+      "id": 5,
       "url": "/assets/images/spotlights/v2/got-toothache.webp",
       "alt": "Dental Services"
     }
