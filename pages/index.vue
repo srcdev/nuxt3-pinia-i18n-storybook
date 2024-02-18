@@ -11,7 +11,7 @@
           </template>
         </DisplayRow>
 
-        <DisplayRow :use-available-width="false" :apply-gutters="false">
+        <DisplayRow :use-available-width="true" :apply-gutters="false">
           <template #default>
             <template v-if="carouselStatus === 'success'">
               <DisplayCarousel :data="carouselData"></DisplayCarousel>
