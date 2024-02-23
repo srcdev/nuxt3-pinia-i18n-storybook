@@ -14,7 +14,7 @@
         <DisplayRow :use-available-width="true" :apply-gutters="false">
           <template #default>
             <template v-if="carouselStatus === 'success'">
-              <DisplayCarousel :data="carouselData"></DisplayCarousel>
+              <DisplayCarousel :data="carouselData ?? {}"></DisplayCarousel>
             </template>
             <template v-else>Carousel loading</template>
           </template>
@@ -133,6 +133,8 @@
     }
   });
 
+  const dataReady = ref(false);
+
   const {
     data: carouselData,
     execute,
@@ -141,7 +143,10 @@
     error,
     refresh
   } = await useFetch<ICarouselBasic>("/api/carousel", {
-    immediate: true
+    immediate: true,
+    onResponse({ request, response, options }) {
+      dataReady.value = true;
+    }
   });
 </script>
 

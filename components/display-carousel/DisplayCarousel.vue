@@ -17,7 +17,7 @@
   import type { ICarouselBasic } from "@/types/types.carousel";
   import { useElementSize, useEventListener, useResizeObserver } from "@vueuse/core";
   const props = defineProps({
-    data: {
+    propsData: {
       type: Object as PropType<ICarouselBasic>,
       default: <ICarouselBasic>{
         items: [],
@@ -25,6 +25,10 @@
         skip: 0,
         limit: 10
       }
+    },
+    data: {
+      type: Object,
+      default: <ICarouselBasic>{}
     },
     styleClassPassthrough: {
       type: String,
