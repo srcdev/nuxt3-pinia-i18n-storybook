@@ -27,7 +27,7 @@
       type: String as PropType<string>,
       default: "primary",
       validator(value: string) {
-        return ["primary", "secondary", "tertiary", "text", "link", "icon-only", "ghost", "cancel", "confirm", "warning"].includes(value);
+        return ["primary", "secondary", "tertiary", "text", "link", "icon-only", "ghost", "cancel", "confirm", "warning", "navigate-btn"].includes(value);
       }
     },
     buttonText: {
@@ -229,6 +229,30 @@
         background-color: $color-orange-1;
         border-color: $color-orange-4;
         color: $color-orange-3;
+      }
+    }
+
+    &-navigate-btn {
+      background-color: #00000095;
+      border: 1px solid $color-grey-5;
+      color: $color-grey-5;
+      outline: 1px solid $color-grey-3;
+      padding: 12px;
+      border-radius: 50%;
+      aspect-ratio: 1;
+
+      &:hover {
+        background-color: $color-grey-5;
+        border-color: $color-grey-8;
+        color: $color-grey-8;
+      }
+
+      .btn-icon.left {
+        margin-left: 0;
+
+        .icon {
+          font-size: 24px;
+        }
       }
     }
   }

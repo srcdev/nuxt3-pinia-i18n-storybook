@@ -4,8 +4,15 @@ export interface CarouselBasicItem {
   alt: string;
 }
 
+export interface CarouselModifiedItem {
+  id: number;
+  url: string;
+  alt: string;
+  order: number;
+}
+
 export interface ICarouselBasic {
-  items: CarouselBasicItem[];
+  items: CarouselBasicItem[] | CarouselModifiedItem[];
   total: number;
   skip: number;
   limit: number;

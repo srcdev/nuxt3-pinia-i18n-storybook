@@ -17,8 +17,8 @@
     "matijao.vue-nuxt-snippets",
 
     // Vitest
-    // https://marketplace.visualstudio.com/items?itemName=zixuanchen.vitest-explorer
-    "zixuanchen.vitest-explorer",
+    // https://marketplace.visualstudio.com/items?itemName=vitest.explorer
+    "vitest.explorer",
 
     // Vitest Snippets
     // https://marketplace.visualstudio.com/items?itemName=deinsoftware.vitest-snippets

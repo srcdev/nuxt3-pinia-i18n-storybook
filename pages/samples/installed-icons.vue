@@ -363,10 +363,18 @@
 
               <div class="icon-table">
                 <div class="icon-display">
-                  <span class="icon"><Icon name="material-symbols:arrow-back-ios-new" class="arrow-back" /></span>
+                  <span class="icon"><Icon name="material-symbols:arrow-forward-ios" class="arrow-next" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Arrow Next</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="material-symbols:arrow-back-ios" class="arrow-back" /></span>
                 </div>
                 <div class="icon-name"><span class="text-normal">Arrow Back</span></div>
               </div>
+
               <div class="icon-table">
                 <div class="icon-display">
                   <span class="icon"><Icon name="material-symbols:close-fullscreen" class="close-fullscreen" /></span>
