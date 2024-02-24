@@ -10,33 +10,35 @@
   const props = defineProps({
     minTileWidth: {
       type: Number,
-      default: 312,
+      default: 312
     },
     styleClassPassthrough: {
       type: String,
-      default: "",
+      default: ""
     },
     mobilePreferredColCount: {
       type: Number,
-      default: 1,
+      default: 1
     },
     smTabletPreferredColCount: {
       type: Number,
-      default: 3,
+      default: 3
     },
     fixedWidth: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   });
 
   const slots = useSlots();
   const hasSlotComponent = computed(() => slots.content !== undefined);
 
+  const minTileWidth = toRef(props.minTileWidth);
+
   const gridWrapper = ref<HTMLDivElement | null>(null);
   const { width } = useElementSize(gridWrapper);
   const columnCount = computed(() => {
-    return Math.floor(width.value / props.minTileWidth);
+    return Math.floor(width.value / minTileWidth.value);
   });
 </script>
 
@@ -49,15 +51,9 @@
     $self: &;
     &-wrapper {
       column-count: v-bind(columnCount);
-
-      // @media only screen and (min-width: $tabletSmall) {
-      //   column-count: v-bind(smTabletPreferredColCount);
-      // }
-
       column-gap: 10px;
 
       :deep(#{ $self }-item) {
-        margin: 0;
         display: grid;
         grid-template-rows: 1fr auto;
         margin-bottom: 10px;
@@ -71,40 +67,4 @@
       }
     }
   }
-
-  // img {
-  //   max-width: 100%;
-  //   display: block;
-  // }
-
-  // figure {
-  //   margin: 0;
-  //   display: grid;
-  //   grid-template-rows: 1fr auto;
-  //   margin-bottom: 10px;
-  //   break-inside: avoid;
-  // }
-
-  // figure > img {
-  //   grid-row: 1 / -1;
-  //   grid-column: 1;
-  // }
-
-  // figure a {
-  //   color: black;
-  //   text-decoration: none;
-  // }
-
-  // figcaption {
-  //   grid-row: 2;
-  //   grid-column: 1;
-  //   background-color: rgba(255, 255, 255, 0.5);
-  //   padding: 0.2em 0.5em;
-  //   justify-self: start;
-  // }
-
-  // .container {
-  //   column-count: 4;
-  //   column-gap: 10px;
-  // }
 </style>
