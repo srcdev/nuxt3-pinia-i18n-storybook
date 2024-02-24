@@ -8,8 +8,12 @@
   const props = defineProps({
     useScrollReveal: {
       type: Boolean,
-      default: true,
+      default: true
     },
+    styleClassPassthrough: {
+      type: String,
+      default: ""
+    }
   });
 
   const { visibilityRef, handleVisibility } = useElementIsVisibleInViewport();

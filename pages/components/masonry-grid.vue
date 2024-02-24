@@ -7,7 +7,7 @@
             <div>
               <h1 class="text-header-large">Masonry Grid Example</h1>
               <h2 class="text-header-medium">Fetch Quotes from an API</h2>
-              <p class="text-normal">Masonry Grid populates by column down left to right to balance depth across the rows.</p>
+              <p class="text-normal">CSS Masonry Grid populates by column down left to right to balance depth across the rows.</p>
               <p class="text-normal">Can be unsuitable for content that requires order or hierarchy.</p>
             </div>
           </template>

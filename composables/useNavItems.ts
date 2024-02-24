@@ -100,6 +100,11 @@ export function useNavItems(authenticated: boolean) {
           hidden: false
         },
         {
+          text: "Masonry Grid Ordered",
+          url: "/components/masonry-grid-ordered",
+          hidden: false
+        },
+        {
           text: "Grid Items",
           url: "/components/display-grid",
           hidden: false
