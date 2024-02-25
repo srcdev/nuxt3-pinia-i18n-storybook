@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" footer-theme="theme-default">
       <template #layout-content>
-        <DisplayRow :use-available-width="false" :apply-gutters="false">
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pt-20">
           <template #default>
             <div>
               <h1 class="text-header-large">Masonry Grid Ordered Example</h1>
@@ -14,6 +14,14 @@
                 with a min width and expand as according to parent element width.
               </p>
               <p class="text-normal"><span class="wght-700">NOTE:</span> This toggle switch for demo only, in practice this would be set when implemented. You may need to resize browser for it fully pop into correct grid.</p>
+              <div>
+                <select @change="updateDisplayCount($event)" class="text-normal">
+                  <template v-for="index in maxItems">
+                    <option :value="index" :selected="displayCount === index">{{ index }} items</option>
+                  </template>
+                </select>
+                <span class="text-normal ml-12"> Displaying {{ displayCount }} items - redraw sometomes produces overlap</span>
+              </div>
             </div>
           </template>
         </DisplayRow>
@@ -21,7 +29,7 @@
         <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
           <template #default>
             <p class="text-normal">Limit 30 items</p>
-            <MasonryGridOrdered v-if="!pending" :grid-data="quotesData ?? {}" :gap="12" :min-tile-width="300" :fixed-width="useFixedWidth" />
+            <MasonryGridOrdered v-if="!pending" :grid-data="quotesData?.quotes.slice(0, displayCount) ?? {}" :gap="12" :min-tile-width="300" :fixed-width="useFixedWidth" />
             <p v-else class="text-normal">&hellip;Loading</p>
           </template>
         </DisplayRow>
@@ -53,7 +61,13 @@
     useFixedWidth.value = state;
   };
 
-  const displayCount = 12;
+  const maxItems = 30;
+  const displayCount = ref(12);
+
+  const updateDisplayCount = (event: HTMLFormElement) => {
+    displayCount.value = event.target.value;
+  };
+
   const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes");
 
   // proxied version

@@ -2,48 +2,33 @@
   <div>
     <NuxtLayout name="default" page-theme="theme-default" footer-theme="theme-default">
       <template #layout-content>
-        <DisplayRow :use-available-width="false" :apply-gutters="false">
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pt-20">
           <template #default>
             <div>
               <h1 class="text-header-large">Masonry Grid Example</h1>
               <h2 class="text-header-medium">Fetch Quotes from an API</h2>
               <p class="text-normal">CSS Masonry Grid populates by column down left to right to balance depth across the rows.</p>
               <p class="text-normal">Can be unsuitable for content that requires order or hierarchy.</p>
+              <div>
+                <select @change="updateDisplayCount($event)" class="text-normal">
+                  <template v-for="index in maxItems">
+                    <option :value="index" :selected="displayCount === index">{{ index }} items</option>
+                  </template>
+                </select>
+                <span class="text-normal ml-12"> Displaying {{ displayCount }} items - redraw sometomes produces overlap</span>
+              </div>
             </div>
           </template>
         </DisplayRow>
 
-        <template v-for="(index, key) in displayCount" key="index">
-          <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
-            <template #default>
-              <p class="text-normal">Limit {{ key + 1 }} items</p>
-
-              <ClientOnly>
-                <MasonryGrid v-if="!pending" :min-tile-width="300">
-                  <template #content>
-                    <MasonryGridItem v-for="(item, index) in quotesData?.quotes.slice(0, key + 1)" key="index" :use-scroll-reveal="false">
-                      <template #content>
-                        <div class="p-10 border border-1 border-grey-dark border-r-4">
-                          <p class="text-normal wght-700">{{ index + 1 }}: {{ item.author }}</p>
-                          <p class="text-normal">{{ item.quote }}</p>
-                        </div>
-                      </template>
-                    </MasonryGridItem>
-                  </template>
-                </MasonryGrid>
-                <p v-else class="text-normal">&hellip;Loading</p>
-              </ClientOnly>
-            </template>
-          </DisplayRow>
-        </template>
-
         <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
           <template #default>
-            <p class="text-normal">Limit 30 items</p>
+            <p class="text-normal">Limit {{ displayCount }} items</p>
+
             <ClientOnly>
               <MasonryGrid v-if="!pending" :min-tile-width="300">
                 <template #content>
-                  <MasonryGridItem v-for="(item, index) in quotesData?.quotes" :use-scroll-reveal="false">
+                  <MasonryGridItem v-for="(item, index) in quotesData?.quotes.slice(0, displayCount)" key="index" :use-scroll-reveal="false">
                     <template #content>
                       <div class="p-10 border border-1 border-grey-dark border-r-4">
                         <p class="text-normal wght-700">{{ index + 1 }}: {{ item.author }}</p>
@@ -80,7 +65,13 @@
     }
   });
 
-  const displayCount = 12;
+  const maxItems = 30;
+  const displayCount = ref(12);
+
+  const updateDisplayCount = (event: HTMLFormElement) => {
+    displayCount.value = event.target.value;
+  };
+
   const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes");
 
   // proxied version

@@ -1,6 +1,6 @@
 <template>
   <div class="masonry-grid-ordered-wrapper" ref="gridWrapper">
-    <template v-for="(item, index) in gridData?.quotes">
+    <template v-for="(item, index) in gridData">
       <div class="masonry-grid-ordered-item" ref="gridItemsRefs">
         <div class="p-10 border border-1 border-grey-dark border-r-4">
           <p class="text-normal wght-700">{{ index + 1 }}: {{ item.author }}</p>
@@ -12,13 +12,13 @@
 </template>
 
 <script setup lang="ts">
-  import type { IQuotes } from "@/types/types.quotes";
+  import type { IQuote } from "@/types/types.quotes";
   import { useBreakpoints, useElementSize, useResizeObserver } from "@vueuse/core";
 
   const props = defineProps({
     gridData: {
       type: Object,
-      default: <IQuotes>{}
+      default: <IQuote>{}
     },
     // gridData: {
     //   type: Object as PropType<IQuotes>,
@@ -68,6 +68,8 @@
       validator: (val: string) => ["left", "center", "right"].includes(val)
     }
   });
+
+  const gridData = toRef(() => props.gridData);
 
   const breakpoints = useBreakpoints({
     mobile: 0,
@@ -150,6 +152,13 @@
 
   watch(
     () => fixedWidth.value,
+    () => {
+      updateGrid();
+    }
+  );
+
+  watch(
+    () => gridData.value,
     () => {
       updateGrid();
     }

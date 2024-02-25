@@ -13,7 +13,7 @@
     },
     colRepeatType: {
       type: String,
-      default: null,
+      default: "auto-fill",
       validator: (val) => ["auto-fit", "auto-fill"].includes(val as string)
     },
     alignHeights: {
