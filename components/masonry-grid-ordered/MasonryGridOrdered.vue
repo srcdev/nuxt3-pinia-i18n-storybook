@@ -50,14 +50,6 @@
       type: String,
       default: ""
     },
-    mobilePreferredColCount: {
-      type: Number,
-      default: 1
-    },
-    smTabletPreferredColCount: {
-      type: Number,
-      default: 3
-    },
     fixedWidth: {
       type: Boolean,
       default: false
@@ -172,17 +164,18 @@
     $self: &;
     &-wrapper {
       display: grid;
+      position: relative;
       justify-self: v-bind(justify);
       grid-gap: v-bind(gapStr);
+
       grid-template-columns: repeat(2, minmax(v-bind(responsiveWidthMobile), v-bind(maxTileWidth)));
-      position: relative;
 
       @media only screen and (min-width: 640px) {
         grid-template-columns: repeat(3, minmax(v-bind(responsiveWidthTablet), v-bind(maxTileWidth)));
       }
 
       @media only screen and (min-width: 1024px) {
-        grid-template-columns: repeat(3, minmax(v-bind(responsiveWidthTablet), v-bind(maxTileWidth)));
+        grid-template-columns: repeat(3, minmax(v-bind(responsiveWidthLaptop), v-bind(maxTileWidth)));
       }
 
       @media only screen and (min-width: 1280px) {
