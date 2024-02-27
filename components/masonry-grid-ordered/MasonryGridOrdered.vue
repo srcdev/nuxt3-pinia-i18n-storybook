@@ -58,7 +58,6 @@
   });
 
   const gridData = toRef(() => props.gridData);
-  console.log("gridData", gridData.value);
 
   const minTileWidth = toRef(() => props.minTileWidth);
   const gridWrapper = ref<null | HTMLDivElement>(null);
