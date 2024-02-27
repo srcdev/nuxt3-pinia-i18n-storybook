@@ -22,7 +22,7 @@
                 <ul>
                   <template v-for="link in item.links">
                     <li :class="[{ hide: link.hidden }]">
-                      <NuxtLink class="menu__items_link" :to="link.url"><Icon name="radix-icons:caret-right" class="ml-6 mr-6" />{{ link.text }}</NuxtLink>
+                      <NuxtLink class="menu__items_link" :to="link.url"><Icon name="radix-icons:caret-right" class="icon" />{{ link.text }}</NuxtLink>
                     </li>
                   </template>
                 </ul>
@@ -115,12 +115,22 @@
       }
       &_link {
         border-radius: 1px;
-        display: block;
         color: $color-grey-5;
         text-decoration: none;
-        line-height: 14px;
+        line-height: 20px;
         margin-left: 0px;
         padding-right: 8px;
+
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 8px;
+
+        .icon {
+          aspect-ratio: 1;
+          width: 22px;
+        }
+
         &:hover {
           color: $white;
           cursor: pointer;

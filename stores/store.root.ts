@@ -9,18 +9,19 @@ export const useRootStore = defineStore({
     sbArray: [
       {
         name: "Name A",
-        description: "Description A",
+        description: "Description A"
       },
       {
         name: "Name B",
-        description: "Description B",
+        description: "Description B"
       },
       {
         name: "Name C",
-        description: "Description C",
-      },
+        description: "Description C"
+      }
     ],
     isIos: null,
+    displayCount: 12
   }),
   persist: true,
   // persist: {
@@ -29,5 +30,5 @@ export const useRootStore = defineStore({
   //   sameSite: "strict",
   // }),
   // },
-  actions: rootActions,
+  actions: rootActions
 });

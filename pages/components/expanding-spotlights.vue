@@ -21,7 +21,7 @@
               <h1 class="text-header-medium">Display Expanding Spotlights</h1>
               <template v-if="status === 'idle'">
                 <div>
-                  <InputButton @click="execute()" type="button" variant="primary" button-text="Get data" size="medium" style-class-passthrough="mt-12 mb-12" />
+                  <InputButton @click="execute()" type="button" variant="tertiary" button-text="Get data" size="medium" style-class-passthrough="mt-12 mb-12" />
                 </div>
               </template>
               <template v-if="status === 'success'">
@@ -36,7 +36,7 @@
         <DisplayRow :use-available-width="false" :apply-gutters="false">
           <template #default>
             <div>
-              <InputButton @click="execute()" type="button" variant="primary" button-text="Refresh data" size="medium" style-class-passthrough="mb-12" />
+              <InputButton @click="execute()" type="button" variant="tertiary" button-text="Refresh data" size="medium" style-class-passthrough="mb-12" />
             </div>
           </template>
         </DisplayRow>

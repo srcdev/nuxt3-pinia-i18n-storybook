@@ -8,7 +8,7 @@
               <h1 class="text-header-large">Masonry Grid Ordered Example</h1>
               <h2 class="text-header-medium">Fetch Quotes from an API</h2>
               <p class="text-normal">CSS + JS Masonry Grid Ordered.</p>
-              <p class="text-normal wght-700">Fixed item sizes.</p>
+              <p class="text-normal wght-700">Responsive item sizes.</p>
               <p class="text-normal">Grid items are drawn left to right in order. Slower than pure CSS, uses some JS to achieve desired result. It's slighly 'buggy' still on resize. Some overlap occasionally on re-draw.</p>
               <p class="text-normal">
                 <InputButton @click.prevent="toggleFixedWidth(!useFixedWidth)" type="button" variant="tertiary" :button-text="`Use Fixed Width (${useFixedWidth})`" size="medium" /><br />Selecting true will fix width of grid items, they will not flow
@@ -30,7 +30,7 @@
         <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
           <template #default>
             <p class="text-normal">Limit 30 items</p>
-            <MasonryGridOrdered v-if="!pending" :grid-data="quotesData?.quotes.slice(0, displayCount) ?? {}" :gap="12" :min-tile-width="300" :fixed-width="useFixedWidth" />
+            <MasonryGridOrderedResponsive v-if="!pending" :grid-data="quotesData?.quotes.slice(0, displayCount) ?? {}" :gap="12" :min-tile-width="300" :fixed-width="useFixedWidth" />
             <p v-else class="text-normal">&hellip;Loading</p>
           </template>
         </DisplayRow>

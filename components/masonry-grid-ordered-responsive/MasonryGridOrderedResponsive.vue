@@ -33,6 +33,15 @@
       type: Number,
       default: 312
     },
+    responsiveWidths: {
+      type: Object,
+      default: {
+        mobile: "120px",
+        tablet: "200px",
+        laptop: "240px",
+        desktop: "280px"
+      }
+    },
     gap: {
       type: Number,
       default: 12
@@ -40,14 +49,6 @@
     styleClassPassthrough: {
       type: String,
       default: ""
-    },
-    mobilePreferredColCount: {
-      type: Number,
-      default: 1
-    },
-    smTabletPreferredColCount: {
-      type: Number,
-      default: 3
     },
     fixedWidth: {
       type: Boolean,
@@ -60,7 +61,39 @@
     }
   });
 
-  const minTileWidth = toRef(() => props.minTileWidth);
+  const gridData = toRef(() => props.gridData);
+
+  const breakpoints = useBreakpoints({
+    mobile: 0,
+    tablet: 768,
+    laptop: 1024,
+    desktop: 1280
+  });
+  const isMobile = breakpoints.smaller("tablet");
+  const isTablet = breakpoints.between("tablet", "laptop");
+  const isLaptop = breakpoints.between("laptop", "desktop");
+  const isDesktop = breakpoints.greater("desktop");
+
+  const responsiveWidths = toRef(() => props.responsiveWidths);
+  const responsiveWidthMobile = responsiveWidths.value.mobile;
+  const responsiveWidthTablet = responsiveWidths.value.tablet;
+  const responsiveWidthLaptop = responsiveWidths.value.laptop;
+  const responsiveWidthDesktop = responsiveWidths.value.desktop;
+
+  // const minTileWidth = toRef(() => props.minTileWidth);
+  const minTileWidth = ref(props.minTileWidth);
+
+  // now override with responsiveWidths
+  if (isMobile.value) {
+    minTileWidth.value = Number(responsiveWidths.value["mobile"].replace("px", ""));
+  } else if (isTablet.value) {
+    minTileWidth.value = Number(responsiveWidths.value["tablet"].replace("px", ""));
+  } else if (isLaptop.value) {
+    minTileWidth.value = Number(responsiveWidths.value["laptop"].replace("px", ""));
+  } else if (isDesktop.value) {
+    minTileWidth.value = Number(responsiveWidths.value["desktop"].replace("px", ""));
+  }
+
   const gridWrapper = ref<null | HTMLDivElement>(null);
   const gridItemsRefs = ref<HTMLDivElement[]>([]);
   const { width } = useElementSize(gridWrapper);
@@ -82,7 +115,6 @@
   });
 
   const updateGrid = () => {
-    console.log("updateGrid");
     if (gridWrapper.value !== null) {
       const wrapperWidth = gridWrapper.value?.offsetWidth ?? 0;
       const itemWidth = fixedWidth.value ? minTileWidth.value : Math.floor((wrapperWidth - (columnCount.value - 1) * gapNum.value) / columnCount.value);
@@ -110,12 +142,15 @@
     updateGrid();
   });
 
-  onMounted(() => {
-    // updateGrid();
-  });
-
   watch(
     () => fixedWidth.value,
+    () => {
+      updateGrid();
+    }
+  );
+
+  watch(
+    () => gridData.value,
     () => {
       updateGrid();
     }
@@ -129,16 +164,22 @@
     $self: &;
     &-wrapper {
       display: grid;
+      position: relative;
       justify-self: v-bind(justify);
       grid-gap: v-bind(gapStr);
-      grid-template-columns: repeat(1, minmax(v-bind(minTileWidthStr), v-bind(maxTileWidth)));
-      position: relative;
+
+      grid-template-columns: repeat(2, minmax(v-bind(responsiveWidthMobile), v-bind(maxTileWidth)));
+
+      @media only screen and (min-width: 640px) {
+        grid-template-columns: repeat(3, minmax(v-bind(responsiveWidthTablet), v-bind(maxTileWidth)));
+      }
 
       @media only screen and (min-width: 1024px) {
-        grid-template-columns: repeat(3, minmax(v-bind(minTileWidthStr), v-bind(maxTileWidth)));
+        grid-template-columns: repeat(3, minmax(v-bind(responsiveWidthLaptop), v-bind(maxTileWidth)));
       }
+
       @media only screen and (min-width: 1280px) {
-        grid-template-columns: repeat(4, minmax(v-bind(minTileWidthStr), v-bind(maxTileWidth)));
+        grid-template-columns: repeat(4, minmax(v-bind(responsiveWidthDesktop), v-bind(maxTileWidth)));
       }
     }
   }

@@ -105,7 +105,12 @@ export function useNavItems(authenticated: boolean) {
           hidden: false
         },
         {
-          text: "Grid Items",
+          text: "Masonry Grid Ordered Responsive",
+          url: "/components/masonry-grid-ordered-responsive",
+          hidden: false
+        },
+        {
+          text: "Display Grid",
           url: "/components/display-grid",
           hidden: false
         },

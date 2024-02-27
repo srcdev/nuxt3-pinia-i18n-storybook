@@ -7,4 +7,5 @@ export interface IRootStore {
   someString: string;
   sbArray: ISbItemObj[];
   isIos: null | boolean;
+  displayCount: number;
 }

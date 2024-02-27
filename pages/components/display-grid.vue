@@ -8,16 +8,16 @@
               <h1 class="text-header-large">Simple Grid Example</h1>
               <p class="text-normal">Grid display.</p>
               <p>
-                <InputButton @click="toggleScrollReveal(!useScrollReveal)" type="button" variant="primary" :button-text="`Use Scroll Reveal (${useScrollReveal})`" size="medium" style-class-passthrough="mb-12" /><br />Selecting true, the item will not
-                be displayed until viewport moved, this is just a side effect of toggling state, in normal use, the items would be displayed automatically when in viewport.
+                <InputButton @click="toggleScrollReveal(!useScrollReveal)" type="button" variant="tertiary" :button-text="`Use Scroll Reveal (${useScrollReveal})`" size="medium" style-class-passthrough="mb-12" /><br />Selecting true, the item will
+                not be displayed until viewport moved, this is just a side effect of toggling state, in normal use, the items would be displayed automatically when in viewport.
               </p>
               <div>
                 <select @change="updateDisplayCount($event)" class="text-normal">
                   <template v-for="index in maxItems">
-                    <option :value="index" :selected="displayCount === index">{{ index }} items</option>
+                    <option :value="index" :selected="displayCount == index">{{ index }} items</option>
                   </template>
                 </select>
-                <span class="text-normal ml-12"> Displaying {{ displayCount }} items - redraw sometomes produces overlap</span>
+                <span class="text-normal ml-12"> Displaying {{ displayCount }} items - refresh page recommended when adding items</span>
               </div>
             </div>
           </template>
@@ -99,7 +99,7 @@
   };
 
   const maxItems = 30;
-  const displayCount = ref(12);
+  const { displayCount } = storeToRefs(useRootStore());
 
   const updateDisplayCount = (event: HTMLFormElement) => {
     displayCount.value = event.target.value;

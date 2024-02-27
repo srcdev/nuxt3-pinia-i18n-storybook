@@ -12,10 +12,10 @@
               <div>
                 <select @change="updateDisplayCount($event)" class="text-normal">
                   <template v-for="index in maxItems">
-                    <option :value="index" :selected="displayCount === index">{{ index }} items</option>
+                    <option :value="index" :selected="displayCount == index">{{ index }} items</option>
                   </template>
                 </select>
-                <span class="text-normal ml-12"> Displaying {{ displayCount }} items - redraw sometomes produces overlap</span>
+                <span class="text-normal ml-12"> Displaying {{ displayCount }} items - refresh page recommended when adding items</span>
               </div>
             </div>
           </template>
@@ -66,7 +66,7 @@
   });
 
   const maxItems = 30;
-  const displayCount = ref(12);
+  const { displayCount } = storeToRefs(useRootStore());
 
   const updateDisplayCount = (event: HTMLFormElement) => {
     displayCount.value = event.target.value;
