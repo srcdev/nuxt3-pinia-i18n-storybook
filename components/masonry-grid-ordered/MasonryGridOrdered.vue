@@ -1,18 +1,15 @@
 <template>
   <div class="masonry-grid-ordered-wrapper" ref="gridWrapper">
-    <template v-for="(item, index) in gridData">
+    <template v-for="item in gridData" :key="item.id">
       <div class="masonry-grid-ordered-item" ref="gridItemsRefs">
-        <div class="p-10 border border-1 border-grey-dark border-r-4">
-          <p class="text-normal wght-700">{{ index + 1 }}: {{ item.author }}</p>
-          <p class="text-normal">{{ item.quote }}</p>
-        </div>
+        <slot :name="item.id"></slot>
       </div>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-  import type { IQuote } from "@/types/types.quotes";
+  import type { IQuote, IQuotes } from "@/types/types.quotes";
   import { useBreakpoints, useElementSize, useResizeObserver } from "@vueuse/core";
 
   const props = defineProps({
@@ -59,6 +56,9 @@
       validator: (val: string) => ["left", "center", "right"].includes(val)
     }
   });
+
+  const gridData = toRef(() => props.gridData);
+  console.log("gridData", gridData.value);
 
   const minTileWidth = toRef(() => props.minTileWidth);
   const gridWrapper = ref<null | HTMLDivElement>(null);

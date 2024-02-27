@@ -68,8 +68,8 @@
   const maxItems = 30;
   const { displayCount } = storeToRefs(useRootStore());
 
-  const updateDisplayCount = (event: HTMLFormElement) => {
-    displayCount.value = event.target.value;
+  const updateDisplayCount = (event: Event) => {
+    displayCount.value = Number((event.target as HTMLInputElement).value);
   };
 
   const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes");

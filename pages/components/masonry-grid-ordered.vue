@@ -30,7 +30,19 @@
         <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
           <template #default>
             <p class="text-normal">Limit 30 items</p>
-            <MasonryGridOrdered v-if="!pending" :grid-data="quotesData?.quotes.slice(0, displayCount) ?? {}" :gap="12" :min-tile-width="300" :fixed-width="useFixedWidth" />
+            <p class="text-normal wght-700">Note: Content is dynamically slotted</p>
+
+            <template v-if="!pending">
+              <MasonryGridOrdered :gridData="quotesData?.quotes.slice(0, displayCount) ?? <IQuotes>{}" :gap="12" :min-tile-width="300" :fixed-width="useFixedWidth">
+                <template v-for="(item, index) in quotesData?.quotes.slice(0, displayCount)" v-slot:[item.id]>
+                  <div class="p-10 border border-1 border-grey-dark border-r-4">
+                    <p class="text-normal wght-700">{{ index + 1 }}: {{ item.author }}</p>
+                    <p class="text-normal">{{ item.quote }}</p>
+                  </div>
+                </template>
+              </MasonryGridOrdered>
+            </template>
+
             <p v-else class="text-normal">&hellip;Loading</p>
           </template>
         </DisplayRow>
@@ -65,8 +77,8 @@
   const maxItems = 30;
   const { displayCount } = storeToRefs(useRootStore());
 
-  const updateDisplayCount = (event: HTMLFormElement) => {
-    displayCount.value = event.target.value;
+  const updateDisplayCount = (event: Event) => {
+    displayCount.value = Number((event.target as HTMLInputElement).value);
   };
 
   const { data: quotesData, pending, status, error, refresh } = await useFetch<IQuotes>("https://dummyjson.com/quotes");
