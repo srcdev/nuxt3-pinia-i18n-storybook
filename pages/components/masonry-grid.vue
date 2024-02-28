@@ -9,6 +9,7 @@
               <h2 class="text-header-medium">Fetch Quotes from an API</h2>
               <p class="text-normal">CSS Masonry Grid populates by column down left to right to balance depth across the rows.</p>
               <p class="text-normal">Can be unsuitable for content that requires order or hierarchy.</p>
+
               <div>
                 <select @change="updateDisplayCount($event)" class="text-normal">
                   <template v-for="index in maxItems">
@@ -25,21 +26,17 @@
           <template #default>
             <p class="text-normal">Limit {{ displayCount }} items</p>
 
-            <ClientOnly>
-              <MasonryGrid v-if="!pending" :min-tile-width="300">
-                <template #content>
-                  <MasonryGridItem v-for="(item, index) in quotesData?.quotes.slice(0, displayCount)" key="index" :use-scroll-reveal="false">
-                    <template #content>
-                      <div class="p-10 border border-1 border-grey-dark border-r-4">
-                        <p class="text-normal wght-700">{{ index + 1 }}: {{ item.author }}</p>
-                        <p class="text-normal">{{ item.quote }}</p>
-                      </div>
-                    </template>
-                  </MasonryGridItem>
+            <template v-if="!pending">
+              <MasonryGridOrdered :gridData="quotesData?.quotes.slice(0, displayCount) ?? <IQuotes>{}" :gap="12" :min-tile-width="300" :use-scroll-reveal="false">
+                <template v-for="(item, index) in quotesData?.quotes.slice(0, displayCount)" v-slot:[item.id]>
+                  <div class="p-10 border border-1 border-grey-dark border-r-4">
+                    <p class="text-normal wght-700">{{ index + 1 }}: {{ item.author }}</p>
+                    <p class="text-normal">{{ item.quote }}</p>
+                  </div>
                 </template>
-              </MasonryGrid>
-              <p v-else class="text-normal">&hellip;Loading</p>
-            </ClientOnly>
+              </MasonryGridOrdered>
+            </template>
+            <p v-else class="text-normal">&hellip;Loading</p>
           </template>
         </DisplayRow>
       </template>

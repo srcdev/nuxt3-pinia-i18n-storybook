@@ -1,6 +1,10 @@
 <template>
   <div class="masonry-grid-wrapper" ref="gridWrapper">
-    <slot v-if="hasSlotComponent" name="content"></slot>
+    <template v-for="item in gridData" :key="item.id">
+      <div class="masonry-grid-item" :class="[{ 'scroll-reveal': useScrollReveal }]" ref="visibilityRef">
+        <slot :name="item.id"></slot>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -8,6 +12,10 @@
   import { useElementSize } from "@vueuse/core";
 
   const props = defineProps({
+    gridData: {
+      type: Object,
+      default: {}
+    },
     minTileWidth: {
       type: Number,
       default: 312
@@ -27,14 +35,16 @@
     fixedWidth: {
       type: Boolean,
       default: false
+    },
+    useScrollReveal: {
+      type: Boolean,
+      default: true
     }
   });
 
-  const slots = useSlots();
-  const hasSlotComponent = computed(() => slots.content !== undefined);
+  const gridData = toRef(() => props.gridData);
 
   const minTileWidth = toRef(props.minTileWidth);
-
   const gridWrapper = ref<HTMLDivElement | null>(null);
   const { width } = useElementSize(gridWrapper);
   const columnCount = computed(() => {
@@ -52,18 +62,18 @@
     &-wrapper {
       column-count: v-bind(columnCount);
       column-gap: 10px;
+    }
 
-      :deep(#{ $self }-item) {
-        display: grid;
-        grid-template-rows: 1fr auto;
-        margin-bottom: 10px;
-        break-inside: avoid;
-        transition: all ease-in-out 300ms;
+    &-item {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      margin-bottom: 10px;
+      break-inside: avoid;
+      transition: all ease-in-out 300ms;
 
-        &.scroll-reveal {
-          opacity: 0;
-          transform: translateY(75px);
-        }
+      &.scroll-reveal {
+        opacity: 0;
+        transform: translateY(75px);
       }
     }
   }

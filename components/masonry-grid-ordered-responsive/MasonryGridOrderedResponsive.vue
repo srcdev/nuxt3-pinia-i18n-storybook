@@ -1,34 +1,21 @@
 <template>
   <div class="masonry-grid-ordered-wrapper" ref="gridWrapper">
-    <template v-for="(item, index) in gridData">
+    <template v-for="item in gridData" :key="item.id">
       <div class="masonry-grid-ordered-item" ref="gridItemsRefs">
-        <div class="p-10 border border-1 border-grey-dark border-r-4">
-          <p class="text-normal wght-700">{{ index + 1 }}: {{ item.author }}</p>
-          <p class="text-normal">{{ item.quote }}</p>
-        </div>
+        <slot :name="item.id"></slot>
       </div>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-  import type { IQuote } from "@/types/types.quotes";
   import { useBreakpoints, useElementSize, useResizeObserver } from "@vueuse/core";
 
   const props = defineProps({
     gridData: {
       type: Object,
-      default: <IQuote>{}
+      default: {}
     },
-    // gridData: {
-    //   type: Object as PropType<IQuotes>,
-    //   default: <IQuotes>{
-    //     quotes: [],
-    //     total: 0,
-    //     skip: 0,
-    //     limit: 10
-    //   }
-    // },
     minTileWidth: {
       type: Number,
       default: 312
@@ -122,8 +109,8 @@
       const colHeights = Array(columnCount.value).fill(0);
 
       gridItemsRefs.value.forEach((item) => {
-        var minHeight = Math.min(...colHeights);
-        var minIndex = colHeights.indexOf(minHeight);
+        const minHeight = Math.min(...colHeights);
+        const minIndex = colHeights.indexOf(minHeight);
 
         item.style.position = "absolute";
         item.style.top = minHeight + "px";
@@ -133,7 +120,7 @@
         colHeights[minIndex] += Math.floor(item.offsetHeight + gapNum.value);
       });
 
-      var maxHeight = Math.max(...colHeights);
+      const maxHeight = Math.max(...colHeights);
       gridWrapper.value.style.height = maxHeight + "px";
     }
   };

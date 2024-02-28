@@ -27,11 +27,8 @@
           </template>
         </DisplayRow>
 
-        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20 pt-20">
           <template #default>
-            <p class="text-normal">Limit 30 items</p>
-            <p class="text-normal wght-700">Note: Content is dynamically slotted</p>
-
             <template v-if="!pending">
               <MasonryGridOrdered :gridData="quotesData?.quotes.slice(0, displayCount) ?? <IQuotes>{}" :gap="12" :min-tile-width="300" :fixed-width="useFixedWidth">
                 <template v-for="(item, index) in quotesData?.quotes.slice(0, displayCount)" v-slot:[item.id]>
@@ -42,7 +39,6 @@
                 </template>
               </MasonryGridOrdered>
             </template>
-
             <p v-else class="text-normal">&hellip;Loading</p>
           </template>
         </DisplayRow>

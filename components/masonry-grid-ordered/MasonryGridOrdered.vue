@@ -9,23 +9,13 @@
 </template>
 
 <script setup lang="ts">
-  import type { IQuote, IQuotes } from "@/types/types.quotes";
   import { useBreakpoints, useElementSize, useResizeObserver } from "@vueuse/core";
 
   const props = defineProps({
     gridData: {
       type: Object,
-      default: <IQuote>{}
+      default: {}
     },
-    // gridData: {
-    //   type: Object as PropType<IQuotes>,
-    //   default: <IQuotes>{
-    //     quotes: [],
-    //     total: 0,
-    //     skip: 0,
-    //     limit: 10
-    //   }
-    // },
     minTileWidth: {
       type: Number,
       default: 312
@@ -89,8 +79,8 @@
       const colHeights = Array(columnCount.value).fill(0);
 
       gridItemsRefs.value.forEach((item) => {
-        var minHeight = Math.min(...colHeights);
-        var minIndex = colHeights.indexOf(minHeight);
+        const minHeight = Math.min(...colHeights);
+        const minIndex = colHeights.indexOf(minHeight);
 
         item.style.position = "absolute";
         item.style.top = minHeight + "px";
@@ -100,7 +90,7 @@
         colHeights[minIndex] += Math.floor(item.offsetHeight + gapNum.value);
       });
 
-      var maxHeight = Math.max(...colHeights);
+      const maxHeight = Math.max(...colHeights);
       gridWrapper.value.style.height = maxHeight + "px";
     }
   };
