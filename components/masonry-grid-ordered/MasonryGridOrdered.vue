@@ -123,6 +123,10 @@
       grid-template-columns: repeat(1, minmax(v-bind(minTileWidthStr), v-bind(maxTileWidth)));
       position: relative;
 
+      @media only screen and (min-width: 768px) {
+        grid-template-columns: repeat(2, minmax(v-bind(minTileWidthStr), v-bind(maxTileWidth)));
+      }
+
       @media only screen and (min-width: 1024px) {
         grid-template-columns: repeat(3, minmax(v-bind(minTileWidthStr), v-bind(maxTileWidth)));
       }
