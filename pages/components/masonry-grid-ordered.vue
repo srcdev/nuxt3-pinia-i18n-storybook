@@ -14,7 +14,7 @@
                 <InputButton @click.prevent="toggleFixedWidth(!useFixedWidth)" type="button" variant="tertiary" :button-text="`Use Fixed Width (${useFixedWidth})`" size="medium" /><br />Selecting true will fix width of grid items, they will not flow
                 with a min width and expand as according to parent element width.
               </p>
-              <p class="text-normal"><span class="wght-700">NOTE:</span> This toggle switch for demo only, in practice this would be set when implemented. You may need to resize browser for it fully pop into correct grid.</p>
+              <p class="text-normal"><span class="wght-700">NOTE:</span> This toggle switch for demo only, in practice this would be set when implemented. You may need to refresh browser for it fully pop into correct grid.</p>
               <div>
                 <select @change="updateDisplayCount($event)" class="text-normal">
                   <template v-for="index in maxItems">
@@ -65,13 +65,12 @@
     }
   });
 
-  const useFixedWidth = ref<boolean>(false);
   const toggleFixedWidth = (state: boolean) => {
     useFixedWidth.value = state;
   };
 
   const maxItems = 30;
-  const { displayCount } = storeToRefs(useRootStore());
+  const { displayCount, useFixedWidth } = storeToRefs(useRootStore());
 
   const updateDisplayCount = (event: Event) => {
     displayCount.value = Number((event.target as HTMLInputElement).value);

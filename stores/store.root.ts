@@ -21,7 +21,8 @@ export const useRootStore = defineStore({
       }
     ],
     isIos: null,
-    displayCount: 12
+    displayCount: 12,
+    useFixedWidth: false
   }),
   persist: true,
   // persist: {

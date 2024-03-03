@@ -8,4 +8,5 @@ export interface IRootStore {
   sbArray: ISbItemObj[];
   isIos: null | boolean;
   displayCount: number;
+  useFixedWidth: boolean;
 }

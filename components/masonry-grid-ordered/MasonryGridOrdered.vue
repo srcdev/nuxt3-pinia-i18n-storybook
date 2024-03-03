@@ -71,7 +71,6 @@
   });
 
   const updateGrid = () => {
-    console.log("updateGrid");
     if (gridWrapper.value !== null) {
       const wrapperWidth = gridWrapper.value?.offsetWidth ?? 0;
       const itemWidth = fixedWidth.value ? minTileWidth.value : Math.floor((wrapperWidth - (columnCount.value - 1) * gapNum.value) / columnCount.value);
@@ -95,12 +94,8 @@
     }
   };
 
-  useResizeObserver(gridWrapper, (entries) => {
+  useResizeObserver(gridWrapper, () => {
     updateGrid();
-  });
-
-  onMounted(() => {
-    // updateGrid();
   });
 
   watch(
