@@ -4,8 +4,8 @@
       <template #layout-content>
         <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20 pt-20">
           <template #default>
-            <h1 class="text-header-large">Display Feature Spotlights</h1>
-            <p class="text-normal wght-700">(WIP) Not currently responsive</p>
+            <h1 class="text-header-large">Lifestyle & Services</h1>
+            <p class="text-normal wght-700">What to do and what services are near me.</p>
           </template>
         </DisplayRow>
 

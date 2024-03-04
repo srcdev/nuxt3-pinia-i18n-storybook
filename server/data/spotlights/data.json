@@ -1,9 +1,19 @@
 {
   "items": [
     {
+      "id": 4,
+      "url": "/assets/images/spotlights/v2/nightlife.webp",
+      "alt": "Nightlife"
+    },
+    {
       "id": 1,
       "url": "/assets/images/spotlights/v2/dining-out.webp",
       "alt": "Dining out"
+    },
+    {
+      "id": 5,
+      "url": "/assets/images/spotlights/v2/got-toothache.webp",
+      "alt": "Dental Services"
     },
     {
       "id": 2,
@@ -16,22 +26,12 @@
       "alt": "Will it rain?"
     },
     {
-      "id": 4,
-      "url": "/assets/images/spotlights/v2/nightlife.webp",
-      "alt": "Nightlife"
-    },
-    {
-      "id": 5,
-      "url": "/assets/images/spotlights/v2/got-toothache.webp",
-      "alt": "Dental Services"
-    },
-    {
       "id": 5,
       "url": "/assets/images/spotlights/v2/days-out.webp",
       "alt": "Days Out"
     }
   ],
-  "total": 4,
+  "total": 6,
   "skip": 0,
-  "limit": 4
+  "limit": 10
 }

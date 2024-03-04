@@ -14,10 +14,10 @@
     responsiveWidths: {
       type: Object,
       default: {
-        mobile: "120px",
-        tablet: "200px",
+        mobile: "280px",
+        tablet: "240px",
         laptop: "240px",
-        desktop: "280px"
+        desktop: "320px"
       }
     },
     colRepeatType: {
