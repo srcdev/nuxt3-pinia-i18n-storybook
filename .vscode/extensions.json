@@ -33,6 +33,9 @@
     // Github Actions
     "github.vscode-github-actions",
 
+    // vue.volar
+    "vue.volar",
+
     // Nuxt R
     "nuxtr.nuxtr-vscode",
     // Text Pastry lets you reduce repetitive work and use multiple cursors more effectively in VS Code.
@@ -40,5 +43,5 @@
     // To add incremental number, 'shift' + 'command' + p, search for Text Pastry and select option
     "jkjustjoshing.vscode-text-pastry"
   ],
-  "unwantedRecommendations": ["vscode.typescript-language-features", "octref.vetur", "vue.vscode-typescript-vue-plugin"]
+  "unwantedRecommendations": ["octref.vetur", "vue.vscode-typescript-vue-plugin"]
 }

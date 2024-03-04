@@ -2,7 +2,7 @@
   <focus-trap v-model:active="navActive" :clickOutsideDeactivates="true">
     <nav class="navigation__wrapper" tabindex="-1">
       <div class="menu__wrapper">
-        <button type="button" :class="['menu__button', { open: navActive }, { closed: !navActive }]" data-test-id="burger-nav" @click="toggleMenu($event)">
+        <button type="button" :class="['menu__button', { open: navActive }, { closed: !navActive }]" data-test-id="burger-nav" @click="toggleMenu()">
           <span class="sr-only">{{ t("components.header-navigation.toggle-btn") }}</span>
           <Icon :name="navActive ? 'material-symbols:close' : 'solar:hamburger-menu-linear'" class="menu__button-icon" />
         </button>
@@ -11,7 +11,7 @@
         <p class="text-header-medium navigation-title">{{ t("components.header-navigation.title") }}</p>
         <div class="nav-details-wrapper">
           <template v-for="(item, key, index) in navItems">
-            <details class="nav-details" :class="[{ hide: item.hidden }]" ref="itemRefs">
+            <details class="nav-details" :class="[{ hide: item.hidden }]" ref="detailsRefs" @click="handleSummary(index)">
               <summary class="nav-summary">
                 <p class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
                 <p class="nav-summary-title" v-else>
@@ -37,7 +37,6 @@
 
 <script setup lang="ts">
   import { storeToRefs } from "pinia";
-
   import { FocusTrap } from "focus-trap-vue";
 
   const { t } = useI18n();
@@ -49,17 +48,19 @@
   const navActive = ref(false);
   const activeDetailsIndex = ref<number | null>(null);
 
-  const toggleMenu = (event: any) => {
+  const toggleMenu = () => {
     navActive.value = !navActive.value;
     activeDetailsIndex.value = null;
   };
 
-  // Handle Top nav expander
-  const itemRefs = ref<any>([]);
-  // const handleSummary = (index: number) => {
-  //   console.log(`handleSummary(${index}):`, itemRefs.value[index].attributes);
-  //   activeDetailsIndex.value = index === activeDetailsIndex.value ? null : index;
-  // };
+  const detailsRefs = ref<HTMLElement[]>([]);
+  const handleSummary = async (clickedIndex: number) => {
+    detailsRefs.value.forEach((element, index) => {
+      if (clickedIndex !== index) {
+        element.removeAttribute("open");
+      }
+    });
+  };
 </script>
 
 <style lang="scss" scoped>
@@ -111,7 +112,7 @@
       }
       &.open {
         opacity: 1;
-        z-index: 2;
+        z-index: 11;
       }
       &_link {
         border-radius: 1px;
@@ -199,7 +200,7 @@
 
       outline: none;
       padding: 2px;
-      z-index: 3;
+      z-index: 13;
       cursor: pointer;
       // &:hover {
       // }
