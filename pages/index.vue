@@ -11,12 +11,19 @@
           </template>
         </DisplayRow>
 
-        <DisplayRow :use-available-width="true" :apply-gutters="false">
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
           <template #default>
-            <template v-if="carouselStatus === 'success'">
-              <DisplayCarousel :data="carouselData ?? {}"></DisplayCarousel>
-            </template>
-            <template v-else>Carousel loading</template>
+            <ClientOnly>
+              <DisplayGrid :min-tile-width="414" col-repeat-type="auto-fill">
+                <template #content>
+                  <DisplayGridItem v-for="item in data?.items" :use-scroll-reveal="false">
+                    <template #content>
+                      <DisplaySpotlight :alt="item.alt" :url="item.url" />
+                    </template>
+                  </DisplayGridItem>
+                </template>
+              </DisplayGrid>
+            </ClientOnly>
           </template>
         </DisplayRow>
 
@@ -116,7 +123,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { ICarouselBasic } from "@/types/types.carousel";
+  import type { ISpotlightBasic } from "@/types/types.spotlights";
   import { useI18n } from "vue-i18n";
 
   const { t } = useI18n();
@@ -133,20 +140,8 @@
     }
   });
 
-  const dataReady = ref(false);
-
-  const {
-    data: carouselData,
-    execute,
-    status: carouselStatus,
-    pending,
-    error,
-    refresh
-  } = await useFetch<ICarouselBasic>("/api/carousel", {
-    immediate: true,
-    onResponse({ request, response, options }) {
-      dataReady.value = true;
-    }
+  const { data, execute, status, pending, error, refresh } = await useFetch<ISpotlightBasic>("/api/spotlights", {
+    immediate: true
   });
 </script>
 
