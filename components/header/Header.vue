@@ -14,12 +14,12 @@
                 </h1>
               </template>
             </DisplayFlexGroupItem>
-            <DisplayFlexGroupItem v-if="authenticated">
+            <DisplayFlexGroupItem v-if="authenticated" style-class-passthrough="header-logout">
               <template #default>
                 <IconButtonLogout type="button" @click="doLogout()" size="large" :button-text="$t('components.header.logout-btn')" />
               </template>
             </DisplayFlexGroupItem>
-            <DisplayFlexGroupItem v-else>
+            <DisplayFlexGroupItem v-else style-class-passthrough="header-login">
               <template #default>
                 <IconButtonAccount type="button" @click="navigateTo('/login')" size="large" button-text="Login" />
               </template>
@@ -132,6 +132,64 @@
 
         @include mqMinTablet {
           font-size: 1.8rem;
+        }
+      }
+    }
+
+    &-login,
+    &-logout {
+      .btn {
+        &-icon-only {
+          :deep(.btn-icon.large) {
+            .icon {
+              color: $color-white;
+              padding: 2px;
+              transition: all ease-in-out 200ms;
+              &:hover {
+                padding: 0;
+              }
+            }
+          }
+
+          background-color: transparent;
+          border: 1px solid transparent;
+          outline: 1px solid transparent;
+          transition: all ease-in-out 200ms;
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-color: white;
+            outline: 1px solid rgba(255, 255, 255, 0.2);
+            color: $color-grey-8;
+          }
+        }
+      }
+    }
+
+    &-login {
+      .btn {
+        &-icon-only {
+          border-radius: 50%;
+          :deep(.btn-icon.large) {
+            .icon {
+              width: 36px;
+              height: 36px;
+            }
+          }
+        }
+      }
+    }
+
+    &-logout {
+      .btn {
+        &-icon-only {
+          border-radius: 4px;
+          :deep(.btn-icon.large) {
+            .icon {
+              width: 32px;
+              height: 32px;
+            }
+          }
         }
       }
     }

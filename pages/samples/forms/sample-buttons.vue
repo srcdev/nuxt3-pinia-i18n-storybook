@@ -205,35 +205,19 @@
                 </div>
 
                 <p class="text-normal mb-12"><code>&lt;IconButtonLogout&gt;</code></p>
-                <div placement="left-center" gap="12px">
-                  <div>
-                    <IconButtonLogout button-text="Logout Small" size="small" style-class-passthrough="mb-12" />
-                  </div>
-                  <div>
-                    <IconButtonLogout button-text="Logout Small" size="normal" style-class-passthrough="mb-12" />
-                  </div>
-                  <div>
-                    <IconButtonLogout button-text="Logout Small" size="medium" style-class-passthrough="mb-12" />
-                  </div>
-                  <div>
-                    <IconButtonLogout button-text="Logout Small" size="large" style-class-passthrough="mb-12" />
-                  </div>
+                <div placement="center-left" gap="12px" class="theme-grey pt-12 pb-12" style="display: flex">
+                  <IconButtonLogout button-text="Logout Small" size="small" style-class-passthrough="" />
+                  <IconButtonLogout button-text="Logout Small" size="normal" style-class-passthrough="" />
+                  <IconButtonLogout button-text="Logout Small" size="medium" style-class-passthrough="" />
+                  <IconButtonLogout button-text="Logout Small" size="large" style-class-passthrough="" />
                 </div>
 
                 <p class="text-normal mb-12"><code>&lt;IconButtonAccount&gt;</code></p>
-                <div placement="left-center" gap="12px">
-                  <div>
-                    <IconButtonAccount button-text="Account Small" size="small" style-class-passthrough="mb-12" />
-                  </div>
-                  <div>
-                    <IconButtonAccount button-text="Account Small" size="normal" style-class-passthrough="mb-12" />
-                  </div>
-                  <div>
-                    <IconButtonAccount button-text="Account Small" size="medium" style-class-passthrough="mb-12" />
-                  </div>
-                  <div>
-                    <IconButtonAccount button-text="Account Small" size="large" style-class-passthrough="mb-12" />
-                  </div>
+                <div placement="center-left" gap="12px" class="theme-grey pt-12 pb-12" style="display: flex">
+                  <IconButtonAccount button-text="Account Small" size="small" style-class-passthrough="" />
+                  <IconButtonAccount button-text="Account Small" size="normal" style-class-passthrough="" />
+                  <IconButtonAccount button-text="Account Small" size="medium" style-class-passthrough="" />
+                  <IconButtonAccount button-text="Account Small" size="large" style-class-passthrough="" />
                 </div>
 
                 <p class="text-normal mb-12"><code>&lt;IconButtonCopy&gt;</code></p>
