@@ -2,36 +2,16 @@ import { fileURLToPath } from "url";
 import { defineNuxtConfig } from "nuxt/config";
 import favicons from "./config/favIcons.json";
 
-// import AutoImport from "unplugin-auto-import/vite";
-// import Components from "unplugin-vue-components/vite";
-// import { GlobalSettings } from "./environmentsettings";
-// const appEnv = process.env.NODE_ENV;
-
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   debug: process.env.NODE_ENV === "development",
-  // typescript: {
-  //   shim: true,
-  // },
   devServer: {
     https: true,
     port: 3000
   },
-  // proxy: {
-  //   "/api/": { target: "http://localhost:234123" },
-  // },
-  // ssr: false,
-  // experimental: {
-  //   defaults: {
-  //     useAsyncData: {
-  //       deep: false, // This will return data as shallowRef for performance improvements
-  //     },
-  //   },
-  // },
   css: ["modern-normalize", "~/assets/styles/index.scss"],
   runtimeConfig: {
     public: {
-      sitename: "Website name",
+      sitename: "On The Plains",
       siteEnvironment: "Dev",
       apiBaseURL: "https://localhost:3000",
       openWeatherApiKey: "e1db6f89d39fdc60083cacec2009d62f"
@@ -47,20 +27,13 @@ export default defineNuxtConfig({
       pathPrefix: false
     }
   ],
-  // plugins: ["@/plugins/i18n"],
   app: {
     head: {
       htmlAttrs: {
         lang: "en"
       },
       titleTemplate: "%s - Website name",
-      link: [
-        ...favicons
-        // {
-        //   rel: "stylesheet",
-        //   href: "./node_modules/modern-normalize/modern-normalize.css",
-        // },
-      ],
+      link: [...favicons],
       meta: [{ charset: "utf-8" }, { name: "viewport", content: "width=device-width, initial-scale=1" }]
     },
     pageTransition: {
@@ -73,45 +46,10 @@ export default defineNuxtConfig({
     }
   },
   vite: {
-    // server: {
-    //   proxy: {
-    //     "/api": {
-    //       target: "https://jsonplaceholder.typicode.com",
-    //       changeOrigin: true,
-    //       rewrite: (path) => path.replace(/^\/api/, ""),
-    //     },
-    //   },
-    // },
-    // vue: {
-    //   script: {
-    //     defineModel: true,
-    //   },
-    // },
-    // plugins: [
-    //   AutoImport({
-    //     imports: ["vue", "vue-router"],
-    //     dirs: ["./composables", "./stores"],
-    //     vueTemplate: true,
-    //   }),
-    //   Components({
-    //     dirs: ["./composables", "./components"],
-    //     dts: true,
-    //     directoryAsNamespace: false,
-    //   }),
-    // ],
     resolve: {
       alias: {
         "~": fileURLToPath(new URL("./", import.meta.url))
       }
     }
-    // server: {
-    //   proxy: {
-    //     "/api/": {
-    //       target: GlobalSettings[appEnv].apiBaseURL,
-    //       changeOrigin: true,
-    //       // rewrite: (path) => path.replace(/^\/api\/resources/, '')
-    //     },
-    //   },
-    // },
   }
 });

@@ -38,7 +38,7 @@
 
   .display {
     &-row {
-      margin: 0;
+      // margin: 0;
 
       &-inner {
         display: grid;

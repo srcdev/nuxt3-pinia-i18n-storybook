@@ -68,6 +68,19 @@ export function useNavItems(authenticated: boolean) {
         }
       ]
     },
+    data: {
+      summary: "Data Fetching",
+      hasChildren: true,
+      url: "",
+      hidden: false,
+      links: [
+        {
+          text: "useFetch() with watch and execute",
+          url: "/data-fetching/watch",
+          hidden: false
+        }
+      ]
+    },
     ui: {
       summary: "UI Components",
       hasChildren: true,
