@@ -56,7 +56,7 @@
           </template>
         </DisplayRow>
 
-        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="theme-white">
+        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white" style-class-passthrough="mt-12">
           <template #default>
             <template v-if="statusApi2 === 'idle'">
               <div class="pt-12 pb-12">
