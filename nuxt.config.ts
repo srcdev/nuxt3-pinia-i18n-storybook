@@ -14,7 +14,9 @@ export default defineNuxtConfig({
       sitename: "On The Plains",
       siteEnvironment: "Dev",
       apiBaseURL: "https://localhost:3000",
-      openWeatherApiKey: "e1db6f89d39fdc60083cacec2009d62f"
+      openWeatherApiKey: "e1db6f89d39fdc60083cacec2009d62f",
+      cloudinaryCloudName: "dbez3kgxo",
+      cloudinaryApiKey: "195122722414347"
     }
   },
   modules: ["@pinia/nuxt", "@nuxtjs/i18n", "@pinia-plugin-persistedstate/nuxt", "nuxt-icon", "@nuxt/test-utils", "@nuxt/image", "nuxt-security"],
@@ -27,6 +29,11 @@ export default defineNuxtConfig({
       pathPrefix: false
     }
   ],
+  image: {
+    cloudinary: {
+      baseURL: `https://res.cloudinary.com/dbez3kgxo/image/fetch/`
+    }
+  },
   security: {
     nonce: true, // Enables HTML nonce support in SSR mode
     ssg: {
@@ -48,7 +55,7 @@ export default defineNuxtConfig({
           "https:", // For increased security, replace by the specific hosting domain or file name of your external stylesheets
           "'unsafe-inline'" // Recommended default for most Nuxt apps
         ],
-        "img-src": ["'self'", "data:"], // Add relevant https://... sources if you load images from external sources
+        "img-src": ["'self'", "data:", "https://res.cloudinary.com"], // Add relevant https://... sources if you load images from external sources
         "font-src": ["'self'", "https:", "data:"], //  For increased security, replace by the specific sources for fonts
         "base-uri": ["'none'"],
         "object-src": ["'none'"],
