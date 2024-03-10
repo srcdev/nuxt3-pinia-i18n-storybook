@@ -13,7 +13,7 @@
         <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
           <template #default>
             <ClientOnly>
-              <form @submit.prevent="isPending()" :id="formData.formId" class="form-narrow" novalidate>
+              <form @submit.prevent="isPending()" class="form-narrow" novalidate>
                 <p v-if="showErrors">{{ t("pages.login.formErrorsMessage", formData.errorCount) }}</p>
 
                 <InputTextWithWrapper id="username" type="text" validation="usernameWeak" :required="true" v-model="formData" i18n-key="pages.login.fields.username" />
@@ -75,7 +75,7 @@
   });
 
   // Setup formData
-  const fieldsInitialState = <IFieldsInitialState>{
+  const fieldsInitialState = ref<IFieldsInitialState>({
     // username: "",
     // password: "",
     username: "kminchelle",
@@ -83,10 +83,10 @@
     // username: "kminchelle1", // invalid creds
     // password: "0lelplR1", // invalid creds
     rememberMe: false
-  };
+  });
 
   const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl();
-  await initFormData(fieldsInitialState);
+  await initFormData(fieldsInitialState.value);
 
   const { doAuthUseFetch, doAuthDollarFetch } = useAuthApi();
 

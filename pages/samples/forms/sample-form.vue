@@ -9,10 +9,18 @@
             </div>
           </template>
         </DisplayRow>
-        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
-          <template #default>
-            <ClientOnly>
-              <form @submit.prevent="isPending()" :id="formData.formId" class="form-narrow" novalidate>
+        <ClientOnly>
+          <DisplayRow v-if="formData.submitSuccess" :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+            <template #default>
+              <div class="pt-32">
+                <h2 class="text-header-medium">{{ t("pages.samples.sample-form.successTitle") }}</h2>
+              </div>
+            </template>
+          </DisplayRow>
+
+          <DisplayRow v-else :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+            <template #default>
+              <form @submit.prevent="isPending()" class="form-narrow" novalidate>
                 <p v-if="showErrors">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
 
                 <InputTextWithWrapper id="username" type="text" validation="username" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.username" />
@@ -60,9 +68,9 @@
                   </template>
                 </DisplayFlexGroup>
               </form>
-            </ClientOnly>
-          </template>
-        </DisplayRow>
+            </template>
+          </DisplayRow>
+        </ClientOnly>
 
         <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
           <template #default>
@@ -98,17 +106,28 @@
   const { data: placesData, pending, status, error, refresh } = await useFetch<IPlacesList>("/api/places/list");
 
   // Setup formData
-  const fieldsInitialState = <IFieldsInitialState>{
-    username: "",
-    password: "",
-    mobile: "",
-    url: "",
-    email: "",
-    places: [],
-    terms: false
-  };
 
   const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl();
+
+  // Empty form data uses 'emptyFormData'
+  // const emptyFormData = ref<IFieldsInitialState>({
+  //   username: "",
+  //   password: "",
+  //   mobile: "",
+  //   url: "",
+  //   email: "",
+  //   places: [],
+  //   terms: false
+  // });
+
+  // Start with data from API, could also be Pinia stro data
+  const { data: fieldsInitialState } = await useFetch<IFieldsInitialState>("/api/form/get-sample-data", {
+    method: "get",
+    query: {
+      readFile: false
+    }
+  });
+
   await initFormData(fieldsInitialState);
 
   const isPending = async () => {
@@ -117,6 +136,19 @@
 
     if (await formIsValid.value) {
       console.log("Form valid - will progress");
+
+      await $fetch("/api/form/post-sample-data", {
+        method: "post",
+        body: formData.value.data,
+        immediate: false,
+        onResponse({ response }) {
+          formData.value.isPending = false;
+          formData.value.submitSuccess = true;
+        },
+        onResponseError({ error }) {
+          console.log("An error occured posting form data", error);
+        }
+      });
     } else {
       console.warn("Form has errors");
     }
@@ -124,7 +156,7 @@
 
   const doReset = () => {
     console.log("resetForm()");
-    console.log(fieldsInitialState);
+    console.log(fieldsInitialState.value);
     resetForm();
   };
 </script>

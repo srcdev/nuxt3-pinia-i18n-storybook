@@ -13,7 +13,7 @@ export interface IOptionsConfig {
 }
 
 export interface IFieldsInitialState {
-  [key: string]: string | boolean | number | URL | object;
+  [key: string]: null | string | boolean | number | URL | object;
 }
 
 export interface IValidityState {
@@ -60,7 +60,7 @@ export interface ICustomErrorMessagesArr {
 }
 
 export interface IFormData {
-  [x: string]: any;
+  [x: string]: string | boolean | number | URL | object;
   data: IFieldsInitialState;
   validityState: IValidityStateArrShort;
   isPending: boolean;
@@ -68,4 +68,5 @@ export interface IFormData {
   customErrorMessages: ICustomErrorMessagesArr;
   formIsValid: boolean;
   showErrors: boolean;
+  submitSuccess: boolean;
 }

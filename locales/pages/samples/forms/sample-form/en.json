@@ -8,6 +8,7 @@
         },
         "pageTitle": "Example of a form with many element",
         "formErrorsMessage": "Form has no errors | Form has 1 error | Form has {count} errors",
+        "successTitle": "Form submit success",
         "fields": {
           "username": {
             "label": "Choose Username",

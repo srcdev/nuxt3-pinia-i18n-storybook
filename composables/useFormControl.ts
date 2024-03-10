@@ -4,19 +4,22 @@ export function useFormControl() {
   let savedInitialState = {};
 
   const formData = ref<IFormData>({
-    data: {},
+    data: {} as IFieldsInitialState,
     validityState: {},
     isPending: false,
     errorCount: 0,
     customErrorMessages: {},
     hasCustomErrorMessages: false,
     formIsValid: false,
-    showErrors: false
+    showErrors: false,
+    submitSuccess: false
   });
 
-  async function initFormData(fieldsInitialState: IFieldsInitialState) {
-    savedInitialState = fieldsInitialState;
-    formData.value.data = fieldsInitialState;
+  async function initFormData(fieldsInitialState: IFieldsInitialState | Ref<IFieldsInitialState | null>) {
+    if (fieldsInitialState !== null) {
+      savedInitialState = fieldsInitialState;
+      formData.value.data = fieldsInitialState as IFieldsInitialState;
+    }
     return;
   }
 
