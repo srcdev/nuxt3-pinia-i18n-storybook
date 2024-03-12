@@ -6,19 +6,21 @@
 
 <script setup lang="ts">
   import { useBreakpoints, useResizeObserver } from "@vueuse/core";
+  import type { IResponsiveWidths } from "@/types/types.responsiveWidths";
+
   const props = defineProps({
     minTileWidth: {
       type: Number,
       default: 312
     },
     responsiveWidths: {
-      type: Object,
-      default: {
+      type: Object as PropType<IResponsiveWidths>,
+      default: () => ({
         mobile: "280px",
         tablet: "240px",
         laptop: "240px",
         desktop: "320px"
-      }
+      })
     },
     colRepeatType: {
       type: String,

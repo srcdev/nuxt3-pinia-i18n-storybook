@@ -7,7 +7,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "storybook": "node fixStorybookPackageJson.js && storybook dev -p 6006",
+    "storybook-fix-package": "node fixStorybookPackageJson.js && storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "serve-storybook": "npx http-server ./storybook-static",
     "test": "vitest"

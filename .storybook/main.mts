@@ -1,6 +1,6 @@
 import type { StorybookConfig } from "@storybook/vue3-vite";
 import { mergeConfig } from "vite";
-const path = require("path");
+import path from "path";
 
 const config: StorybookConfig = {
   // stories: ["../store-sample-actions/**/*.stories.ts", "../storybook-stories/**/*.stories.ts", "../components/**/*.stories.ts"],
@@ -23,16 +23,16 @@ const config: StorybookConfig = {
     storyStoreV7: true
   },
 
-  async viteFinal(config: any, { configType }) {
-    return mergeConfig(config, {
-      resolve: {
-        alias: {
-          "@": path.resolve(__dirname, "./../"),
-          "~": path.resolve(__dirname, "./../")
-        }
-      }
-    });
-  },
+  // async viteFinal(config: any, { configType }) {
+  //   return mergeConfig(config, {
+  //     resolve: {
+  //       alias: {
+  //         "@": path.resolve(__dirname, "./../"),
+  //         "~": path.resolve(__dirname, "./../")
+  //       }
+  //     }
+  //   });
+  // },
   docs: {
     autodocs: true
   }

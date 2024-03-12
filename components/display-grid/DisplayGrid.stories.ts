@@ -6,7 +6,18 @@ export default {
   title: "Components/DisplayGrid",
   component: DisplayGrid,
   args: {
-    minTileWidth: 312
+    minTileWidth: 312,
+    responsiveWidths: {
+      mobile: "280px",
+      tablet: "240px",
+      laptop: "240px",
+      desktop: "320px"
+    },
+    colRepeatType: "auto-fit", // "auto-fit", "auto-fill"
+    alignHeights: false,
+    fixedWidth: false,
+    styleClassPassthrough: "",
+    displayCount: 1
   }
 } as Meta<typeof DisplayGrid>;
 
