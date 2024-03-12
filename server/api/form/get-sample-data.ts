@@ -25,13 +25,9 @@ export default defineEventHandler(async (event) => {
     terms: false
   };
 
-  console.log(`query.readFile: `, query.readFile);
-
   if (data !== null && query.readFile == "true") {
-    console.log("IF");
     return data;
   } else {
-    console.log("ELSE");
     return emptyFormData;
   }
 });
