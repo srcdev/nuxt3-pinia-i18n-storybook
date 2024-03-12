@@ -2,7 +2,7 @@
 export default defineNuxtPlugin({
   setup() {
     const api = $fetch.create({
-      baseURL: useRuntimeConfig().public.apiBaseURL ?? "https://localhost:3000",
+      baseURL: useRuntimeConfig().public.apiBaseURL,
       headers: {
         "X-Some-Custom": "1"
       }
@@ -32,7 +32,7 @@ export default defineNuxtPlugin({
 // function notation
 // export default defineNuxtPlugin(() => {
 //   const api = $fetch.create({
-//     baseURL: useRuntimeConfig().public.apiBaseURL ?? "https://localhost:3000"
+//     baseURL: useRuntimeConfig().public.apiBaseURL
 //   });
 
 //   return {

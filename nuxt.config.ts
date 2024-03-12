@@ -1,22 +1,23 @@
 import { fileURLToPath } from "url";
 import { defineNuxtConfig } from "nuxt/config";
-import favicons from "./config/favIcons.json";
+import { Favicons, PublicRuntimeConfig } from "./c12";
 
 export default defineNuxtConfig({
-  debug: process.env.NODE_ENV === "development",
-  devServer: {
-    https: true,
-    port: 3000
-  },
   css: ["modern-normalize", "~/assets/styles/index.scss"],
-  runtimeConfig: {
-    public: {
-      sitename: "On The Plains",
-      siteEnvironment: "Dev",
-      apiBaseURL: "https://localhost:3000",
-      openWeatherApiKey: "e1db6f89d39fdc60083cacec2009d62f",
-      cloudinaryCloudName: "dbez3kgxo",
-      cloudinaryApiKey: "195122722414347"
+  $development: {
+    debug: true,
+    devServer: {
+      https: true,
+      port: 3000
+    },
+    runtimeConfig: {
+      public: PublicRuntimeConfig.development
+    }
+  },
+  $production: {
+    debug: false,
+    runtimeConfig: {
+      public: PublicRuntimeConfig.production
     }
   },
   modules: [
@@ -81,7 +82,7 @@ export default defineNuxtConfig({
         lang: "en"
       },
       titleTemplate: "%s - Website name",
-      link: [...favicons],
+      link: [...Favicons],
       meta: [{ charset: "utf-8" }, { name: "viewport", content: "width=device-width, initial-scale=1" }]
     },
     pageTransition: {

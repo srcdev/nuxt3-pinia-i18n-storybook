@@ -1,4 +1,4 @@
-[
+const Favicons = [
   {
     "rel": "icon",
     "sizes": "16x16",
@@ -55,3 +55,4 @@
     "href": "/assets/favicons/apple-touch-icon-152x152.png"
   }
 ]
+export { Favicons };
