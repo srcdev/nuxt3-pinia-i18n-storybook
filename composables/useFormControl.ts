@@ -64,7 +64,6 @@ export function useFormControl() {
         useCustomError: true,
         message
       };
-      console.log(formData.value);
     }
     formData.value.hasCustomErrorMessages = countItemsWithCustomError(formData.value.customErrorMessages) > 0;
   }

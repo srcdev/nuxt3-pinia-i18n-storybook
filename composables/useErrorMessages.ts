@@ -1,6 +1,6 @@
 import type { IFormData } from "@/types/types.forms";
 
-export function useErrorMessage(name: string, formData: IFormData) {
+export function useErrorMessage(name: string, formData: Ref<IFormData>) {
   const defaultError = ref("");
   const customErrorMessages = ref(toRaw(formData.value.customErrorMessages));
 

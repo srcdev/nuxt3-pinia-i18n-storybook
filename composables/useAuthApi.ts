@@ -9,9 +9,7 @@ export function useAuthApi() {
       data: userData,
       pending,
       status,
-      execute,
-      error,
-      refresh
+      error
     } = await useFetch<ILoginResponse>("https://dummyjson.com/auth/login", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -25,9 +23,7 @@ export function useAuthApi() {
       data: userData,
       pending,
       status,
-      execute,
-      error,
-      refresh
+      error
     };
   }
 
@@ -38,10 +34,10 @@ export function useAuthApi() {
       body: {
         username: body.username,
         password: body.password
+      },
+      onResponseError({ request, response, options }) {
+        throw response;
       }
-      // onResponseError({ request, response, options }) {
-      //   console.log("[fetch response error]", request, response, response.status, response.body, options);
-      // },
     });
     return response;
   }

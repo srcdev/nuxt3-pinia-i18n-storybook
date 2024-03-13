@@ -12,33 +12,31 @@
         </DisplayRow>
         <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
           <template #default>
-            <ClientOnly>
-              <form @submit.prevent="isPending()" class="form-narrow" novalidate>
-                <p v-if="showErrors">{{ t("pages.login.formErrorsMessage", formData.errorCount) }}</p>
+            <form @submit.prevent="isPending()" class="form-narrow" novalidate>
+              <p v-if="showErrors">{{ t("pages.login.formErrorsMessage", formData.errorCount) }}</p>
 
-                <InputTextWithWrapper id="username" type="text" validation="usernameWeak" :required="true" v-model="formData" i18n-key="pages.login.fields.username" />
-                <InputTextWithWrapper id="password" type="password" validation="passwordWeak" :required="true" v-model="formData" i18n-key="pages.login.fields.password" />
+              <InputTextWithWrapper id="username" type="text" validation="usernameWeak" :required="true" v-model="formData" i18n-key="pages.login.fields.username" />
+              <InputTextWithWrapper id="password" type="password" validation="passwordWeak" :required="true" v-model="formData" i18n-key="pages.login.fields.password" />
 
-                <InputCheckboxWrapper id="rememberMe" name="rememberMe" :required="false" v-model="formData" i18n-key="pages.login.fields.rememberMe">
-                  <template #inputTitle>
-                    <p class="header-small wght-700">{{ t("pages.login.fields.rememberMe.title") }}</p>
-                  </template>
-                  <template #inputField>
-                    <InputCheckboxCore id="rememberMe" :required="false" v-model="formData" />
-                  </template>
-                </InputCheckboxWrapper>
+              <InputCheckboxWrapper id="rememberMe" name="rememberMe" :required="false" v-model="formData" i18n-key="pages.login.fields.rememberMe">
+                <template #inputTitle>
+                  <p class="header-small wght-700">{{ t("pages.login.fields.rememberMe.title") }}</p>
+                </template>
+                <template #inputField>
+                  <InputCheckboxCore id="rememberMe" :required="false" v-model="formData" />
+                </template>
+              </InputCheckboxWrapper>
 
-                <DisplayFlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
-                  <template #default>
-                    <DisplayFlexGroupItem :flex-grow="false">
-                      <template #default>
-                        <InputButton type="submit" variant="primary" @click.prevent="isPending()" :is-pending="false" :button-text="t('pages.login.buttons.submit')" />
-                      </template>
-                    </DisplayFlexGroupItem>
-                  </template>
-                </DisplayFlexGroup>
-              </form>
-            </ClientOnly>
+              <DisplayFlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
+                <template #default>
+                  <DisplayFlexGroupItem :flex-grow="false">
+                    <template #default>
+                      <InputButton type="submit" variant="primary" @click.prevent="isPending()" :is-pending="false" :button-text="t('pages.login.buttons.submit')" />
+                    </template>
+                  </DisplayFlexGroupItem>
+                </template>
+              </DisplayFlexGroup>
+            </form>
           </template>
         </DisplayRow>
 
@@ -96,8 +94,8 @@
 
     if (formIsValid.value) {
       // These for testing alternatives
-      const useComposable = false;
-      const useDollarFetchVersion = false;
+      const useComposable = true;
+      const useDollarFetchVersion = true;
 
       if (useComposable) {
         const body = <ILoginPayload>{
@@ -112,10 +110,9 @@
             token.value = result.token;
             useAccountStore().setAuthenticationState(true);
             navigateTo("/");
-          } catch (error) {
-            console.error("error: ", error);
-            // updateCustomErrors("username", error.message);
-            // updateCustomErrors("password", error.message);
+          } catch (error: any) {
+            updateCustomErrors("username", error._data.message);
+            updateCustomErrors("password", error._data.message);
           }
         } else {
           const { data: userData, error, status } = await doAuthUseFetch(body);
@@ -131,9 +128,6 @@
           }
         }
       } else {
-        // updateCustomErrors("username", "Username or password incorrect");
-        // updateCustomErrors("password", "Username or password incorrect");
-        // return;
         const {
           data: userData,
           pending,
