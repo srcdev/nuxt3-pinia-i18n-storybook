@@ -1,7 +1,7 @@
 <template>
-  <DisplayPromptCore variant="warning" :dismissible="dismissible" :apply-classes="applyClasses">
+  <DisplayPromptCore variant="warning" :dismissible="dismissible" :style-class-passthrough="styleClassPassthrough">
     <template #icon>
-      <span class="fa fa-square-info"></span>
+      <Icon name="akar-icons:triangle-alert" class="icon" />
     </template>
     <template #title>
       <slot name="title"></slot>
@@ -13,19 +13,51 @@
 </template>
 
 <script setup lang="ts">
-
   const { dismissible } = defineProps({
     dismissible: {
       type: Boolean,
       default: false
     },
-    applyClasses: {
+    styleClassPassthrough: {
       type: String,
       default: ""
     }
-  })
+  });
 
   const slots = useSlots();
   const hasContent = ref(slots.content !== undefined);
-
 </script>
+
+<style lang="scss">
+  @import "@/assets/styles/imports.scss";
+
+  $bg-color: $color-orange-5;
+  $text-color: $color-white;
+
+  .display-prompt {
+    &.warning {
+      background-color: $bg-color;
+    }
+
+    &.secondary {
+      background-color: $bg-color;
+    }
+
+    &-icon {
+      .icon {
+        color: $text-color;
+      }
+    }
+
+    &-content {
+      color: $text-color;
+    }
+    &-action {
+      &-btn {
+        .icon {
+          color: $text-color;
+        }
+      }
+    }
+  }
+</style>

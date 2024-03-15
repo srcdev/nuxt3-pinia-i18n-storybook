@@ -1,5 +1,5 @@
 <template>
-  <div :class="['copy-text-to-clipboard', config.applyClasses]" data-test-id="copyTextToClipboard">
+  <div :class="['copy-text-to-clipboard', config.styleClassPassthrough]" data-test-id="copyTextToClipboard">
     <DisplayToast v-model="toastConfig" style-class-passthrough="top full-width"></DisplayToast>
     <template v-if="hasSummaryContent">
       <div class="summary" data-test-id="copyTextToClipboard-summary">

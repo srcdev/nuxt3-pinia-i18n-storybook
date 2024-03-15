@@ -19,7 +19,7 @@ export default {
       dark: "#000000ff",
       light: "#ffffffff"
     },
-    applyClasses: "customClassName"
+    styleClassPassthrough: "customClassName"
   }
 } as Meta<typeof StoryBookComponent>;
 

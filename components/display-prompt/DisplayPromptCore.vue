@@ -1,10 +1,10 @@
 <template>
-  <div class="display-prompt" :class="[variant, appliedClasses, { dismissed: hide }]" data-test-id="display-prompt">
+  <div class="display-prompt" :class="[variant, styleClassPassthrough, { dismissed: hide }]" data-test-id="display-prompt">
     <div class="display-prompt-icon" data-test-id="prompt-icon">
       <slot name="icon"></slot>
     </div>
     <div class="display-prompt-content">
-      <p class="display-prompt-content-text nbrly-txt-semibold" data-test-id="display-prompt-title">
+      <p class="display-prompt-content-text wght-700" data-test-id="display-prompt-title">
         <slot name="title"></slot>
       </p>
       <p v-if="hasContent" class="display-prompt-content-text" data-test-id="display-prompt-content">
@@ -32,7 +32,7 @@
         return ["error", "info", "success", "warning", "secondary"].includes(value);
       }
     },
-    applyClasses: {
+    styleClassPassthrough: {
       type: String,
       default: ""
     }
@@ -41,9 +41,9 @@
   const slots = useSlots();
   const hasContent = ref(slots.content !== undefined);
   const hide = ref(false);
-  const appliedClasses = ref(props.applyClasses);
+  const styleClassPassthrough = ref(props.styleClassPassthrough);
   const dismissPrompt = () => {
-    appliedClasses.value = "";
+    styleClassPassthrough.value = "";
     hide.value = true;
   };
 </script>
@@ -51,8 +51,7 @@
 <style lang="scss">
   @import "@/assets/styles/imports.scss";
 
-  @mixin prompIcons() {
-    color: $color-white;
+  @mixin promptIcons() {
     display: inline-block;
     font-size: 14px;
     font-style: normal;
@@ -77,47 +76,16 @@
       overflow: hidden;
     }
 
-    &.info {
-      background-color: $color-blue-2;
-    }
-
-    &.success {
-      background-color: $color-green-3;
-    }
-
-    &.warning {
-      background-color: $color-orange-5;
-    }
-
-    &.error {
-      background-color: $color-red-2;
-    }
-
-    &.secondary {
-      background-color: $color-grey-3;
-
-      #{ $self }-content {
-        color: $color-grey-12;
-      }
-
-      #{ $self }-icon {
-        :slotted(.icon) {
-          color: $color-grey-12;
-        }
-      }
-    }
-
     &-icon {
       display: inline-block;
 
-      :slotted(.icon) {
-        @include prompIcons();
+      .icon {
+        @include promptIcons();
       }
     }
 
     &-content {
       flex-grow: 1;
-      color: $color-white;
       font-size: 14px;
       font-style: normal;
       line-height: 24px;
@@ -128,18 +96,25 @@
       }
     }
     &-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+
       &-btn {
         background-color: transparent;
         border: none;
         outline: 0;
         padding: 0;
         margin: 0;
+        transition: all ease-in-out 200ms;
+
+        .icon {
+          @include promptIcons();
+        }
 
         &:hover {
           cursor: pointer;
-        }
-        .icon {
-          @include prompIcons();
         }
       }
     }

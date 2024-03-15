@@ -11,7 +11,7 @@ export default {
       toastDisplayText: "Copied to clipboard",
       stringToCopy: "Copy this text",
       useToastConfirm: true,
-      applyClasses: "customClass"
+      styleClassPassthrough: "customClass"
     }
   }
 } as Meta<typeof CopyTextToClipboard>;

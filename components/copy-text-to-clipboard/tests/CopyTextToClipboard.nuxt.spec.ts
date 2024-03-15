@@ -12,13 +12,13 @@ const sleep = (ms: number) => {
 
 const initialPropsData = {
   config: {
-    applyClasses: "customClass",
+    styleClassPassthrough: "customClass",
     copyBtnText: "Copy",
     copyLabel: "Secret Key",
     stringToCopy: "GU4DMMZRGI2TSLJVMFTDSLJUGUYTILLBGQZTELLDMYYGCOBQMIZDQOBUGE",
     toastSuccess: "Copied to clipboard",
-    useToastConfirm: true,
-  },
+    useToastConfirm: true
+  }
 };
 const summarySlotContent = "Summary Slot content to be tested";
 
@@ -28,9 +28,9 @@ const wrapperFactory = (propsData = {}) => {
 
   return mountSuspended(ComponentUnderTest, {
     slots: {
-      summaryContent: () => summarySlotContent,
+      summaryContent: () => summarySlotContent
     },
-    props: mockPropsData,
+    props: mockPropsData
   });
 };
 

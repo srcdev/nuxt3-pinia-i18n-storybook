@@ -24,7 +24,7 @@ const initialPropsData = {
     dark: "#000",
     light: "#fff"
   },
-  applyClasses: "customClassName"
+  styleClassPassthrough: "customClassName"
 };
 
 let wrapper: VueWrapper<InstanceType<typeof ComponentUnderTest>>;

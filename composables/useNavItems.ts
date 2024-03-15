@@ -128,6 +128,11 @@ export function useNavItems(authenticated: boolean) {
           hidden: false
         },
         {
+          text: "Display Prompts",
+          url: "/components/display-prompts",
+          hidden: false
+        },
+        {
           text: "Parallax section",
           url: "/",
           hidden: false

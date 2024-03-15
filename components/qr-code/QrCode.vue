@@ -4,7 +4,7 @@
       <DisplayFlexGroupItem>
         <template #default>
           <div v-if="config.qrCodeStr !== ''">
-            <img :src="qrcode" :alt="t('components.qrCode.imgAltText')" class="qr-code-image" :class="applyClasses" :height="qrCodeSize" :width="qrCodeSize" data-test-id="qrCodeImage" />
+            <img :src="qrcode" :alt="t('components.qrCode.imgAltText')" class="qr-code-image" :class="styleClassPassthrough" :height="qrCodeSize" :width="qrCodeSize" data-test-id="qrCodeImage" />
           </div>
           <div v-else>
             <p class="nbrly-txt-nav-item-description mt-0 mb-12">ELSE</p>
@@ -63,7 +63,7 @@
         };
       }
     },
-    applyClasses: {
+    styleClassPassthrough: {
       type: String,
       default: ""
     }
@@ -88,7 +88,7 @@
     toastDisplayText: props.config.toastSuccess,
     stringToCopy: props.config.manualCodeStr,
     useToastConfirm: true,
-    applyClasses: "customClass"
+    styleClassPassthrough: "customClass"
   });
 
   const qrCssWidth = computed(() => {

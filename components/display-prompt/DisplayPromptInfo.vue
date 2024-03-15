@@ -1,5 +1,5 @@
 <template>
-  <DisplayPromptCore variant="info" :dismissible="dismissible" :apply-classes="applyClasses">
+  <DisplayPromptCore variant="info" :dismissible="dismissible" :style-class-passthrough="styleClassPassthrough">
     <template #icon>
       <Icon name="akar-icons:info" class="icon" />
     </template>
@@ -18,7 +18,7 @@
       type: Boolean,
       default: false
     },
-    applyClasses: {
+    styleClassPassthrough: {
       type: String,
       default: ""
     }
@@ -27,3 +27,33 @@
   const slots = useSlots();
   const hasContent = ref(slots.content !== undefined);
 </script>
+
+<style lang="scss">
+  @import "@/assets/styles/imports.scss";
+
+  $bg-color: $color-blue-2;
+  $text-color: $color-white;
+
+  .display-prompt {
+    &.info {
+      background-color: $bg-color;
+    }
+
+    &-icon {
+      .icon {
+        color: $text-color;
+      }
+    }
+
+    &-content {
+      color: $text-color;
+    }
+    &-action {
+      &-btn {
+        .icon {
+          color: $text-color;
+        }
+      }
+    }
+  }
+</style>

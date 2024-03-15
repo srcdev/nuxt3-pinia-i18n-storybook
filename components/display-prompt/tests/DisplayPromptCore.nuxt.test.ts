@@ -6,7 +6,7 @@ import ComponentUnderTest from "../DisplayPromptCore.vue";
 const initialPropsData = {
   dismissible: true,
   variant: "error",
-  applyClasses: "customClassName"
+  styleClassPassthrough: "customClassName"
 };
 
 const slotIcon = `<Icon name="akar-icons:circle-alert" class="icon" />`;

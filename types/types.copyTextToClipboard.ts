@@ -4,5 +4,5 @@ export interface ICopyTextConfig {
   toastDisplayText: string;
   stringToCopy: string;
   useToastConfirm: boolean;
-  applyClasses: string;
+  styleClassPassthrough: string;
 }

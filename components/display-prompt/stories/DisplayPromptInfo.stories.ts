@@ -6,7 +6,7 @@ export default {
   component: StoryBookComponent,
   args: {
     dismissible: true,
-    applyClasses: "customClassName"
+    styleClassPassthrough: "customClassName"
   }
 } as Meta<typeof StoryBookComponent>;
 
@@ -17,8 +17,8 @@ const Template: StoryFn<typeof StoryBookComponent> = (args) => ({
   },
   template: `
     <StoryBookComponent v-bind="args">
-      <template v-if="${'title' in args}" v-slot:title>${args.title}</template>
-      <template v-if="${'content' in args}" v-slot:content>${args.content}</template>
+      <template v-if="${"title" in args}" v-slot:title>${args.title}</template>
+      <template v-if="${"content" in args}" v-slot:content>${args.content}</template>
     </StoryBookComponent>
   `
 });
@@ -27,14 +27,14 @@ export const TitleOnlyDismissable = Template.bind({});
 TitleOnlyDismissable.args = {
   title: "Info Prompt Title Only Dismissable",
   dismissible: true,
-  applyClasses: "mt-20 mb-20"
+  styleClassPassthrough: "mt-20 mb-20"
 };
 
 export const TitleOnlyNotDismissable = Template.bind({});
 TitleOnlyNotDismissable.args = {
   title: "Info Prompt Title Only Not Dismissable",
   dismissible: false,
-  applyClasses: "mt-20 mb-20"
+  styleClassPassthrough: "mt-20 mb-20"
 };
 
 export const TitleAndContentDismissable = Template.bind({});
@@ -42,7 +42,7 @@ TitleAndContentDismissable.args = {
   title: "Info Prompt Title Only Dismissable",
   content: "Description text",
   dismissible: true,
-  applyClasses: "mt-20 mb-20"
+  styleClassPassthrough: "mt-20 mb-20"
 };
 
 export const TitleAndContentNotDismissable = Template.bind({});
@@ -50,5 +50,5 @@ TitleAndContentNotDismissable.args = {
   title: "Info Prompt Title Only Not Dismissable",
   content: "Description text",
   dismissible: false,
-  applyClasses: "mt-20 mb-20"
+  styleClassPassthrough: "mt-20 mb-20"
 };
