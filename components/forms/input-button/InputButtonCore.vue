@@ -93,16 +93,20 @@
       }
       // Sizes
       &.small .icon {
+        height: 18px;
         width: 18px;
       }
       &.normal .icon {
+        height: 20px;
         width: 20px;
       }
       &.medium .icon {
+        height: 22px;
         width: 22px;
       }
 
       &.large .icon {
+        height: 24px;
         width: 24px;
       }
 
@@ -146,7 +150,8 @@
       color: $color-blue-4;
       outline: 1px solid $color-blue-1;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $color-blue-1-30;
         border-color: $color-blue-1;
         color: $color-blue-1;
@@ -159,7 +164,8 @@
       color: $color-grey-5;
       outline: 1px solid $color-grey-3;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $color-grey-7-30;
         border-color: $color-grey-3;
         color: $color-grey-3;
@@ -172,7 +178,8 @@
       color: $color-grey-5;
       outline: 1px solid $color-grey-3;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $color-grey-5;
         border-color: $color-grey-8;
         color: $color-grey-8;
@@ -186,7 +193,8 @@
       color: $color-grey-8;
       outline: 1px solid transparent;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: transparent;
         border-color: transparent;
         color: $color-grey-8;
@@ -199,7 +207,8 @@
       color: $color-red-4;
       outline: 1px solid $color-red-1;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $color-red-4;
         border-color: $color-red-1;
         color: $color-red-1;
@@ -212,7 +221,8 @@
       color: $color-green-5;
       outline: 1px solid $color-green-5;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $color-green-1-70;
         border-color: $color-green-5;
         color: $color-green-5;
@@ -225,7 +235,8 @@
       color: $color-orange-1;
       outline: 1px solid $color-orange-4;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $color-orange-1;
         border-color: $color-orange-4;
         color: $color-orange-3;
@@ -241,7 +252,8 @@
       border-radius: 50%;
       aspect-ratio: 1;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $color-grey-5;
         border-color: $color-grey-8;
         color: $color-grey-8;

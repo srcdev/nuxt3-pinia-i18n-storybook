@@ -140,19 +140,19 @@
 
               <div>
                 <p class="text-normal wght-700 mb-12">Icon Only Buttons</p>
-                <p class="text-normal mb-12"><code>&lt;IconButtonCancel&gt;</code></p>
+                <p class="text-normal mb-12"><code>&lt;IconButtonCancel&gt;</code> (CSS Separated)</p>
                 <div placement="left-center" gap="12px">
                   <div>
                     <IconButtonCancel button-text="Cancel Small" size="small" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <IconButtonCancel button-text="Cancel Small" size="normal" style-class-passthrough="mb-12" />
+                    <IconButtonCancel button-text="Cancel Normal" size="normal" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <IconButtonCancel button-text="Cancel Small" size="medium" style-class-passthrough="mb-12" />
+                    <IconButtonCancel button-text="Cancel Medium" size="medium" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <IconButtonCancel button-text="Cancel Small" size="large" style-class-passthrough="mb-12" />
+                    <IconButtonCancel button-text="Cancel Large" size="large" style-class-passthrough="mb-12" />
                   </div>
                 </div>
 
@@ -212,7 +212,7 @@
                   <IconButtonLogout button-text="Logout Small" size="large" style-class-passthrough="" />
                 </div>
 
-                <p class="text-normal mb-12"><code>&lt;IconButtonAccount&gt;</code></p>
+                <p class="text-normal mb-12"><code>&lt;IconButtonAccount&gt;</code> (CSS Separated)</p>
                 <div placement="center-left" gap="12px" class="theme-grey pt-12 pb-12" style="display: flex">
                   <IconButtonAccount button-text="Account Small" size="small" style-class-passthrough="" />
                   <IconButtonAccount button-text="Account Small" size="normal" style-class-passthrough="" />

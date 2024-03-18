@@ -108,6 +108,11 @@ export function useNavItems(authenticated: boolean) {
           hidden: true
         },
         {
+          text: "Dialog",
+          url: "/components/display-dialog",
+          hidden: false
+        },
+        {
           text: "Masonry Grid",
           url: "/components/masonry-grid",
           hidden: false

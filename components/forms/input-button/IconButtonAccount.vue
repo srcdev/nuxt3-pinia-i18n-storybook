@@ -1,5 +1,5 @@
 <template>
-  <InputButtonCore type="button" :data-test-id="dataTestId" variant="icon-only" :size="size" :weight="weight" :button-text="buttonText" :style-class-passthrough="styleClassPassthrough" :button-text-visually-hidden="true">
+  <InputButtonCore type="button" :data-test-id="dataTestId" variant="icon-only" :size="size" :button-text="buttonText" :style-class-passthrough="styleClassPassthrough" :button-text-visually-hidden="true">
     <template #left>
       <Icon name="material-symbols:account-circle" class="icon-account-btn" />
     </template>
@@ -13,13 +13,6 @@
       default: "normal",
       validator(value: string) {
         return ["small", "normal", "medium", "large"].includes(value);
-      }
-    },
-    weight: {
-      type: String as PropType<string>,
-      default: "wght-500",
-      validator(value: string) {
-        return ["wght-100", "wght-200", "wght-300", "wght-400", "wght-500", "wght-600", "wght-700", "wght-800", "wght-900"].includes(value);
       }
     },
     buttonText: {
@@ -37,10 +30,22 @@
   });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "@/assets/styles/imports.scss";
 
-  .icon-account-btn {
-    color: $color-white;
+  .btn {
+    &-icon {
+      .icon-account-btn {
+        color: $color-white;
+        border-radius: 50%;
+        box-shadow: 0px 0px 1px 1px transparent;
+        transition: all ease-in-out 200ms;
+
+        &:hover,
+        &:focus {
+          box-shadow: 0px 0px 1px 1px $color-white;
+        }
+      }
+    }
   }
 </style>

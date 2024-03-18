@@ -19,7 +19,8 @@
 <script setup lang="ts">
   useHead({
     bodyAttrs: {
-      class: "body-default"
+      class: "body-default",
+      id: "body"
     }
   });
 
