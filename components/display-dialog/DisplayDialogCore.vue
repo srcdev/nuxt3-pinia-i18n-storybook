@@ -98,13 +98,21 @@
 
     &-inner {
       background-color: $white;
-      height: 50dvh;
-      width: 50vw;
+      width: 100vw;
       margin: 12px;
       padding: 12px;
+
+      @media only screen and (min-width: 768px) {
+        width: 720px;
+      }
+
+      // @media only screen and (min-width: 1024px) {
+      //   height: 100dvh;
+      //   width: 100vw;
+      // }
     }
 
-    &-top-bar {
-    }
+    // &-top-bar {
+    // }
   }
 </style>
