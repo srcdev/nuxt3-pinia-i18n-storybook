@@ -8,11 +8,7 @@
       </template>
     </DisplayRow>
 
-    <DisplayRow :use-available-width="true">
-      <template #default>
-        <Footer :footer-theme="footerTheme"></Footer>
-      </template>
-    </DisplayRow>
+    <Footer :footer-theme="footerTheme"></Footer>
   </div>
 </template>
 
