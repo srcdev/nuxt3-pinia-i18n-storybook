@@ -28,8 +28,16 @@
   background-color: $black;
 }
 
-.theme-orange {
+.theme-orange-lighter {
   background-color: $color-orange-5;
+}
+
+.theme-orange {
+  background-color: $color-orange-6;
+}
+
+.theme-orange-darker {
+  background-color: $color-orange-7;
 }
 
 .theme-header {

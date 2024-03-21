@@ -1,62 +1,99 @@
 <template>
   <footer class="footer">
-    <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default" display-row-inner-theme="theme-default">
+    <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-orange-darker" display-row-inner-theme="theme-orange-darker" style-class-passthrough="pb-12 pt-12">
       <template #default>
         <div class="footer-title">
-          <p class="text-normal wght-700">Footer title bar</p>
+          <p class="text-normal wght-700 text-color-white">Footer title bar</p>
         </div>
       </template>
     </DisplayRow>
 
-    <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default" display-row-inner-theme="theme-default">
+    <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-orange-lighter" display-row-inner-theme="theme-orange-lighter">
       <template #default>
-        <div class="footer-links section-1">
-          <p class="text-normal wght-700">Section 1 links</p>
-          <ul class="footer-links-list">
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Some link 1</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Some other link to home</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Home link section 1</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Test link 2</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Example link 5</NuxtLink></li>
-          </ul>
-        </div>
+        <div class="footer-block-1">
+          <div class="footer-links section-1">
+            <p class="text-normal wght-700 text-color-white">Section 1 links</p>
+            <ul class="footer-links-list">
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some link 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some other link to home</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Home link section 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Test link 2</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Example link 5</NuxtLink></li>
+            </ul>
+          </div>
 
-        <div class="footer-links section-2">
-          <p class="text-normal wght-700">Section 2 links</p>
-          <ul class="footer-links-list">
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Some link 1</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Some other link to home</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Home link section 1</NuxtLink></li>
-          </ul>
-        </div>
+          <div class="footer-links section-2">
+            <p class="text-normal wght-700 text-color-white">Section 2 links</p>
+            <ul class="footer-links-list">
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some link 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some other link to home</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Home link section 1</NuxtLink></li>
+            </ul>
+          </div>
 
-        <div class="footer-links section-3">
-          <p class="text-normal wght-700">Section 3 links</p>
-          <ul class="footer-links-list">
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Some link 1</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Some other link to home</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Home link section 1</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Some link 1</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Test link 2</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Some link 1</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link">Example link 5</NuxtLink></li>
-          </ul>
+          <div class="footer-links section-3">
+            <p class="text-normal wght-700 text-color-white">Section 3 links</p>
+            <ul class="footer-links-list">
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some link 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some other link to home</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Home link section 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some link 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Test link 2</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some link 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Example link 5</NuxtLink></li>
+            </ul>
+          </div>
         </div>
       </template>
     </DisplayRow>
 
-    <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-default" display-row-inner-theme="theme-default">
+    <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-orange-lighter" display-row-inner-theme="theme-orange-lighter" style-class-passthrough="pb-12 pt-12">
       <template #default>
-        <div class="footer-links section-2">
-          <ul class="footer-links-list">
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link wght-700">Some link 1</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link wght-700">Some other link to home</NuxtLink></li>
-            <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link wght-700">Home link section 1</NuxtLink></li>
-          </ul>
+        <div class="footer-block-2">
+          <div class="footer-links section-2">
+            <ul class="footer-links-list links-social">
+              <li class="footer-links-item">
+                <UtilsIconLinkTwitter />
+              </li>
+              <li class="footer-links-item">
+                <UtilsIconLinkLinkedIn />
+              </li>
+              <li class="footer-links-item">
+                <UtilsIconLinkFacebook />
+              </li>
+            </ul>
+          </div>
         </div>
+      </template>
+    </DisplayRow>
 
-        <div class="footer-links">
-          <p v-html="$t('components.footer.copyright', { year: currentYear })"></p>
+    <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-orange" display-row-inner-theme="theme-orange" style-class-passthrough="pb-12 pt-12">
+      <template #default>
+        <div class="footer-block-3">
+          <div class="footer-links section-1">
+            <ul class="footer-links-list">
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link wght-700 text-color-white">Terms of use</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link wght-700 text-color-white">Privacy policy</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link wght-700 text-color-white">Cookie policy</NuxtLink></li>
+            </ul>
+          </div>
+
+          <div class="footer-links section-2">
+            <ul class="footer-links-list links-social">
+              <li class="footer-links-item">
+                <UtilsIconLinkTwitter />
+              </li>
+              <li class="footer-links-item">
+                <UtilsIconLinkLinkedIn />
+              </li>
+              <li class="footer-links-item">
+                <UtilsIconLinkFacebook />
+              </li>
+            </ul>
+          </div>
+          <div class="footer-links section-3">
+            <p class="text-normal wght-700 text-color-white pb-12 pt-12" v-html="$t('components.footer.copyright', { year: currentYear })"></p>
+          </div>
         </div>
       </template>
     </DisplayRow>
@@ -115,12 +152,96 @@
   @import "@/assets/styles/imports.scss";
 
   .footer {
-    // $self: &;
-
     &-inner {
       align-items: left;
       display: flex;
       flex-direction: column;
+    }
+
+    &-block {
+      &-1 {
+        @media only screen and (min-width: $tabletMed) {
+          display: flex;
+
+          .footer-links {
+            width: 226px;
+          }
+        }
+      }
+
+      &-2 {
+        display: flex;
+        justify-content: right;
+        @media only screen and (min-width: $tabletMed) {
+          justify-content: left;
+          gap: 16px;
+        }
+        @media only screen and (min-width: $desktop) {
+          justify-content: right;
+        }
+      }
+
+      &-3 {
+        @media only screen and (min-width: $tabletMed) {
+          display: grid;
+          grid-gap: 12px;
+          grid-template-columns: repeat(2, [col] 50%);
+          grid-template-rows: repeat(2, [row] 50%);
+
+          padding: 12px 0 30px 0;
+
+          .section {
+            &-1 {
+              grid-column: col 1;
+              grid-row: row 2;
+
+              .footer-links-list {
+                display: flex;
+                gap: 16px;
+              }
+            }
+            &-2 {
+              grid-column: col 1 / span 2;
+              grid-row: row 1 / span 2;
+            }
+            &-3 {
+              grid-column: col 2;
+              grid-row: row 2;
+              text-align: right;
+            }
+          }
+        }
+
+        @media only screen and (min-width: $desktop) {
+          grid-gap: 0;
+          grid-template-columns: repeat(3, [col] 33%);
+          grid-template-rows: initial;
+          padding: 12px 0 12px 0;
+
+          .section {
+            &-1 {
+              grid-column: col 1;
+              grid-row: initial;
+            }
+            &-2 {
+              grid-column: col 2;
+              grid-row: initial;
+              align-content: center;
+
+              .footer-links-list {
+                display: flex;
+                gap: 16px;
+                justify-content: center;
+              }
+            }
+            &-3 {
+              grid-column: col 3;
+              grid-row: initial;
+              text-align: right;
+            }
+          }
+        }
+      }
     }
 
     &-links {
@@ -128,9 +249,21 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
+
+        &.links {
+          &-social {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            gap: 12px;
+
+            li {
+              font-size: initial;
+            }
+          }
+        }
       }
-      // &-item {
-      // }
+
       &-link {
         display: block;
         padding: 0.6rem 0;

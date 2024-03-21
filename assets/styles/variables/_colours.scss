@@ -61,6 +61,8 @@ $color-orange-3: #e49600;
 $color-orange-3-70: #e4960070;
 $color-orange-4: #ffaa0c;
 $color-orange-5: #bc652f;
+$color-orange-6: #914e24;
+$color-orange-7: #77350c;
 
 $textColours: (
   "white": $white,
@@ -69,7 +71,8 @@ $textColours: (
   "darkgrey": $color-grey-12,
   "error": $color-red-6,
   "green": $color-green-1,
-  "orange": $color-orange-1
+  "orange": $color-orange-1,
+  "orange-dark": $color-orange-6
 );
 
 $theme-blue: $color-blue-1;

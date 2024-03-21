@@ -19,12 +19,12 @@
     displayRowTheme: {
       type: String,
       default: "theme-default",
-      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black", "theme-dark", "theme-header"].includes(val as string)
+      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black", "theme-dark", "theme-header", "theme-orange", "theme-orange-lighter", "theme-orange-darker"].includes(val as string)
     },
     displayRowInnerTheme: {
       type: String,
       default: "theme-default",
-      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black", "theme-dark"].includes(val as string)
+      validator: (val) => ["theme-default", "theme-white", "theme-grey", "theme-blue", "theme-green", "theme-black", "theme-dark", "theme-orange", "theme-orange-lighter", "theme-orange-darker"].includes(val as string)
     },
     styleClassPassthrough: {
       type: String,

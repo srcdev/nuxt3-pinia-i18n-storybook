@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtLayout name="default" page-theme="theme-default" footer-theme="theme-default">
+    <NuxtLayout name="default" page-theme="theme-default">
       <template #layout-content>
         <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-default" style-class-passthrough="pt-20 pb-20">
           <template #default>
@@ -74,6 +74,28 @@
                 <div class="icon-name">
                   <span class="text-normal">{{ $t("pages.samples.installed-icons.section.arrows.chevron-left") }}</span>
                 </div>
+              </div>
+
+              <p class="text-header-medium mt-8">Social</p>
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="ri:twitter-x-fill" class="icon" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Twitter</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="ri:facebook-fill" class="icon" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">Facebook/Meta</span></div>
+              </div>
+
+              <div class="icon-table">
+                <div class="icon-display">
+                  <span class="icon"><Icon name="ri:linkedin-fill" class="icon" /></span>
+                </div>
+                <div class="icon-name"><span class="text-normal">LinkedIn</span></div>
               </div>
 
               <p class="text-header-medium mt-8">Account</p>
