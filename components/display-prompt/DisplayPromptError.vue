@@ -1,5 +1,5 @@
 <template>
-  <DisplayPromptCore variant="error" :dismissible="dismissible" :style-class-passthrough="styleClassPassthrough">
+  <DisplayPromptCore variant="error" :dismissible="dismissible" icon-color="white" :style-class-passthrough="styleClassPassthrough">
     <template #icon>
       <Icon name="akar-icons:circle-alert" class="icon" />
     </template>
@@ -28,7 +28,7 @@
   const hasContent = ref(slots.content !== undefined);
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   @import "@/assets/styles/imports.scss";
 
   $bg-color: $color-red-2;
@@ -47,13 +47,6 @@
 
     &-content {
       color: $text-color;
-    }
-    &-action {
-      &-btn {
-        .icon {
-          color: $text-color;
-        }
-      }
     }
   }
 </style>

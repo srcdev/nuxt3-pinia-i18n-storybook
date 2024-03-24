@@ -37,10 +37,7 @@
   });
 </script>
 
-<style lang="scss" scoped>
+<!-- <style lang="scss" scoped>
   @import "@/assets/styles/imports.scss";
 
-  .icon-logout-btn {
-    color: $color-white;
-  }
-</style>
+</style> -->

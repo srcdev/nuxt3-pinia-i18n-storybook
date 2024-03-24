@@ -11,11 +11,7 @@
         <slot name="content"></slot>
       </p>
     </div>
-    <div v-if="dismissible" class="display-prompt-action" data-test-id="display-prompt-action" @click.prevent="dismissPrompt()">
-      <button class="display-prompt-action-btn" data-test-id="display-prompt-close-btn">
-        <Icon name="material-symbols:close" class="close" />
-      </button>
-    </div>
+    <IconButtonCancel v-if="dismissible" :icon-color="iconColor" @click.prevent="dismissPrompt()" data-test-id="display-prompt-action" button-text="Cancel Small" size="large" style-class-passthrough="display-prompt-action" />
   </div>
 </template>
 
@@ -35,6 +31,13 @@
     styleClassPassthrough: {
       type: String,
       default: ""
+    },
+    iconColor: {
+      type: String as PropType<string>,
+      default: "dark-grey",
+      validator(value: string) {
+        return ["dark-grey", "white"].includes(value);
+      }
     }
   });
 
@@ -101,22 +104,19 @@
       justify-content: center;
       width: 40px;
 
-      &-btn {
-        background-color: transparent;
-        border: none;
-        outline: 0;
-        padding: 0;
-        margin: 0;
-        transition: all ease-in-out 200ms;
+      // .btn-icon .icon {
+      //   color: $color-white;
+      //   border-radius: 50%;
+      //   box-shadow: 0px 0px 1px 1px transparent;
+      //   transition: all ease-in-out 200ms;
 
-        .icon {
-          @include promptIcons();
-        }
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
+      //   &:hover,
+      //   &:focus {
+      //     box-shadow: 0px 0px 1px 1px $color-white;
+      //     border: 1px solid $color-white;
+      //     outline: 1px solid $color-white;
+      //   }
+      // }
     }
   }
 </style>

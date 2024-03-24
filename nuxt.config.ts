@@ -3,6 +3,13 @@ import { defineNuxtConfig } from "nuxt/config";
 import { Favicons, PublicRuntimeConfig } from "./c12";
 
 export default defineNuxtConfig({
+  devtools: {
+    enabled: false,
+
+    timeline: {
+      enabled: true
+    }
+  },
   css: ["modern-normalize", "~/assets/styles/index.scss"],
   $development: {
     debug: true,

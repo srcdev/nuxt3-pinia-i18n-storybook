@@ -1,5 +1,5 @@
 <template>
-  <DisplayPromptCore variant="info" :dismissible="dismissible" :style-class-passthrough="styleClassPassthrough">
+  <DisplayPromptCore variant="info" :dismissible="dismissible" icon-color="white" :style-class-passthrough="styleClassPassthrough">
     <template #icon>
       <Icon name="akar-icons:info" class="icon" />
     </template>
@@ -47,13 +47,6 @@
 
     &-content {
       color: $text-color;
-    }
-    &-action {
-      &-btn {
-        .icon {
-          color: $text-color;
-        }
-      }
     }
   }
 </style>
