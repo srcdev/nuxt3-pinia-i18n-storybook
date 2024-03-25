@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from "@storybook/vue3";
-import StoryBookComponent from "../DisplayPromptError.vue";
+import StoryBookComponent from "../variants/DisplayPromptError.vue";
 
 export default {
   title: "Components/Common/DisplayPrompt/Error",

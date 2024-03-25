@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from "@storybook/vue3";
-import StoryBookComponent from "../DisplayPromptWarning.vue";
+import StoryBookComponent from "../variants/DisplayPromptWarning.vue";
 
 export default {
   title: "Components/Common/DisplayPrompt/Warning",

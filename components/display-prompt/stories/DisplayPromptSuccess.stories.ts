@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from "@storybook/vue3";
-import StoryBookComponent from "../DisplayPromptSuccess.vue";
+import StoryBookComponent from "../variants/DisplayPromptSuccess.vue";
 
 export default {
   title: "Components/Common/DisplayPrompt/Success",

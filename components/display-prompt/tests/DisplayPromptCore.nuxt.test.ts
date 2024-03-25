@@ -51,8 +51,7 @@ describe("DisplayPromptCore", () => {
     vi.stubGlobal("dismissPrompt", dismissPrompt());
 
     wrapper = await wrapperFactory();
-    const testElem = wrapper.find("[data-test-id='display-prompt-action']");
-    const closeBtn = testElem.find("[data-test-id='display-prompt-close-btn']");
+    const closeBtn = wrapper.find("[data-test-id='display-prompt-action']");
     closeBtn.trigger("click");
     expect(dismissPrompt).toHaveBeenCalledOnce();
 

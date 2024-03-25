@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from "@storybook/vue3";
-import StoryBookComponent from "../DisplayPromptInfo.vue";
+import StoryBookComponent from "../variants/DisplayPromptInfo.vue";
 
 export default {
   title: "Components/Common/DisplayPrompt/Info",

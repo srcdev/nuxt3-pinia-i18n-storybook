@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from "@storybook/vue3";
-import StoryBookComponent from "../DisplayPromptSecondary.vue";
+import StoryBookComponent from "../variants/DisplayPromptSecondary.vue";
 
 export default {
   title: "Components/Common/DisplayPrompt/Secondary",
