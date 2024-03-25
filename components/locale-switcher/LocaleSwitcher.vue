@@ -19,7 +19,7 @@
 
     <p>Switch to:</p>
     <div v-for="locale in availableLocales">
-      <InputButton type="submit" variant="primary" @click.prevent="setI18n(locale.code)" :button-text="locale.name" :data-test-id="`locale-switch-btn-${locale.code}'`" />
+      <InputButtonTertiary type="submit" @click.prevent="setI18n(locale.code)" :button-text="locale.name" :data-test-id="`locale-switch-btn-${locale.code}'`" />
     </div>
   </ClientOnly>
 </template>

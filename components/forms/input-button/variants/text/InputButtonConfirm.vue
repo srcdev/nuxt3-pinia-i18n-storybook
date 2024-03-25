@@ -1,7 +1,7 @@
 <template>
-  <InputButtonCore :type="type" :data-test-id="dataTestId" variant="warning" :size="size" :weight="weight" :button-text="buttonText" :style-class-passthrough="styleClassPassthrough">
+  <InputButtonCore :type="type" :data-test-id="dataTestId" variant="confirm" :size="size" :weight="weight" :button-text="buttonText" :style-class-passthrough="styleClassPassthrough">
     <template #left>
-      <Icon name="material-symbols:warning-outline" />
+      <Icon name="material-symbols:check-circle-outline" />
     </template>
   </InputButtonCore>
 </template>
@@ -45,5 +45,21 @@
 </script>
 
 <style lang="scss" scoped>
-  // @import "@/assets/styles/imports.scss";
+  @import "@/assets/styles/imports.scss";
+
+  .btn {
+    &-confirm {
+      background-color: $color-green-1;
+      border: 1px solid $color-white;
+      color: $color-green-5;
+      outline: 1px solid $color-green-5;
+
+      &:hover,
+      &:focus {
+        background-color: $color-green-1-70;
+        border-color: $color-green-5;
+        color: $color-green-5;
+      }
+    }
+  }
 </style>

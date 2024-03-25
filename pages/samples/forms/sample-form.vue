@@ -62,7 +62,7 @@
                     </DisplayFlexGroupItem>
                     <DisplayFlexGroupItem :flex-grow="false">
                       <template #default>
-                        <InputButton type="submit" variant="primary" @click.prevent="isPending()" :is-pending="false" button-text="Submit" />
+                        <InputButtonTertiary type="submit" @click.prevent="isPending()" :is-pending="false" button-text="Submit" />
                       </template>
                     </DisplayFlexGroupItem>
                   </template>

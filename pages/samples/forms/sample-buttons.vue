@@ -13,73 +13,73 @@
           <template #default>
             <form>
               <div>
-                <p class="text-normal mb-12"><code>&lt;InputButton variant="primary"&gt;</code></p>
+                <p class="text-normal mb-12"><code>&lt;InputButtonPrimary&gt;</code></p>
                 <div placement="left-center" gap="12px" flex-wrap="wrap">
                   <div>
-                    <InputButton type="submit" variant="primary" button-text="Primary Small" size="small" style-class-passthrough="mb-12" />
+                    <InputButtonPrimary type="submit" button-text="Primary Small" size="small" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="primary" button-text="Primary Normal" size="normal" style-class-passthrough="mb-12" />
+                    <InputButtonPrimary type="submit" button-text="Primary Normal" size="normal" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="primary" button-text="Primary Medium" size="medium" style-class-passthrough="mb-12" />
+                    <InputButtonPrimary type="submit" button-text="Primary Medium" size="medium" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="primary" button-text="Primary Large" size="large" style-class-passthrough="mb-12" />
+                    <InputButtonPrimary type="submit" button-text="Primary Large" size="large" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="primary" button-text="Primary Large 100" size="large" weight="wght-100" style-class-passthrough="mb-12" />
+                    <InputButtonPrimary type="submit" button-text="Primary Large 100" size="large" weight="wght-100" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="primary" button-text="Primary Large 900" size="large" weight="wght-900" style-class-passthrough="mb-12" />
+                    <InputButtonPrimary type="submit" button-text="Primary Large 900" size="large" weight="wght-900" style-class-passthrough="mb-12" />
                   </div>
                 </div>
               </div>
 
               <div>
-                <p class="text-normal mb-12"><code>&lt;InputButton variant="secondary"&gt;</code></p>
+                <p class="text-normal mb-12"><code>&lt;InputButtonSecondary&gt;</code></p>
                 <div placement="left-center" gap="12px" flex-wrap="wrap">
                   <div>
-                    <InputButton type="submit" variant="secondary" button-text="Secondary Small" size="small" style-class-passthrough="mb-12" />
+                    <InputButtonSecondary type="submit" button-text="Secondary Small" size="small" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="secondary" button-text="Secondary Normal" size="normal" style-class-passthrough="mb-12" />
+                    <InputButtonSecondary type="submit" button-text="Secondary Normal" size="normal" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="secondary" button-text="Secondary Medium" size="medium" style-class-passthrough="mb-12" />
+                    <InputButtonSecondary type="submit" button-text="Secondary Medium" size="medium" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="secondary" button-text="Secondary Large" size="large" style-class-passthrough="mb-12" />
+                    <InputButtonSecondary type="submit" button-text="Secondary Large" size="large" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="secondary" button-text="Secondary Large 100" size="large" weight="wght-100" style-class-passthrough="mb-12" />
+                    <InputButtonSecondary type="submit" button-text="Secondary Large 100" size="large" weight="wght-100" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="secondary" button-text="Secondary Large 900" size="large" weight="wght-900" style-class-passthrough="mb-12" />
+                    <InputButtonSecondary type="submit" button-text="Secondary Large 900" size="large" weight="wght-900" style-class-passthrough="mb-12" />
                   </div>
                 </div>
               </div>
 
               <div>
-                <p class="text-normal mb-12"><code>&lt;InputButton variant="tertiary"&gt;</code></p>
+                <p class="text-normal mb-12"><code>&lt;InputButtonTertiary"&gt;</code></p>
                 <div placement="left-center" gap="12px" flex-wrap="wrap">
                   <div>
-                    <InputButton type="submit" variant="tertiary" button-text="Tertiary Small" size="small" style-class-passthrough="mb-12" />
+                    <InputButtonTertiary type="submit" button-text="Tertiary Small" size="small" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="tertiary" button-text="Tertiary Normal" size="normal" style-class-passthrough="mb-12" />
+                    <InputButtonTertiary type="submit" button-text="Tertiary Normal" size="normal" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="tertiary" button-text="Tertiary Medium" size="medium" style-class-passthrough="mb-12" />
+                    <InputButtonTertiary type="submit" button-text="Tertiary Medium" size="medium" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="tertiary" button-text="Tertiary Large" size="large" style-class-passthrough="mb-12" />
+                    <InputButtonTertiary type="submit" button-text="Tertiary Large" size="large" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="tertiary" button-text="Tertiary Large 100" size="large" weight="wght-100" style-class-passthrough="mb-12" />
+                    <InputButtonTertiary type="submit" button-text="Tertiary Large 100" size="large" weight="wght-100" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButton type="submit" variant="tertiary" button-text="Tertiary Large 900" size="large" weight="wght-900" style-class-passthrough="mb-12" />
+                    <InputButtonTertiary type="submit" button-text="Tertiary Large 900" size="large" weight="wght-900" style-class-passthrough="mb-12" />
                   </div>
                 </div>
               </div>

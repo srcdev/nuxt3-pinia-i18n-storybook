@@ -12,7 +12,7 @@
         <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
           <template #default>
             <h2 class="text-header-medium mb-12">Dialog 1</h2>
-            <p><InputButton @click="toggleDialog(!displayDialog)" type="button" variant="tertiary" button-text="Show Dialog" size="medium" style-class-passthrough="mb-12" /><br />Click to display dialog</p>
+            <p><InputButtonTertiary @click="toggleDialog(!displayDialog)" type="button" button-text="Show Dialog" size="medium" style-class-passthrough="mb-12" /><br />Click to display dialog</p>
             <DisplayDialogCore v-if="displayDialog" v-model="displayDialog">
               <template #dialogContent>
                 <h2 class="text-header-medium mb-12">Success Prompts</h2>

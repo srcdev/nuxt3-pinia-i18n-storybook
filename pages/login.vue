@@ -31,7 +31,7 @@
                 <template #default>
                   <DisplayFlexGroupItem :flex-grow="false">
                     <template #default>
-                      <InputButton type="submit" variant="tertiary" @click.prevent="isPending()" :is-pending="false" :button-text="t('pages.login.buttons.submit')" />
+                      <InputButtonTertiary type="submit" @click.prevent="isPending()" :is-pending="false" :button-text="t('pages.login.buttons.submit')" />
                     </template>
                   </DisplayFlexGroupItem>
                 </template>

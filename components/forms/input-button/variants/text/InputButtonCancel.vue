@@ -1,7 +1,7 @@
 <template>
-  <InputButtonCore :type="type" :data-test-id="dataTestId" variant="confirm" :size="size" :weight="weight" :button-text="buttonText" :style-class-passthrough="styleClassPassthrough">
+  <InputButtonCore :type="type" :data-test-id="dataTestId" variant="cancel" :size="size" :weight="weight" :button-text="buttonText" :style-class-passthrough="styleClassPassthrough">
     <template #left>
-      <Icon name="material-symbols:check-circle-outline" />
+      <Icon name="material-symbols:cancel-outline" />
     </template>
   </InputButtonCore>
 </template>
@@ -45,5 +45,21 @@
 </script>
 
 <style lang="scss" scoped>
-  // @import "@/assets/styles/imports.scss";
+  @import "@/assets/styles/imports.scss";
+
+  .btn {
+    &-cancel {
+      background-color: $color-red-6;
+      border: 1px solid $color-red-4;
+      color: $color-red-4;
+      outline: 1px solid $color-red-1;
+
+      &:hover,
+      &:focus {
+        background-color: $color-red-4;
+        border-color: $color-red-1;
+        color: $color-red-1;
+      }
+    }
+  }
 </style>

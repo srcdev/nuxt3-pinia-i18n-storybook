@@ -62,7 +62,7 @@
     }
   });
 
-  const buttonType = computed(() => props.type);
+  const type = toRef(() => props.type);
 
   const slots = useSlots();
   const hasLeftContent = computed(() => slots.left !== undefined);
@@ -144,48 +144,6 @@
       }
     }
 
-    &-primary {
-      background-color: $color-blue-1;
-      border: 1px solid $color-blue-4;
-      color: $color-blue-4;
-      outline: 1px solid $color-blue-1;
-
-      &:hover,
-      &:focus {
-        background-color: $color-blue-1-30;
-        border-color: $color-blue-1;
-        color: $color-blue-1;
-      }
-    }
-
-    &-secondary {
-      background-color: $color-grey-7;
-      border: 1px solid $color-grey-5;
-      color: $color-grey-5;
-      outline: 1px solid $color-grey-3;
-
-      &:hover,
-      &:focus {
-        background-color: $color-grey-7-30;
-        border-color: $color-grey-3;
-        color: $color-grey-3;
-      }
-    }
-
-    &-tertiary {
-      background-color: $color-grey-8;
-      border: 1px solid $color-grey-5;
-      color: $color-grey-5;
-      outline: 1px solid $color-grey-3;
-
-      &:hover,
-      &:focus {
-        background-color: $color-grey-5;
-        border-color: $color-grey-8;
-        color: $color-grey-8;
-      }
-    }
-
     &-ghost,
     &-icon-only {
       background-color: transparent;
@@ -198,48 +156,6 @@
         background-color: transparent;
         border-color: transparent;
         color: $color-grey-8;
-      }
-    }
-
-    &-cancel {
-      background-color: $color-red-6;
-      border: 1px solid $color-red-4;
-      color: $color-red-4;
-      outline: 1px solid $color-red-1;
-
-      &:hover,
-      &:focus {
-        background-color: $color-red-4;
-        border-color: $color-red-1;
-        color: $color-red-1;
-      }
-    }
-
-    &-confirm {
-      background-color: $color-green-1;
-      border: 1px solid $color-white;
-      color: $color-green-5;
-      outline: 1px solid $color-green-5;
-
-      &:hover,
-      &:focus {
-        background-color: $color-green-1-70;
-        border-color: $color-green-5;
-        color: $color-green-5;
-      }
-    }
-
-    &-warning {
-      background-color: $color-orange-3;
-      border: 1px solid $color-orange-1;
-      color: $color-orange-1;
-      outline: 1px solid $color-orange-4;
-
-      &:hover,
-      &:focus {
-        background-color: $color-orange-1;
-        border-color: $color-orange-4;
-        color: $color-orange-3;
       }
     }
 

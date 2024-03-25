@@ -1,9 +1,5 @@
 <template>
-  <InputButtonCore :type="type" :data-test-id="dataTestId" variant="cancel" :size="size" :weight="weight" :button-text="buttonText" :style-class-passthrough="styleClassPassthrough">
-    <template #left>
-      <Icon name="material-symbols:cancel-outline" />
-    </template>
-  </InputButtonCore>
+  <InputButtonCore :type="type" :data-test-id="dataTestId" variant="secondary" :size="size" :weight="weight" :button-text="buttonText" :style-class-passthrough="styleClassPassthrough" />
 </template>
 
 <script setup lang="ts">
@@ -45,5 +41,21 @@
 </script>
 
 <style lang="scss" scoped>
-  // @import "@/assets/styles/imports.scss";
+  @import "@/assets/styles/imports.scss";
+
+  .btn {
+    &-secondary {
+      background-color: $color-grey-7;
+      border: 1px solid $color-grey-5;
+      color: $color-grey-5;
+      outline: 1px solid $color-grey-3;
+
+      &:hover,
+      &:focus {
+        background-color: $color-grey-7-30;
+        border-color: $color-grey-3;
+        color: $color-grey-3;
+      }
+    }
+  }
 </style>
