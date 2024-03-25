@@ -2,7 +2,7 @@
   <footer class="footer">
     <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-orange-darker" display-row-inner-theme="theme-orange-darker" style-class-passthrough="pb-12 pt-12">
       <template #default>
-        <div class="footer-title pl-12 pr-12">
+        <div class="footer-title">
           <p class="text-normal wght-700 text-color-white">Footer title bar</p>
         </div>
       </template>
@@ -10,7 +10,7 @@
 
     <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-orange-lighter" display-row-inner-theme="theme-orange-lighter">
       <template #default>
-        <div class="footer-block-1 pl-12 pr-12">
+        <div class="footer-block-1">
           <div class="footer-links section-1">
             <p class="text-normal wght-700 text-color-white">Section 1 links</p>
             <ul class="footer-links-list">
@@ -49,7 +49,7 @@
 
     <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-orange-lighter" display-row-inner-theme="theme-orange-lighter" style-class-passthrough="pb-12 pt-12">
       <template #default>
-        <div class="footer-block-2 pl-12 pr-12">
+        <div class="footer-block-2">
           <div class="footer-links section-2">
             <ul class="footer-links-list links-social">
               <li class="footer-links-item">
@@ -69,7 +69,7 @@
 
     <DisplayRow :use-available-width="false" :apply-gutters="true" display-row-theme="theme-orange" display-row-inner-theme="theme-orange" style-class-passthrough="pb-12 pt-12">
       <template #default>
-        <div class="footer-block-3 pl-12 pr-12">
+        <div class="footer-block-3">
           <div class="footer-links section-1">
             <ul class="footer-links-list">
               <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link wght-700 text-color-white">Terms of use</NuxtLink></li>
@@ -256,9 +256,14 @@
             align-items: center;
             justify-content: left;
             gap: 12px;
+            padding: 12px 0;
 
             li {
               font-size: initial;
+            }
+
+            @media only screen and (min-width: $tabletMed) {
+              padding: 0;
             }
           }
         }
