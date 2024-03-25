@@ -197,4 +197,18 @@
   const toggleDialog = (state: boolean) => {
     displayDialog.value = state;
   };
+
+  // Cookie value string as number problem
+  const id = useCookie("id");
+
+  id.value = "1234.5";
+  // this will be 1234.5 when read
+
+  const id2 = useCookie("id2", {
+    decode(value) {
+      return value;
+    }
+  });
+  id2.value = "1234.5";
+  // this will be '1234.5' when read
 </script>
