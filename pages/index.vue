@@ -11,35 +11,17 @@
           </template>
         </DisplayRow>
 
-        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
+        <DisplayRow v-if="status === 'success'" :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
           <template #default>
-            <ClientOnly>
-              <DisplayGrid :min-tile-width="414" col-repeat-type="auto-fill">
-                <template #content>
-                  <DisplayGridItem v-for="item in data?.items" :use-scroll-reveal="false">
-                    <template #content>
-                      <DisplaySpotlight :alt="item.alt" :url="item.url" />
-                    </template>
-                  </DisplayGridItem>
-                </template>
-              </DisplayGrid>
-            </ClientOnly>
-          </template>
-        </DisplayRow>
-
-        <DisplayRow :use-available-width="true" :apply-gutters="false">
-          <template #default>
-            <DisplayParallaxGroup bg-image="/assets/images/sample.jpg" bg-height="100vh" justify-items="left">
+            <DisplayGrid :min-tile-width="414" col-repeat-type="auto-fill">
               <template #content>
-                <DisplayRow :use-available-width="true" :apply-gutters="true" style-class-passthrough="pt-40 pb-40">
-                  <template #default>
-                    <div class="">
-                      <h1 class="text-header-large">This is a parallax section 1</h1>
-                    </div>
+                <DisplayGridItem v-for="item in data?.items" :use-scroll-reveal="false">
+                  <template #content>
+                    <DisplaySpotlight :alt="item.alt" :url="item.url" />
                   </template>
-                </DisplayRow>
+                </DisplayGridItem>
               </template>
-            </DisplayParallaxGroup>
+            </DisplayGrid>
           </template>
         </DisplayRow>
 
@@ -67,7 +49,7 @@
           </template>
         </DisplayRow>
 
-        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pt-12">
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pt-12 mb-20">
           <template #default>
             <DisplayFeatureCols
               :content="{
@@ -88,30 +70,6 @@
                 </div>
               </template>
             </DisplayFeatureCols>
-          </template>
-        </DisplayRow>
-
-        <DisplayRow :use-available-width="true" :apply-gutters="false">
-          <template #default>
-            <SectionParallax bg-image="/assets/images/marrakech.jpg" bg-height="100vh" justify-items="left">
-              <template #content>
-                <div class="">
-                  <h1 class="text-header-large">This is a parallax section 2</h1>
-                </div>
-              </template>
-            </SectionParallax>
-          </template>
-        </DisplayRow>
-
-        <DisplayRow :use-available-width="true" :apply-gutters="false">
-          <template #default>
-            <SectionParallax bg-image="/assets/images/antigua.jpg" bg-height="100vh" justify-items="left">
-              <template #content>
-                <div class="">
-                  <h1 class="text-header-large">This is a parallax section 3</h1>
-                </div>
-              </template>
-            </SectionParallax>
           </template>
         </DisplayRow>
       </template>
