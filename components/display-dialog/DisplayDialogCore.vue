@@ -1,6 +1,6 @@
 <template>
   <dialog class="display-dialog-wrapper" :class="[styleClassPassthrough]" :align-content="`${positionY}-${positionX}`" :open="displayDialog" ref="dialogRef">
-    <focus-trap v-model:active="displayDialog" :clickOutsideDeactivates="true">
+    <focus-trap v-model:active="displayDialog" :clickOutsideDeactivates="true" @deactivate="closeDialog()">
       <div class="display-dialog-inner">
         <div class="display-dialog-top-bar" align-content="center-right">
           <IconButtonCancel @click.prevent="closeDialog()" button-text="Cancel Small" size="large" style-class-passthrough="mb-12" />
@@ -34,40 +34,24 @@
       default: "center",
       validator: (val) => ["top", "center", "bottom"].includes(val as string)
     }
-    // visible: {
-    //   type: Boolean,
-    //   default: true
-    // }
   });
 
-  // const visible = toRef(() => props.visible);
   const displayDialog = defineModel<boolean>();
   const closeDialog = () => {
-    console.log("closeDialog()");
     displayDialog.value = false;
+    if (document.querySelector("body") !== null) {
+      document.querySelector("body").style.overflow = "initial";
+    }
   };
 
   const slots = useSlots();
   const hasDialogContent = computed(() => slots.dialogContent !== undefined);
 
-  // document.querySelector("body")?.style.overflow = "hidden";
-
-  // watch(
-  //   () => displayDialog,
-  //   (currentValue) => {
-  //     const body = document.querySelector("body");
-
-  //     // if (process.client) {
-  //     if (currentValue) {
-  //       console.log("currentValue IF:", currentValue);
-  //       // body?.style.overflow = "hidden";
-  //     } else {
-  //       // body?.style.overflow = "auto";
-  //       console.log("currentValue ELSE:", currentValue);
-  //     }
-  //   }
-  //   // }
-  // );
+  onMounted(() => {
+    if (document.querySelector("body") !== null) {
+      document.querySelector("body").style.overflow = "hidden";
+    }
+  });
 </script>
 
 <style scoped lang="scss">
