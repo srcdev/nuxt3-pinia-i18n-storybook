@@ -42,6 +42,6 @@
     // Use 'alt' or 'option' plus click to place multiple cursors
     // To add incremental number, 'shift' + 'command' + p, search for Text Pastry and select option
     "jkjustjoshing.vscode-text-pastry"
-  ],
-  "unwantedRecommendations": ["octref.vetur", "vue.vscode-typescript-vue-plugin"]
+  ]
+  // "unwantedRecommendations": ["octref.vetur", "vue.vscode-typescript-vue-plugin"]
 }

@@ -55,7 +55,7 @@
   });
 
   const { t } = useI18n();
-  const modelValue = defineModel() as unknown as IFormData;
+  const modelValue = defineModel() as Ref<IFormData>;
 
   const name = computed(() => {
     return props.name !== null ? props.name : props.id;
@@ -72,7 +72,7 @@
     const inputBad = !inputField.value?.validity.valid;
 
     if (modelValue.value.isPending) {
-      modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
+      modelValue.value!.validityState[name.value] = inputField.value?.validity.valid ?? false;
       return hasApiErrorMessage ? hasApiErrorMessage : inputBad;
     }
     return false;
@@ -90,7 +90,7 @@
   watch(
     () => modelValue.value.data[name.value],
     () => {
-      modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
+      modelValue.value!.validityState[name.value] = inputField.value?.validity.valid ?? false;
       if (hasCustomError()) {
         removeCustomError(inputField.value?.validity.valid);
       }

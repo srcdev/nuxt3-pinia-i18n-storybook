@@ -1,21 +1,24 @@
 <template>
-  <p :class="['text-normal', 'form-field-error-message', 'wght-600', { show: fieldHasError }]" :data-test-id="`${id}-error-message`"><Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />{{ errorMessage }}</p>
+  <p :class="['text-normal', 'form-field-error-message', 'wght-600', { show: fieldHasError }]" :data-test-id="`${id}-error-message`">
+    <Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />
+    {{ errorMessage }}
+  </p>
 </template>
 
 <script setup lang="ts">
   const props = defineProps({
     id: {
       type: String,
-      required: true,
+      required: true
     },
     errorMessage: {
       type: String,
-      required: true,
+      required: true
     },
     fieldHasError: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   });
 </script>
 

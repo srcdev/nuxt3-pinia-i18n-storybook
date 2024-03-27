@@ -75,7 +75,7 @@
     return useConfig.value ? props.config.value : props.trueValue;
   });
 
-  const modelValue = defineModel() as unknown as IFormData;
+  const modelValue = defineModel() as Ref<IFormData>;
   const { setDefaultError, fieldHasError } = useErrorMessage(props.id, modelValue);
   setDefaultError(t(`${props.i18nKey}.error-message`));
 </script>

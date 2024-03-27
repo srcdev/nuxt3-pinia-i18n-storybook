@@ -67,7 +67,7 @@
   const { validatorLocale } = storeToRefs(useI18nStore());
   const componentValidation = validationConfig[validatorLocale.value][props.validation];
 
-  const modelValue = defineModel() as unknown as IFormData;
+  const modelValue = defineModel() as Ref<IFormData>;
   const { errorMessage, setDefaultError, fieldHasError } = useErrorMessage(name.value, modelValue);
   setDefaultError(t(`${props.i18nKey}.error-message`));
 </script>

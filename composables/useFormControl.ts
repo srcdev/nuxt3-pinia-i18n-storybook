@@ -15,7 +15,18 @@ export function useFormControl() {
     submitSuccess: false
   });
 
+  async function initValidationState(fieldsInitialState: IFieldsInitialState | Ref<IFieldsInitialState | null>) {
+    const fields = Object.keys(fieldsInitialState.value || {});
+    const state = fields.reduce((acc, field) => {
+      acc[field] = false;
+      return acc;
+    }, {} as Record<string, boolean>);
+    formData.value.validityState = state;
+  }
+
   async function initFormData(fieldsInitialState: IFieldsInitialState | Ref<IFieldsInitialState | null>) {
+    await initValidationState(fieldsInitialState);
+
     if (fieldsInitialState !== null) {
       savedInitialState = fieldsInitialState;
       formData.value.data = fieldsInitialState as IFieldsInitialState;

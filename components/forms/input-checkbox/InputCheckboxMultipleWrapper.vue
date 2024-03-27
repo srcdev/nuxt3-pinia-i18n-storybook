@@ -43,7 +43,7 @@
   const slots = useSlots();
   const hasTitle = computed(() => slots.inputTitle !== undefined);
 
-  const modelValue = defineModel() as unknown as IFormData;
+  const modelValue = defineModel() as Ref<IFormData>;
   const { errorMessage, setDefaultError, fieldHasError } = useErrorMessage(name.value, modelValue);
   setDefaultError(t(`${props.i18nKey}.error-message`));
 </script>

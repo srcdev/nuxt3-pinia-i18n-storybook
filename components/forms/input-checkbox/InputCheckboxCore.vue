@@ -6,7 +6,7 @@
       :true-value="trueValue"
       :false-value="falseValue"
       :id="id"
-      :name="name"
+      :name="String(name)"
       :required="required"
       :value="trueValue"
       :class="['input-checkbox', { error: fieldHasError() }]"
@@ -23,44 +23,44 @@
   const props = defineProps({
     id: {
       type: String,
-      required: true,
+      required: true
     },
     name: {
       type: String,
-      default: null,
+      default: null
     },
     required: {
       type: Boolean,
-      value: false,
+      value: false
     },
     isPending: {
       type: Boolean,
-      value: false,
+      value: false
     },
     trueValue: {
-      type: [String, Number, Boolean],
-      default: true,
+      type: [String, Number, Boolean] as PropType<string | number | boolean>,
+      default: true
     },
     falseValue: {
       type: [String, Number, Boolean],
-      default: false,
+      default: false
     },
     multipleCheckboxes: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   });
 
-  const modelValue = defineModel() as unknown as IFormData;
-  const name = computed(() => {
+  const modelValue = defineModel() as Ref<IFormData>;
+  const name = computed<string | number>(() => {
     return props.name !== null ? props.name : props.id;
   });
   const inputField = ref<HTMLInputElement | null>(null);
-  const modelIsObject = typeof modelValue.value.data[name.value] === "object";
+  const isArray = Array.isArray(modelValue.value.data[name.value]);
 
   const isChecked = computed(() => {
-    if (modelIsObject) {
-      return Object.values(modelValue.value.data[name.value]).includes(props.trueValue);
+    if (isArray) {
+      return modelValue.value.data ? [name.value].length > 0 : false;
     } else {
       return modelValue.value.data[name.value] === props.trueValue;
     }
@@ -72,16 +72,16 @@
 
   const isValid = () => {
     setTimeout(() => {
-      if (modelIsObject) {
-        modelValue.value!.validityState[name.value] = Object.values(modelValue.value.data[name.value]).length > 0;
+      if (isArray) {
+        modelValue.value!.validityState[name.value] = modelValue.value.data ? [name.value].length > 0 : false;
       } else {
-        modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
+        modelValue.value!.validityState[name.value] = inputField.value?.validity.valid ?? false;
       }
     }, 0);
   };
 
   onUpdated(() => {
-    modelValue.value!.validityState[name.value] = inputField.value?.validity.valid;
+    modelValue.value!.validityState[name.value] = inputField.value?.validity.valid ?? false;
   });
 </script>
 
