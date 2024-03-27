@@ -57,10 +57,6 @@
 <style scoped lang="scss">
   @import "@/assets/styles/imports.scss";
 
-  dialog::backdrop {
-    backdrop-filter: blur(10px);
-    background-color: yellowgreen;
-  }
   .display-dialog {
     &-wrapper {
       position: fixed;
@@ -69,8 +65,8 @@
       width: 100%;
       height: 100%;
       backdrop-filter: blur(5px);
-      background-color: transparent;
-      border: none;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px solid $color-grey-1;
       z-index: 13;
 
       display: none;
