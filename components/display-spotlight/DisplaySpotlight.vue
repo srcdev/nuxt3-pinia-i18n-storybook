@@ -32,7 +32,8 @@
     }
   });
 
-  const { imageContainerRef, imgPropertiesReady, imgHeightStr, imgWidthStr } = setImageAttributes();
+  const aspectRatio = ref(16 / 9);
+  const { imageContainerRef, imgPropertiesReady, imgHeightStr, imgWidthStr } = setImageAttributes(aspectRatio);
 </script>
 
 <style lang="scss" scoped>
@@ -46,7 +47,7 @@
     width: 100%;
 
     &-inner {
-      aspect-ratio: 16 / 9;
+      aspect-ratio: v-bind(aspectRatio);
       overflow: hidden;
 
       display: grid;
@@ -97,7 +98,7 @@
       overflow: hidden;
 
       &-inner {
-        aspect-ratio: 16 / 9;
+        aspect-ratio: v-bind(aspectRatio);
         border-radius: 2px;
         overflow: hidden;
       }

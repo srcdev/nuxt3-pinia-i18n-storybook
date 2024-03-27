@@ -5,8 +5,8 @@
       <div class="display-card-content">
         <slot name="cardContent"></slot>
       </div>
-      <div class="display-card-image" :align-content="content.image.alignContent">
-        <img :src="content.image.url" class="image" alt="" />
+      <div class="display-card-image" :align-content="content.image.alignContent" ref="imageContainerRef">
+        <LazyNuxtImg v-if="imgPropertiesReady" format="webp" :src="content.image.url" alt="" :height="imgHeightStr" :width="imgWidthStr" class="image" />
       </div>
     </div>
   </div>
@@ -44,6 +44,8 @@
 
   const slots = useSlots();
   const hasHeader = computed(() => slots.header !== undefined);
+
+  const { imageContainerRef, imgPropertiesReady, imgHeightStr, imgWidthStr } = setImageAttributes();
 </script>
 
 <style lang="scss">
@@ -90,6 +92,13 @@
         background-size: 35%;
         overflow: hidden;
         padding: 3px;
+
+        width: 100%;
+
+        // @media only screen and (min-width: 768px) {
+        //   width: 720px;
+        // }
+
         .image {
           border-left: 1px solid #265b96;
           box-shadow: 2px 2px 10px 2px #acacac;

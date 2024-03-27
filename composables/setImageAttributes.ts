@@ -1,4 +1,4 @@
-export function setImageAttributes() {
+export function setImageAttributes(aspectRatio: Ref<number>) {
   const imgHeight = ref<number>(0);
   const imgHeightStr = ref<string>("0px");
 
@@ -33,10 +33,11 @@ export function setImageAttributes() {
     if (imageContainerRef.value !== null) {
       console.log("imageRef: ", imageContainerRef.value.getBoundingClientRect().height, imageContainerRef.value.getBoundingClientRect().width);
 
-      imgHeight.value = imageContainerRef.value.clientHeight;
-      imgHeightStr.value = pixelStr(imgHeight.value);
       imgWidth.value = imageContainerRef.value.clientWidth;
       imgWidthStr.value = pixelStr(imgWidth.value);
+
+      imgHeight.value = imgWidth.value * aspectRatio.value;
+      imgHeightStr.value = pixelStr(imgHeight.value);
       imgPropertiesReady.value = true;
     }
   });

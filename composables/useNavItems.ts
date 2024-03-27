@@ -133,6 +133,11 @@ export function useNavItems(authenticated: boolean) {
           hidden: false
         },
         {
+          text: "Feature Columns",
+          url: "/components/display-feature-cols",
+          hidden: false
+        },
+        {
           text: "Display Prompts",
           url: "/components/display-prompts",
           hidden: false
