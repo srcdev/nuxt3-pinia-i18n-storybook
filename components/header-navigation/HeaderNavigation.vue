@@ -2,10 +2,7 @@
   <focus-trap v-model:active="navActive" :clickOutsideDeactivates="true">
     <nav class="navigation__wrapper" tabindex="-1">
       <div class="menu__wrapper">
-        <button v-if="navActive" type="button" :class="['menu__button', { open: navActive }, { closed: !navActive }]" data-test-id="burger-nav" @click="toggleMenu()">
-          <span class="sr-only">{{ t("components.header-navigation.toggle-btn") }}</span>
-          <Icon :name="navActive ? 'material-symbols:close' : 'solar:hamburger-menu-linear'" class="menu__button-icon" />
-        </button>
+        <IconButtonClose v-if="navActive" type="button" @click="toggleMenu()" size="large" button-text="Close" style-class-passthrough="menu__button-icon" />
         <IconButtonBurger v-else type="button" @click="toggleMenu()" size="large" button-text="Login" />
       </div>
       <div v-show="navActive" :class="['menu__items', { open: navActive }]">
@@ -187,33 +184,6 @@
         &:focus {
           @include a11y-focus;
         }
-      }
-    }
-
-    &__button {
-      $self: &;
-      aspect-ratio: 1;
-      width: 30px;
-
-      background-color: $color-grey-5;
-      border: 1px solid $color-grey-10; // --border-color-dark-grey
-      border-radius: 6px;
-
-      outline: none;
-      padding: 2px;
-      z-index: 13;
-      cursor: pointer;
-      // &:hover {
-      // }
-      &:focus {
-        #{ $self }-icon {
-          @include a11y-focus;
-        }
-      }
-
-      &-icon {
-        border: 1px solid $color-grey-10;
-        border-radius: 3px;
       }
     }
   }
