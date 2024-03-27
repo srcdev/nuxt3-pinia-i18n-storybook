@@ -69,28 +69,25 @@
 
         <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pt-12">
           <template #default>
-            <DisplayCard
-              direction="row"
-              gap="12px"
+            <DisplayFeatureCols
               :content="{
                 image: {
-                  url: '/assets/images/marrakech.jpg',
-                  alignContent: 'top-center'
+                  alt: 'Marrakech',
+                  aspectRatio: 406 / 270,
+                  url: '/assets/images/marrakech.jpg'
                 }
               }"
-              style-class-passthrough="mt-12 mb-12 p-12"
             >
-              <template #header>
-                <h1 class="text-header-large">This is a display card</h1>
+              <template #col1>
+                <div>
+                  <h2 class="text-header-small">Column 1</h2>
+                  <p class="text-normal">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur faucibus erat, eget auctor lorem tristique at. Suspendisse neque tellus, venenatis sit amet erat eget, varius mattis magna. Pellentesque ut turpis rhoncus,
+                    commodo ex id, egestas felis.
+                  </p>
+                </div>
               </template>
-              <template #cardContent>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur faucibus erat, eget auctor lorem tristique at. Suspendisse neque tellus, venenatis sit amet erat eget, varius mattis magna. Pellentesque ut turpis rhoncus,
-                  commodo ex id, egestas felis. Vestibulum vitae blandit ex. Aliquam quis purus tellus. Aliquam iaculis cursus leo nec suscipit. Etiam non mattis orci. Integer congue condimentum cursus. Interdum et malesuada fames ac ante ipsum
-                  primis in faucibus.
-                </p>
-              </template>
-            </DisplayCard>
+            </DisplayFeatureCols>
           </template>
         </DisplayRow>
 
