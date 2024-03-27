@@ -37,10 +37,13 @@
   });
 
   const displayDialog = defineModel<boolean>();
+  const bodyTag = ref<HTMLBodyElement | null>(null);
+
   const closeDialog = () => {
     displayDialog.value = false;
-    if (document.querySelector("body") !== null) {
-      document.querySelector("body").style.overflow = "initial";
+
+    if (bodyTag.value !== null) {
+      bodyTag.value.classList.remove("lock");
     }
   };
 
@@ -48,8 +51,9 @@
   const hasDialogContent = computed(() => slots.dialogContent !== undefined);
 
   onMounted(() => {
-    if (document.querySelector("body") !== null) {
-      document.querySelector("body").style.overflow = "hidden";
+    bodyTag.value = document.querySelector("body");
+    if (bodyTag.value !== null) {
+      bodyTag.value.classList.add("lock");
     }
   });
 </script>
