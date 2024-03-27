@@ -5,8 +5,8 @@
         <span class="display-spotlight-title-inner">{{ alt }}</span>
       </div>
       <div class="box display-spotlight-image">
-        <div class="box display-spotlight-image-inner">
-          <NuxtImg :src="url" :alt="alt" />
+        <div class="box display-spotlight-image-inner" ref="imageContainerRef">
+          <LazyNuxtImg v-if="imgPropertiesReady" format="webp" :src="url" :alt="alt" :height="imgHeightStr" :width="imgWidthStr" />
         </div>
       </div>
       <div class="box display-spotlight-more-info">
@@ -31,13 +31,14 @@
       default: ""
     }
   });
+
+  const { imageContainerRef, imgPropertiesReady, imgHeightStr, imgWidthStr } = setImageAttributes();
 </script>
 
 <style lang="scss" scoped>
   @import "@/assets/styles/imports.scss";
 
   .display-spotlight {
-    // aspect-ratio: 1;
     background-color: #fff;
     border: 1px solid $color-orange-5;
     border-radius: 10px;
@@ -47,12 +48,9 @@
     &-inner {
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      // position: relative;
 
       display: grid;
-      // grid-template-columns: repeat(5, [col] 20%);
       grid-template-columns: repeat(5, [col] auto);
-      // grid-template-columns: 0 repeat(4, [col] auto);
       grid-template-rows: repeat(3, [row] auto);
       background-color: #fff;
       color: #444;
@@ -63,7 +61,6 @@
     }
 
     &-title {
-      // position: absolute;
       color: #fff;
       text-align: right;
       transform: rotate(180deg);
@@ -100,6 +97,7 @@
       overflow: hidden;
 
       &-inner {
+        aspect-ratio: 16 / 9;
         border-radius: 2px;
         overflow: hidden;
       }
@@ -107,11 +105,6 @@
       img {
         width: 100%;
         transition: all linear 200ms;
-
-        &:hover {
-          // width: 120%;
-          // transform: scale(1.1);
-        }
       }
     }
 
