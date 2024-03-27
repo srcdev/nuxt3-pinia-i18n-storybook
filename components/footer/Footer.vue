@@ -12,35 +12,35 @@
       <template #default>
         <div class="footer-block-1">
           <div class="footer-links section-1">
-            <p class="text-normal wght-700 text-color-white">Section 1 links</p>
+            <p class="text-normal wght-700 text-color-darkgrey">Section 1 links</p>
             <ul class="footer-links-list">
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some link 1</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some other link to home</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Home link section 1</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Test link 2</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Example link 5</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Some link 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Some other link to home</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Home link section 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Test link 2</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Example link 5</NuxtLink></li>
             </ul>
           </div>
 
           <div class="footer-links section-2">
-            <p class="text-normal wght-700 text-color-white">Section 2 links</p>
+            <p class="text-normal wght-700 text-color-darkgrey">Section 2 links</p>
             <ul class="footer-links-list">
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some link 1</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some other link to home</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Home link section 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Some link 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Some other link to home</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Home link section 1</NuxtLink></li>
             </ul>
           </div>
 
           <div class="footer-links section-3">
-            <p class="text-normal wght-700 text-color-white">Section 3 links</p>
+            <p class="text-normal wght-700 text-color-darkgrey">Section 3 links</p>
             <ul class="footer-links-list">
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some link 1</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some other link to home</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Home link section 1</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some link 1</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Test link 2</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Some link 1</NuxtLink></li>
-              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-white">Example link 5</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Some link 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Some other link to home</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Home link section 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Some link 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Test link 2</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Some link 1</NuxtLink></li>
+              <li class="footer-links-item"><NuxtLink to="/" class="text-normal footer-links-link text-color-darkgrey">Example link 5</NuxtLink></li>
             </ul>
           </div>
         </div>
