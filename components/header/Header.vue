@@ -108,7 +108,7 @@
     }
 
     &-home-link {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: left;
       text-decoration: none;
@@ -156,7 +156,8 @@
           outline: 1px solid transparent;
           transition: all ease-in-out 200ms;
 
-          &:hover {
+          &:hover,
+          &:focus {
             background-color: rgba(0, 0, 0, 0.2);
             border-color: white;
             outline: 1px solid rgba(255, 255, 255, 0.2);

@@ -2,12 +2,13 @@
   <focus-trap v-model:active="navActive" :clickOutsideDeactivates="true">
     <nav class="navigation__wrapper" tabindex="-1">
       <div class="menu__wrapper">
-        <button type="button" :class="['menu__button', { open: navActive }, { closed: !navActive }]" data-test-id="burger-nav" @click="toggleMenu()">
+        <button v-if="navActive" type="button" :class="['menu__button', { open: navActive }, { closed: !navActive }]" data-test-id="burger-nav" @click="toggleMenu()">
           <span class="sr-only">{{ t("components.header-navigation.toggle-btn") }}</span>
           <Icon :name="navActive ? 'material-symbols:close' : 'solar:hamburger-menu-linear'" class="menu__button-icon" />
         </button>
+        <IconButtonBurger v-else type="button" @click="toggleMenu()" size="large" button-text="Login" />
       </div>
-      <div :class="['menu__items', { open: navActive }]">
+      <div v-show="navActive" :class="['menu__items', { open: navActive }]">
         <p class="text-header-medium navigation-title">{{ t("components.header-navigation.title") }}</p>
         <div class="nav-details-wrapper">
           <template v-for="(item, key, index) in navItems">
