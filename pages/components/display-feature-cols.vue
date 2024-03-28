@@ -17,7 +17,7 @@
               :content="{
                 image: {
                   alt: 'Marrakech',
-                  aspectRatio: 1.33,
+                  aspectRatio: 1.5,
                   url: '/assets/images/marrakech.jpg'
                 }
               }"

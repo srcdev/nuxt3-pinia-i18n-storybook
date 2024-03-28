@@ -62,7 +62,7 @@
         width: 100%;
 
         .image {
-          aspect-ratio: v-bind(aspectRatio);
+          // aspect-ratio: v-bind(aspectRatio);
           width: 100%;
         }
       }
