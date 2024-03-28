@@ -56,7 +56,6 @@
     }
     .col2 {
       aspect-ratio: 406 / 270;
-      background-color: $color-red-3;
 
       &-content {
         aspect-ratio: 406 / 270;
