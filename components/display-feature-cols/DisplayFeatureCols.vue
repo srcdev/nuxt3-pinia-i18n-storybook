@@ -5,7 +5,7 @@
     </div>
     <div class="col2" ref="imageContainerRef">
       <div class="col2-content">
-        <LazyNuxtImg v-if="imgPropertiesReady" format="webp" :height="imgHeightStr" :width="imgWidthStr" :src="content.image.url" :alt="content.image.alt" class="image" />
+        <LazyNuxtImg v-if="imgPropertiesReady" format="webp" :height="imgHeightStr" :width="imgWidthStr" :src="content.image.url" densities="x1" :alt="content.image.alt" class="image" />
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@
       </div>
       <div class="box display-spotlight-image">
         <div class="box display-spotlight-image-inner" ref="imageContainerRef">
-          <LazyNuxtImg v-if="imgPropertiesReady" format="webp" :src="url" :alt="alt" :height="imgHeightStr" :width="imgWidthStr" />
+          <LazyNuxtImg v-if="imgPropertiesReady" format="webp" :src="url" :alt="alt" :height="imgHeightStr" :width="imgWidthStr" densities="x1" />
         </div>
       </div>
       <div class="box display-spotlight-more-info">
