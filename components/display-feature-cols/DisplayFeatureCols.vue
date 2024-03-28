@@ -55,14 +55,14 @@
       padding: 12px;
     }
     .col2 {
-      aspect-ratio: 406 / 270;
+      aspect-ratio: v-bind(aspectRatio);
 
       &-content {
-        aspect-ratio: 406 / 270;
+        aspect-ratio: v-bind(aspectRatio);
         width: 100%;
 
         .image {
-          aspect-ratio: 406 / 270;
+          aspect-ratio: v-bind(aspectRatio);
           width: 100%;
         }
       }
