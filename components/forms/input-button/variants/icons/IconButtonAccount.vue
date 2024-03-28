@@ -41,6 +41,9 @@
         box-shadow: 0px 0px 1px 1px transparent;
         transition: all ease-in-out 200ms;
 
+        width: 36px;
+        height: 36px;
+
         &:hover,
         &:focus-visible {
           box-shadow: 0px 0px 1px 1px $color-white;
