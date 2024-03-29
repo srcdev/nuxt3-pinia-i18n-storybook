@@ -33,16 +33,21 @@
       type: String,
       default: "center",
       validator: (val) => ["top", "center", "bottom"].includes(val as string)
+    },
+    lockViewport: {
+      type: Boolean,
+      default: true
     }
   });
 
   const displayDialog = defineModel<boolean>();
   const bodyTag = ref<HTMLBodyElement | null>(null);
+  const lockViewport = toRef<boolean>(props.lockViewport);
 
   const closeDialog = () => {
     displayDialog.value = false;
 
-    if (bodyTag.value !== null) {
+    if (lockViewport.value && bodyTag.value !== null) {
       bodyTag.value.classList.remove("lock");
     }
   };
@@ -52,7 +57,7 @@
 
   onMounted(() => {
     bodyTag.value = document.querySelector("body");
-    if (bodyTag.value !== null) {
+    if (lockViewport.value && bodyTag.value !== null) {
       bodyTag.value.classList.add("lock");
     }
   });
