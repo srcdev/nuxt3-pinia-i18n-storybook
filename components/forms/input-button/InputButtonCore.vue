@@ -1,5 +1,6 @@
 <template>
-  <button :type="type" :data-test-id="dataTestId" class="btn" :class="[`btn-${variant}`, styleClassPassthrough]">
+  <button :type="type" :data-test-id="dataTestId" class="btn" :class="[`btn-${variant}`, effectClass, styleClassPassthrough]">
+    <span v-if="useEffect && effect == 'fancy'" class="fancy"></span>
     <template v-if="hasLeftContent">
       <span class="btn-icon" :class="[size, { left: variant !== 'icon-only' }]">
         <slot name="left"></slot>
@@ -46,6 +47,17 @@
       type: String,
       default: ""
     },
+    useEffect: {
+      type: Boolean,
+      default: false
+    },
+    effect: {
+      type: String as PropType<string>,
+      default: "fancy",
+      validator(value: string) {
+        return ["fancy", "pulse"].includes(value);
+      }
+    },
     size: {
       type: String as PropType<string>,
       default: "normal",
@@ -63,6 +75,13 @@
   });
 
   const type = toRef(() => props.type);
+  const effectClass = computed(() => {
+    if (props.useEffect) {
+      return props.effect === "fancy" ? "" : props.effect;
+    } else {
+      return "";
+    }
+  });
 
   const slots = useSlots();
   const hasLeftContent = computed(() => slots.left !== undefined);
@@ -71,6 +90,12 @@
 
 <style lang="scss">
   @import "@/assets/styles/imports.scss";
+
+  @keyframes loop {
+    to {
+      offset-distance: 100%;
+    }
+  }
 
   .btn {
     align-items: center;
@@ -82,6 +107,7 @@
     outline: 1px solid transparent;
     padding: 0;
     transition: all ease-in-out 200ms;
+    position: relative;
 
     &:hover {
       cursor: pointer;
@@ -180,6 +206,42 @@
 
         .icon {
           font-size: 24px;
+        }
+      }
+    }
+
+    &:hover,
+    &:focus {
+      .fancy {
+        inset: -2px;
+        border-radius: 9px;
+        border: 4px solid transparent;
+        mask: linear-gradient(transparent, transparent), linear-gradient(blue, red);
+        mask-clip: padding-box, border-box;
+        mask-composite: intersect;
+        position: absolute;
+        left: -7px;
+        top: -7px;
+        right: -7px;
+        bottom: -7px;
+
+        &:after {
+          content: "";
+          position: absolute;
+          width: 60px;
+          // height: 90px;
+          offset-anchor: 100% 30px;
+
+          // width: 60px;
+          aspect-ratio: 1.5;
+
+          background: rgb(57, 1, 251);
+          background: linear-gradient(220deg, rgba(57, 1, 251, 1) 0%, rgba(5, 112, 193, 1) 28%, rgba(161, 5, 5, 1) 65%, rgba(181, 193, 5, 0) 100%);
+
+          // background: radial-gradient(circle at right, hsl(209, 95%, 50%), transparent 50%), radial-gradient(circle at right, rgb(232, 8, 8) 50%, transparent);
+
+          offset-path: rect(0 100% 100% 0 round 30px);
+          animation: loop calc(2.5s) infinite linear;
         }
       }
     }
