@@ -174,31 +174,31 @@
     &-icon-only {
       background-color: transparent;
       border: 1px solid transparent;
-      color: $color-grey-8;
+      color: var(--color-grey-8);
       outline: 1px solid transparent;
 
       &:hover,
       &:focus {
         background-color: transparent;
         border-color: transparent;
-        color: $color-grey-8;
+        color: var(--color-grey-8);
       }
     }
 
     &-navigate-btn {
       background-color: #00000095;
-      border: 1px solid $color-grey-5;
-      color: $color-grey-5;
-      outline: 1px solid $color-grey-3;
+      border: 1px solid var(--color-grey-5);
+      color: var(--color-grey-5);
+      outline: 1px solid var(--color-grey-3);
       padding: 12px;
       border-radius: 50%;
       aspect-ratio: 1;
 
       &:hover,
       &:focus {
-        background-color: $color-grey-5;
-        border-color: $color-grey-8;
-        color: $color-grey-8;
+        background-color: var(--color-grey-5);
+        border-color: var(--color-grey-8);
+        color: var(--color-grey-8);
       }
 
       .btn-icon.left {

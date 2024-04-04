@@ -41,7 +41,7 @@
   @import "@/assets/styles/imports.scss";
 
   .icon-forward {
-    color: $color-white;
+    color: var(--color-white);
 
     &:hover {
       color: var(--color-grey-1);

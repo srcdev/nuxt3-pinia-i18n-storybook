@@ -43,7 +43,7 @@
   .btn {
     &-icon-only {
       .icon {
-        color: $color-white;
+        color: var(--color-white);
         padding: 2px;
         transition: all ease-in-out 200ms;
         height: 32px;
@@ -55,7 +55,7 @@
       }
 
       background-color: rgba(0, 0, 0, 0.1);
-      border: 1px solid $color-white;
+      border: 1px solid var(--color-white);
       outline: 1px solid transparent;
       transition: all ease-in-out 200ms;
 
@@ -63,7 +63,7 @@
       &:focus {
         .icon-hamburger-menu-linear {
           background-color: rgba(0, 0, 0, 0.2);
-          color: $color-white;
+          color: var(--color-white);
           outline: 1px solid rgba(255, 255, 255, 0.2);
         }
       }

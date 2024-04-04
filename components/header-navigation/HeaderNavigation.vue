@@ -88,9 +88,9 @@
     }
 
     &__items {
-      background-color: $color-grey-8;
-      border: 1px solid $color-orange-5;
-      // box-shadow: 2px 2px 10px 0px $color-orange-5;
+      background-color: var(--color-grey-8);
+      border: 1px solid var(--color-orange-5);
+      // box-shadow: 2px 2px 10px 0px var(--color-orange-5);
       border-radius: 6px;
       outline: 1px solid $color-grey-6;
       position: absolute;
@@ -114,7 +114,7 @@
       }
       &_link {
         border-radius: 1px;
-        color: $color-grey-5;
+        color: var(--color-grey-5);
         text-decoration: none;
         line-height: 20px;
         margin-left: 0px;
@@ -133,7 +133,7 @@
         &:hover {
           color: var(--white);
           cursor: pointer;
-          background-color: $color-orange-4;
+          background-color: var(--color-orange-4);
         }
         &:focus {
           @include a11y-focus;
@@ -157,7 +157,7 @@
       }
 
       .nav-summary {
-        color: $color-grey-5;
+        color: var(--color-grey-5);
         font-weight: 700;
       }
 
@@ -165,12 +165,12 @@
         background-color: transparent;
         padding: 0;
         & * {
-          color: $color-grey-5;
+          color: var(--color-grey-5);
         }
       }
 
       .nav-summary-action {
-        border-bottom: 2px solid $color-orange-5;
+        border-bottom: 2px solid var(--color-orange-5);
         display: block;
         text-decoration: none;
         padding: 6px;
@@ -178,7 +178,7 @@
         &:hover {
           color: var(--white);
           cursor: pointer;
-          background-color: $color-orange-5;
+          background-color: var(--color-orange-5);
           text-decoration: none;
         }
         &:focus {

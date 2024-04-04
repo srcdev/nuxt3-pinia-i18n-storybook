@@ -36,7 +36,7 @@
   .btn {
     &-icon {
       .icon-account-btn {
-        color: $color-white;
+        color: var(--color-white);
         border-radius: 50%;
         box-shadow: 0px 0px 1px 1px transparent;
         transition: all ease-in-out 200ms;
@@ -46,7 +46,7 @@
 
         &:hover,
         &:focus-visible {
-          box-shadow: 0px 0px 1px 1px $color-white;
+          box-shadow: 0px 0px 1px 1px var(--color-white);
         }
       }
     }

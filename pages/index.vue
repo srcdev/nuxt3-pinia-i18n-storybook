@@ -118,7 +118,7 @@
       gap: 4px;
       li {
         background-color: var(--white);
-        border: 1px solid $color-grey-3;
+        border: 1px solid var(--color-grey-3);
         border-radius: 2px;
         left: 0;
         padding: 4px 8px;

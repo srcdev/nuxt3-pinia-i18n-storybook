@@ -41,6 +41,6 @@
   @import "@/assets/styles/imports.scss";
 
   .icon-logout-btn {
-    color: $color-white;
+    color: var(--color-white);
   }
 </style>

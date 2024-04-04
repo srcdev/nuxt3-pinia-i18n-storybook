@@ -54,7 +54,7 @@
 
   .copy-to-clipboard {
     background-color: white;
-    border: 1px solid $color-grey-7;
+    border: 1px solid var(--color-grey-7);
     border-radius: 8px;
     display: flex;
     padding: 6px 12px;
@@ -82,8 +82,8 @@
       // &:hover,
       // &:focus {
       //   cursor: pointer;
-      //   background-color: $color-grey-7;
-      //   border-color: $color-grey-7;
+      //   background-color: var(--color-grey-7);
+      //   border-color: var(--color-grey-7);
       //   color: var(--color-grey-1);
       // }
     }

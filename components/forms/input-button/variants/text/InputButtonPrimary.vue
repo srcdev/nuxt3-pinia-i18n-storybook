@@ -56,10 +56,10 @@
 
   @keyframes pulse {
     0% {
-      outline: 1px solid $color-blue-1;
+      outline: 1px solid var(--color-blue-1);
     }
     50% {
-      outline: 2px solid $color-blue-1;
+      outline: 2px solid var(--color-blue-1);
     }
     100% {
       outline: 12px solid transparent;
@@ -68,16 +68,16 @@
 
   .btn {
     &-primary {
-      background-color: $color-blue-1;
-      border: 1px solid $color-blue-4;
-      color: $color-blue-4;
-      outline: 1px solid $color-blue-1;
+      background-color: var(--color-blue-1);
+      border: 1px solid var(--color-blue-4);
+      color: var(--color-blue-4);
+      outline: 1px solid var(--color-blue-1);
 
       &:hover,
       &:focus {
-        background-color: $color-blue-1-30;
-        border-color: $color-blue-1;
-        color: $color-blue-1;
+        background-color: var(--color-blue-1-30);
+        border-color: var(--color-blue-1);
+        color: var(--color-blue-1);
       }
 
       &:hover,

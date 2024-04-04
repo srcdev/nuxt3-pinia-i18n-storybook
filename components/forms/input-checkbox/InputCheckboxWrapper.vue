@@ -79,8 +79,8 @@
   .form-field {
     &-wrapper {
       &.decorated {
-        border-left: 3px solid $color-blue-1;
-        border-bottom: 1px solid $color-blue-1;
+        border-left: 3px solid var(--color-blue-1);
+        border-bottom: 1px solid var(--color-blue-1);
         margin-bottom: 12px;
 
         background: rgb(5, 112, 193);

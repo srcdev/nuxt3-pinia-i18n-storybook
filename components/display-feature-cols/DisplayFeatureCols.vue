@@ -40,7 +40,7 @@
   @import "@/assets/styles/imports.scss";
 
   .display-feature-cols {
-    background-color: $color-white;
+    background-color: var(--color-white);
     display: grid;
     grid-gap: 12px;
 
@@ -51,7 +51,7 @@
     }
 
     .col1 {
-      background-color: $color-white;
+      background-color: var(--color-white);
       padding: 12px;
     }
     .col2 {

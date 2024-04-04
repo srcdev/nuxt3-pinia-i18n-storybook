@@ -98,7 +98,7 @@
       }
 
       &-primary {
-        background-color: $color-white;
+        background-color: var(--color-white);
         // color: var(--color-grey-1);
 
         @media (prefers-color-scheme: dark) {

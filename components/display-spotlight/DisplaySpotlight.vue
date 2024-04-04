@@ -40,8 +40,8 @@
   @import "@/assets/styles/imports.scss";
 
   .display-spotlight {
-    background-color: #fff;
-    border: 1px solid $color-orange-5;
+    background-color: var(--white);
+    border: 1px solid var(--color-orange-5);
     border-radius: 10px;
     overflow: hidden;
     width: 100%;
@@ -53,7 +53,7 @@
       display: grid;
       grid-template-columns: repeat(5, [col] auto);
       grid-template-rows: repeat(3, [row] auto);
-      background-color: #fff;
+      background-color: var(--white);
       color: #444;
 
       .box {
@@ -62,7 +62,7 @@
     }
 
     &-title {
-      color: #fff;
+      color: var(--white);
       text-align: right;
       transform: rotate(180deg);
       writing-mode: vertical-lr;
@@ -114,7 +114,7 @@
       grid-row: row 3;
 
       border: 1px solid #bc652f;
-      color: #fff;
+      color: var(--white);
       border-top-left-radius: 9px;
       border-bottom-right-radius: 9px;
       display: block;

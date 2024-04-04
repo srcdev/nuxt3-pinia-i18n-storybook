@@ -37,8 +37,8 @@
   @import "@/assets/styles/imports.scss";
 
   .display-carousel-frame-homepage {
-    background-color: #fff;
-    border: 1px solid $color-grey-3;
+    background-color: var(--white);
+    border: 1px solid var(--color-grey-3);
     overflow: hidden;
     width: 100%;
 
@@ -52,7 +52,7 @@
       grid-template-columns: repeat(5, [col] auto);
       // grid-template-columns: 0 repeat(4, [col] auto);
       grid-template-rows: repeat(3, [row] auto);
-      background-color: #fff;
+      background-color: var(--white);
       color: #444;
 
       .box {
@@ -62,7 +62,7 @@
 
     &-title {
       // position: absolute;
-      color: #fff;
+      color: var(--white);
       text-align: right;
       transform: rotate(180deg);
       writing-mode: vertical-lr;
@@ -83,7 +83,7 @@
         padding: 12px 8px 12px 12px;
         margin: 16px;
         outline: 1px solid #000;
-        border: 1px solid #fff;
+        border: 1px solid var(--white);
 
         letter-spacing: 1.5px;
       }
@@ -114,8 +114,8 @@
       grid-column: col 4 / span 2;
       grid-row: row 3;
       outline: 1px solid #000;
-      border: 1px solid #fff;
-      color: #fff;
+      border: 1px solid var(--white);
+      color: var(--white);
       display: block;
       background-color: #00000080;
       padding: 8px;

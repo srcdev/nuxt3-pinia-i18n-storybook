@@ -21,8 +21,8 @@
   const props = defineProps({
     styleClassPassthrough: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   });
 
   const toastConfig = defineModel<undefined | IToastConfig>();
@@ -153,7 +153,7 @@
               border-radius: 50%;
               border-width: 1px;
               border-style: solid;
-              color: $color-white;
+              color: var(--color-white);
               &.success {
                 background-color: $color-green-2;
                 border-color: $color-green-2;

@@ -47,11 +47,11 @@
       transition: all ease-in-out 200ms;
 
       &.dark-grey {
-        color: $color-grey-8;
+        color: var(--color-grey-8);
       }
 
       &.white {
-        color: $color-white;
+        color: var(--color-white);
       }
     }
 
@@ -59,15 +59,15 @@
     &:focus {
       .btn-cancel-outline {
         &.dark-grey {
-          box-shadow: 0px 0px 1px 1px $color-grey-8;
-          border: 1px solid $color-grey-8;
-          outline: 1px solid $color-grey-8;
+          box-shadow: 0px 0px 1px 1px var(--color-grey-8);
+          border: 1px solid var(--color-grey-8);
+          outline: 1px solid var(--color-grey-8);
         }
 
         &.white {
-          box-shadow: 0px 0px 1px 1px $color-white;
-          border: 1px solid $color-white;
-          outline: 1px solid $color-white;
+          box-shadow: 0px 0px 1px 1px var(--color-white);
+          border: 1px solid var(--color-white);
+          outline: 1px solid var(--color-white);
         }
       }
     }

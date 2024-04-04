@@ -116,7 +116,7 @@
       &-logo {
         background: transparent url("/assets/images/logo/logo-75.webp") 0 -5px no-repeat;
         background-size: contain;
-        border: 1px solid $color-orange-5;
+        border: 1px solid var(--color-orange-5);
         border-radius: 50%;
         aspect-ratio: 1;
         width: 50px;
@@ -142,7 +142,7 @@
         &-icon-only {
           :deep(.btn-icon.large) {
             .icon {
-              color: $color-white;
+              color: var(--color-white);
               padding: 2px;
               transition: all ease-in-out 200ms;
               &:hover {
@@ -161,7 +161,7 @@
             background-color: rgba(0, 0, 0, 0.2);
             border-color: white;
             outline: 1px solid rgba(255, 255, 255, 0.2);
-            color: $color-grey-8;
+            color: var(--color-grey-8);
           }
         }
       }

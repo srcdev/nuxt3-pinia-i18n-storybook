@@ -100,7 +100,7 @@
   @import "@/assets/styles/imports.scss";
 
   .qr-code {
-    background-color: $color-white;
+    background-color: var(--color-white);
     &-image {
       aspect-ratio: 1;
       width: v-bind(qrCssWidth);
@@ -112,7 +112,7 @@
   }
 
   .text-divider {
-    border-color: $color-grey-7;
+    border-color: var(--color-grey-7);
     border-width: 1px 0 0 0;
     margin-left: 0;
     margin-right: 0;
@@ -120,8 +120,8 @@
     text-align: center;
 
     &-legend {
-      color: $color-grey-7;
-      background-color: $color-white;
+      color: var(--color-grey-7);
+      background-color: var(--color-white);
       font-size: 12px;
       font-weight: 600;
       line-height: 24px;

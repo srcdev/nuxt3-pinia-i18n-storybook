@@ -104,7 +104,7 @@
 
   .input {
     &-text {
-      border: 1px solid $color-white;
+      border: 1px solid var(--color-white);
       outline: 1px solid $color-black;
       border-radius: 2px;
       box-shadow: none;
@@ -117,7 +117,7 @@
       }
 
       &-primary {
-        background-color: $color-white;
+        background-color: var(--color-white);
         // color: var(--color-grey-1);
 
         @media (prefers-color-scheme: dark) {
