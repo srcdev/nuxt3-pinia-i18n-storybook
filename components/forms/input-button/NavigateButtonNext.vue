@@ -44,7 +44,7 @@
     color: $color-white;
 
     &:hover {
-      color: $color-grey-1;
+      color: var(--color-grey-1);
     }
   }
 

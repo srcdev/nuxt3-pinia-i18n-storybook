@@ -1,9 +1,17 @@
 <template>
-  <dialog class="display-dialog-wrapper" :class="[styleClassPassthrough]" :align-content="`${positionY}-${positionX}`" :open="displayDialog" ref="dialogRef">
+  <dialog class="display-dialog wrapper" :class="[styleClassPassthrough]" :align-content="`${positionY}-${positionX}`" :open="displayDialog" ref="dialogRef">
     <focus-trap v-model:active="displayDialog" :clickOutsideDeactivates="true" @deactivate="closeDialog()">
-      <div class="display-dialog-inner">
-        <div class="display-dialog-top-bar" align-content="center-right">
-          <IconButtonCancel @click.prevent="closeDialog()" button-text="Cancel Small" size="large" style-class-passthrough="mb-12" />
+      <div class="inner">
+        <div class="top-bar">
+          <div class="col-left">
+            <p class="text-normal wght-700">Left col</p>
+          </div>
+          <div class="col-center">
+            <p class="text-normal wght-700">Center col</p>
+          </div>
+          <div class="col-right">
+            <IconButtonCancel @click.prevent="closeDialog()" button-text="Cancel Small" size="large" />
+          </div>
         </div>
         <p>WIP:</p>
         <slot v-if="hasDialogContent" name="dialogContent"></slot>
@@ -67,7 +75,7 @@
   @import "@/assets/styles/imports.scss";
 
   .display-dialog {
-    &-wrapper {
+    &.wrapper {
       position: fixed;
       left: 0;
       top: 0;
@@ -75,7 +83,7 @@
       height: 100%;
       backdrop-filter: blur(5px);
       background-color: rgba(0, 0, 0, 0.5);
-      border: 1px solid $color-grey-1;
+      border: 1px solid var(--color-grey-1);
       z-index: 13;
 
       display: none;
@@ -85,8 +93,8 @@
       }
     }
 
-    &-inner {
-      background-color: $white;
+    .inner {
+      background-color: var(--white);
       width: 100vw;
       margin: 12px;
       padding: 12px;
@@ -101,7 +109,25 @@
       // }
     }
 
-    // &-top-bar {
-    // }
+    .top-bar {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+
+      .col-left {
+        grid-column: 1;
+      }
+
+      .col-center {
+        grid-column: 2;
+        text-align: center;
+
+        color: var(--color-red-1);
+      }
+
+      .col-right {
+        grid-column: 3;
+      }
+    }
   }
 </style>

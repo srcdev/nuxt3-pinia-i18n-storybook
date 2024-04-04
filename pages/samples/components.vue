@@ -347,7 +347,7 @@
   @import "@/assets/styles/imports.scss";
   .spotlight {
     &-inner {
-      background-color: $white;
+      background-color: var(--white);
       padding: 12px;
     }
   }

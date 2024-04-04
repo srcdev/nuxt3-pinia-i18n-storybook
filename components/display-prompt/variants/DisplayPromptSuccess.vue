@@ -28,29 +28,27 @@
   const hasContent = ref(slots.content !== undefined);
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "@/assets/styles/imports.scss";
 
-  $bg-color: $color-green-3;
-  $text-color: $color-white;
+  .display-prompt.success {
+    --bg-color: var(--color-green-3);
+    --text-color: var(--color-white);
+  }
 
   .display-prompt {
     &.success {
-      background-color: $bg-color;
-    }
-
-    &.secondary {
-      background-color: $bg-color;
+      background-color: var(--bg-color);
     }
 
     &-icon {
       .icon {
-        color: $text-color;
+        color: var(--text-color);
       }
     }
 
     &-content {
-      color: $text-color;
+      color: var(--text-color);
     }
   }
 </style>

@@ -103,20 +103,6 @@
       align-items: center;
       justify-content: center;
       width: 40px;
-
-      // .btn-icon .icon {
-      //   color: $color-white;
-      //   border-radius: 50%;
-      //   box-shadow: 0px 0px 1px 1px transparent;
-      //   transition: all ease-in-out 200ms;
-
-      //   &:hover,
-      //   &:focus {
-      //     box-shadow: 0px 0px 1px 1px $color-white;
-      //     border: 1px solid $color-white;
-      //     outline: 1px solid $color-white;
-      //   }
-      // }
     }
   }
 </style>

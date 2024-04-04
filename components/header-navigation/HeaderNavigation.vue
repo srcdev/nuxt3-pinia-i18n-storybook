@@ -131,7 +131,7 @@
         }
 
         &:hover {
-          color: $white;
+          color: var(--white);
           cursor: pointer;
           background-color: $color-orange-4;
         }
@@ -176,7 +176,7 @@
         padding: 6px;
 
         &:hover {
-          color: $white;
+          color: var(--white);
           cursor: pointer;
           background-color: $color-orange-5;
           text-decoration: none;

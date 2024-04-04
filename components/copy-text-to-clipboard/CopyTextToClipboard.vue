@@ -84,7 +84,7 @@
       //   cursor: pointer;
       //   background-color: $color-grey-7;
       //   border-color: $color-grey-7;
-      //   color: $color-grey-1;
+      //   color: var(--color-grey-1);
       // }
     }
   }

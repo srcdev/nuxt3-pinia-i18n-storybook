@@ -9,16 +9,16 @@
   const props = defineProps({
     tooltipId: {
       type: String,
-      required: true,
+      required: true
     },
     text: {
       type: String,
-      required: true,
+      required: true
     },
     styleClassPassthrough: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   });
 
   const showToolTip = ref(false);
@@ -37,7 +37,7 @@
     position: relative;
 
     &-text {
-      background-color: $color-grey-12;
+      background-color: var(--color-grey-1) 2;
       color: white;
       display: block;
       border-radius: 3px;

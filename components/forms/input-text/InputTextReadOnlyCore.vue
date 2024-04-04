@@ -55,7 +55,7 @@
 
       &-primary {
         background-color: $color-white;
-        // color: $color-grey-1;
+        // color: var(--color-grey-1);
 
         @media (prefers-color-scheme: dark) {
           background-color: $color-grey-4;

@@ -31,26 +31,24 @@
 <style lang="scss">
   @import "@/assets/styles/imports.scss";
 
-  $bg-color: $color-orange-5;
-  $text-color: $color-white;
+  .display-prompt.warning {
+    --bg-color: var(--color-orange-5);
+    --text-color: var(--color-white);
+  }
 
   .display-prompt {
     &.warning {
-      background-color: $bg-color;
-    }
-
-    &.secondary {
-      background-color: $bg-color;
+      background-color: var(--bg-color);
     }
 
     &-icon {
       .icon {
-        color: $text-color;
+        color: var(--text-color);
       }
     }
 
     &-content {
-      color: $text-color;
+      color: var(--text-color);
     }
   }
 </style>

@@ -117,7 +117,7 @@
       display: flex;
       gap: 4px;
       li {
-        background-color: $white;
+        background-color: var(--white);
         border: 1px solid $color-grey-3;
         border-radius: 2px;
         left: 0;
