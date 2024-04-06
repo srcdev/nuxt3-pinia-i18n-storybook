@@ -1,12 +1,13 @@
 <template>
   <div class="display-feature-cols">
+    <div class="header">
+      <p class="text-normal wght-700">This is the title bar</p>
+    </div>
     <div class="col1">
       <slot name="col1"></slot>
     </div>
     <div class="col2" ref="imageContainerRef">
-      <div class="col2-content">
-        <LazyNuxtImg v-if="imgPropertiesReady" format="webp" :height="imgHeightStr" :width="imgWidthStr" :src="imageData.image.url" densities="x1" :alt="imageData.image.alt" class="image" />
-      </div>
+      <LazyNuxtImg v-if="imgPropertiesReady" format="webp" :height="imgHeightStr" :width="imgWidthStr" :src="imageData.image.url" densities="x1" :alt="imageData.image.alt" class="image" />
     </div>
   </div>
 </template>
@@ -32,7 +33,8 @@
   });
 
   const col2MinMax = ref("250px, 350px");
-  const aspectRatio = toRef(props.imageData.image.aspectRatio);
+  // const aspectRatio = toRef(props.imageData.image.aspectRatio);
+  const aspectRatio = ref(4 / 3);
   const { imageContainerRef, imgPropertiesReady, imgHeightStr, imgWidthStr } = setImageAttributes(aspectRatio);
 </script>
 
@@ -42,31 +44,49 @@
   .display-feature-cols {
     background-color: var(--color-white);
     display: grid;
+    grid-template-rows: 1fr;
     grid-gap: 12px;
 
-    grid-template-columns: 1fr;
-
     @media only screen and (min-width: 768px) {
+      grid-template-rows: repeat(2, [row] auto);
       grid-template-columns: 1fr [] minmax(v-bind(col2MinMax));
+
+      .header {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+      }
+      .col1 {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      .col2 {
+        grid-column: 2;
+        grid-row: 2;
+      }
     }
 
     .col1 {
       background-color: var(--color-white);
-      padding: 12px;
     }
     .col2 {
       aspect-ratio: v-bind(aspectRatio);
 
-      &-content {
+      .image {
         aspect-ratio: v-bind(aspectRatio);
         width: 100%;
-
-        .image {
-          // aspect-ratio: v-bind(aspectRatio);
-          // width: 100%;
-          object-fit: cover;
-        }
+        object-fit: cover;
       }
+
+      // &-content {
+      //   aspect-ratio: v-bind(aspectRatio);
+      //   width: 100%;
+
+      //   .image {
+      //     aspect-ratio: v-bind(aspectRatio);
+      //     width: 100%;
+      //     object-fit: cover;
+      //   }
+      // }
     }
   }
 </style>

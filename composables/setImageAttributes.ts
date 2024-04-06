@@ -26,12 +26,12 @@ export function setImageAttributes(aspectRatio: Ref<number>) {
   });
 
   onMounted(async () => {
-    await nextTick();
+    // await nextTick();
 
-    await useSleep(150);
+    // await useSleep(550);
 
     if (imageContainerRef.value !== null) {
-      // console.log("imageRef: ", imageContainerRef.value.getBoundingClientRect().height, imageContainerRef.value.getBoundingClientRect().width);
+      console.log("imageRef: ", imageContainerRef.value.getBoundingClientRect().height, imageContainerRef.value.getBoundingClientRect().width);
 
       // imgWidth.value = imageContainerRef.value.clientWidth;
       imgWidth.value = Math.floor(imageContainerRef.value.getBoundingClientRect().width);
