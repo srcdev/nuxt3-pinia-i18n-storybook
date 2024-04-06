@@ -121,32 +121,32 @@
       &.auto-fit {
         grid-template-columns: repeat(auto-fit, minmax(v-bind(responsiveWidthMobile), v-bind(maxTileWidth)));
 
-        @media only screen and (min-width: 640px) {
-          grid-template-columns: repeat(auto-fit, minmax(v-bind(responsiveWidthTablet), v-bind(maxTileWidth)));
-        }
+        // @media only screen and (min-width: 640px) {
+        //   grid-template-columns: repeat(auto-fit, minmax(v-bind(responsiveWidthTablet), v-bind(maxTileWidth)));
+        // }
 
-        @media only screen and (min-width: 1024px) {
-          grid-template-columns: repeat(auto-fit, minmax(v-bind(responsiveWidthLaptop), v-bind(maxTileWidth)));
-        }
+        // @media only screen and (min-width: 1024px) {
+        //   grid-template-columns: repeat(auto-fit, minmax(v-bind(responsiveWidthLaptop), v-bind(maxTileWidth)));
+        // }
 
-        @media only screen and (min-width: 1280px) {
-          grid-template-columns: repeat(auto-fit, minmax(v-bind(responsiveWidthDesktop), v-bind(maxTileWidth)));
-        }
+        // @media only screen and (min-width: 1280px) {
+        //   grid-template-columns: repeat(auto-fit, minmax(v-bind(responsiveWidthDesktop), v-bind(maxTileWidth)));
+        // }
       }
       &.auto-fill {
         grid-template-columns: repeat(auto-fill, minmax(v-bind(responsiveWidthMobile), v-bind(maxTileWidth)));
 
-        @media only screen and (min-width: 640px) {
-          grid-template-columns: repeat(auto-fill, minmax(v-bind(responsiveWidthTablet), v-bind(maxTileWidth)));
-        }
+        // @media only screen and (min-width: 640px) {
+        //   grid-template-columns: repeat(auto-fill, minmax(v-bind(responsiveWidthTablet), v-bind(maxTileWidth)));
+        // }
 
-        @media only screen and (min-width: 1024px) {
-          grid-template-columns: repeat(auto-fill, minmax(v-bind(responsiveWidthLaptop), v-bind(maxTileWidth)));
-        }
+        // @media only screen and (min-width: 1024px) {
+        //   grid-template-columns: repeat(auto-fill, minmax(v-bind(responsiveWidthLaptop), v-bind(maxTileWidth)));
+        // }
 
-        @media only screen and (min-width: 1280px) {
-          grid-template-columns: repeat(auto-fill, minmax(v-bind(responsiveWidthDesktop), v-bind(maxTileWidth)));
-        }
+        // @media only screen and (min-width: 1280px) {
+        //   grid-template-columns: repeat(auto-fill, minmax(v-bind(responsiveWidthDesktop), v-bind(maxTileWidth)));
+        // }
       }
 
       &.fixed-width {

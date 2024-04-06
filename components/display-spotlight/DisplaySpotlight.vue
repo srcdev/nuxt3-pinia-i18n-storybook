@@ -32,7 +32,7 @@
     }
   });
 
-  const aspectRatio = ref(16 / 9);
+  const aspectRatio = ref(4 / 3);
   const { imageContainerRef, imgPropertiesReady, imgHeightStr, imgWidthStr } = setImageAttributes(aspectRatio);
 </script>
 
@@ -40,14 +40,14 @@
   @import "@/assets/styles/imports.scss";
 
   .display-spotlight {
+    aspect-ratio: v-bind(aspectRatio);
     background-color: var(--white);
     border: 1px solid var(--color-orange-5);
     border-radius: 10px;
     overflow: hidden;
-    width: 100%;
+    // width: 100%;
 
     &-inner {
-      aspect-ratio: v-bind(aspectRatio);
       overflow: hidden;
 
       display: grid;
@@ -104,7 +104,9 @@
       }
 
       img {
-        width: 100%;
+        aspect-ratio: v-bind(aspectRatio);
+        // width: 100%;
+        object-fit: cover;
         transition: all linear 200ms;
       }
     }
