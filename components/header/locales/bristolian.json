@@ -2,7 +2,8 @@
   "components": {
     "header": {
       "text": "On The Plains",
-      "logout-btn": "Logout"
+      "logout-btn": "Logout",
+      "login-btn": "Login"
     }
   }
 }

@@ -21,7 +21,7 @@
             </DisplayFlexGroupItem>
             <DisplayFlexGroupItem v-else style-class-passthrough="header-login">
               <template #default>
-                <IconButtonAccount type="button" @click="navigateTo('/login')" size="large" button-text="Login" />
+                <UtilsIconLinkAccount :link-text="$t('components.header.login-btn')" />
               </template>
             </DisplayFlexGroupItem>
             <DisplayFlexGroupItem>
@@ -60,6 +60,9 @@
 
   const { t } = useI18n();
   const isFullWidth = ref(false);
+
+  const router = useRouter();
+
   // const rootStore = useRootStore();
   // const accountStore = useAccountStore();
 

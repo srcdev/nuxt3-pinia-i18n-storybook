@@ -83,10 +83,17 @@
     rememberMe: false
   });
 
+  const route = useRoute();
+  const redirect = route.query.from || "/";
+
   const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl();
   await initFormData(fieldsInitialState.value);
 
   const { doAuthUseFetch, doAuthDollarFetch } = useAuthApi();
+
+  const doNavigateTo = (path: string) => {
+    navigateTo(path);
+  };
 
   const isPending = async () => {
     formData.value.isPending = true;
@@ -109,7 +116,7 @@
             const token = useCookie("token");
             token.value = result.token;
             useAccountStore().setAuthenticationState(true);
-            navigateTo("/");
+            doNavigateTo(redirect);
           } catch (error: any) {
             updateCustomErrors("username", error._data.message);
             updateCustomErrors("password", error._data.message);
@@ -120,7 +127,7 @@
             const token = useCookie("token");
             token.value = userData?.value?.token;
             useAccountStore().setAuthenticationState(true);
-            navigateTo("/");
+            doNavigateTo(redirect);
           }
           if (status.value === "error") {
             updateCustomErrors("username", error.value?.data.message);
@@ -146,7 +153,7 @@
           const token = useCookie("token");
           token.value = userData?.value?.token;
           useAccountStore().setAuthenticationState(true);
-          navigateTo("/");
+          doNavigateTo(redirect);
         }
         if (status.value === "error") {
           updateCustomErrors("username", error.value?.data.message);
