@@ -1,11 +1,11 @@
 <template>
   <focus-trap v-model:active="navActive" :clickOutsideDeactivates="true">
-    <nav class="navigation__wrapper" tabindex="-1">
+    <nav role="navigation" aria-label="Main menu" class="navigation__wrapper" tabindex="-1">
       <div class="menu__wrapper">
-        <IconButtonClose v-if="navActive" type="button" @click="toggleMenu()" size="large" button-text="Close" style-class-passthrough="menu__button-icon" />
-        <IconButtonBurger v-else type="button" @click="toggleMenu()" size="large" button-text="Login" />
+        <IconButtonClose v-if="navActive" aria-expanded="true" aria-controls="main-menu" type="button" @click="toggleMenu()" size="large" button-text="Close" style-class-passthrough="menu__button-icon" />
+        <IconButtonBurger v-else type="button" aria-expanded="false" aria-controls="main-menu" @click="toggleMenu()" size="large" button-text="Login" />
       </div>
-      <div v-show="navActive" :class="['menu__items', { open: navActive }]">
+      <div v-show="navActive" id="main-menu" :class="['menu__items', { open: navActive }]">
         <p class="text-header-medium navigation-title">{{ t("components.header-navigation.title") }}</p>
         <div class="nav-details-wrapper">
           <template v-for="(item, key, index) in navItems">
