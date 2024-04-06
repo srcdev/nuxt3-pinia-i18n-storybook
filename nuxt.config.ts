@@ -32,7 +32,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@pinia-plugin-persistedstate/nuxt",
     "nuxt-icon",
-    "@nuxt/test-utils",
+    "@nuxt/test-utils/module",
     "@nuxt/image"
     // "nuxt-security"
   ],

@@ -111,6 +111,12 @@ nvm use
 npm run storybook
 ```
 
+Upgrade Storybook to lates version
+
+```bash
+npx storybook@latest upgrade
+```
+
 ### Known Storybook issue (to be resolved)
 
 - Nuxt3 can import the stores directory so we don't have to import within each instance it's to be used. (`imports: { dirs: ["stores"]}`). Storybook as currently setup does not support this and each store has to be imported manually. This may not be a Storybook issue just I haven't figured out how to do this yet.
