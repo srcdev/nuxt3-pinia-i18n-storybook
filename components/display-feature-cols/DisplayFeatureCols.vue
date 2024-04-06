@@ -5,7 +5,7 @@
     </div>
     <div class="col2" ref="imageContainerRef">
       <div class="col2-content">
-        <LazyNuxtImg v-if="imgPropertiesReady" format="webp" :height="imgHeightStr" :width="imgWidthStr" :src="content.image.url" densities="x1" :alt="content.image.alt" class="image" />
+        <LazyNuxtImg v-if="imgPropertiesReady" format="webp" :height="imgHeightStr" :width="imgWidthStr" :src="imageData.image.url" densities="x1" :alt="imageData.image.alt" class="image" />
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
     };
   }
   const props = defineProps({
-    content: {
+    imageData: {
       type: Object as PropType<IImageData>,
       required: true,
       default: () => ({})
@@ -32,7 +32,7 @@
   });
 
   const col2MinMax = ref("250px, 350px");
-  const aspectRatio = toRef(props.content.image.aspectRatio);
+  const aspectRatio = toRef(props.imageData.image.aspectRatio);
   const { imageContainerRef, imgPropertiesReady, imgHeightStr, imgWidthStr } = setImageAttributes(aspectRatio);
 </script>
 
@@ -63,7 +63,8 @@
 
         .image {
           // aspect-ratio: v-bind(aspectRatio);
-          width: 100%;
+          // width: 100%;
+          object-fit: cover;
         }
       }
     }

@@ -52,10 +52,10 @@
         <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pt-12 mb-20">
           <template #default>
             <DisplayFeatureCols
-              :content="{
+              :imageData="{
                 image: {
                   alt: 'Marrakech',
-                  aspectRatio: 406 / 270,
+                  aspectRatio: 2048 / 1536,
                   url: '/assets/images/marrakech.jpg'
                 }
               }"
