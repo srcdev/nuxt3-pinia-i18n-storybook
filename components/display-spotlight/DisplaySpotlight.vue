@@ -43,9 +43,8 @@
     aspect-ratio: v-bind(aspectRatio);
     background-color: var(--white);
     border: 1px solid var(--color-orange-5);
-    border-radius: 10px;
+    // border-radius: 10px;
     overflow: hidden;
-    // width: 100%;
 
     &-inner {
       overflow: hidden;
@@ -81,10 +80,10 @@
         display: block;
         background-color: #00000080;
         padding: 12px 8px 12px 12px;
-        border-bottom-right-radius: 9px;
-        border-bottom-left-radius: 0;
-        border-top-right-radius: 9px;
-        border-top-left-radius: 0;
+        // border-bottom-right-radius: 9px;
+        // border-bottom-left-radius: 0;
+        // border-top-right-radius: 9px;
+        // border-top-left-radius: 0;
         margin: 1px;
         border: 1px solid #000;
         letter-spacing: 1.5px;
@@ -92,20 +91,19 @@
     }
 
     &-image {
-      border-radius: 2px;
+      // border-radius: 2px;
       grid-column: col / span 5;
       grid-row: row / span 3;
       overflow: hidden;
 
       &-inner {
         aspect-ratio: v-bind(aspectRatio);
-        border-radius: 2px;
+        // border-radius: 2px;
         overflow: hidden;
       }
 
       img {
         aspect-ratio: v-bind(aspectRatio);
-        // width: 100%;
         object-fit: cover;
         transition: all linear 200ms;
 
@@ -121,8 +119,8 @@
 
       border: 1px solid #bc652f;
       color: var(--white);
-      border-top-left-radius: 9px;
-      border-bottom-right-radius: 9px;
+      // border-top-left-radius: 9px;
+      // border-bottom-right-radius: 9px;
       display: block;
       background-color: #bc652f75;
       padding: 8px;

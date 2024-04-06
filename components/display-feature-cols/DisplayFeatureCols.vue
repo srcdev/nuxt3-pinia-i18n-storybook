@@ -48,11 +48,11 @@
     grid-gap: 12px;
 
     @media only screen and (min-width: 768px) {
-      grid-template-rows: repeat(2, [row] auto);
+      grid-template-rows: auto 1fr;
       grid-template-columns: 1fr [] minmax(v-bind(col2MinMax));
 
       .header {
-        grid-column: 1 / span 2;
+        grid-column: 1;
         grid-row: 1;
       }
       .col1 {
@@ -61,7 +61,7 @@
       }
       .col2 {
         grid-column: 2;
-        grid-row: 2;
+        grid-row: 1 / span 2;
       }
     }
 
