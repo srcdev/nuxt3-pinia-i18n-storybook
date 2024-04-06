@@ -108,6 +108,10 @@
         // width: 100%;
         object-fit: cover;
         transition: all linear 200ms;
+
+        // following added to maintain aspect ratio
+        height: 100%;
+        width: 100%;
       }
     }
 
