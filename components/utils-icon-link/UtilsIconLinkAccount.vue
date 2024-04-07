@@ -15,8 +15,8 @@
   });
 
   const router = useRouter();
-
-  const linkDestimation = ref("/login?from=" + router.currentRoute.value.fullPath);
+  const redirectTo = router.currentRoute.value.fullPath;
+  const linkDestimation = ref<string>("/login?returnUrl=" + redirectTo);
 </script>
 
 <style lang="scss">

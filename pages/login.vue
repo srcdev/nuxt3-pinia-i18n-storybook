@@ -84,7 +84,7 @@
   });
 
   const route = useRoute();
-  const redirect = route.query.from || "/";
+  const redirect = route.query.returnUrl as string;
 
   const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl();
   await initFormData(fieldsInitialState.value);
@@ -102,7 +102,7 @@
     if (formIsValid.value) {
       // These for testing alternatives
       const useComposable = true;
-      const useDollarFetchVersion = true;
+      const useDollarFetchVersion = true; // toggle false will demonstrate the useFetch version already mounted warning
 
       if (useComposable) {
         const body = <ILoginPayload>{
