@@ -15,8 +15,8 @@
             <form @submit.prevent="isPending()" class="form-narrow" novalidate>
               <p v-if="showErrors">{{ t("pages.login.formErrorsMessage", formData.errorCount) }}</p>
 
-              <InputTextWithWrapper id="username" type="text" validation="usernameWeak" :required="true" v-model="formData" i18n-key="pages.login.fields.username" />
-              <InputTextWithWrapper id="password" type="password" validation="passwordWeak" :required="true" v-model="formData" i18n-key="pages.login.fields.password" />
+              <InputTextWithWrapper id="username" type="text" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.login.fields.username" />
+              <InputTextWithWrapper id="password" type="password" validation="password" :required="true" v-model="formData" i18n-key="pages.login.fields.password" />
 
               <InputCheckboxWrapper id="rememberMe" name="rememberMe" :required="false" v-model="formData" i18n-key="pages.login.fields.rememberMe">
                 <template #inputTitle>
@@ -74,10 +74,10 @@
 
   // Setup formData
   const fieldsInitialState = ref<IFieldsInitialState>({
-    // username: "",
-    // password: "",
-    username: "kminchelle",
-    password: "0lelplR",
+    username: "",
+    password: "",
+    // username: "kminchelle",
+    // password: "0lelplR",
     // username: "kminchelle1", // invalid creds
     // password: "0lelplR1", // invalid creds
     rememberMe: false
@@ -107,7 +107,8 @@
       if (useComposable) {
         const body = <ILoginPayload>{
           username: formData.value.data.username,
-          password: formData.value.data.password
+          password: formData.value.data.password,
+          rememberMe: formData.value.data.rememberMe
         };
 
         if (useDollarFetchVersion) {
@@ -146,7 +147,8 @@
           headers: { "Content-Type": "application/json" },
           body: {
             username: formData.value.data.username,
-            password: formData.value.data.password
+            password: formData.value.data.password,
+            rememberMe: formData.value.data.rememberMe
           }
         });
         if (userData.value) {

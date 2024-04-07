@@ -28,12 +28,13 @@ export function useAuthApi() {
   }
 
   async function doAuthDollarFetch(body: ILoginPayload) {
-    const response = await $fetch<ILoginResponse>("https://dummyjson.com/auth/login", {
+    const response = await $fetch<ILoginResponse>("/api/auth/login", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: {
         username: body.username,
-        password: body.password
+        password: body.password,
+        rememberMe: body.rememberMe
       },
       onResponseError({ request, response, options }) {
         throw response;

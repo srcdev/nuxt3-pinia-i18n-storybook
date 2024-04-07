@@ -3,17 +3,17 @@ import type { IUser } from "../../../types/types.auth";
 // Fake users data
 const users: IUser[] = [
   {
-    id: "41dbc5f7-9a4e-42e6-832b-1d3dd8c7c4b6",
+    id: "11dbc5f7-9a4e-42e6-832b-1d3dd8c7c4b2",
     username: "admin@gmail.com",
-    password: "$2y$10$hXPea83sKsVsuf95mtEZZeIYtcFl1vLJ1BXVTEqcgKArf6/5.Zksm",
-    roles: ["ADMIN"],
+    password: "!5illyPa55w0rd+",
+    roles: ["ADMIN"]
   },
   {
-    id: "d0065700-1707-4ad9-811b-8bbed0364318",
+    id: "60065700-1707-4ad9-811b-8bbed036431a",
     username: "user@gmail.com",
-    password: "$2y$10$hXPea83sKsVsuf95mtEZZeIYtcFl1vLJ1BXVTEqcgKArf6/5.Zksm",
-    roles: ["USER"],
-  },
+    password: "!5illyPa55w0rd+",
+    roles: ["USER"]
+  }
 ];
 
 export async function getUsers() {
