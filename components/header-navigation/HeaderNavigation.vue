@@ -7,7 +7,7 @@
       </div>
       <div v-show="navActive" id="main-menu" :class="['menu__items', { open: navActive }]">
         <p class="text-header-medium navigation-title">{{ t("components.header-navigation.title") }}</p>
-        <div class="nav-details-wrapper">
+        <div v-if="navitemsLoaded" class="nav-details-wrapper">
           <template v-for="(item, key, index) in navItems">
             <details class="nav-details" :class="[{ hide: item.hidden }]" ref="detailsRefs" @click="handleSummary(index)">
               <summary class="nav-summary">
@@ -34,14 +34,14 @@
 </template>
 
 <script setup lang="ts">
-  import { storeToRefs } from "pinia";
   import { FocusTrap } from "focus-trap-vue";
 
   const { t } = useI18n();
 
-  const { authenticated } = storeToRefs(useAccountStore());
+  const { accountState } = useAccountState();
+  console.log("header navigation > accountState > known hydration issue ");
 
-  const { navItems } = useNavItems(authenticated.value);
+  const { navItems, navitemsLoaded } = useNavItems(accountState.value.isAuthenticated);
 
   const navActive = ref(false);
   const activeDetailsIndex = ref<number | null>(null);
@@ -52,7 +52,7 @@
   };
 
   const detailsRefs = ref<HTMLElement[]>([]);
-  const handleSummary = async (clickedIndex: number) => {
+  const handleSummary = (clickedIndex: number) => {
     detailsRefs.value.forEach((element, index) => {
       if (clickedIndex !== index) {
         element.removeAttribute("open");

@@ -5,19 +5,20 @@ import { accountActions } from "./store.account.actions";
 export const useAccountStore = defineStore({
   id: "accountStore",
   state: (): IAccountState => ({
-    authenticated: false,
-    loading: false,
-    currentUser: {
-      name: null,
-    },
+    isAuthenticated: false,
+    userData: {
+      id: "",
+      username: "",
+      roles: []
+    }
   }),
   persist: true,
   // persist: {
-  //   paths: ["authenticated"],
+  //   paths: ["isAuthenticated"],
   // },
   // persist: {
   //   storage: persistedState.localStorage,
-  //   paths: ["authenticated"],
+  //   paths: ["isAuthenticated"],
   // },
-  actions: accountActions,
+  actions: accountActions
 });

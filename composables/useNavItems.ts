@@ -1,4 +1,4 @@
-export function useNavItems(authenticated: boolean) {
+export function useNavItems(isAuthenticated: boolean) {
   const navItems = ref({
     home: {
       summary: "Home",
@@ -11,7 +11,7 @@ export function useNavItems(authenticated: boolean) {
       summary: "Account",
       hasChildren: true,
       url: "/",
-      hidden: !authenticated,
+      hidden: !isAuthenticated,
       links: [
         {
           text: "Profile",
@@ -32,7 +32,7 @@ export function useNavItems(authenticated: boolean) {
           hidden: true
         },
         {
-          text: "Language switcher",
+          text: "Language switcher (Auth Protected)",
           url: "/lang-switcher",
           hidden: false
         },
@@ -156,5 +156,7 @@ export function useNavItems(authenticated: boolean) {
     }
   });
 
-  return { navItems };
+  const navitemsLoaded = ref(true);
+
+  return { navItems, navitemsLoaded };
 }

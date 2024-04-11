@@ -1,7 +1,16 @@
+export interface IAccountMenuItem {
+  title: string;
+  icon: string;
+  to: string;
+}
+
+export interface IUserData {
+  id: string;
+  username: string;
+  roles?: string[];
+}
+
 export interface IAccountState {
-  authenticated: boolean;
-  loading: boolean;
-  currentUser: {
-    name: null | string;
-  };
+  isAuthenticated: boolean;
+  userData?: IUserData;
 }

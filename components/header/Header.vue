@@ -1,7 +1,7 @@
 <template>
   <DisplayRow :use-available-width="isFullWidth" :apply-gutters="false" display-row-theme="theme-header">
     <template #default>
-      <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }, { 'signed-in': authenticated }]">
+      <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }, { 'signed-in': accountState.isAuthenticated }]">
         <DisplayFlexGroup align-content="center-left" gap="24px">
           <template #default>
             <DisplayFlexGroupItem :flex-grow="true">
@@ -14,16 +14,18 @@
                 </h1>
               </template>
             </DisplayFlexGroupItem>
-            <DisplayFlexGroupItem v-if="authenticated" style-class-passthrough="header-logout">
-              <template #default>
-                <IconButtonLogout type="button" @click="doLogout()" size="large" :button-text="$t('components.header.logout-btn')" />
-              </template>
-            </DisplayFlexGroupItem>
-            <DisplayFlexGroupItem v-else style-class-passthrough="header-login">
-              <template #default>
-                <UtilsIconLinkAccount :link-text="$t('components.header.login-btn')" />
-              </template>
-            </DisplayFlexGroupItem>
+            <ClientOnly>
+              <DisplayFlexGroupItem v-if="accountState.isAuthenticated" style-class-passthrough="header-logout">
+                <template #default>
+                  <IconButtonLogout type="button" @click="doLogout()" size="large" :button-text="$t('components.header.logout-btn')" />
+                </template>
+              </DisplayFlexGroupItem>
+              <DisplayFlexGroupItem v-else style-class-passthrough="header-login">
+                <template #default>
+                  <UtilsIconLinkAccount :link-text="$t('components.header.login-btn')" />
+                </template>
+              </DisplayFlexGroupItem>
+            </ClientOnly>
             <DisplayFlexGroupItem>
               <template #default>
                 <HeaderNavigation></HeaderNavigation>
@@ -37,8 +39,6 @@
 </template>
 
 <script setup lang="ts">
-  // import { useAccountStore } from "@/stores/store.account";
-  // import { useRootStore } from "@/stores/store.root";
   import { useI18n } from "vue-i18n";
 
   const props = defineProps({
@@ -61,16 +61,9 @@
   const { t } = useI18n();
   const isFullWidth = ref(false);
 
-  const router = useRouter();
+  const { accountState } = useAccountState();
+  console.log("header > accountState > known hydration issue ");
 
-  // const rootStore = useRootStore();
-  // const accountStore = useAccountStore();
-
-  // const signedIntext = computed(() => {
-  //   return accountStore.authenticated ? t("components.header.authenticated") : t("components.header.signedOut");
-  // });
-
-  const { authenticated } = storeToRefs(useAccountStore());
   const { doLogout } = useAuthApi();
 </script>
 

@@ -47,6 +47,14 @@
     grid-template-rows: 1fr;
     grid-gap: 12px;
 
+    .header {
+      padding: 12px;
+    }
+
+    .col1 {
+      padding-inline: 12px;
+    }
+
     @media only screen and (min-width: 768px) {
       grid-template-rows: auto 1fr;
       grid-template-columns: 1fr [] minmax(v-bind(col2MinMax));

@@ -82,8 +82,8 @@ describe("Header", () => {
   it("should render store signed out within nuxt suspense", async () => {
     wrapper = await wrapperFactory();
 
-    accountStore.authenticated = false;
-    expect((accountStore.authenticated = false)).toBeFalsy();
+    accountStore.isAuthenticated = false;
+    expect((accountStore.isAuthenticated = false)).toBeFalsy();
 
     // await nextTick();
     // const storeCheck = wrapper.find("[data-test-id='account-state-test']");
@@ -93,8 +93,8 @@ describe("Header", () => {
   it("should render store signed in within nuxt suspense", async () => {
     wrapper = await wrapperFactory();
 
-    accountStore.authenticated = true;
-    expect((accountStore.authenticated = true)).toBeTruthy();
+    accountStore.isAuthenticated = true;
+    expect((accountStore.isAuthenticated = true)).toBeTruthy();
 
     // await nextTick();
     // const storeCheck = wrapper.find("[data-test-id='account-state-test']");

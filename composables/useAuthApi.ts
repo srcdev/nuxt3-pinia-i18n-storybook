@@ -1,33 +1,12 @@
 import type { IFormData, IFieldsInitialState, ICustomErrorMessage, ICustomErrorMessagesArr } from "@/types/types.forms";
 import type { ILoginPayload, ILoginResponse } from "@/types/types.auth";
+import type { IAccountState, IUserData } from "@/types/types.accountStore";
 
 export function useAuthApi() {
-  const { authenticated } = storeToRefs(useAccountStore());
+  const { isAuthenticated } = storeToRefs(useAccountStore());
+  const { accountState, setAuthenticated } = useAccountState();
 
-  async function doAuthUseFetch(body: ILoginPayload) {
-    const {
-      data: userData,
-      pending,
-      status,
-      error
-    } = await useFetch<ILoginResponse>("https://dummyjson.com/auth/login", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: {
-        username: body.username,
-        password: body.password
-      }
-    });
-
-    return {
-      data: userData,
-      pending,
-      status,
-      error
-    };
-  }
-
-  async function doAuthDollarFetch(body: ILoginPayload) {
+  async function doLogin(body: ILoginPayload) {
     const response = await $fetch<ILoginResponse>("/api/auth/login", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -43,14 +22,21 @@ export function useAuthApi() {
     return response;
   }
 
-  function doLogout() {
-    authenticated.value = false;
+  async function doLogout() {
+    await $fetch<ILoginResponse>("/api/auth/logout", {
+      onResponseError({ response }) {
+        throw response;
+      }
+    });
+
+    isAuthenticated.value = false;
+    setAuthenticated(false);
     navigateTo("/");
+    return;
   }
 
   return {
-    doAuthUseFetch,
-    doAuthDollarFetch,
+    doLogin,
     doLogout
   };
 }

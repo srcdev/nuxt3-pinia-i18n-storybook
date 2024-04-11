@@ -1,3 +1,5 @@
+import type { IAccountState, IUserData } from "@/types/types.accountStore";
+
 export interface IUser {
   id: string;
   username: string;
@@ -15,6 +17,11 @@ export interface ILoginPayload {
 }
 
 export interface ILoginResponse {
+  isAuthenticated: boolean;
+  userData: IUserWithoutPassword;
+}
+
+export interface ILoginResponse2 {
   email: string;
   firstName: string;
   gender: string;
