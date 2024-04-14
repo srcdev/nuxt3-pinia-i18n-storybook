@@ -1,5 +1,5 @@
 <template>
-  <UtilsIconLink :to="linkDestimation" :linkText="linkText">
+  <UtilsIconLink :to="redirectTo" :linkText="linkText">
     <template #iconOnly>
       <Icon name="material-symbols:account-circle" class="icon-account-btn" />
     </template>
@@ -7,6 +7,8 @@
 </template>
 
 <script setup lang="ts">
+  import type { RouteLocationRaw } from "vue-router";
+
   const props = defineProps({
     linkText: {
       type: String,
@@ -15,8 +17,7 @@
   });
 
   const router = useRouter();
-  const redirectTo = router.currentRoute.value.fullPath;
-  const linkDestimation = ref<string>("/login?returnUrl=" + redirectTo);
+  const redirectTo = router.currentRoute.value.path === "/login" ? router.currentRoute.value.path : router.currentRoute.value.path + "?returnUrl=" + router.currentRoute.value.path;
 </script>
 
 <style lang="scss">

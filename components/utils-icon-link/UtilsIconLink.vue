@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="to" :class="['icon-link', styleClassPassthrough]">
+  <NuxtLink :to :external :class="['icon-link', styleClassPassthrough]">
     <template v-if="hasIconOnly">
       <span class="icon-only">
         <slot name="iconOnly"></slot>
@@ -58,6 +58,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    gap: 12px;
 
     font-size: initial;
     padding: 0;
