@@ -159,6 +159,7 @@
       .nav-summary {
         color: var(--color-grey-5);
         font-weight: 700;
+        list-style-type: none;
       }
 
       .nav-summary-title {
