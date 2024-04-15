@@ -17,7 +17,7 @@
             <ClientOnly>
               <DisplayFlexGroupItem v-if="accountState.isAuthenticated" style-class-passthrough="header-logout">
                 <template #default>
-                  <IconButtonLogout type="button" @click="doLogout()" size="large" :button-text="$t('components.header.logout-btn')" />
+                  <IconButtonLogout type="button" @click.prevent="controlDialogs('logout', !dialogsConfig['logout'].open)" size="large" :button-text="$t('components.header.logout-btn')" />
                 </template>
               </DisplayFlexGroupItem>
               <DisplayFlexGroupItem v-else style-class-passthrough="header-login">
@@ -34,6 +34,17 @@
           </template>
         </DisplayFlexGroup>
       </header>
+      <DisplayDialogPrompt v-if="dialogsConfig['logout'].open" v-model="dialogsConfig['logout'].open" style-class-passthrough="content-width">
+        <template #dialogContent>
+          <p class="text-normal wght-700">Confirm logout?</p>
+        </template>
+        <template #actionButtonLeft>
+          <InputButtonCancel @click.prevent="controlDialogs('logout', !dialogsConfig['logout'].open)" type="submit" button-text="Cancel" size="medium" style-class-passthrough="mb-12" />
+        </template>
+        <template #actionButtonRight>
+          <InputButtonConfirm @click.prevent="doLogout()" type="submit" button-text="Confirm" size="medium" style-class-passthrough="mb-12" />
+        </template>
+      </DisplayDialogPrompt>
     </template>
   </DisplayRow>
 </template>
@@ -61,10 +72,36 @@
   const { t } = useI18n();
   const isFullWidth = ref(false);
 
-  const { accountState } = useAccountState();
+  const { accountState, setAuthenticated } = useAccountState();
   console.log("header > accountState > known hydration issue ");
 
-  const { doLogout } = useAuthApi();
+  const dialogsConfig = ref({
+    logout: {
+      open: false
+    }
+  });
+
+  const controlDialogs = (name: string, state: boolean) => {
+    console.log("controlDialogs > name > ", name, state);
+    (dialogsConfig.value as Record<string, { open: boolean }>)[name].open = state;
+  };
+
+  // const { doLogout } = useAuthApi();
+  // TODO: Add logout function with close dialog
+  const { isAuthenticated } = storeToRefs(useAccountStore());
+  const doLogout = async () => {
+    await $fetch("/api/auth/logout", {
+      onResponseError({ response }) {
+        throw response;
+      }
+    });
+
+    isAuthenticated.value = false;
+    setAuthenticated(false);
+    controlDialogs("logout", false);
+    navigateTo("/");
+    return;
+  };
 </script>
 
 <style lang="scss" scoped>

@@ -17,7 +17,7 @@
   });
 
   const router = useRouter();
-  const redirectTo = router.currentRoute.value.path === "/login" ? router.currentRoute.value.path : router.currentRoute.value.path + "?returnUrl=" + router.currentRoute.value.path;
+  const redirectTo = router.currentRoute.value.path === "/login" ? "/login" : "/login?returnUrl=" + router.currentRoute.value.path;
 </script>
 
 <style lang="scss">

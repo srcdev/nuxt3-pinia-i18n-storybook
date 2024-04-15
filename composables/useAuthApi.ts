@@ -22,21 +22,21 @@ export function useAuthApi() {
     return response;
   }
 
-  async function doLogout() {
-    await $fetch<ILoginResponse>("/api/auth/logout", {
-      onResponseError({ response }) {
-        throw response;
-      }
-    });
+  // async function doLogout() {
+  //   await $fetch<ILoginResponse>("/api/auth/logout", {
+  //     onResponseError({ response }) {
+  //       throw response;
+  //     }
+  //   });
 
-    isAuthenticated.value = false;
-    setAuthenticated(false);
-    navigateTo("/");
-    return;
-  }
+  //   isAuthenticated.value = false;
+  //   setAuthenticated(false);
+  //   navigateTo("/");
+  //   return;
+  // }
 
   return {
-    doLogin,
-    doLogout
+    doLogin
+    // doLogout
   };
 }

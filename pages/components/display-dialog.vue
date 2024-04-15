@@ -9,6 +9,25 @@
           </template>
         </DisplayRow>
 
+        <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20 pt-20">
+          <template #default>
+            <h2 class="text-header-medium mb-12">DisplayPrompt</h2>
+            <p><InputButtonTertiary @click="controlDialogs('logout', !dialogsConfig['logout'].open)" type="button" button-text="Show Dialog Prompt" size="medium" style-class-passthrough="mb-12" /><br />Click to display dialog</p>
+
+            <DisplayDialogPrompt v-if="dialogsConfig['logout'].open" v-model="dialogsConfig['logout'].open" style-class-passthrough="content-width">
+              <template #dialogContent>
+                <p class="text-normal wght-700">Confirm logout?</p>
+              </template>
+              <template #actionButtonLeft>
+                <InputButtonCancel type="submit" button-text="Cancel" size="medium" style-class-passthrough="mb-12" />
+              </template>
+              <template #actionButtonRight>
+                <InputButtonConfirm type="submit" button-text="Confirm" size="medium" style-class-passthrough="mb-12" />
+              </template>
+            </DisplayDialogPrompt>
+          </template>
+        </DisplayRow>
+
         <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20">
           <template #default>
             <h2 class="text-header-medium mb-12">Dialog 1</h2>
@@ -196,6 +215,17 @@
   const displayDialog = ref(false);
   const toggleDialog = (state: boolean) => {
     displayDialog.value = state;
+  };
+
+  const dialogsConfig = ref({
+    logout: {
+      open: false
+    }
+  });
+
+  const controlDialogs = (name: string, state: boolean) => {
+    console.log("controlDialogs > name > ", name, state);
+    (dialogsConfig.value as Record<string, { open: boolean }>)[name].open = state;
   };
 
   // Cookie value string as number problem

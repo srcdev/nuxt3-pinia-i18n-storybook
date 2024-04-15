@@ -13,8 +13,12 @@
             <IconButtonCancel @click.prevent="closeDialog()" button-text="Cancel Small" size="large" />
           </div>
         </div>
-        <p>WIP:</p>
         <slot v-if="hasDialogContent" name="dialogContent"></slot>
+        <template v-if="hasActionButtons">
+          <div class="button-row">
+            <slot name="actionButtons"></slot>
+          </div>
+        </template>
       </div>
     </focus-trap>
   </dialog>
@@ -62,6 +66,7 @@
 
   const slots = useSlots();
   const hasDialogContent = computed(() => slots.dialogContent !== undefined);
+  const hasActionButtons = computed(() => slots.actionButtons !== undefined);
 
   onMounted(() => {
     bodyTag.value = document.querySelector("body");
@@ -129,5 +134,11 @@
         grid-column: 3;
       }
     }
+
+    // .button-row {
+    //   display: flex;
+    //   gap: 12px;
+    //   justify-content: flex-end;
+    // }
   }
 </style>
