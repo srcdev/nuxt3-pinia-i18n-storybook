@@ -38,16 +38,6 @@
             </form>
           </template>
         </DisplayRow>
-
-        <ClientOnly>
-          <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
-            <template #default>
-              <div class="pt-32">
-                <pre>{{ formData }}</pre>
-              </div>
-            </template>
-          </DisplayRow>
-        </ClientOnly>
       </template>
     </NuxtLayout>
   </div>
@@ -55,8 +45,7 @@
 
 <script setup lang="ts">
   import type { IFieldsInitialState } from "@/types/types.forms";
-  import type { ILoginPayload, ILoginResponse } from "@/types/types.auth";
-  // import type { IAccountState, IUserData } from "@/types/types.accountStore";
+  import type { ILoginPayload } from "@/types/types.auth";
 
   import { useI18n } from "vue-i18n";
   import { useAuthApi } from "~/composables/useAuthApi";
@@ -74,7 +63,7 @@
     }
   });
 
-  const { accountState, setUserData, setAuthenticated } = useAccountState();
+  const { setAuthenticated } = useAccountState();
 
   // Setup formData
   const fieldsInitialState = ref<IFieldsInitialState>({

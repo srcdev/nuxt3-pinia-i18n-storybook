@@ -74,7 +74,6 @@
 
   const { isSignedIn } = useIsSignedIn();
   const { setAuthenticated } = useAccountState();
-  console.log("header > accountState > known hydration issue ");
 
   const dialogsConfig = ref({
     logout: {
