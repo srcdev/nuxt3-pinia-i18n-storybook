@@ -3,7 +3,7 @@
     <nav role="navigation" aria-label="Main menu" class="navigation__wrapper" tabindex="-1">
       <div class="menu__wrapper">
         <IconButtonClose v-if="navActive" aria-expanded="true" aria-controls="main-menu" type="button" @click="toggleMenu()" size="large" button-text="Close" style-class-passthrough="menu__button-icon" />
-        <IconButtonBurger v-else type="button" aria-expanded="false" aria-controls="main-menu" @click="toggleMenu()" size="large" button-text="Login" />
+        <IconButtonBurger v-else type="button" aria-expanded="false" aria-controls="main-menu" @click="toggleMenu()" size="large" button-text="Login" data-test-id="burger-nav" />
       </div>
       <div v-show="navActive" id="main-menu" :class="['menu__items', { open: navActive }]">
         <p class="text-header-medium navigation-title">{{ t("components.header-navigation.title") }}</p>
