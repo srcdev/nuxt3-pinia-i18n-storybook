@@ -53,6 +53,7 @@
     "storybook-i18n": "^2.0.13",
     "vitest": "^1.4.0",
     "vitest-environment-nuxt": "^1.0.0",
+    "vue": "^3.4.23",
     "vue-eslint-parser": "^9.3.2",
     "vue-loader": "^17.4.2"
   },
@@ -66,7 +67,6 @@
     "fs-extra": "^11.2.0",
     "modern-normalize": "^2.0.0",
     "qrcode": "^1.5.3",
-    "vue": "3.4",
     "vue-router": "^4.2.5"
   }
 }
