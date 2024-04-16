@@ -1,6 +1,6 @@
 <template>
-  <div class="display-row" :class="[styleClassPassthrough, displayRowTheme]">
-    <div class="display-row-inner" :class="[displayRowInnerTheme, { 'use-available-width': useAvailableWidth }, { 'has-gutters': applyGutters }]">
+  <div :class="['display-row', styleClassPassthrough, displayRowTheme]">
+    <div :class="['display-row-inner', displayRowInnerTheme, { 'use-available-width': useAvailableWidth }, { 'has-gutters': applyGutters }]">
       <slot name="default"></slot>
     </div>
   </div>

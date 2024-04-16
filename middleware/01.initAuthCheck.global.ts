@@ -1,4 +1,4 @@
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async () => {
   const { isAuthenticated } = storeToRefs(useAccountStore());
   const { setAuthenticated } = useAccountState();
   const id = ref<null | string>(null);

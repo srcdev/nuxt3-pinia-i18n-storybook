@@ -1,4 +1,4 @@
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async (to) => {
   const { accountState } = useAccountState();
 
   if (accountState.value.isAuthenticated) {

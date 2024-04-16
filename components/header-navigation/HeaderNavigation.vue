@@ -7,27 +7,32 @@
       </div>
       <div v-show="navActive" id="main-menu" :class="['menu__items', { open: navActive }]">
         <p class="text-header-medium navigation-title">{{ t("components.header-navigation.title") }}</p>
-        <div v-if="navitemsLoaded" class="nav-details-wrapper">
-          <template v-for="(item, key, index) in navItems">
-            <details class="nav-details" :class="[{ hide: item.hidden }]" ref="detailsRefs" @click="handleSummary(index)">
-              <summary class="nav-summary">
-                <p class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
-                <p class="nav-summary-title" v-else>
-                  <NuxtLink class="nav-summary-action" :to="item.url"><Icon name="radix-icons:caret-right" class="nav-details-icon mr-8" />{{ item.summary }}</NuxtLink>
-                </p>
-              </summary>
-              <div v-if="item.hasChildren">
-                <ul>
-                  <template v-for="link in item.links">
-                    <li :class="[{ hide: link.hidden }]">
-                      <NuxtLink class="menu__items_link" :to="link.url"><Icon name="radix-icons:caret-right" class="icon" />{{ link.text }}</NuxtLink>
-                    </li>
-                  </template>
-                </ul>
-              </div>
-            </details>
+
+        <ClientOnly>
+          <template v-if="navitemsLoaded">
+            <div class="nav-details-wrapper">
+              <template v-for="(item, key, index) in navItems">
+                <details :class="['nav-details', { hide: item.hidden }]" ref="detailsRefs" @click="handleSummary(index)">
+                  <summary class="nav-summary">
+                    <p class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
+                    <p class="nav-summary-title" v-else>
+                      <NuxtLink class="nav-summary-action" :to="item.url"><Icon name="radix-icons:caret-right" class="nav-details-icon mr-8" />{{ item.summary }}</NuxtLink>
+                    </p>
+                  </summary>
+                  <div v-if="item.hasChildren">
+                    <ul>
+                      <template v-for="link in item.links">
+                        <li :class="[{ hide: link.hidden }]">
+                          <NuxtLink class="menu__items_link" :to="link.url"><Icon name="radix-icons:caret-right" class="icon" />{{ link.text }}</NuxtLink>
+                        </li>
+                      </template>
+                    </ul>
+                  </div>
+                </details>
+              </template>
+            </div>
           </template>
-        </div>
+        </ClientOnly>
       </div>
     </nav>
   </focus-trap>
@@ -37,11 +42,6 @@
   import { FocusTrap } from "focus-trap-vue";
 
   const { t } = useI18n();
-
-  const { accountState } = useAccountState();
-  console.log("header navigation > accountState > known hydration issue ");
-
-  const { navItems, navitemsLoaded } = useNavItems(accountState.value.isAuthenticated);
 
   const navActive = ref(false);
   const activeDetailsIndex = ref<number | null>(null);
@@ -59,6 +59,9 @@
       }
     });
   };
+
+  const { isSignedIn } = useIsSignedIn();
+  const { navItems, navitemsLoaded } = useNavItems(isSignedIn.value);
 </script>
 
 <style lang="scss" scoped>

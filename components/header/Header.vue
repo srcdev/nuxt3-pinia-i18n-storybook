@@ -1,7 +1,7 @@
 <template>
   <DisplayRow :use-available-width="isFullWidth" :apply-gutters="false" display-row-theme="theme-header">
     <template #default>
-      <header class="header" :class="[headerTheme, { 'full-width': isFullWidth }, { 'signed-in': accountState.isAuthenticated }]">
+      <header :class="['header', headerTheme, { 'full-width': isFullWidth }, { 'signed-in': isSignedIn }]">
         <DisplayFlexGroup align-content="center-left" gap="24px">
           <template #default>
             <DisplayFlexGroupItem :flex-grow="true">
@@ -15,7 +15,7 @@
               </template>
             </DisplayFlexGroupItem>
             <ClientOnly>
-              <DisplayFlexGroupItem v-if="accountState.isAuthenticated" style-class-passthrough="header-logout">
+              <DisplayFlexGroupItem v-if="isSignedIn" style-class-passthrough="header-logout">
                 <template #default>
                   <IconButtonLogout type="button" @click.prevent="controlDialogs('logout', !dialogsConfig['logout'].open)" size="large" :button-text="$t('components.header.logout-btn')" />
                 </template>
@@ -72,7 +72,8 @@
   const { t } = useI18n();
   const isFullWidth = ref(false);
 
-  const { accountState, setAuthenticated } = useAccountState();
+  const { isSignedIn } = useIsSignedIn();
+  const { setAuthenticated } = useAccountState();
   console.log("header > accountState > known hydration issue ");
 
   const dialogsConfig = ref({
@@ -86,8 +87,6 @@
     (dialogsConfig.value as Record<string, { open: boolean }>)[name].open = state;
   };
 
-  // const { doLogout } = useAuthApi();
-  // TODO: Add logout function with close dialog
   const { isAuthenticated } = storeToRefs(useAccountStore());
   const doLogout = async () => {
     await $fetch("/api/auth/logout", {
@@ -107,37 +106,17 @@
 <style lang="scss" scoped>
   @import "@/assets/styles/imports.scss";
 
-  // .header-default {
-  //   --bgColour: #e2e2e2;
-  // }
-
-  // .header-dark {
-  //   --bgColour: #d2d2d2;
-  // }
-
   .header {
-    // background-color: var(--bgColour);
-    // background-color: $black;
-    // background: transparent url("/assets/images/banners/header-dark.webp") 0 0 no-repeat;
-    // background-size: contain;
     padding: 16px 0;
 
     @include mqMinTablet {
       padding: 24px 0;
     }
 
-    // @include mqDesktopContentMax {
-    //   padding: 32px 0;
-    // }
-
     &.full-width {
       @include mqMinTablet {
         padding: 24px;
       }
-
-      // @include mqDesktopContentMax {
-      //   padding: 32px;
-      // }
     }
 
     &-home-link {
