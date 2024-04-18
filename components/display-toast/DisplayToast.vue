@@ -100,8 +100,8 @@
     }
 
     &.success {
-      background-color: $color-green-4;
-      border-color: $color-green-2;
+      background-color: var(--color-green-4);
+      border-color: var(--color-green-2);
     }
     &.error {
       background-color: var(--color-red-3);
@@ -127,8 +127,8 @@
           transform: translateY(2px);
 
           &.success {
-            background-color: $color-green-4;
-            border-color: $color-green-2;
+            background-color: var(--color-green-4);
+            border-color: var(--color-green-2);
           }
           &.error {
             background-color: var(--color-red-3);
@@ -155,8 +155,8 @@
               border-style: solid;
               color: var(--color-white);
               &.success {
-                background-color: $color-green-2;
-                border-color: $color-green-2;
+                background-color: var(--color-green-2);
+                border-color: var(--color-green-2);
               }
               &.error {
                 background-color: var(--color-red-2);
