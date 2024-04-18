@@ -127,7 +127,7 @@
   .masonry-grid-ordered {
     $self: &;
     &-wrapper {
-      background-color: $color-red-3;
+      background-color: var(--color-red-3);
       display: grid;
       position: relative;
       overflow: hidden;

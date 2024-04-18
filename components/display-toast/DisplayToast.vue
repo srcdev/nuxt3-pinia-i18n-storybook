@@ -104,7 +104,7 @@
       border-color: $color-green-2;
     }
     &.error {
-      background-color: $color-red-3;
+      background-color: var(--color-red-3);
       border-color: var(--color-red-2);
     }
 
@@ -131,7 +131,7 @@
             border-color: $color-green-2;
           }
           &.error {
-            background-color: $color-red-3;
+            background-color: var(--color-red-3);
             border-color: var(--color-red-2);
           }
         }
