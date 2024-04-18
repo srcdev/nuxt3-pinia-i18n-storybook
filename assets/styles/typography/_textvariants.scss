@@ -36,9 +36,9 @@ dt,
 }
 
 .text-header-medium {
-  font-size: clamp(1.4rem, 4vw, 1.6rem);
+  font-size: 1.4rem;
   font-weight: 500;
-  line-height: clamp(1.4rem, 4vw, 1.6rem);
+  line-height: 1.6rem;
   margin: 0;
   padding-block: 1rem;
 }
@@ -58,39 +58,39 @@ dt,
 }
 
 .wght-100 {
-  font-variation-settings: "wght" 100;
+  font-weight: 100;
 }
 
 .wght-200 {
-  font-variation-settings: "wght" 200;
+  font-weight: 200;
 }
 
 .wght-300 {
-  font-variation-settings: "wght" 300;
+  font-weight: 300;
 }
 
 .wght-400 {
-  font-variation-settings: "wght" 400;
+  font-weight: 400;
 }
 
 .wght-500 {
-  font-variation-settings: "wght" 500;
+  font-weight: 500;
 }
 
 .wght-600 {
-  font-variation-settings: "wght" 600;
+  font-weight: 600;
 }
 
 .wght-700 {
-  font-variation-settings: "wght" 700;
+  font-weight: 700;
 }
 
 .wght-900 {
-  font-variation-settings: "wght" 900;
+  font-weight: 800;
 }
 
 .wght-900 {
-  font-variation-settings: "wght" 900;
+  font-weight: 900;
 }
 
 .ghost-text {
