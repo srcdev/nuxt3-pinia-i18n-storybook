@@ -249,7 +249,7 @@
     &-links {
       &-list {
         list-style-type: none;
-        margin: 0;
+        margin: 12px 0 0 0;
         padding: 0;
 
         &.links {
