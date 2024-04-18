@@ -108,8 +108,8 @@
         transition: all ease-in-out 200ms;
 
         &.error {
-          border-left: 3px solid $color-red-2;
-          border-bottom: 1px solid $color-red-2;
+          border-left: 3px solid var(--color-red-2);
+          border-bottom: 1px solid var(--color-red-2);
 
           background: rgb(210, 28, 41);
           background: linear-gradient(13deg, rgba(210, 28, 41, 0.21054359243697474) 0%, rgba(251, 251, 251, 0) 41%);
@@ -123,16 +123,16 @@
     &-error-message {
       display: flex;
       align-items: center;
-      color: $color-red-2;
+      color: var(--color-red-2);
       .icon {
         display: inline-block;
-        color: $color-red-2;
+        color: var(--color-red-2);
         margin-right: 10px;
       }
 
       &.show {
         animation: fadeIn ease-out 200ms;
-        color: $color-red-5;
+        color: var(--color-red-5);
       }
     }
     &-info {

@@ -94,7 +94,7 @@
       z-index: -1;
 
       &[readonly] {
-        background-color: $color-blue-2;
+        background-color: var(--color-blue-2);
       }
 
       &-primary {
@@ -102,19 +102,19 @@
         // color: var(--color-grey-1);
 
         @media (prefers-color-scheme: dark) {
-          background-color: $color-grey-4;
-          // color: $color-grey-4;
+          background-color: var(--color-grey-4);
+          // color: var(--color-grey-4);
         }
       }
 
       &:hover {
-        border-color: $black;
+        border-color: var(--color-black);
       }
 
       &.error {
-        color: $color-red-5;
-        border: 1px solid $color-red-2;
-        outline: 1px solid $color-red-5;
+        color: var(--color-red-5);
+        border: 1px solid var(--color-red-2);
+        outline: 1px solid var(--color-red-5);
       }
     }
   }

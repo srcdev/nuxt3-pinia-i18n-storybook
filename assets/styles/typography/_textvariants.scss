@@ -12,39 +12,35 @@ li,
 dd,
 dt,
 .text-normal {
-  font-size: clamp(1.2rem, 4vw, 1.4rem);
+  font-size: 1.4rem;
   font-weight: normal;
-  line-height: clamp(1.9rem, 4vw, 2.2rem);
+  line-height: 2rem;
   margin: 0;
-  padding-bottom: clamp(0.2rem, 4vw, 0.6rem);
-  padding-top: clamp(0.2rem, 4vw, 0.6rem);
+  padding: 0;
 }
 
 .text-small {
-  font-size: clamp(1rem, 4vw, 1.2rem);
+  font-size: 1.2rem;
   font-weight: normal;
-  line-height: clamp(1.7rem, 4vw, 2rem);
+  line-height: 1.7rem;
   margin: 0;
-  padding-bottom: clamp(0rem, 4vw, 0.4rem);
-  padding-top: clamp(0rem, 4vw, 0.4rem);
+  padding-block: 1rem;
 }
 
 .text-header-large {
-  font-size: clamp(2.2rem, 4vw, 2.6rem);
-  font-weight: 700;
-  line-height: clamp(2.4rem, 4vw, 2.8rem);
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 2.4rem;
   margin: 0;
-  padding-bottom: clamp(0.2rem, 4vw, 0.6rem);
-  padding-top: clamp(0.2rem, 4vw, 0.6rem);
+  padding-block: 1rem;
 }
 
 .text-header-medium {
   font-size: clamp(1.4rem, 4vw, 1.6rem);
-  font-weight: 700;
+  font-weight: 500;
   line-height: clamp(1.4rem, 4vw, 1.6rem);
   margin: 0;
-  padding-bottom: clamp(0.2rem, 4vw, 0.6rem);
-  padding-top: clamp(0.2rem, 4vw, 0.6rem);
+  padding-block: 1rem;
 }
 
 .header-small {

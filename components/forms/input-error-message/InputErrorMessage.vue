@@ -29,7 +29,7 @@
     &-error-message {
       display: flex;
       align-items: center;
-      color: $color-red-2;
+      color: var(--color-red-2);
 
       opacity: 0;
       height: 0;
@@ -40,7 +40,7 @@
 
       .icon {
         display: inline-block;
-        color: $color-red-2;
+        color: var(--color-red-2);
         margin-right: 10px;
       }
 
@@ -50,11 +50,11 @@
         overflow: hidden;
 
         transform: translateY(0);
-        color: $color-red-5;
+        color: var(--color-red-5);
       }
 
       &.hide {
-        color: $color-red-5;
+        color: var(--color-red-5);
       }
     }
   }

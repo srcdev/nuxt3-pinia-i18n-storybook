@@ -30,7 +30,7 @@
   .input {
     &-text {
       border: 1px solid var(--color-white);
-      outline: 1px solid $color-black;
+      outline: 1px solid var(--color-black);
       border-radius: 2px;
       box-shadow: none;
       transition: all linear 200ms;
@@ -42,7 +42,7 @@
       text-wrap: nowrap;
 
       &[readonly] {
-        background-color: $color-blue-2;
+        background-color: var(--color-blue-2);
       }
 
       &.ghost {
@@ -58,8 +58,8 @@
         // color: var(--color-grey-1);
 
         @media (prefers-color-scheme: dark) {
-          background-color: $color-grey-4;
-          // color: $color-grey-4;
+          background-color: var(--color-grey-4);
+          // color: var(--color-grey-4);
         }
       }
     }

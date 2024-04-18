@@ -55,7 +55,7 @@
     &-card {
       $self: &;
       border-radius: 4px;
-      box-shadow: 0 0 0 1px $color-black;
+      box-shadow: 0 0 0 1px var(--color-black);
 
       &-inner {
         display: flex;
