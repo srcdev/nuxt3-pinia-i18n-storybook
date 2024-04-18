@@ -132,8 +132,8 @@
       }
 
       &.large .icon {
-        height: 24px;
-        width: 24px;
+        height: 32px;
+        width: 32px;
       }
 
       &.left {
