@@ -160,6 +160,8 @@
 
     &-block {
       &-1 {
+        padding-top: 24px;
+
         @media only screen and (min-width: $tabletMed) {
           display: flex;
 
