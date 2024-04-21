@@ -12,7 +12,15 @@
             </template>
           </DisplayFlexGroupItem>
           <DisplayFlexGroupItem :flex-grow="false" style-class-passthrough="form-field-input-wrapper">
-            <InputTextCore :type="type" :id="id" :validation="validation" :required="required" v-model:modelValue="modelValue" :i18n-key="i18nKey" />
+            <div class="input-border" align-content="center-center" :class="[{ error: fieldHasError }, { focus: isFocused }]">
+              <template v-if="hasLeftAddOn">
+                <slot name="leftAddOn"></slot>
+              </template>
+              <InputTextCore :type :id :validation :required v-model:modelValue="modelValue" v-model:isFocused="isFocused" :i18n-key="i18nKey" />
+              <template v-if="hasRightAddOn">
+                <slot name="rightAddOn"></slot>
+              </template>
+            </div>
           </DisplayFlexGroupItem>
         </template>
       </DisplayFlexGroup>
@@ -63,6 +71,29 @@
   const name = computed(() => {
     return props.name !== null ? props.name : props.id;
   });
+
+  const type = toRef(() => props.type);
+  const propType = computed(() => props.type);
+  console.log(`InputTextWithWrapper > type: ${type.value}`);
+
+  watch(
+    () => type.value,
+    () => {
+      console.log(`InputTextWithWrapper > watch type > (${type.value})`);
+    }
+  );
+
+  watch(
+    () => propType.value,
+    () => {
+      console.log(`InputTextWithWrapper > watch propType > (${propType.value})`);
+    }
+  );
+
+  const slots = defineSlots();
+  const hasLeftAddOn = slots.leftAddOn !== undefined;
+  const hasRightAddOn = slots.rightAddOn !== undefined;
+  const isFocused = ref(false);
 
   const { validatorLocale } = storeToRefs(useI18nStore());
   const componentValidation = validationConfig[validatorLocale.value][props.validation];
@@ -142,6 +173,7 @@
 
     &-input {
       &-wrapper {
+        align-self: center;
         width: 100%;
         @media only screen and (min-width: $tabletMed) {
           max-width: 300px;

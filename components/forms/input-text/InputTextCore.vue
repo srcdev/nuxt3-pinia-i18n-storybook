@@ -2,14 +2,16 @@
   <input
     :type="type"
     :placeholder="t(`${i18nKey}.placeholder`)"
-    :id="id"
-    :name="name"
+    :id
+    :name
     :pattern="componentValidation.pattern"
     :maxlength="componentValidation.maxlength"
-    :required="required"
+    :required
     :class="['input-text', 'text-normal', { error: fieldHasError() }]"
     v-model="modelValue.data[name]"
     ref="inputField"
+    @focusin="isFocused = true"
+    @focusout="isFocused = false"
   />
 </template>
 
@@ -54,8 +56,11 @@
     }
   });
 
+  const type = toRef(() => props.type);
+
   const { t } = useI18n();
   const modelValue = defineModel() as Ref<IFormData>;
+  const isFocused = defineModel("isFocused") as Ref<boolean>;
 
   const name = computed(() => {
     return props.name !== null ? props.name : props.id;
@@ -86,6 +91,13 @@
   //   }
   // });
 
+  watch(
+    () => type.value,
+    () => {
+      console.log(`InputTextCore > watch type > (${type.value})`);
+    }
+  );
+
   // Keep an eye on this for performance issue
   watch(
     () => modelValue.value.data[name.value],
@@ -104,37 +116,37 @@
 
   .input {
     &-text {
-      border: 1px solid var(--color-white);
-      outline: 1px solid var(--color-black);
-      border-radius: 2px;
-      box-shadow: none;
+      // border: 1px solid var(--color-white);
+      // outline: 1px solid var(--color-black);
+      // border-radius: 2px;
+      // box-shadow: none;
       transition: all linear 200ms;
       padding-left: 4px;
       width: 100%;
 
       &[readonly] {
-        background-color: var(--color-blue-2);
+        // background-color: var(--color-blue-2);
       }
 
       &-primary {
-        background-color: var(--color-white);
+        // background-color: var(--color-white);
         // color: var(--color-grey-1);
 
         @media (prefers-color-scheme: dark) {
-          background-color: var(--color-grey-4);
-          // color: var(--color-grey-4);
+          // background-color: var(--color-grey-4);
+          color: var(--color-grey-4);
         }
       }
 
-      &:hover {
-        border-color: var(--color-black);
-      }
+      // &:hover {
+      //   border-color: var(--color-black);
+      // }
 
-      &.error {
-        color: var(--color-red-5);
-        border: 1px solid var(--color-red-2);
-        outline: 1px solid var(--color-red-5);
-      }
+      // &.error {
+      //   color: var(--color-red-5);
+      //   border: 1px solid var(--color-red-2);
+      //   outline: 1px solid var(--color-red-5);
+      // }
     }
   }
 </style>

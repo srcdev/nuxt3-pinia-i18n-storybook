@@ -15,7 +15,7 @@
               <p v-if="showErrors">{{ t("pages.login.formErrorsMessage", formData.errorCount) }}</p>
 
               <InputTextWithWrapper id="username" type="text" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.login.fields.username" />
-              <InputTextWithWrapper id="password" type="password" validation="password" :required="true" v-model="formData" i18n-key="pages.login.fields.password" />
+              <InputPassword id="password" type="password" validation="password" v-model="formData" i18n-key="pages.login.fields.password" />
 
               <InputCheckboxWrapper id="rememberMe" name="rememberMe" :required="false" v-model="formData" i18n-key="pages.login.fields.rememberMe">
                 <template #inputTitle>

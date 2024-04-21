@@ -1,5 +1,5 @@
 <template>
-  <span class="display-tooltip" :class="[styleClassPassthrough]">
+  <span class="display-tooltip hide" :class="[styleClassPassthrough]">
     <IconButtonInfo @click.prevent :aria-describedby="tooltipId" button-text="Info" size="normal" style-class-passthrough="display-tooltip-btn" />
     <span class="display-tooltip-text" role="tooltip" :id="tooltipId" inert>{{ text }}</span>
   </span>

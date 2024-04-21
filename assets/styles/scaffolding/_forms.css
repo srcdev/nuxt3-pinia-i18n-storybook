@@ -1,0 +1,44 @@
+:root {
+  --border-width: 1px;
+  --border-radius: 2px;
+  --border: var(--border-width) solid var(var(--_border-color), transparent);
+  --outline-width: 2px;
+}
+
+/*
+* form element reset
+*/
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"] {
+  border: none;
+  outline: none;
+  padding: 4px 8px;
+
+  &::focus-visible {
+    outline: none;
+  }
+}
+
+.input-border {
+  --_bg-color: white;
+  --_outline-color: transparent;
+  --_border-color: var(--color-grey-12);
+
+  background-color: var(--_bg-color, --color-white);
+  border: var(--border-width) solid var(--_border-color, transparent);
+  outline: var(--border-width) solid var(--_outline-color, transparent);
+  border-radius: var(--border-radius);
+
+  &.error {
+    --_bg-color: var(--color-red-4);
+    --_border-color: var(--color-red-6);
+  }
+
+  &.focus {
+    --_outline-color: var(--color-blue-5);
+  }
+}

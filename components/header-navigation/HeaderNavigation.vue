@@ -19,7 +19,7 @@
                       <NuxtLink class="nav-summary-action" :to="item.url"><Icon name="radix-icons:caret-right" class="nav-details-icon mr-8" />{{ item.summary }}</NuxtLink>
                     </p>
                   </summary>
-                  <div v-if="item.hasChildren">
+                  <div class="nav-details-content" v-if="item.hasChildren">
                     <ul>
                       <template v-for="link in item.links">
                         <li :class="[{ hide: link.hidden }]">
@@ -149,6 +149,18 @@
       }
 
       .nav-details {
+        &-content {
+          display: grid;
+          grid-template-rows: 0fr;
+          transition: all ease-in-out 500ms;
+        }
+
+        &[open] {
+          .nav-details-content {
+            grid-template-rows: 1fr;
+          }
+        }
+
         &:not([open]) {
           .nav-details-icon {
             transform: scale(1, 1);

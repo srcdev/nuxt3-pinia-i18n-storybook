@@ -1,4 +1,4 @@
-// page transition
+/* page transition */
 .page-enter-active {
   transition: all 0.1s ease-out;
 }
@@ -7,11 +7,11 @@
 }
 .page-enter-from,
 .page-leave-to {
-  // transform: translateY(20px);
+  /* transform: translateY(20px); */
   opacity: 0;
 }
 
-// layout transition
+/* layout transition */
 .layout-enter-active {
   transition: all 0.1s ease-out;
 }
@@ -20,6 +20,6 @@
 }
 .layout-enter-from,
 .layout-leave-to {
-  // transform: translateY(-20px);
+  /* transform: translateY(-20px); */
   opacity: 0;
 }
