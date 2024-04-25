@@ -98,6 +98,11 @@ export function useNavItems(isAuthenticated: boolean) {
           hidden: false
         },
         {
+          text: "Accordian",
+          url: "/components/display-accordian",
+          hidden: false
+        },
+        {
           text: "Expanding Spotlights",
           url: "/components/expanding-spotlights",
           hidden: false

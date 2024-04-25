@@ -153,6 +153,10 @@
           display: grid;
           grid-template-rows: 0fr;
           transition: all ease-in-out 500ms;
+
+          > ul {
+            overflow: hidden;
+          }
         }
 
         &[open] {
