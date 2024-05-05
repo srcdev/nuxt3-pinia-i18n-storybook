@@ -8,7 +8,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "storybook-fix-package": "node fixStorybookPackageJson.js && storybook dev -p 6006",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "node fixStorybookPackageJson.js && storybook dev -p 6006",
     "build-storybook": "storybook build",
     "serve-storybook": "npx http-server ./storybook-static",
     "test": "vitest"
@@ -53,7 +53,7 @@
     "storybook-i18n": "^2.0.13",
     "vitest": "^1.5.0",
     "vitest-environment-nuxt": "^1.0.0",
-    "vue": "^3.4.23",
+    "vue": "^3.4.26",
     "vue-eslint-parser": "^9.3.2",
     "vue-loader": "^17.4.2"
   },
