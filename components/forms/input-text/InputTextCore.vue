@@ -1,6 +1,6 @@
 <template>
   <input
-    :type="type"
+    :type
     :placeholder="t(`${i18nKey}.placeholder`)"
     :id
     :name
@@ -24,7 +24,6 @@
     type: {
       // type: String as PropType<"text" | "password" | "tel" | "number" | "email" | "url">, // This breaks props setup in unit tests
       type: String,
-      default: "text",
       validator(value: string) {
         return ["text", "password", "tel", "number", "email", "url"].includes(value);
       }
@@ -56,7 +55,7 @@
     }
   });
 
-  const type = toRef(() => props.type);
+  // const type = computed(() => props.type);
 
   const { t } = useI18n();
   const modelValue = defineModel() as Ref<IFormData>;
@@ -91,12 +90,18 @@
   //   }
   // });
 
-  watch(
-    () => type.value,
-    () => {
-      console.log(`InputTextCore > watch type > (${type.value})`);
-    }
-  );
+  // watch(
+  //   () => type.value,
+  //   () => {
+  //     console.log(`InputTextCore > watch type > (${type.value})`);
+  //   }
+  // );
+
+  const isValid = () => {
+    setTimeout(() => {
+      modelValue.value!.validityState[name.value] = inputField.value?.validity.valid ?? false;
+    }, 0);
+  };
 
   // Keep an eye on this for performance issue
   watch(
@@ -109,6 +114,10 @@
     },
     { deep: true }
   );
+
+  onMounted(() => {
+    isValid();
+  });
 </script>
 
 <style lang="scss">

@@ -1,8 +1,21 @@
 <template>
-  <InputTextWithWrapper :id :name :type="propType" validation="password" :required="true" v-model="modelValue" :i18n-key>
+  <InputTextWithWrapper :id :name :type validation="password" :required="true" v-model="modelValue" :i18n-key>
     <template #rightAddOn>
-      <IconButtonEyeClosed v-if="displayPassword" @click.prevent="toggleDisplayPassword()" button-text="Display password" size="normal" style-class-passthrough="rightAddOn" />
-      <IconButtonEyeOpen v-else @click.prevent="toggleDisplayPassword()" button-text="Hide password" size="normal" style-class-passthrough="rightAddOn" />
+      <InputButtonCore
+        @click.prevent="toggleDisplayPassword()"
+        type="button"
+        data-test-id="password-reveal-btn"
+        variant="icon-only"
+        size="normal"
+        button-text="Display password"
+        style-class-passthrough="rightAddOn"
+        :button-text-visually-hidden="true"
+      >
+        <template #left>
+          <Icon v-if="displayPassword" name="radix-icons:eye-none" />
+          <Icon v-else name="radix-icons:eye-open" />
+        </template>
+      </InputButtonCore>
     </template>
   </InputTextWithWrapper>
 </template>
@@ -29,30 +42,47 @@
   });
 
   const modelValue = defineModel() as Ref<IFormData>;
-
-  const displayPassword = ref(false);
-  // const propType = computed(() => (displayPassword.value ? "text" : "password"));
-  const propType = ref("password");
-
-  watch(
-    () => propType.value,
-    () => {
-      console.log(`InputPassword > watch type > (${propType.value})`);
-    }
-  );
-
   const name = computed(() => {
     return props.name !== null ? props.name : props.id;
   });
+  const displayPassword = ref(false);
+
+  const type = computed(() => {
+    return displayPassword.value ? "text" : "password";
+  });
+  // const type = ref("password");
 
   const toggleDisplayPassword = () => {
     displayPassword.value = !displayPassword.value;
-    propType.value = displayPassword.value ? "text" : "password";
+    // type.value = displayPassword.value ? "text" : "password";
   };
+
+  watch(
+    () => type.value,
+    () => {
+      console.log(`InputPassword > watch type > (${type.value})`);
+    }
+  );
 </script>
 
 <style scoped>
   .btn.rightAddOn {
-    padding-inline: 6px;
+    padding: 1px 5px;
+    margin-right: 3px;
+    border-radius: 0;
+  }
+
+  .btn-icon-only {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: var(--color-grey-8);
+    outline: 1px solid transparent;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      border-color: var(--color-grey-8);
+      color: var(--color-grey-8);
+    }
   }
 </style>

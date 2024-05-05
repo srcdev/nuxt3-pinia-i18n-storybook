@@ -40,7 +40,7 @@
     type: {
       // type: String as PropType<"text" | "password" | "tel" | "number" | "email" | "url">, // This breaks props setup in unit tests
       type: String,
-      default: "text",
+      // default: "text",
       validator(value: string) {
         return ["text", "password", "tel", "number", "email", "url"].includes(value);
       }
@@ -72,21 +72,33 @@
     return props.name !== null ? props.name : props.id;
   });
 
-  const type = toRef(() => props.type);
-  const propType = computed(() => props.type);
-  console.log(`InputTextWithWrapper > type: ${type.value}`);
+  // const type = toRef(() => props.type);
 
-  watch(
-    () => type.value,
-    () => {
-      console.log(`InputTextWithWrapper > watch type > (${type.value})`);
-    }
-  );
+  // const propType = ref(props.type);
+  const propType = computed(() => props.type);
+  // const propType = toRef(() => props.type);
+  // const propType = toRef(props, "type");
+
+  console.log(`InputTextWithWrapper > propType: ${propType.value}`);
+
+  // watch(
+  //   () => type.value,
+  //   () => {
+  //     console.log(`InputTextWithWrapper > watch type > (${type.value})`);
+  //   }
+  // );
 
   watch(
     () => propType.value,
     () => {
       console.log(`InputTextWithWrapper > watch propType > (${propType.value})`);
+    }
+  );
+
+  watch(
+    () => props.type,
+    () => {
+      console.log(`InputTextWithWrapper > watch props.type > (${props.type})`);
     }
   );
 
