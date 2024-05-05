@@ -116,9 +116,7 @@
   };
 </script>
 
-<style lang="scss">
-  @import "@/assets/styles/imports.scss";
-
+<style lang="css">
   .form {
     &-narrow {
       max-width: 600px;
