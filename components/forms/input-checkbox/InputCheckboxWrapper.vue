@@ -6,12 +6,10 @@
         <template #default>
           <DisplayFlexGroupItem style-class-passthrough="form-field-label-wrapper">
             <template #default>
-              <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">{{ t(`${i18nKey}.label`) }}</label>
-            </template>
-          </DisplayFlexGroupItem>
-          <DisplayFlexGroupItem style-class-passthrough="form-field-input-wrapper">
-            <template #default>
-              <slot name="inputField"></slot>
+              <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">
+                <slot name="inputField"></slot>
+                {{ t(`${i18nKey}.label`) }}
+              </label>
             </template>
           </DisplayFlexGroupItem>
         </template>
@@ -118,7 +116,7 @@
     }
 
     &-label {
-      display: block;
+      gap: 12px;
       padding: 10px 0;
 
       @media only screen and (min-width: $tabletMed) {

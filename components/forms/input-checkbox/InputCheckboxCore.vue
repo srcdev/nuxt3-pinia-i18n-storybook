@@ -20,6 +20,10 @@
 <script setup lang="ts">
   import type { IFormData } from "@/types/types.forms";
 
+  interface checkBoxValues {
+    [key: string]: boolean;
+  }
+
   const props = defineProps({
     id: {
       type: String,
@@ -38,7 +42,7 @@
       value: false
     },
     trueValue: {
-      type: [String, Number, Boolean] as PropType<string | number | boolean>,
+      type: [String, Number, Boolean],
       default: true
     },
     falseValue: {
@@ -52,15 +56,25 @@
   });
 
   const modelValue = defineModel() as Ref<IFormData>;
-  const name = computed<string | number>(() => {
+  const name = computed(() => {
     return props.name !== null ? props.name : props.id;
   });
   const inputField = ref<HTMLInputElement | null>(null);
   const isArray = Array.isArray(modelValue.value.data[name.value]);
+  const typeOfData = typeof modelValue.value.data[name.value];
 
   const isChecked = computed(() => {
-    if (isArray) {
-      return modelValue.value.data ? [name.value].length > 0 : false;
+    if (typeOfData === "object") {
+      // console.log(`objectKeys:`, objectKeys);
+      // console.log(`InputCheckboxCore > modelValue.value.data:`, modelValue.value.data[name.value], props.trueValue);
+      // return modelValue.value.data ? [name.value].length > 0 : false;
+      // return modelValue.value.data[name.value].includes(props.trueValue);
+
+      if (name.value in modelValue.value.data) {
+        const keyValue = modelValue.value.data[name.value] as object;
+        // console.log(typeof keyValue);
+        return keyValue.indexOf(props.trueValue) > -1;
+      }
     } else {
       return modelValue.value.data[name.value] === props.trueValue;
     }
@@ -82,6 +96,10 @@
 
   onUpdated(() => {
     modelValue.value!.validityState[name.value] = inputField.value?.validity.valid ?? false;
+  });
+
+  onMounted(() => {
+    isValid();
   });
 </script>
 
