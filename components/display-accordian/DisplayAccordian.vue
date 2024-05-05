@@ -1,5 +1,5 @@
 <template>
-  <div class="display-accordian">
+  <div class="display-accordian" ref="accordianRef">
     <template v-for="(item, key, index) in data">
       <div class="accordion-panel">
         <button class="accordion-trigger" :id="`accordian-${key}-trigger`" aria-expanded="false" :aria-controls="`accordian-${key}-content`" ref="triggerRefs" @click.stop.prevent="handleSummary(key)">{{ key }} - {{ item.title }}</button>
@@ -14,20 +14,17 @@
 </template>
 
 <script setup lang="ts">
-  const data = ref([
-    {
-      title: "Trigger Item 1",
-      content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, amet!"
-    },
-    {
-      title: "Trigger Item 2",
-      content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, amet!"
-    },
-    {
-      title: "Trigger Item 3",
-      content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, amet!"
+  interface IAccordianData {
+    title: string;
+    content: string;
+  }
+
+  const props = defineProps({
+    data: {
+      type: Array as PropType<IAccordianData[]>,
+      default: () => []
     }
-  ]);
+  });
 
   const triggerRefs = ref<HTMLElement[]>([]);
   const contentRefs = ref<HTMLElement[]>([]);

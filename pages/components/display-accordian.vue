@@ -13,7 +13,7 @@
         <DisplayRow :use-available-width="false" :apply-gutters="false" style-class-passthrough="pb-20 pt-20">
           <template #default>
             <h1 class="text-header-medium">Example</h1>
-            <DisplayAccordian />
+            <DisplayAccordian :data />
           </template>
         </DisplayRow>
       </template>
@@ -33,4 +33,24 @@
       class: ""
     }
   });
+
+  interface IAccordianData {
+    title: string;
+    content: string;
+  }
+
+  const data = ref<IAccordianData[]>([
+    {
+      title: "Trigger Item 1",
+      content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, amet!"
+    },
+    {
+      title: "Trigger Item 2",
+      content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, amet!"
+    },
+    {
+      title: "Trigger Item 3",
+      content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, amet!"
+    }
+  ]);
 </script>
