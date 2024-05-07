@@ -12,14 +12,14 @@
           <template v-if="navitemsLoaded">
             <div class="nav-details-wrapper">
               <template v-for="(item, key, index) in navItems">
-                <details :class="['nav-details', { hide: item.hidden }]" ref="detailsRefs" @click="handleSummary(index)">
-                  <summary class="nav-summary">
-                    <p class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</p>
-                    <p class="nav-summary-title" v-else>
+                <div :class="['nav-details', { hide: item.hidden }]">
+                  <button @click.stop.prevent="handleSummary(index)" ref="triggerRefs" class="nav-details-trigger text-normal" :id="`main-nav-${key}-trigger`" aria-expanded="false" :aria-controls="`main-nav-${key}-content`">
+                    <span class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</span>
+                    <span class="nav-summary-title" v-else>
                       <NuxtLink class="nav-summary-action" :to="item.url"><Icon name="radix-icons:caret-right" class="nav-details-icon mr-8" />{{ item.summary }}</NuxtLink>
-                    </p>
-                  </summary>
-                  <div class="nav-details-content" v-if="item.hasChildren">
+                    </span>
+                  </button>
+                  <div ref="contentRefs" class="nav-details-content" :aria-labelledby="`main-nav-${key}-trigger`" :id="`main-nav-${key}-content`" role="region" aria-hidden="true" v-if="item.hasChildren">
                     <ul>
                       <template v-for="link in item.links">
                         <li :class="[{ hide: link.hidden }]">
@@ -28,7 +28,7 @@
                       </template>
                     </ul>
                   </div>
-                </details>
+                </div>
               </template>
             </div>
           </template>
@@ -51,11 +51,22 @@
     activeDetailsIndex.value = null;
   };
 
-  const detailsRefs = ref<HTMLElement[]>([]);
+  const triggerRefs = ref<HTMLElement[]>([]);
+  const contentRefs = ref<HTMLElement[]>([]);
+
   const handleSummary = (clickedIndex: number) => {
-    detailsRefs.value.forEach((element, index) => {
-      if (clickedIndex !== index) {
-        element.removeAttribute("open");
+    const currentKey = triggerRefs.value[clickedIndex].getAttribute("aria-controls");
+
+    contentRefs.value.forEach((element, index) => {
+      const contentKey = element.id;
+      if (currentKey === contentKey) {
+        const currentState = element.getAttribute("aria-expanded");
+        const newState = currentState !== "true";
+        triggerRefs.value[clickedIndex].setAttribute("aria-expanded", String(newState));
+        contentRefs.value[index].setAttribute("aria-hidden", String(!newState));
+      } else {
+        triggerRefs.value[clickedIndex].setAttribute("aria-expanded", "false");
+        contentRefs.value[index].setAttribute("aria-hidden", "true");
       }
     });
   };
@@ -149,6 +160,34 @@
       }
 
       .nav-details {
+        &-trigger {
+          background-color: var(--color-grey-8);
+          border: none;
+          color: var(--color-grey-5);
+          display: block;
+          padding: 0;
+          text-align: left;
+          width: 100%;
+          cursor: pointer;
+          transition: all ease-in-out 350ms;
+
+          &:hover {
+            color: var(--white);
+            cursor: pointer;
+            background-color: var(--color-orange-5);
+            text-decoration: none;
+          }
+          &:focus-visible {
+            @include a11y-focus;
+          }
+
+          &[aria-expanded="true"] {
+            .nav-details-icon {
+              transform: scale(1, 1);
+            }
+          }
+        }
+
         &-content {
           display: grid;
           grid-template-rows: 0fr;
@@ -157,19 +196,16 @@
           > ul {
             overflow: hidden;
           }
-        }
-
-        &[open] {
-          .nav-details-content {
+          &[aria-hidden="false"] {
             grid-template-rows: 1fr;
           }
         }
 
-        &:not([open]) {
-          .nav-details-icon {
-            transform: scale(1, 1);
-          }
-        }
+        // &:not([open]) {
+        //   .nav-details-icon {
+        //     transform: scale(1, 1);
+        //   }
+        // }
 
         &-wrapper {
           margin-top: 4px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="display-accordian" ref="accordianRef">
+  <div class="display-accordian">
     <template v-for="(item, key, index) in data">
       <div class="accordion-panel">
         <button class="accordion-trigger" :id="`accordian-${key}-trigger`" aria-expanded="false" :aria-controls="`accordian-${key}-content`" ref="triggerRefs" @click.stop.prevent="handleSummary(key)">{{ key }} - {{ item.title }}</button>
