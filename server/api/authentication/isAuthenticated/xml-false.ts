@@ -1,3 +1,11 @@
 export default defineEventHandler(() => {
-  return `<boolean xmlns="http://schemas.microsoft.com/2003/10/Serialization/">false</boolean>`;
+  const result = `<boolean xmlns="http://schemas.microsoft.com/2003/10/Serialization/">false</boolean>`;
+
+  return result;
+
+  // return {
+  //   statusCode: 200,
+  //   contentType: "application/xml; charset=utf-8",
+  //   data: result
+  // };
 });
