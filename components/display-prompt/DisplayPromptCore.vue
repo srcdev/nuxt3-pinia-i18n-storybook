@@ -70,13 +70,14 @@
     gap: 16px;
     justify-content: space-between;
     padding: 10px 15px;
+    overflow: hidden;
 
     transition: all linear 200ms;
 
     &.dismissed {
       opacity: 0;
       height: 0;
-      overflow: hidden;
+      padding-block: 0;
     }
 
     &-icon {
@@ -84,6 +85,7 @@
 
       .icon {
         @include promptIcons();
+        overflow: hidden;
       }
     }
 
