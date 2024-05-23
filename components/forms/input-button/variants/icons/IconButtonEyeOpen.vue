@@ -13,27 +13,27 @@
       default: "normal",
       validator(value: string) {
         return ["small", "normal", "medium", "large"].includes(value);
-      },
+      }
     },
     weight: {
       type: String as PropType<string>,
-      default: "wght-500",
+      default: "wght-400",
       validator(value: string) {
         return ["wght-100", "wght-200", "wght-300", "wght-400", "wght-500", "wght-600", "wght-700", "wght-800", "wght-900"].includes(value);
-      },
+      }
     },
     buttonText: {
       type: String,
-      required: true,
+      required: true
     },
     dataTestId: {
       type: String,
-      default: "",
+      default: ""
     },
     styleClassPassthrough: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   });
 </script>
 

@@ -56,7 +56,7 @@
     }
     &-btn {
       &:hover,
-      &:focus {
+      &:focus-visible {
         & + #{ $self }-text {
           transform: translate3d(0, -36px, 0px);
           opacity: 1;

@@ -79,7 +79,7 @@
     outline: 1px solid transparent;
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: transparent;
       border-color: var(--color-grey-8);
       color: var(--color-grey-8);

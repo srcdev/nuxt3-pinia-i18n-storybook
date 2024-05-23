@@ -17,7 +17,7 @@
     },
     weight: {
       type: String as PropType<string>,
-      default: "wght-500",
+      default: "wght-400",
       validator(value: string) {
         return ["wght-100", "wght-200", "wght-300", "wght-400", "wght-500", "wght-600", "wght-700", "wght-800", "wght-900"].includes(value);
       }
@@ -64,7 +64,7 @@
       overflow: hidden;
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         background-color: rgba(0, 0, 0, 0.2);
         color: var(--color-white);
         outline: 2px solid rgba(255, 255, 255, 0.2);

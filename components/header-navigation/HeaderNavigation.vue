@@ -154,7 +154,7 @@
           background-color: var(--color-grey-1);
           border: 1px solid var(--color-orange-5);
         }
-        &:focus {
+        &:focus-visible {
           @include a11y-focus;
         }
       }
@@ -242,7 +242,7 @@
           background-color: var(--color-orange-5);
           text-decoration: none;
         }
-        &:focus {
+        &:focus-visible {
           @include a11y-focus;
         }
       }

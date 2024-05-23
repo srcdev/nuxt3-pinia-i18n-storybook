@@ -56,7 +56,7 @@
     }
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       .btn-cancel-outline {
         &.dark-grey {
           box-shadow: 0px 0px 1px 1px var(--color-grey-8);

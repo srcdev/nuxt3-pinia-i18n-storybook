@@ -24,7 +24,7 @@
     },
     weight: {
       type: String as PropType<string>,
-      default: "wght-500",
+      default: "wght-400",
       validator(value: string) {
         return ["wght-100", "wght-200", "wght-300", "wght-400", "wght-500", "wght-600", "wght-700", "wght-800", "wght-900"].includes(value);
       }
@@ -78,14 +78,14 @@
       outline: 1px solid var(--color-orange-4);
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         background-color: var(--color-orange-1);
         border-color: var(--color-orange-4);
         color: var(--color-orange-3);
       }
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         &.pulse {
           animation: pulse 1s infinite;
         }

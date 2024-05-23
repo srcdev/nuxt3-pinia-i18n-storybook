@@ -69,7 +69,7 @@
       text-overflow: ellipsis;
       text-wrap: nowrap;
 
-      &:focus {
+      &:focus-visible {
         outline: none;
       }
     }
@@ -80,7 +80,7 @@
       white-space: nowrap;
 
       // &:hover,
-      // &:focus {
+      // &:focus-visible {
       //   cursor: pointer;
       //   background-color: var(--color-grey-7);
       //   border-color: var(--color-grey-7);

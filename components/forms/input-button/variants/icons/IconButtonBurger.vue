@@ -17,7 +17,7 @@
     },
     weight: {
       type: String as PropType<string>,
-      default: "wght-500",
+      default: "wght-400",
       validator(value: string) {
         return ["wght-100", "wght-200", "wght-300", "wght-400", "wght-500", "wght-600", "wght-700", "wght-800", "wght-900"].includes(value);
       }
@@ -60,7 +60,7 @@
       transition: all ease-in-out 200ms;
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         .icon-hamburger-menu-linear {
           background-color: rgba(0, 0, 0, 0.2);
           color: var(--color-white);

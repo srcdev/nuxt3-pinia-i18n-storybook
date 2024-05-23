@@ -67,7 +67,7 @@
     },
     weight: {
       type: String as PropType<string>,
-      default: "wght-500",
+      default: "wght-400",
       validator(value: string) {
         return ["wght-100", "wght-200", "wght-300", "wght-400", "wght-500", "wght-600", "wght-700", "wght-800", "wght-900"].includes(value);
       }
@@ -147,7 +147,6 @@
 
     &-text {
       display: inline-block;
-      font-weight: 500;
       line-height: 1.4cap;
 
       // Sizes
@@ -166,7 +165,7 @@
 
       &.large {
         font-size: 1.8rem;
-        padding: 10px 20px;
+        padding: 9px 22px;
       }
     }
 
@@ -178,7 +177,7 @@
       outline: 1px solid transparent;
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         background-color: transparent;
         border-color: transparent;
         color: var(--color-grey-8);
@@ -195,7 +194,7 @@
       aspect-ratio: 1;
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         background-color: var(--color-grey-5);
         border-color: var(--color-grey-8);
         color: var(--color-grey-8);
@@ -211,7 +210,7 @@
     }
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       .fancy {
         inset: -2px;
         border-radius: 9px;

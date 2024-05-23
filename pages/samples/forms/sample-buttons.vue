@@ -16,16 +16,16 @@
                 <p class="text-normal mb-12"><code>&lt;InputButtonPrimary&gt;</code></p>
                 <div placement="left-center" gap="12px" flex-wrap="wrap">
                   <div>
-                    <InputButtonPrimary type="submit" button-text="Primary Small" size="small" style-class-passthrough="mb-12" />
+                    <InputButtonPrimary type="submit" button-text="Primary Small" size="small" weight="wght-400" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButtonPrimary type="submit" button-text="Primary Normal" size="normal" style-class-passthrough="mb-12" />
+                    <InputButtonPrimary type="submit" button-text="Primary Normal" size="normal" weight="wght-400" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButtonPrimary type="submit" button-text="Primary Medium" size="medium" style-class-passthrough="mb-12" />
+                    <InputButtonPrimary type="submit" button-text="Primary Medium" size="medium" weight="wght-400" style-class-passthrough="mb-12" />
                   </div>
                   <div>
-                    <InputButtonPrimary type="submit" button-text="Primary Large" size="large" style-class-passthrough="mb-12" />
+                    <InputButtonPrimary type="submit" button-text="Primary Large" size="large" weight="wght-400" style-class-passthrough="mb-12" />
                   </div>
                   <div>
                     <InputButtonPrimary type="submit" button-text="Primary Large 100" size="large" weight="wght-100" style-class-passthrough="mb-12" />
