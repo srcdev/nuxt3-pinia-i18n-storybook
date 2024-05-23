@@ -34,7 +34,7 @@
           </template>
         </DisplayFlexGroup>
       </header>
-      <DisplayDialogPrompt v-if="dialogsConfig['logout'].open" v-model="dialogsConfig['logout'].open" style-class-passthrough="content-width">
+      <DisplayDialogConfirm v-if="dialogsConfig['logout'].open" v-model="dialogsConfig['logout'].open" style-class-passthrough="content-width">
         <template #dialogContent>
           <p class="text-normal wght-700">Confirm logout?</p>
         </template>
@@ -44,7 +44,7 @@
         <template #actionButtonRight>
           <InputButtonConfirm @click.prevent="doLogout()" type="submit" button-text="Confirm" size="medium" style-class-passthrough="mb-12" />
         </template>
-      </DisplayDialogPrompt>
+      </DisplayDialogConfirm>
     </template>
   </DisplayRow>
 </template>

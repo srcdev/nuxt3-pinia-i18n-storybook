@@ -67,10 +67,10 @@
 
   // Setup formData
   const fieldsInitialState = ref<IFieldsInitialState>({
-    username: "",
-    password: "",
-    // username: "admin@gmail.com",
-    // password: "!5illyPa55w0rd+",
+    // username: "",
+    // password: "",
+    username: "admin@gmail.com",
+    password: "!5illyPa55w0rd+",
     // username: "user@gmail.com",
     // password: "!5illyPa55w0rd+",
     rememberMe: false

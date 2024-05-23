@@ -1,7 +1,12 @@
 <template>
   <DisplayDialogCore :styleClassPassthrough="styleClassPassthrough" :lockViewport="true">
+    <template #dialogTitle>
+      <slot name="dialogTitle">
+        <p class="text-normal wght-700">Confirm</p>
+      </slot>
+    </template>
     <template #dialogContent>
-      <slot name="promptContent"></slot>
+      <slot name="dialogContent"></slot>
     </template>
     <template #actionButtons>
       <slot name="actionButtonLeft"></slot>
@@ -26,9 +31,9 @@
         width: initial;
 
         .button-row {
-          display: flex;
+          display: grid;
           gap: 12px;
-          justify-content: flex-end;
+          grid-template-columns: 1fr 1fr;
         }
       }
     }

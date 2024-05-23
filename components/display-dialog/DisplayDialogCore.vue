@@ -3,9 +3,12 @@
     <focus-trap v-model:active="displayDialog" :clickOutsideDeactivates="true" @deactivate="closeDialog()">
       <div class="inner">
         <div class="top-bar">
-          <div class="col-left">
-            <p class="text-normal wght-700">Left col</p>
-          </div>
+          <template v-if="hasDialogTitle">
+            <div class="col-left">
+              <slot name="dialogTitle"></slot>
+            </div>
+          </template>
+
           <div class="col-center">
             <p class="text-normal wght-700">Center col</p>
           </div>
@@ -65,6 +68,7 @@
   };
 
   const slots = useSlots();
+  const hasDialogTitle = computed(() => slots.dialogTitle !== undefined);
   const hasDialogContent = computed(() => slots.dialogContent !== undefined);
   const hasActionButtons = computed(() => slots.actionButtons !== undefined);
 
@@ -120,14 +124,16 @@
       align-items: center;
 
       .col-left {
-        grid-column: 1;
+        // grid-column: 1;
+        // display: none;
       }
 
       .col-center {
-        grid-column: 2;
+        // grid-column: 2;
         text-align: center;
 
         color: var(--color-red-1);
+        display: none;
       }
 
       .col-right {

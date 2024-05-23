@@ -14,17 +14,23 @@
             <h2 class="text-header-medium mb-12">DisplayPrompt</h2>
             <p><InputButtonTertiary @click="controlDialogs('logout', !dialogsConfig['logout'].open)" type="button" button-text="Show Dialog Prompt" size="medium" style-class-passthrough="mb-12" /><br />Click to display dialog</p>
 
-            <DisplayDialogPrompt v-if="dialogsConfig['logout'].open" v-model="dialogsConfig['logout'].open" style-class-passthrough="content-width">
-              <template #dialogContent>
+            <DisplayDialogConfirm v-if="dialogsConfig['logout'].open" v-model="dialogsConfig['logout'].open" style-class-passthrough="content-width">
+              <template #dialogTitle>
                 <p class="text-normal wght-700">Confirm logout?</p>
               </template>
+
+              <template #dialogContent>
+                <div class="pt-12 pb-12">
+                  <p class="text-normal">Are you sure you wish to log out?</p>
+                </div>
+              </template>
               <template #actionButtonLeft>
-                <InputButtonCancel type="submit" button-text="Cancel" size="medium" style-class-passthrough="mb-12" />
+                <InputButtonCancel @click="controlDialogs('logout', !dialogsConfig['logout'].open)" type="submit" button-text="Cancel" size="medium" style-class-passthrough="mb-12" />
               </template>
               <template #actionButtonRight>
-                <InputButtonConfirm type="submit" button-text="Confirm" size="medium" style-class-passthrough="mb-12" />
+                <InputButtonConfirm @click="controlDialogs('logout', !dialogsConfig['logout'].open)" type="submit" button-text="Confirm" size="medium" style-class-passthrough="mb-12" />
               </template>
-            </DisplayDialogPrompt>
+            </DisplayDialogConfirm>
           </template>
         </DisplayRow>
 
