@@ -1,5 +1,5 @@
 <template>
-  <div :class="pageTheme">
+  <div class="page-layout" :class="pageTheme">
     <Header :header-theme="headerTheme"></Header>
 
     <DisplayRow :use-available-width="true">
@@ -38,3 +38,10 @@
     }
   });
 </script>
+
+<style>
+  .page-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+</style>
