@@ -88,6 +88,11 @@ export function useNavItems(isAuthenticated: boolean) {
       hidden: false,
       links: [
         {
+          text: "Filters",
+          url: "/components/display-filters",
+          hidden: false
+        },
+        {
           text: "Current Weather",
           url: "/weather",
           hidden: false
