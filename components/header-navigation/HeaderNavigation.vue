@@ -13,7 +13,7 @@
             <div class="nav-details-wrapper">
               <template v-for="(item, key, index) in navItems">
                 <div :class="['nav-details', { hide: item.hidden }]">
-                  <button @click.stop.prevent="handleSummary(index)" ref="triggerRefs" class="nav-details-trigger text-normal" :id="`main-nav-${key}-trigger`" aria-expanded="false" :aria-controls="`main-nav-${key}-content`">
+                  <button @click.stop.prevent="toggleExpandItems(index)" ref="triggerRefs" class="nav-details-trigger text-normal" :id="`main-nav-${key}-trigger`" aria-expanded="false" :aria-controls="`main-nav-${key}-content`">
                     <span class="nav-summary-title nav-summary-action" v-if="item.hasChildren"><Icon name="radix-icons:chevron-down" class="nav-details-icon mr-8" />{{ item.summary }}</span>
                     <span class="nav-summary-title" v-else>
                       <NuxtLink class="nav-summary-action" :to="item.url"><Icon name="radix-icons:caret-right" class="nav-details-icon mr-8" />{{ item.summary }}</NuxtLink>
@@ -49,21 +49,31 @@
   const toggleMenu = () => {
     navActive.value = !navActive.value;
     activeDetailsIndex.value = null;
+    collapseAll();
   };
 
   const triggerRefs = ref<HTMLElement[]>([]);
   const contentRefs = ref<HTMLElement[]>([]);
 
-  const handleSummary = (clickedIndex: number) => {
+  const collapseAll = () => {
+    triggerRefs.value.forEach((element) => {
+      element.setAttribute("aria-expanded", "false");
+    });
+    contentRefs.value.forEach((element) => {
+      element.setAttribute("aria-hidden", "true");
+    });
+  };
+
+  const toggleExpandItems = (clickedIndex: number) => {
     const currentKey = triggerRefs.value[clickedIndex].getAttribute("aria-controls");
 
     contentRefs.value.forEach((element, index) => {
       const contentKey = element.id;
       if (currentKey === contentKey) {
-        const currentState = element.getAttribute("aria-expanded");
+        const currentState = element.getAttribute("aria-hidden");
         const newState = currentState !== "true";
         triggerRefs.value[clickedIndex].setAttribute("aria-expanded", String(newState));
-        contentRefs.value[index].setAttribute("aria-hidden", String(!newState));
+        contentRefs.value[index].setAttribute("aria-hidden", String(newState));
       } else {
         triggerRefs.value[clickedIndex].setAttribute("aria-expanded", "false");
         contentRefs.value[index].setAttribute("aria-hidden", "true");
