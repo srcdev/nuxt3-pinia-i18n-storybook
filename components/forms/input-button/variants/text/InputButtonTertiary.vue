@@ -74,14 +74,14 @@
       outline: 1px solid var(--color-grey-3);
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         background-color: var(--color-grey-5);
         border-color: var(--color-grey-8);
         color: var(--color-grey-8);
       }
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         &.pulse {
           animation: pulse 1s infinite;
         }
