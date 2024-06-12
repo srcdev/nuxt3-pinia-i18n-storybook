@@ -1,3 +1,4 @@
+import vsharp from "vite-plugin-vsharp";
 import { fileURLToPath } from "url";
 import { defineNuxtConfig } from "nuxt/config";
 import { Favicons, PublicRuntimeConfig } from "./c12";
@@ -102,6 +103,7 @@ export default defineNuxtConfig({
     }
   },
   vite: {
+    plugins: [vsharp()],
     resolve: {
       alias: {
         "~": fileURLToPath(new URL("./", import.meta.url))
