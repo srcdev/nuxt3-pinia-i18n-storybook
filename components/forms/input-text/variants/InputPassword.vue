@@ -1,5 +1,5 @@
 <template>
-  <InputTextWithWrapper :id :name :type validation="password" :required="true" v-model:inputTypeModel="inputTypeModel" v-model="modelValue" :i18n-key>
+  <InputTextWithWrapper :id :name :type validation="password" :required="true" v-model:inputTypeModel="type" v-model="modelValue" :i18n-key>
     <template #rightAddOn>
       <InputButtonCore
         @click.prevent="toggleDisplayPassword()"
@@ -48,10 +48,7 @@
   const displayPassword = ref(false);
 
   const type = computed(() => {
-    return displayPassword.value ? "text" : "password";
-  });
-
-  const inputTypeModel = computed(() => {
+    // return displayPassword.value && !modelValue.value.isPending ? "text" : "password";
     return displayPassword.value ? "text" : "password";
   });
 

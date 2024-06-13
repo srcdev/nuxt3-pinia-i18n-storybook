@@ -11,7 +11,7 @@
         </DisplayRow>
         <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
           <template #default>
-            <form @submit.prevent="isPending()" class="form-narrow" novalidate>
+            <form @submit.prevent="submitForm()" class="form-narrow" novalidate>
               <p v-if="showErrors">{{ t("pages.login.formErrorsMessage", formData.errorCount) }}</p>
 
               <InputTextWithWrapper id="username" type="text" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.login.fields.username" />
@@ -30,7 +30,7 @@
                 <template #default>
                   <DisplayFlexGroupItem :flex-grow="false">
                     <template #default>
-                      <InputButtonTertiary type="submit" @click.prevent="isPending()" :is-pending="false" :button-text="t('pages.login.buttons.submit')" />
+                      <InputButtonTertiary type="submit" @click.prevent="submitForm()" :is-pending="false" :button-text="t('pages.login.buttons.submit')" />
                     </template>
                   </DisplayFlexGroupItem>
                 </template>
@@ -88,7 +88,7 @@
     navigateTo(path);
   };
 
-  const isPending = async () => {
+  const submitForm = async () => {
     formData.value.isPending = true;
     await getErrorCount();
 
