@@ -16,7 +16,7 @@
               <template v-if="hasLeftAddOn">
                 <slot name="leftAddOn"></slot>
               </template>
-              <InputTextCore :type :id :validation :required v-model:modelValue="modelValue" v-model:isFocused="isFocused" :i18n-key="i18nKey" />
+              <InputTextCore :type="String(propType)" :id :validation :required v-model:modelValue="modelValue" v-model:isFocused="isFocused" :i18n-key="i18nKey" />
               <template v-if="hasRightAddOn">
                 <slot name="rightAddOn"></slot>
               </template>
@@ -72,35 +72,10 @@
     return props.name !== null ? props.name : props.id;
   });
 
-  // const type = toRef(() => props.type);
-
-  // const propType = ref(props.type);
-  const propType = computed(() => props.type);
-  // const propType = toRef(() => props.type);
-  // const propType = toRef(props, "type");
-
-  console.log(`InputTextWithWrapper > propType: ${propType.value}`);
-
-  // watch(
-  //   () => type.value,
-  //   () => {
-  //     console.log(`InputTextWithWrapper > watch type > (${type.value})`);
-  //   }
-  // );
-
-  watch(
-    () => propType.value,
-    () => {
-      console.log(`InputTextWithWrapper > watch propType > (${propType.value})`);
-    }
-  );
-
-  watch(
-    () => props.type,
-    () => {
-      console.log(`InputTextWithWrapper > watch props.type > (${props.type})`);
-    }
-  );
+  const inputTypeModel = defineModel("inputTypeModel");
+  const propType = computed(() => {
+    return inputTypeModel.value ?? props.type;
+  });
 
   const slots = defineSlots();
   const hasLeftAddOn = slots.leftAddOn !== undefined;

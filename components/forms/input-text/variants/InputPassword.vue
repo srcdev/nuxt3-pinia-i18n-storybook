@@ -1,5 +1,5 @@
 <template>
-  <InputTextWithWrapper :id :name :type validation="password" :required="true" v-model="modelValue" :i18n-key>
+  <InputTextWithWrapper :id :name :type validation="password" :required="true" v-model:inputTypeModel="inputTypeModel" v-model="modelValue" :i18n-key>
     <template #rightAddOn>
       <InputButtonCore
         @click.prevent="toggleDisplayPassword()"
@@ -50,19 +50,14 @@
   const type = computed(() => {
     return displayPassword.value ? "text" : "password";
   });
-  // const type = ref("password");
+
+  const inputTypeModel = computed(() => {
+    return displayPassword.value ? "text" : "password";
+  });
 
   const toggleDisplayPassword = () => {
     displayPassword.value = !displayPassword.value;
-    // type.value = displayPassword.value ? "text" : "password";
   };
-
-  watch(
-    () => type.value,
-    () => {
-      console.log(`InputPassword > watch type > (${type.value})`);
-    }
-  );
 </script>
 
 <style scoped>
