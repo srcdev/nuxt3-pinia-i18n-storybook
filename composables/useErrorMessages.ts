@@ -4,9 +4,9 @@ export function useErrorMessage(name: string, formData: Ref<IFormData>) {
   const defaultError = ref("");
   const customErrorMessages = ref(toRaw(formData.value.customErrorMessages));
 
-  function hasCustomError() {
+  const hasCustomError = () => {
     return customErrorMessages.value[name] !== undefined && customErrorMessages.value[name].useCustomError;
-  }
+  };
 
   const errorMessage = computed(() => {
     if (hasCustomError()) {
@@ -16,9 +16,9 @@ export function useErrorMessage(name: string, formData: Ref<IFormData>) {
     }
   });
 
-  function setDefaultError(newDefaultError: string) {
+  const setDefaultError = (newDefaultError: string) => {
     defaultError.value = newDefaultError;
-  }
+  };
 
   const fieldHasError = computed(() => {
     if (formData.value.isPending) {
@@ -31,11 +31,11 @@ export function useErrorMessage(name: string, formData: Ref<IFormData>) {
     }
   });
 
-  function removeCustomError(valid: boolean = false) {
+  const removeCustomError = (valid: boolean = false) => {
     formData.value.validityState[name] = valid;
     // await nextTick();
     delete formData.value.customErrorMessages[name];
-  }
+  };
 
   return {
     hasCustomError,

@@ -79,8 +79,8 @@
   const route = useRoute();
   const redirect = route.query.returnUrl as string;
 
-  const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl();
-  await initFormData(fieldsInitialState.value);
+  const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl(fieldsInitialState);
+  await initFormData();
 
   const { doLogin } = useAuthApi();
 

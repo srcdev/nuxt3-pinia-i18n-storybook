@@ -1,6 +1,6 @@
 import type { IFormData, IFieldsInitialState, ICustomErrorMessage, ICustomErrorMessagesArr } from "@/types/types.forms";
 
-export function useFormControl() {
+export function useFormControl(fieldsInitialState: IFieldsInitialState | Ref<IFieldsInitialState | null>) {
   let savedInitialState = {};
 
   const formData = ref<IFormData>({
@@ -15,36 +15,40 @@ export function useFormControl() {
     submitSuccess: false
   });
 
-  async function initValidationState(fieldsInitialState: IFieldsInitialState | Ref<IFieldsInitialState | null>) {
+  const initValidationState = async () => {
     const fields = Object.keys(fieldsInitialState.value || {});
     const state = fields.reduce((acc, field) => {
       acc[field] = false;
       return acc;
     }, {} as Record<string, boolean>);
     formData.value.validityState = state;
-  }
+  };
 
-  async function initFormData(fieldsInitialState: IFieldsInitialState | Ref<IFieldsInitialState | null>) {
-    await initValidationState(fieldsInitialState);
+  const initFormData = async () => {
+    console.log("initFormData()");
+    await initValidationState();
 
     if (fieldsInitialState !== null) {
-      savedInitialState = fieldsInitialState;
+      savedInitialState = toRaw(fieldsInitialState.value) as IFieldsInitialState;
       formData.value.data = fieldsInitialState as IFieldsInitialState;
+
+      console.log("savedInitialState", toRaw(savedInitialState));
+      console.log("fieldsInitialState", toRaw(fieldsInitialState.value));
     }
     return;
-  }
+  };
 
-  async function getErrorCount() {
+  const getErrorCount = async () => {
     await nextTick();
 
     const errorCount = Object.values(formData.value.validityState).filter((value) => !value).length;
     formData.value.errorCount = errorCount;
     formData.value.formIsValid = errorCount === 0;
     return formData.value.errorCount;
-  }
+  };
 
   // Function to count items with "useCustomError" set to true
-  function countItemsWithCustomError(obj: ICustomErrorMessagesArr) {
+  const countItemsWithCustomError = (obj: ICustomErrorMessagesArr) => {
     let count = 0;
 
     for (const key in obj) {
@@ -54,7 +58,7 @@ export function useFormControl() {
     }
 
     return count;
-  }
+  };
 
   /*
    *   Useage:
@@ -68,7 +72,7 @@ export function useFormControl() {
    *   };
    *   updateCustomErrors("email", sampleCustomErrorEmail);
    */
-  function updateCustomErrors(name: string, message: null | string = null, valid: boolean = false) {
+  const updateCustomErrors = (name: string, message: null | string = null, valid: boolean = false) => {
     if (message !== null) {
       formData.value.validityState[name] = valid;
       formData.value.customErrorMessages[name] = {
@@ -77,16 +81,19 @@ export function useFormControl() {
       };
     }
     formData.value.hasCustomErrorMessages = countItemsWithCustomError(formData.value.customErrorMessages) > 0;
-  }
+  };
 
-  function resetForm() {
-    formData.value.data = savedInitialState;
+  const resetForm = () => {
+    console.log("resetForm()");
+    console.log("savedInitialState", toRaw(savedInitialState));
+    console.log("fieldsInitialState", toRaw(fieldsInitialState.value));
+    formData.value.data = toRaw(fieldsInitialState.value) as IFieldsInitialState;
     formData.value.validityState = {};
     formData.value.errorCount = 0;
     formData.value.isPending = false;
     formData.value.customErrorMessages = {};
     formData.value.formIsValid = false;
-  }
+  };
 
   const showErrors = computed(() => {
     return formData.value.errorCount > 0 && formData.value.isPending;
@@ -103,6 +110,13 @@ export function useFormControl() {
       getErrorCount();
     },
     { deep: true }
+  );
+
+  watch(
+    () => savedInitialState,
+    () => {
+      console.log("savedInitialState UPDATED", savedInitialState);
+    }
   );
 
   return { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, showErrors, formIsValid };

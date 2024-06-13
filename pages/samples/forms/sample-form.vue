@@ -27,7 +27,7 @@
 
               <InputTextWithWrapper id="mobile" type="tel" validation="telephone" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.mobile" />
 
-              <InputTextWithWrapper id="password" type="password" validation="password" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.password" />
+              <InputPassword id="password" type="password" validation="password" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.password" />
 
               <InputTextWithWrapper id="url" type="url" validation="url" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.url" />
 
@@ -105,38 +105,35 @@
 
   const { data: placesData, pending, status, error, refresh } = await useFetch<IPlacesList>("/api/places/list");
 
-  // Setup formData
-
-  const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl();
-
   // Empty form data uses 'emptyFormData'
-  // const emptyFormData = ref<IFieldsInitialState>({
-  //   username: "",
-  //   password: "",
-  //   mobile: "",
-  //   url: "",
-  //   email: "",
-  //   places: [],
-  //   terms: false
-  // });
-
-  // Start with data from API, could also be Pinia stro data
-  const { data: fieldsInitialState } = await useFetch<IFieldsInitialState>("/api/form/get-sample-data", {
-    method: "get",
-    query: {
-      readFile: false
-    }
+  const fieldsInitialState = ref<IFieldsInitialState>({
+    username: "",
+    password: "",
+    mobile: "",
+    url: "",
+    email: "",
+    places: [],
+    terms: false
   });
 
-  await initFormData(fieldsInitialState);
+  // Start with data from API, could also be Pinia stro data
+  // const { data: fieldsInitialState } = await useFetch<IFieldsInitialState>("/api/form/get-sample-data", {
+  //   method: "get",
+  //   query: {
+  //     readFile: false
+  //   }
+  // });
+
+  // Setup formData
+  const { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, formIsValid, showErrors } = useFormControl(fieldsInitialState);
+
+  await initFormData();
 
   const isPending = async () => {
     formData.value.isPending = true;
     await getErrorCount();
 
     if (formIsValid.value) {
-      console.log("Form valid - will progress");
-
       await $fetch("/api/form/post-sample-data", {
         method: "post",
         body: formData.value.data,
@@ -146,7 +143,7 @@
           formData.value.submitSuccess = true;
         },
         onResponseError({ error }) {
-          console.log("An error occured posting form data", error);
+          console.warn("An error occured posting form data", error);
         }
       });
     } else {
@@ -155,8 +152,6 @@
   };
 
   const doReset = () => {
-    console.log("resetForm()");
-    console.log(fieldsInitialState.value);
     resetForm();
   };
 </script>
