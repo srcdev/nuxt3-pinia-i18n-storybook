@@ -5,9 +5,9 @@
       @input="isValid()"
       :true-value="trueValue"
       :false-value="falseValue"
-      :id="id"
-      :name="String(name)"
-      :required="required"
+      :id
+      :name
+      :required="props.required && !props.multipleCheckboxes"
       :value="trueValue"
       :class="['input-checkbox', { error: fieldHasError() }]"
       v-model="modelValue.data[name]"
@@ -61,18 +61,11 @@
   });
   const inputField = ref<HTMLInputElement | null>(null);
   const isArray = Array.isArray(modelValue.value.data[name.value]);
-  const typeOfData = typeof modelValue.value.data[name.value];
 
   const isChecked = computed(() => {
-    if (typeOfData === "object") {
-      // console.log(`objectKeys:`, objectKeys);
-      // console.log(`InputCheckboxCore > modelValue.value.data:`, modelValue.value.data[name.value], props.trueValue);
-      // return modelValue.value.data ? [name.value].length > 0 : false;
-      // return modelValue.value.data[name.value].includes(props.trueValue);
-
+    if (isArray) {
       if (name.value in modelValue.value.data) {
-        const keyValue = modelValue.value.data[name.value] as object;
-        // console.log(typeof keyValue);
+        const keyValue = modelValue.value.data[name.value] as any[];
         return keyValue.indexOf(props.trueValue) > -1;
       }
     } else {
@@ -86,8 +79,9 @@
 
   const isValid = () => {
     setTimeout(() => {
-      if (isArray) {
-        modelValue.value!.validityState[name.value] = modelValue.value.data ? [name.value].length > 0 : false;
+      if (props.multipleCheckboxes) {
+        const tempArr = toRaw(modelValue.value?.data?.[name.value]) as any[];
+        modelValue.value!.validityState[name.value] = props.required && tempArr.length > 0;
       } else {
         modelValue.value!.validityState[name.value] = inputField.value?.validity.valid ?? false;
       }

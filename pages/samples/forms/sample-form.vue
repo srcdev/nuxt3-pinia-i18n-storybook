@@ -9,76 +9,76 @@
             </div>
           </template>
         </DisplayRow>
-        <ClientOnly>
-          <DisplayRow v-if="formData.submitSuccess" :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
-            <template #default>
-              <div class="pt-32">
-                <h2 class="text-header-medium">{{ t("pages.samples.sample-form.successTitle") }}</h2>
-              </div>
-            </template>
-          </DisplayRow>
 
-          <DisplayRow v-else :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
-            <template #default>
-              <form @submit.prevent="isPending()" class="form-narrow" novalidate>
-                <p v-if="showErrors">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
-
-                <InputTextWithWrapper id="username" type="text" validation="username" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.username" />
-
-                <InputTextWithWrapper id="mobile" type="tel" validation="telephone" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.mobile" />
-
-                <InputTextWithWrapper id="password" type="password" validation="password" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.password" />
-
-                <InputTextWithWrapper id="url" type="url" validation="url" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.url" />
-
-                <InputTextWithWrapper id="email" type="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
-
-                <InputCheckboxMultipleWrapper id="places" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
-                  <template #inputTitle>
-                    <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
-                  </template>
-                  <template #inputField>
-                    <template v-for="item in placesData?.data">
-                      <InputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places" />
-                    </template>
-                  </template>
-                </InputCheckboxMultipleWrapper>
-
-                <InputCheckboxWrapper id="terms" name="terms" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.terms">
-                  <template #inputTitle>
-                    <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
-                  </template>
-                  <template #inputField>
-                    <InputCheckboxCore id="terms" true-value="Sure" false-value="Nope" :required="true" v-model="formData" />
-                  </template>
-                </InputCheckboxWrapper>
-
-                <DisplayFlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
-                  <template #default>
-                    <DisplayFlexGroupItem :flex-grow="false" style-class-passthrough="hide">
-                      <template #default>
-                        <InputButton type="reset" variant="primary" @click.prevent="doReset()" :is-pending="false" button-text="Reset" />
-                      </template>
-                    </DisplayFlexGroupItem>
-                    <DisplayFlexGroupItem :flex-grow="false">
-                      <template #default>
-                        <InputButtonTertiary type="submit" @click.prevent="isPending()" :is-pending="false" button-text="Submit" />
-                      </template>
-                    </DisplayFlexGroupItem>
-                  </template>
-                </DisplayFlexGroup>
-              </form>
-            </template>
-          </DisplayRow>
-        </ClientOnly>
-
-        <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+        <DisplayRow v-if="formData.submitSuccess" :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
           <template #default>
             <div class="pt-32">
-              <pre>{{ formData }}</pre>
+              <h2 class="text-header-medium">{{ t("pages.samples.sample-form.successTitle") }}</h2>
             </div>
           </template>
         </DisplayRow>
+
+        <DisplayRow v-else :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+          <template #default>
+            <form @submit.prevent="isPending()" class="form-narrow" novalidate>
+              <p v-if="showErrors">{{ t("pages.samples.sample-form.formErrorsMessage", formData.errorCount) }}</p>
+
+              <InputTextWithWrapper id="username" type="text" validation="username" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.username" />
+
+              <InputTextWithWrapper id="mobile" type="tel" validation="telephone" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.mobile" />
+
+              <InputTextWithWrapper id="password" type="password" validation="password" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.password" />
+
+              <InputTextWithWrapper id="url" type="url" validation="url" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.url" />
+
+              <InputTextWithWrapper id="email" type="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
+
+              <InputCheckboxMultipleWrapper id="places" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
+                <template #inputTitle>
+                  <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
+                </template>
+                <template #inputField>
+                  <template v-for="item in placesData?.data">
+                    <InputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places" />
+                  </template>
+                </template>
+              </InputCheckboxMultipleWrapper>
+
+              <InputCheckboxWrapper id="terms" name="terms" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.terms">
+                <template #inputTitle>
+                  <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
+                </template>
+                <template #inputField>
+                  <InputCheckboxCore id="terms" true-value="Sure" false-value="Nope" :required="true" v-model="formData" />
+                </template>
+              </InputCheckboxWrapper>
+
+              <DisplayFlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
+                <template #default>
+                  <DisplayFlexGroupItem :flex-grow="false" style-class-passthrough="hide">
+                    <template #default>
+                      <InputButton type="reset" variant="primary" @click.prevent="doReset()" :is-pending="false" button-text="Reset" />
+                    </template>
+                  </DisplayFlexGroupItem>
+                  <DisplayFlexGroupItem :flex-grow="false">
+                    <template #default>
+                      <InputButtonTertiary type="submit" @click.stop.prevent="isPending()" :is-pending="false" button-text="Submit" />
+                    </template>
+                  </DisplayFlexGroupItem>
+                </template>
+              </DisplayFlexGroup>
+            </form>
+          </template>
+        </DisplayRow>
+        <ClientOnly>
+          <DisplayRow :use-available-width="false" :apply-gutters="false" display-row-inner-theme="theme-white">
+            <template #default>
+              <div class="pt-32">
+                <pre>{{ formData }}</pre>
+              </div>
+            </template>
+          </DisplayRow>
+        </ClientOnly>
       </template>
     </NuxtLayout>
   </div>
@@ -134,7 +134,7 @@
     formData.value.isPending = true;
     await getErrorCount();
 
-    if (await formIsValid.value) {
+    if (formIsValid.value) {
       console.log("Form valid - will progress");
 
       await $fetch("/api/form/post-sample-data", {

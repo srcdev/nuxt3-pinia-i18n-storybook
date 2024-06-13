@@ -13,11 +13,11 @@ export interface IOptionsConfig {
 }
 
 export interface IOptionsValueArr {
-  [key: string]: null | string | boolean | number | URL | object;
+  [key: string]: string | boolean | number | URL | object;
 }
 
 export interface IFieldsInitialState {
-  [key: string]: null | string | boolean | number | URL | object | IOptionsValueArr;
+  [key: string]: null | string | boolean | number | URL | object | IOptionsValueArr[];
 }
 
 export interface IValidityState {
