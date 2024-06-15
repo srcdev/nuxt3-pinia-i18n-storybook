@@ -1,8 +1,12 @@
 <template>
-  <p :class="['text-normal', 'form-field-error-message', 'wght-600', { show: fieldHasError }]" :data-test-id="`${id}-error-message`">
-    <Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />
-    {{ errorMessage }}
-  </p>
+  <div class="form-field-error-message expander" :class="[{ 'expander-open': fieldHasError }]">
+    <div class="expander-inner">
+      <div class="form-field-error-message-message" :class="['text-normal', 'wght-600']" :data-test-id="`${id}-error-message`">
+        <Icon name="akar-icons:triangle-alert" class="icon icon-triangle-alert" />
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -22,40 +26,20 @@
   });
 </script>
 
-<style scoped lang="scss">
+<style scoped>
   @import "@/assets/styles/imports.scss";
 
-  .form-field {
-    &-error-message {
-      display: flex;
-      align-items: center;
+  .form-field-error-message {
+    color: var(--color-red-2);
+
+    .form-field-error-message-message {
+      padding-block: 8px;
+    }
+
+    .icon {
+      display: inline-block;
       color: var(--color-red-2);
-
-      opacity: 0;
-      height: 0;
-      overflow: hidden;
-      transition: all linear 200ms;
-
-      transform: translateY(-1rem);
-
-      .icon {
-        display: inline-block;
-        color: var(--color-red-2);
-        margin-right: 10px;
-      }
-
-      &.show {
-        opacity: 1;
-        height: 3.4rem;
-        overflow: hidden;
-
-        transform: translateY(0);
-        color: var(--color-red-5);
-      }
-
-      &.hide {
-        color: var(--color-red-5);
-      }
+      margin-right: 10px;
     }
   }
 </style>

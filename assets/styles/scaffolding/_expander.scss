@@ -1,0 +1,14 @@
+.expander {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: all linear 200ms;
+
+  &.expander-open,
+  &[aria-hidden="false"] {
+    grid-template-rows: 1fr;
+  }
+
+  .expander-inner {
+    overflow: hidden;
+  }
+}

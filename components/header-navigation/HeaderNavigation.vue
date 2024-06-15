@@ -19,8 +19,8 @@
                       <NuxtLink class="nav-summary-action" :to="item.url"><Icon name="radix-icons:caret-right" class="nav-details-icon mr-8" />{{ item.summary }}</NuxtLink>
                     </span>
                   </button>
-                  <div ref="contentRefs" class="nav-details-content" :aria-labelledby="`main-nav-${key}-trigger`" :id="`main-nav-${key}-content`" role="region" aria-hidden="true" v-if="item.hasChildren">
-                    <ul>
+                  <div ref="contentRefs" class="nav-details-content expander" :aria-labelledby="`main-nav-${key}-trigger`" :id="`main-nav-${key}-content`" role="region" aria-hidden="true" v-if="item.hasChildren">
+                    <ul class="expander-inner">
                       <template v-for="link in item.links">
                         <li :class="[{ hide: link.hidden }]">
                           <NuxtLink class="menu__items_link" :to="link.url"><Icon name="radix-icons:caret-right" class="icon" />{{ link.text }}</NuxtLink>
@@ -198,18 +198,18 @@
           }
         }
 
-        &-content {
-          display: grid;
-          grid-template-rows: 0fr;
-          transition: all ease-in-out 500ms;
+        // &-content {
+        //   display: grid;
+        //   grid-template-rows: 0fr;
+        //   transition: all ease-in-out 500ms;
 
-          > ul {
-            overflow: hidden;
-          }
-          &[aria-hidden="false"] {
-            grid-template-rows: 1fr;
-          }
-        }
+        //   > ul {
+        //     overflow: hidden;
+        //   }
+        //   &[aria-hidden="false"] {
+        //     grid-template-rows: 1fr;
+        //   }
+        // }
 
         // &:not([open]) {
         //   .nav-details-icon {
