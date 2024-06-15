@@ -25,15 +25,11 @@ export function useFormControl(fieldsInitialState: IFieldsInitialState | Ref<IFi
   };
 
   const initFormData = async () => {
-    console.log("initFormData()");
     await initValidationState();
 
     if (fieldsInitialState !== null) {
       savedInitialState = toRaw(fieldsInitialState.value) as IFieldsInitialState;
       formData.value.data = fieldsInitialState as IFieldsInitialState;
-
-      console.log("savedInitialState", toRaw(savedInitialState));
-      console.log("fieldsInitialState", toRaw(fieldsInitialState.value));
     }
     return;
   };
@@ -84,9 +80,6 @@ export function useFormControl(fieldsInitialState: IFieldsInitialState | Ref<IFi
   };
 
   const resetForm = () => {
-    console.log("resetForm()");
-    console.log("savedInitialState", toRaw(savedInitialState));
-    console.log("fieldsInitialState", toRaw(fieldsInitialState.value));
     formData.value.data = toRaw(fieldsInitialState.value) as IFieldsInitialState;
     formData.value.validityState = {};
     formData.value.errorCount = 0;
@@ -112,12 +105,12 @@ export function useFormControl(fieldsInitialState: IFieldsInitialState | Ref<IFi
     { deep: true }
   );
 
-  watch(
-    () => savedInitialState,
-    () => {
-      console.log("savedInitialState UPDATED", savedInitialState);
-    }
-  );
+  // watch(
+  //   () => savedInitialState,
+  //   () => {
+  //     console.log("savedInitialState UPDATED", savedInitialState);
+  //   }
+  // );
 
   return { formData, initFormData, getErrorCount, updateCustomErrors, resetForm, showErrors, formIsValid };
 }

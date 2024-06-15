@@ -2,7 +2,12 @@
   <div class="form-field-wrapper decorated" :class="[{ error: fieldHasError }]">
     <div class="form-field-inner">
       <slot v-if="hasTitle" name="inputTitle"></slot>
-      <slot name="inputField"></slot>
+
+      <div class="input-items" :class="[props.direction]">
+        <template v-for="item in optionsData" :key="item.id">
+          <slot :name="item.id"></slot>
+        </template>
+      </div>
 
       <InputErrorMessage :id="id" :field-has-error="fieldHasError" :error-message="errorMessage" />
     </div>
@@ -13,6 +18,15 @@
   import { useI18n } from "vue-i18n";
 
   const props = defineProps({
+    optionsData: {
+      type: Object,
+      default: {}
+    },
+    direction: {
+      type: String as PropType<String>,
+      default: "rows",
+      validator: (val: string) => ["rows", "columns"].includes(val)
+    },
     id: {
       type: String,
       required: true
@@ -60,6 +74,18 @@
     100% {
       height: 34px;
       opacity: 1;
+    }
+  }
+
+  .input-items {
+    display: grid;
+
+    &.columns {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    &.rows {
+      grid-template-columns: 1fr;
     }
   }
 

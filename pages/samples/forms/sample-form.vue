@@ -33,14 +33,12 @@
 
               <InputTextWithWrapper id="email" type="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
 
-              <InputCheckboxMultipleWrapper id="places" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
+              <InputCheckboxMultipleWrapper :optionsData="placesData?.data ?? <IOptionsConfig>{}" direction="columns" id="places" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
                 <template #inputTitle>
                   <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
                 </template>
-                <template #inputField>
-                  <template v-for="item in placesData?.data">
-                    <InputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places" />
-                  </template>
+                <template v-for="item in placesData?.data" v-slot:[item.id]>
+                  <InputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places" />
                 </template>
               </InputCheckboxMultipleWrapper>
 
@@ -85,7 +83,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { IFieldsInitialState } from "@/types/types.forms";
+  import type { IFieldsInitialState, IOptionsConfig } from "@/types/types.forms";
   import type { IPlacesList } from "@/types/types.places";
 
   import { useI18n } from "vue-i18n";
