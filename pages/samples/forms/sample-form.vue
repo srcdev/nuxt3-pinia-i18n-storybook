@@ -33,12 +33,12 @@
 
               <InputTextWithWrapper id="email" type="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
 
-              <InputCheckboxMultipleWrapper :optionsData="citiesData?.data ?? <IOptionsConfig>{}" direction="rows" id="cities" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
+              <InputCheckboxMultipleWrapper :optionsData="citiesData?.data ?? <IOptionsConfig>{}" direction="rows" id="cities" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.cities">
                 <template #inputTitle>
-                  <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
+                  <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.cities.title") }}</p>
                 </template>
                 <template v-for="item in citiesData?.data" v-slot:[item.id]>
-                  <InputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places" />
+                  <InputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.cities" />
                 </template>
               </InputCheckboxMultipleWrapper>
 
