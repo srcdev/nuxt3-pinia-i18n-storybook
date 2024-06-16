@@ -106,6 +106,7 @@
 <style>
   :root {
     --grid-gap: 16px;
+    --min-col-size: 100%;
   }
 
   .manage-needs-section {
@@ -121,7 +122,10 @@
     }
 
     @media (min-width: 768px) {
-      grid-template-columns: repeat(2, calc((100% - var(--grid-gap)) / 2));
+      grid-template-columns: repeat(2, 50%));
+      /* grid-template-columns: repeat(2, calc((100% - var(--grid-gap)) / 2)); */
+      /* grid-template-columns: repeat(2, minmax(min(var(--min-col-size), 100%), 1fr)); */
+
       background-color: antiquewhite;
 
       .manage-needs-label {
