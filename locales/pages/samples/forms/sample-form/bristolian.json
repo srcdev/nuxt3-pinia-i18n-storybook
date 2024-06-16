@@ -39,9 +39,13 @@
             "label": "Accept Terms and Conditions",
             "error-message": "Please accept our terms and conditions"
           },
-          "places": {
-            "title": "Choose favourite places",
+          "cities": {
+            "title": "Choose favourite places (direction: rows)",
             "error-message": "Please choose a favourite place"
+          },
+          "countries": {
+            "title": "Choose favourite countries (direction: columns)",
+            "error-message": "Please choose at leat one country"
           }
         }
       }

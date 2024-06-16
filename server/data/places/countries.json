@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "id": "uk",
+      "name": "countries",
+      "value": "countries-12",
+      "label": "United Kingdom"
+    },
+    {
+      "id": "france",
+      "name": "countries",
+      "value": "countries-23",
+      "label": "France"
+    },
+    {
+      "id": "spain",
+      "name": "countries",
+      "value": "countries-42",
+      "label": "Spain"
+    },
+    {
+      "id": "italy",
+      "name": "countries",
+      "value": "countries-56",
+      "label": "Italy"
+    },
+    {
+      "id": "greece",
+      "name": "countries",
+      "value": "countries-09",
+      "label": "Greece"
+    },
+    {
+      "id": "turkey",
+      "name": "countries",
+      "value": "countries-13",
+      "label": "Turkey"
+    },
+    {
+      "id": "germany",
+      "name": "countries",
+      "value": "countries-76",
+      "label": "Germany"
+    },
+    {
+      "id": "portugal",
+      "name": "countries",
+      "value": "countries-34",
+      "label": "Portugal"
+    }
+  ],
+  "total": 5,
+  "skip": 0,
+  "limit": 10
+}

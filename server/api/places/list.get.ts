@@ -1,4 +1,5 @@
-import data from "../../data/places/data.json";
+import cities from "../../data/places/cities.json";
+import countries from "../../data/places/countries.json";
 
 export default defineEventHandler(async (event) => {
   const sleep = async (ms: number) => {
@@ -14,5 +15,9 @@ export default defineEventHandler(async (event) => {
 
   await sleep(timeout);
 
-  return data;
+  if (query.category === "cities") {
+    return cities;
+  } else if (query.category === "countries") {
+    return countries;
+  }
 });

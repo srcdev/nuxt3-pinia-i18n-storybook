@@ -3,7 +3,7 @@
     <div class="form-field-inner">
       <slot v-if="hasTitle" name="inputTitle"></slot>
 
-      <div class="input-items" :class="[props.direction]">
+      <div class="input-items" :class="[props.direction, displayType]">
         <template v-for="item in optionsData" :key="item.id">
           <slot :name="item.id"></slot>
         </template>
@@ -26,6 +26,10 @@
       type: String as PropType<String>,
       default: "rows",
       validator: (val: string) => ["rows", "columns"].includes(val)
+    },
+    balanceWidths: {
+      type: Boolean as PropType<boolean>,
+      value: true
     },
     id: {
       type: String,
@@ -54,6 +58,10 @@
     return props.name !== null ? props.name : props.id;
   });
 
+  const displayType = computed(() => {
+    return props.balanceWidths ? "grid" : "flex";
+  });
+
   const slots = useSlots();
   const hasTitle = computed(() => slots.inputTitle !== undefined);
 
@@ -78,14 +86,30 @@
   }
 
   .input-items {
-    display: grid;
+    &.grid {
+      display: grid;
 
-    &.columns {
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      &.columns {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+
+      &.rows {
+        grid-template-columns: 1fr;
+      }
     }
 
-    &.rows {
-      grid-template-columns: 1fr;
+    &.flex {
+      display: flex;
+
+      &.columns {
+        flex-direction: row;
+        justify-content: left;
+        flex-wrap: wrap;
+      }
+
+      &.rows {
+        flex-direction: column;
+      }
     }
   }
 

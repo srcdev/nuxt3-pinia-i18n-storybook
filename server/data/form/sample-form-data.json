@@ -1,1 +1,1 @@
-{"username":"JoeBloggs","password":"!+Pa55word","mobile":"01225123123","url":"http://www.bbc.co.uk","email":"joe@bloggs.com","places":["place-23","place-09"],"terms":"Sure"}
+{ "username": "JoeBloggs", "password": "!+Pa55word", "mobile": "01225123123", "url": "http://www.bbc.co.uk", "email": "joe@bloggs.com", "places": ["place-23", "place-09"], "counties": [], "terms": "Sure" }

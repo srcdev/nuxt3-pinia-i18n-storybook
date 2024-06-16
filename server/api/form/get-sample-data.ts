@@ -22,6 +22,7 @@ export default defineEventHandler(async (event) => {
     url: "",
     email: "",
     places: [],
+    counties: [],
     terms: false
   };
 

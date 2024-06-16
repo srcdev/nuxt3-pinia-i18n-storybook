@@ -40,7 +40,7 @@
             "label": "Accept Terms and Conditions",
             "error-message": "Please accept our terms and conditions"
           },
-          "places": {
+          "cities": {
             "title": "Choose favourite places (direction: rows)",
             "error-message": "Please choose a favourite place"
           },

@@ -33,12 +33,29 @@
 
               <InputTextWithWrapper id="email" type="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
 
-              <InputCheckboxMultipleWrapper :optionsData="placesData?.data ?? <IOptionsConfig>{}" direction="columns" id="places" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
+              <InputCheckboxMultipleWrapper :optionsData="citiesData?.data ?? <IOptionsConfig>{}" direction="rows" id="cities" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places">
                 <template #inputTitle>
                   <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.places.title") }}</p>
                 </template>
-                <template v-for="item in placesData?.data" v-slot:[item.id]>
+                <template v-for="item in citiesData?.data" v-slot:[item.id]>
                   <InputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.places" />
+                </template>
+              </InputCheckboxMultipleWrapper>
+
+              <InputCheckboxMultipleWrapper
+                :optionsData="countriesData?.data ?? <IOptionsConfig>{}"
+                direction="columns"
+                :balance-widths="balanceWidthsCheck"
+                id="countries"
+                :required="true"
+                v-model="formData"
+                i18n-key="pages.samples.sample-form.fields.countries"
+              >
+                <template #inputTitle>
+                  <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.countries.title") }} | <input type="checkbox" v-model="balanceWidthsCheck" /> - balance widths?</p>
+                </template>
+                <template v-for="item in countriesData?.data" v-slot:[item.id]>
+                  <InputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.countries" />
                 </template>
               </InputCheckboxMultipleWrapper>
 
@@ -101,7 +118,8 @@
     }
   });
 
-  const { data: placesData, pending, status, error, refresh } = await useFetch<IPlacesList>("/api/places/list");
+  const { data: citiesData } = await useFetch<IPlacesList>("/api/places/list?category=cities");
+  const { data: countriesData } = await useFetch<IPlacesList>("/api/places/list?category=countries");
 
   // Empty form data uses 'emptyFormData'
   const fieldsInitialState = ref<IFieldsInitialState>({
@@ -110,7 +128,8 @@
     mobile: "",
     url: "",
     email: "",
-    places: [],
+    cities: [],
+    countries: [],
     terms: false
   });
 
@@ -152,6 +171,9 @@
   const doReset = () => {
     resetForm();
   };
+
+  // for form element balance widths demo omly
+  const balanceWidthsCheck = ref(true);
 </script>
 
 <style lang="scss">
