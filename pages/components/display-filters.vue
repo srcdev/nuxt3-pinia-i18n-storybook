@@ -18,72 +18,6 @@
             </div>
           </template>
         </DisplayRow>
-        <hr class="mt-12 mb-12" />
-        <LayoutRow>
-          <template>
-            <h1 class="text-header-medium">Default Width - Display filters</h1>
-            <p class="text-normal">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus mattis rhoncus urna neque viverra justo. Donec enim diam vulputate ut pharetra sit amet aliquam. Vitae
-              aliquet nec ullamcorper sit amet. Molestie ac feugiat sed lectus vestibulum mattis. Risus viverra adipiscing at in. In nibh mauris cursus mattis. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Enim facilisis gravida neque
-              convallis. Lorem ipsum dolor sit amet. Sapien et ligula ullamcorper malesuada proin libero nunc consequat. Dui ut ornare lectus sit.
-            </p>
-
-            <div class="manage-needs-section">
-              <div class="manage-needs-label"><h2>This is manage needs label</h2></div>
-              <div class="manage-needs-selected-campaign">
-                <div class="p-12">Campaign details here</div>
-              </div>
-              <div class="manage-needs-select-opportunity">
-                <div class="p-12">Opportunity name here</div>
-                <div class="p-12">Activity category select here</div>
-              </div>
-            </div>
-          </template>
-        </LayoutRow>
-        <hr class="mt-12 mb-12" />
-        <LayoutRow width="full-width">
-          <template>
-            <h1 class="text-header-medium">Full Width - Display filters</h1>
-            <p class="text-normal">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus mattis rhoncus urna neque viverra justo. Donec enim diam vulputate ut pharetra sit amet aliquam. Vitae
-              aliquet nec ullamcorper sit amet. Molestie ac feugiat sed lectus vestibulum mattis. Risus viverra adipiscing at in. In nibh mauris cursus mattis. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Enim facilisis gravida neque
-              convallis. Lorem ipsum dolor sit amet. Sapien et ligula ullamcorper malesuada proin libero nunc consequat. Dui ut ornare lectus sit.
-            </p>
-
-            <div class="manage-needs-section">
-              <div class="manage-needs-label"><h2>This is manage needs label</h2></div>
-              <div class="manage-needs-selected-campaign">
-                <div class="p-12">Campaign details here</div>
-              </div>
-              <div class="manage-needs-select-opportunity">
-                <div class="p-12">Opportunity name here</div>
-                <div class="p-12">Activity category select here</div>
-              </div>
-            </div>
-          </template>
-        </LayoutRow>
-        <hr class="mt-12 mb-12" />
-        <LayoutRow width="breakout" displayRowTheme="theme-grey">
-          <template>
-            <h1 class="text-header-medium">Breakout - Display filters</h1>
-            <p class="text-normal">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus mattis rhoncus urna neque viverra justo. Donec enim diam vulputate ut pharetra sit amet aliquam. Vitae
-              aliquet nec ullamcorper sit amet. Molestie ac feugiat sed lectus vestibulum mattis. Risus viverra adipiscing at in. In nibh mauris cursus mattis. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Enim facilisis gravida neque
-              convallis. Lorem ipsum dolor sit amet. Sapien et ligula ullamcorper malesuada proin libero nunc consequat. Dui ut ornare lectus sit.
-            </p>
-
-            <div class="manage-needs-section">
-              <div class="manage-needs-label"><h2>This is manage needs label</h2></div>
-              <div class="manage-needs-selected-campaign">
-                <div class="p-12">Campaign details here</div>
-              </div>
-              <div class="manage-needs-select-opportunity">
-                <div class="p-12">Opportunity name here</div>
-                <div class="p-12">Activity category select here</div>
-              </div>
-            </div>
-          </template>
-        </LayoutRow>
       </template>
     </NuxtLayout>
   </div>
@@ -122,7 +56,7 @@
     }
 
     @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 50%));
+      grid-template-columns: repeat(2, 50%);
       /* grid-template-columns: repeat(2, calc((100% - var(--grid-gap)) / 2)); */
       /* grid-template-columns: repeat(2, minmax(min(var(--min-col-size), 100%), 1fr)); */
 
