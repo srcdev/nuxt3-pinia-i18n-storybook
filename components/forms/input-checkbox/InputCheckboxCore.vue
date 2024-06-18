@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="input-element-wrapper">
     <input
       type="checkbox"
       @input="isValid()"
@@ -100,34 +100,37 @@
 <style lang="scss">
   @import "@/assets/styles/imports.scss";
 
-  .input {
-    &-checkbox {
-      position: absolute;
-      z-index: -1;
+  .input-element-wrapper {
+    position: relative;
 
-      &[readonly] {
-        background-color: var(--color-blue-2);
+    .icon-box {
+      height: 28px;
+      width: 28px;
+    }
+  }
+
+  .input-checkbox {
+    position: absolute;
+    left: -9999px;
+
+    &[readonly] {
+      background-color: var(--color-blue-2);
+    }
+
+    .input-checkbox-primary {
+      background-color: var(--color-white);
+      // color: var(--color-grey-1);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-grey-4);
+        // color: var(--color-grey-4);
       }
+    }
 
-      &-primary {
-        background-color: var(--color-white);
-        // color: var(--color-grey-1);
-
-        @media (prefers-color-scheme: dark) {
-          background-color: var(--color-grey-4);
-          // color: var(--color-grey-4);
-        }
-      }
-
-      &:hover {
-        border-color: var(--color-black);
-      }
-
-      &.error {
-        color: var(--color-red-5);
-        border: 1px solid var(--color-red-2);
-        outline: 1px solid var(--color-red-5);
-      }
+    &.error {
+      color: var(--color-red-5);
+      border: 1px solid var(--color-red-2);
+      outline: 1px solid var(--color-red-5);
     }
   }
 </style>
