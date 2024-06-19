@@ -27,8 +27,6 @@
 </script>
 
 <style scoped>
-  @import "@/assets/styles/imports.scss";
-
   .form-field-error-message {
     color: var(--color-red-2);
 

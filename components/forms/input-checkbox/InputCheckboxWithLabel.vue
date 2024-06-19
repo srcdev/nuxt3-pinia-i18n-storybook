@@ -89,12 +89,8 @@
     display: inline-flex;
     gap: 12px;
     font-variation-settings: "wght" 500;
-    padding: 4px 0 4px 10px;
+    padding: 4px;
     border: var(--border-width) solid var(--_border-color, transparent);
-
-    @media only screen and (min-width: $tabletMed) {
-      padding: 12px 0 12px 12px;
-    }
 
     &:hover,
     &:focus-within {

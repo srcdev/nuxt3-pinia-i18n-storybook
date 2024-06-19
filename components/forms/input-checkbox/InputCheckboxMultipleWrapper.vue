@@ -88,6 +88,7 @@
   .input-items {
     &.grid {
       display: grid;
+      grid-gap: 4px;
 
       &.columns {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -100,6 +101,7 @@
 
     &.flex {
       display: flex;
+      gap: 4px;
 
       &.columns {
         flex-direction: row;
