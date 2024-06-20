@@ -1,6 +1,6 @@
 <template>
   <label :for="id" class="form-field-label header-small" :class="[{ error: fieldHasError }]">
-    <InputCheckboxCore :id="id" :name="name" :true-value="trueValue" :required="required" :multiple-options="useConfig" v-model="modelValue" />
+    <InputRadioCore :id="id" :name="name" :true-value="trueValue" :required="required" :multiple-options="useConfig" v-model="modelValue" />
     <span class="label-text">{{ label }}</span>
   </label>
 </template>
@@ -88,6 +88,7 @@
   .form-field-label {
     display: inline-flex;
     font-variation-settings: "wght" 500;
+    padding: 2px;
     border: var(--border-width) solid var(--_border-color, transparent);
 
     &:hover,

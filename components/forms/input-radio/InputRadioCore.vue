@@ -1,7 +1,7 @@
 <template>
   <div class="input-element-wrapper">
     <input
-      type="checkbox"
+      type="radio"
       @input="isValid()"
       :true-value="trueValue"
       :false-value="falseValue"
@@ -9,11 +9,11 @@
       :name
       :required="props.required && !props.multipleOptions"
       :value="trueValue"
-      :class="['input-checkbox', { error: fieldHasError() }]"
+      :class="['input-radio', { error: fieldHasError() }]"
       v-model="modelValue.data[name]"
       ref="inputField"
     />
-    <Icon :name="isChecked ? 'akar-icons:check-box' : 'akar-icons:box'" class="icon-box" />
+    <Icon :name="isChecked ? 'akar-icons:circle-check' : 'akar-icons:circle'" class="icon-box" />
   </div>
 </template>
 
@@ -109,7 +109,7 @@
     }
   }
 
-  .input-checkbox {
+  .input-radio {
     position: absolute;
     left: -9999px;
 
@@ -117,7 +117,7 @@
       background-color: var(--color-blue-2);
     }
 
-    .input-checkbox-primary {
+    .input-radio-primary {
       background-color: var(--color-white);
       // color: var(--color-grey-1);
 

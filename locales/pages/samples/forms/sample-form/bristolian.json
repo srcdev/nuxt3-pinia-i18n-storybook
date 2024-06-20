@@ -8,6 +8,7 @@
         },
         "pageTitle": "Example of a form with many element",
         "formErrorsMessage": "Form has no errors | Form has 1 error | Form has {count} errors",
+        "successTitle": "Form submit success",
         "fields": {
           "username": {
             "label": "Choose Username",
@@ -45,7 +46,11 @@
           },
           "countries": {
             "title": "Choose favourite countries (direction: columns)",
-            "error-message": "Please choose at leat one country"
+            "error-message": "Please choose at least one country"
+          },
+          "title": {
+            "title": "Choose your title (direction: columns)",
+            "error-message": "Please choose one title"
           }
         }
       }

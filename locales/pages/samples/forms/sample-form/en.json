@@ -46,7 +46,11 @@
           },
           "countries": {
             "title": "Choose favourite countries (direction: columns)",
-            "error-message": "Please choose at leat one country"
+            "error-message": "Please choose at least one country"
+          },
+          "title": {
+            "title": "Choose your title (direction: columns)",
+            "error-message": "Please choose one title"
           }
         }
       }

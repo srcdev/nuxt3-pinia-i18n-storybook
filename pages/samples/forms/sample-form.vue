@@ -25,6 +25,15 @@
 
               <InputTextWithWrapper id="username" type="text" validation="username" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.username" />
 
+              <MultipleOptions :optionsData="titleData?.data ?? <IOptionsConfig>{}" direction="columns" :balance-widths="balanceWidthsCheck" id="title" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.title">
+                <template #inputTitle>
+                  <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.countries.title") }} | <input type="checkbox" v-model="balanceWidthsCheck" /> - balance widths?</p>
+                </template>
+                <template v-for="item in titleData?.data" v-slot:[item.id]>
+                  <InputRadioWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.title" />
+                </template>
+              </MultipleOptions>
+
               <InputTextWithWrapper id="mobile" type="tel" validation="telephone" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.mobile" />
 
               <InputPassword id="password" type="password" validation="password" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.password" />
@@ -33,40 +42,32 @@
 
               <InputTextWithWrapper id="email" type="email" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.emailaddress" />
 
-              <InputCheckboxMultipleWrapper :optionsData="citiesData?.data ?? <IOptionsConfig>{}" direction="rows" id="cities" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.cities">
+              <MultipleOptions :optionsData="citiesData?.data ?? <IOptionsConfig>{}" direction="rows" id="cities" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.cities">
                 <template #inputTitle>
                   <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.cities.title") }}</p>
                 </template>
                 <template v-for="item in citiesData?.data" v-slot:[item.id]>
                   <InputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.cities" />
                 </template>
-              </InputCheckboxMultipleWrapper>
+              </MultipleOptions>
 
-              <InputCheckboxMultipleWrapper
-                :optionsData="countriesData?.data ?? <IOptionsConfig>{}"
-                direction="columns"
-                :balance-widths="balanceWidthsCheck"
-                id="countries"
-                :required="true"
-                v-model="formData"
-                i18n-key="pages.samples.sample-form.fields.countries"
-              >
+              <MultipleOptions :optionsData="countriesData?.data ?? <IOptionsConfig>{}" direction="columns" :balance-widths="balanceWidthsCheck" id="countries" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.countries">
                 <template #inputTitle>
                   <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.countries.title") }} | <input type="checkbox" v-model="balanceWidthsCheck" /> - balance widths?</p>
                 </template>
                 <template v-for="item in countriesData?.data" v-slot:[item.id]>
                   <InputCheckboxWithLabel :config="item" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.countries" />
                 </template>
-              </InputCheckboxMultipleWrapper>
+              </MultipleOptions>
 
-              <InputCheckboxWrapper id="terms" name="terms" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.terms">
+              <InputCheckboxOrRadioWrapper id="terms" name="terms" :required="true" v-model="formData" i18n-key="pages.samples.sample-form.fields.terms">
                 <template #inputTitle>
                   <p class="header-small wght-700">{{ t("pages.samples.sample-form.fields.terms.title") }}</p>
                 </template>
                 <template #inputField>
                   <InputCheckboxCore id="terms" true-value="Sure" false-value="Nope" :required="true" v-model="formData" />
                 </template>
-              </InputCheckboxWrapper>
+              </InputCheckboxOrRadioWrapper>
 
               <DisplayFlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
                 <template #default>
@@ -120,6 +121,7 @@
 
   const { data: citiesData } = await useFetch<IPlacesList>("/api/places/list?category=cities");
   const { data: countriesData } = await useFetch<IPlacesList>("/api/places/list?category=countries");
+  const { data: titleData } = await useFetch<IPlacesList>("/api/utils?category=title");
 
   // Empty form data uses 'emptyFormData'
   const fieldsInitialState = ref<IFieldsInitialState>({
@@ -130,6 +132,7 @@
     email: "",
     cities: [],
     countries: [],
+    title: [],
     terms: false
   });
 

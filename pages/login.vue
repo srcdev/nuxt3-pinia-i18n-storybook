@@ -17,14 +17,14 @@
               <InputTextWithWrapper id="username" type="text" validation="emailaddress" :required="true" v-model="formData" i18n-key="pages.login.fields.username" />
               <InputPassword id="password" type="password" validation="password" v-model="formData" i18n-key="pages.login.fields.password" />
 
-              <InputCheckboxWrapper id="rememberMe" name="rememberMe" :required="false" v-model="formData" i18n-key="pages.login.fields.rememberMe">
+              <InputCheckboxOrRadioWrapper id="rememberMe" name="rememberMe" :required="false" v-model="formData" i18n-key="pages.login.fields.rememberMe">
                 <template #inputTitle>
                   <p class="header-small wght-700">{{ t("pages.login.fields.rememberMe.title") }}</p>
                 </template>
                 <template #inputField>
                   <InputCheckboxCore id="rememberMe" :required="false" v-model="formData" />
                 </template>
-              </InputCheckboxWrapper>
+              </InputCheckboxOrRadioWrapper>
 
               <DisplayFlexGroup flex-flow="row" gap="24px" align-content="center-right" :full-width="true" style-class-passthrough="mt-12 mb-12">
                 <template #default>
